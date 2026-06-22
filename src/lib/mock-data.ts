@@ -1,0 +1,88 @@
+import type { PortfolioProject } from "./supabase"
+
+export const mockProjects: PortfolioProject[] = [
+  {
+    id: "1",
+    title: "LuxeRooms – Hotel Boutique",
+    slug: "luxerooms-hotel",
+    description: "Elegante Buchungsplattform für ein Boutique-Hotel mit dynamischem Verfügbarkeitskalender.",
+    long_description:
+      "Vollständige Neuentwicklung der Online-Präsenz inklusive Buchungssystem, Zimmerübersicht und mehrsprachigem Content-Management.",
+    tags: ["Next.js", "Stripe", "Supabase", "Framer Motion"],
+    client: "LuxeRooms GmbH",
+    url: "https://example.com",
+    image_url: "/images/portfolio-1.jpg",
+    featured: true,
+    created_at: "2024-11-01",
+  },
+  {
+    id: "2",
+    title: "GreenMeal – Food Delivery App",
+    slug: "greenmeal-app",
+    description: "Moderne Bestell-Plattform für gesunde Mahlzeiten mit Echtzeit-Tracking.",
+    long_description:
+      "React Native App mit Next.js Web-Frontend, Echtzeit-Statusupdates, Zahlungsabwicklung und Admin-Dashboard.",
+    tags: ["React", "Node.js", "WebSockets", "Stripe"],
+    client: "GreenMeal AG",
+    url: "https://example.com",
+    image_url: "/images/portfolio-2.jpg",
+    featured: true,
+    created_at: "2024-09-15",
+  },
+  {
+    id: "3",
+    title: "KraftWerk – Fitnessstudio",
+    slug: "kraftwerk-gym",
+    description: "Mitgliederverwaltung, Kurskalender und Online-Buchung für eine Fitnessstudio-Kette.",
+    long_description:
+      "Multi-Standort-Plattform mit Member-App, Kurs-Buchungssystem, Trainer-Profilen und automatisierten Mitgliedschafts-E-Mails.",
+    tags: ["Next.js", "Prisma", "PostgreSQL", "Resend"],
+    client: "KraftWerk Fitness GmbH",
+    url: "https://example.com",
+    image_url: "/images/portfolio-3.jpg",
+    featured: true,
+    created_at: "2024-07-22",
+  },
+  {
+    id: "4",
+    title: "Architekturbüro Meier",
+    slug: "architektur-meier",
+    description: "Minimalistisches Portfolio mit Projekt-Galerie und Kontaktformular.",
+    long_description:
+      "Elegante Präsentations-Website mit animierter Bildergalerie, PDF-Download-Funktion und SEO-optimierten Projektseiten.",
+    tags: ["Next.js", "Framer Motion", "Tailwind"],
+    client: "Architekturbüro Meier & Partner",
+    url: "https://example.com",
+    image_url: "/images/portfolio-4.jpg",
+    featured: false,
+    created_at: "2024-05-10",
+  },
+  {
+    id: "5",
+    title: "TechStart – SaaS Landing Page",
+    slug: "techstart-saas",
+    description: "Hochkonvertierende Landing Page für ein B2B-SaaS-Produkt.",
+    long_description:
+      "Conversion-optimierte Landing Page mit A/B-Testing, animierten Feature-Showcases, Pricing-Tabelle und integriertem Demo-Buchungskalender.",
+    tags: ["Next.js", "Tailwind", "Framer Motion", "Calendly"],
+    client: "TechStart Solutions",
+    url: "https://example.com",
+    image_url: "/images/portfolio-5.jpg",
+    featured: false,
+    created_at: "2024-03-18",
+  },
+  {
+    id: "6",
+    title: "NaturShop – Organic E-Commerce",
+    slug: "naturshop-ecommerce",
+    description: "Vollständiger Online-Shop für Bio-Produkte mit über 500 Artikeln.",
+    long_description:
+      "Shopify-Alternative auf Next.js Basis mit eigenem Warenkorb, Checkout, Lager-Management und automatischen Versandbenachrichtigungen.",
+    tags: ["Next.js", "Stripe", "Supabase", "Resend"],
+    client: "NaturShop Bayern",
+    url: "https://example.com",
+    image_url: "/images/portfolio-6.jpg",
+    featured: false,
+    created_at: "2024-01-30",
+  },
+]
