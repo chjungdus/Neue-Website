@@ -3,57 +3,64 @@ import { Star } from "lucide-react"
 const testimonials = [
   {
     quote:
-      "DigitalForge hat unsere alte Website komplett überarbeitet. Seitdem haben sich unsere Online-Anfragen verdreifacht. Absolut professionell und termingerecht geliefert.",
+      "Nach dem Relaunch im Februar sind unsere monatlichen Online-Anfragen von durchschnittlich 3 auf 11 gestiegen. Das sind keine Hochrechnungen — das sind echte Zahlen aus unserem CRM.",
     author: "Markus Weber",
     role: "Geschäftsführer",
-    company: "LuxeRooms GmbH",
+    company: "LuxeRooms",
     rating: 5,
   },
   {
     quote:
-      "Die neue Website sieht nicht nur fantastisch aus – sie funktioniert auch. Unsere Conversion-Rate hat sich innerhalb von 3 Monaten mehr als verdoppelt.",
+      "Conversion von 1,4 % auf 3,2 % — in den ersten drei Monaten nach Launch. Ich war ehrlich gesagt skeptisch, ob sich die Investition lohnt. Sie hat sich gelohnt.",
     author: "Sarah Müller",
     role: "Marketing Leiterin",
-    company: "GreenMeal AG",
+    company: "GreenMeal",
     rating: 5,
   },
   {
     quote:
-      "Endlich eine Agentur, die versteht, was ein Unternehmen wirklich braucht. Schnelle Kommunikation, faire Preise und ein Ergebnis, das begeistert.",
+      "Ich hatte davor zwei schlechte Erfahrungen mit anderen Agenturen. Bei DigitalForge wurde pünktlich geliefert, der Prozess war transparent — und ich musste nicht dreimal nachfragen, was gerade passiert.",
     author: "Thomas Richter",
     role: "Inhaber",
-    company: "KraftWerk Fitness GmbH",
-    rating: 5,
+    company: "KraftWerk Fitness",
+    rating: 4,
   },
 ]
 
+function Stars({ count }: { count: number }) {
+  return (
+    <div className="flex gap-1">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star
+          key={i}
+          size={13}
+          className={i < count ? "fill-[#f59e0b] text-[#f59e0b]" : "fill-white/10 text-white/10"}
+        />
+      ))}
+    </div>
+  )
+}
+
 export default function Testimonials() {
   return (
-    <section className="py-32">
+    <section className="py-28">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className="text-[#6366f1] text-sm font-semibold uppercase tracking-widest mb-3">
-            Bewertungen
+        <div className="mb-14">
+          <p className="text-[#8b8da0] text-xs font-semibold uppercase tracking-widest mb-3">
+            Kundenstimmen
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-            Was unsere Kunden sagen
+          <h2 className="text-4xl md:text-5xl font-black text-white">
+            Was unsere Kunden berichten.
           </h2>
-          <p className="text-[#8b8da0] text-lg max-w-xl mx-auto">
-            Über 80 zufriedene Kunden vertrauen auf unsere Expertise.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {testimonials.map((t) => (
             <div
               key={t.author}
               className="bg-[#0e0f1c] border border-white/6 rounded-2xl p-6 flex flex-col gap-4"
             >
-              <div className="flex gap-1">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star key={i} size={14} className="fill-[#f59e0b] text-[#f59e0b]" />
-                ))}
-              </div>
+              <Stars count={t.rating} />
               <p className="text-[#c4c5d6] text-sm leading-relaxed flex-1">
                 &ldquo;{t.quote}&rdquo;
               </p>

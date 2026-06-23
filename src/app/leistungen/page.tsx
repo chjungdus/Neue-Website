@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Globe, Code2, ShoppingBag, Gauge, CheckCircle2, ArrowRight } from "lucide-react"
+import { Globe, Code2, ShoppingBag, Gauge, ArrowRight, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Leistungen",
@@ -88,13 +88,14 @@ export default function LeistungenPage() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#6366f1]/8 blur-3xl" />
         </div>
         <div className="relative max-w-3xl mx-auto px-6">
-          <p className="text-[#6366f1] text-sm font-semibold uppercase tracking-widest mb-3">Leistungen</p>
+          <p className="text-[#8b8da0] text-xs font-semibold uppercase tracking-widest mb-3">Leistungen</p>
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-            Digital. Professionell. <br />
-            <span className="gradient-text">Erfolgreich.</span>
+            Was kostet eine
+            <br />
+            <span className="gradient-text">schlechte Website?</span>
           </h1>
           <p className="text-[#8b8da0] text-xl leading-relaxed">
-            Alles, was Ihr Unternehmen im Web braucht – aus einer Hand, von Experten.
+            Verpasste Kunden, die Sie nie zählen werden. Wir helfen Ihnen, das zu ändern — mit Websites, die wirklich für Sie arbeiten.
           </p>
         </div>
       </section>
@@ -142,7 +143,7 @@ export default function LeistungenPage() {
       <section className="py-32 bg-[#0e0f1c]/50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <p className="text-[#6366f1] text-sm font-semibold uppercase tracking-widest mb-3">Ablauf</p>
+            <p className="text-[#8b8da0] text-xs font-semibold uppercase tracking-widest mb-3">Ablauf</p>
             <h2 className="text-4xl md:text-5xl font-black text-white">Wie wir arbeiten</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

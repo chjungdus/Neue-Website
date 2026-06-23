@@ -16,15 +16,18 @@ export default function CTA() {
             }}
           />
           <div className="relative z-10 text-center py-20 px-6">
-            <p className="text-white/70 text-sm font-semibold uppercase tracking-widest mb-4">
-              Bereit loszulegen?
+            <p className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-4">
+              Jetzt starten
             </p>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-              Ihr Projekt wartet.
+              Bereit für eine Website,
+              <br />die wirklich arbeitet?
             </h2>
-            <p className="text-white/80 text-lg max-w-xl mx-auto mb-10">
-              Lassen Sie uns in einem kostenlosen Erstgespräch herausfinden, wie wir Ihre
-              Online-Präsenz auf das nächste Level bringen.
+            <p className="text-white/80 text-lg max-w-xl mx-auto mb-3">
+              30 Minuten Erstgespräch. Kein Pitch, keine Folien.
+            </p>
+            <p className="text-white/60 text-base max-w-lg mx-auto mb-10">
+              Wir hören zu — und sagen Ihnen ehrlich, ob und wie wir helfen können. Ohne Druck, ohne Verpflichtung.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link

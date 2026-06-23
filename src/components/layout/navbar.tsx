@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X, Zap } from "lucide-react"
+import { Menu, X, Zap, Home } from "lucide-react"
 
 const navLinks = [
   { href: "/leistungen", label: "Leistungen" },
@@ -91,6 +91,16 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="md:hidden bg-[#0e0f1c]/95 backdrop-blur-xl border-b border-white/5">
           <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-4">
+            <Link
+              href="/"
+              className={`flex items-center gap-2 text-sm font-medium py-2 transition-colors ${
+                pathname === "/" ? "text-white" : "text-[#8b8da0]"
+              }`}
+            >
+              <Home size={15} />
+              Startseite
+            </Link>
+            <div className="border-t border-white/5" />
             {navLinks.map((link) => (
               <Link
                 key={link.href}
