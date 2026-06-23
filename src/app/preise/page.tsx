@@ -9,20 +9,20 @@ export const metadata: Metadata = {
 
 const packages = [
   {
-    name: "Starter",
-    price: "1.490",
-    desc: "Ideal für Selbstständige und kleine Unternehmen, die online professionell auftreten möchten.",
+    name: "Enterprise",
+    price: "Auf Anfrage",
+    desc: "Individuelle Web-Apps, komplexe E-Commerce-Systeme und maßgeschneiderte Lösungen für wachsende Unternehmen.",
     features: [
-      "Bis zu 5 Seiten",
-      "Individuelles Design",
-      "Mobile-optimiert",
-      "Kontaktformular",
-      "SEO-Grundoptimierung",
-      "Google Analytics",
-      "2 Korrekturrunden",
-      "30 Tage Support",
+      "Individuelle Seitenzahl",
+      "Web-App / E-Commerce",
+      "Custom Backend & API",
+      "Supabase / Datenbankanbindung",
+      "Admin-Bereich",
+      "Performance-Monitoring",
+      "12 Monate Support",
+      "Dedizierter Ansprechpartner",
     ],
-    cta: "Starter anfragen",
+    cta: "Enterprise anfragen",
     highlight: false,
   },
   {
@@ -43,20 +43,20 @@ const packages = [
     highlight: true,
   },
   {
-    name: "Enterprise",
-    price: "Auf Anfrage",
-    desc: "Individuelle Web-Apps, komplexe E-Commerce-Systeme und maßgeschneiderte Lösungen.",
+    name: "Starter",
+    price: "1.490",
+    desc: "Ideal für Selbstständige und kleine Unternehmen, die online professionell auftreten möchten.",
     features: [
-      "Individuelle Seitenzahl",
-      "Web-App / E-Commerce",
-      "Custom Backend & API",
-      "Supabase / Datenbankanbindung",
-      "Admin-Bereich",
-      "Performance-Monitoring",
-      "12 Monate Support",
-      "Dedizierter Ansprechpartner",
+      "Bis zu 5 Seiten",
+      "Individuelles Design",
+      "Mobile-optimiert",
+      "Kontaktformular",
+      "SEO-Grundoptimierung",
+      "Google Analytics",
+      "2 Korrekturrunden",
+      "30 Tage Support",
     ],
-    cta: "Enterprise anfragen",
+    cta: "Starter anfragen",
     highlight: false,
   },
 ]
@@ -151,6 +151,18 @@ export default function PreisePage() {
                 </Link>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-16">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="bg-[#0e0f1c] border border-[#10b981]/20 rounded-2xl p-8 text-center">
+            <p className="text-[#10b981] text-xs font-semibold uppercase tracking-widest mb-3">Unsere Garantie</p>
+            <h3 className="text-white font-black text-xl mb-2">Nicht zufrieden mit dem ersten Entwurf?</h3>
+            <p className="text-[#8b8da0] text-sm max-w-md mx-auto">
+              Wir arbeiten kostenlos nach — ohne Diskussion, ohne Zeitdruck. So lange, bis es passt.
+            </p>
           </div>
         </div>
       </section>

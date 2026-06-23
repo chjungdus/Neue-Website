@@ -46,15 +46,14 @@ export default function UeberUnsPage() {
         </div>
         <div className="relative max-w-6xl mx-auto px-6">
           <div className="max-w-3xl">
-            <p className="text-[#6366f1] text-sm font-semibold uppercase tracking-widest mb-3">Über uns</p>
+            <p className="text-[#8b8da0] text-xs font-semibold uppercase tracking-widest mb-3">Über uns</p>
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
-              Wir sind die Agentur,
+              Wir nehmen nicht
               <br />
-              <span className="gradient-text">die liefert.</span>
+              <span className="gradient-text">jeden Auftrag an.</span>
             </h1>
             <p className="text-[#8b8da0] text-xl leading-relaxed">
-              Gegründet 2019 in München, haben wir uns auf eines spezialisiert: Websites bauen, die wirklich
-              funktionieren. Nicht für uns – für unsere Kunden.
+              Gegründet 2019 in München. Wir arbeiten mit Unternehmen, bei denen wir wirklich glauben, dass wir einen Unterschied machen können — und lehnen Projekte ab, bei denen wir das nicht tun.
             </p>
           </div>
         </div>
@@ -65,7 +64,7 @@ export default function UeberUnsPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { value: "2019", label: "Gegründet" },
-              { value: "80+", label: "Projekte" },
+              { value: "73", label: "Projekte" },
               { value: "4", label: "Experten" },
               { value: "100%", label: "Remote-ready" },
             ].map((stat) => (
