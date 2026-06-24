@@ -33,10 +33,10 @@ export default function PortfolioGrid() {
           <button
             key={tag}
             onClick={() => setActiveTag(tag)}
-            className={`text-sm px-4 py-2 rounded-xl border transition-all flex items-center gap-1.5 ${
+            className={`text-sm px-4 py-2 rounded-full border transition-all flex items-center gap-1.5 ${
               activeTag === tag
-                ? "gradient-bg text-white border-transparent"
-                : "bg-white/4 text-[#8b8da0] border-white/8 hover:border-white/20 hover:text-white"
+                ? "bg-[#2563eb] text-white border-transparent"
+                : "bg-white text-[#6b7280] border-gray-200 hover:border-gray-300 hover:text-[#111827]"
             }`}
           >
             {tag}
@@ -56,10 +56,10 @@ export default function PortfolioGrid() {
 
       {filtered.length === 0 && (
         <div className="py-24 text-center">
-          <p className="text-[#8b8da0] text-lg">Keine Projekte für diesen Filter.</p>
+          <p className="text-[#6b7280] text-lg">Keine Projekte für diesen Filter.</p>
           <button
             onClick={() => setActiveTag(ALL_TAG)}
-            className="mt-4 text-[#6366f1] hover:underline text-sm"
+            className="mt-4 text-[#2563eb] hover:underline text-sm"
           >
             Filter zurücksetzen
           </button>
@@ -71,31 +71,31 @@ export default function PortfolioGrid() {
           <Link
             key={project.id}
             href={`/portfolio/${project.slug}`}
-            className={`group rounded-2xl overflow-hidden bg-[#0e0f1c] border border-white/6 card-hover ${
+            className={`group rounded-2xl overflow-hidden bg-white border border-gray-200 card-hover ${
               i === 0 && activeTag === ALL_TAG ? "md:col-span-2" : ""
             }`}
           >
             <div
-              className={`w-full bg-gradient-to-br from-[#6366f1]/15 to-[#a855f7]/15 flex items-center justify-center ${
+              className={`w-full bg-gradient-to-br from-[#2563eb]/10 to-[#0ea5e9]/10 flex items-center justify-center ${
                 i === 0 && activeTag === ALL_TAG ? "h-72" : "h-52"
               }`}
             >
-              <span className="text-5xl font-black text-white/10 select-none">
+              <span className="text-5xl font-black text-[#2563eb]/20 select-none">
                 {project.client.slice(0, 2).toUpperCase()}
               </span>
             </div>
             <div className="p-6">
               <div className="flex items-start justify-between gap-4 mb-2">
                 <div>
-                  <h2 className="text-white font-bold text-lg leading-snug">{project.title}</h2>
-                  <p className="text-[#6366f1] text-xs mt-0.5">{project.client}</p>
+                  <h2 className="text-[#111827] font-bold text-lg leading-snug">{project.title}</h2>
+                  <p className="text-[#2563eb] text-xs mt-0.5">{project.client}</p>
                 </div>
                 <ExternalLink
                   size={16}
-                  className="text-[#8b8da0] group-hover:text-[#6366f1] transition-colors flex-shrink-0 mt-1"
+                  className="text-[#9ca3af] group-hover:text-[#2563eb] transition-colors flex-shrink-0 mt-1"
                 />
               </div>
-              <p className="text-[#8b8da0] text-sm mb-4 leading-relaxed">{project.description}</p>
+              <p className="text-[#6b7280] text-sm mb-4 leading-relaxed">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <button
@@ -106,8 +106,8 @@ export default function PortfolioGrid() {
                     }}
                     className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
                       activeTag === tag
-                        ? "bg-[#6366f1]/20 text-[#a5b4fc] border-[#6366f1]/40"
-                        : "bg-[#6366f1]/10 text-[#8b8db8] border-[#6366f1]/15 hover:border-[#6366f1]/30"
+                        ? "bg-[#eff6ff] text-[#2563eb] border-[#2563eb]/30"
+                        : "bg-[#f9fafb] text-[#6b7280] border-gray-200 hover:border-[#2563eb]/30 hover:text-[#2563eb]"
                     }`}
                   >
                     {tag}
@@ -119,13 +119,13 @@ export default function PortfolioGrid() {
         ))}
       </div>
 
-      <p className="text-center text-[#8b8da0] text-sm mt-12">
+      <p className="text-center text-[#9ca3af] text-sm mt-12">
         {filtered.length} von {mockProjects.length} Projekten
         {activeTag !== ALL_TAG && (
           <>
             {" "}
             · gefiltert nach{" "}
-            <button onClick={() => setActiveTag(ALL_TAG)} className="text-[#6366f1] hover:underline">
+            <button onClick={() => setActiveTag(ALL_TAG)} className="text-[#2563eb] hover:underline">
               {activeTag} ×
             </button>
           </>

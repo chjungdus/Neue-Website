@@ -23,31 +23,31 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0e0f1c] border-t border-white/5 mt-auto">
+    <footer className="bg-[#0f172a] mt-auto">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 font-bold text-lg text-white mb-4">
-              <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-[#2563eb] flex items-center justify-center">
                 <Zap size={16} className="text-white" />
               </div>
               <span>
-                Digital<span className="gradient-text">Forge</span>
+                Digital<span className="text-[#60a5fa]">Forge</span>
               </span>
             </Link>
-            <p className="text-[#8b8da0] text-sm leading-relaxed max-w-xs">
+            <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
               Wir bauen Websites, die nicht nur schön aussehen – sondern messbar mehr Kunden bringen.
             </p>
             <div className="mt-6 flex flex-col gap-2">
-              <a href="mailto:hallo@digitalforge.de" className="flex items-center gap-2 text-sm text-[#8b8da0] hover:text-white transition-colors">
+              <a href="mailto:hallo@digitalforge.de" className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
                 <Mail size={14} />
                 hallo@digitalforge.de
               </a>
-              <a href="tel:+4989123456789" className="flex items-center gap-2 text-sm text-[#8b8da0] hover:text-white transition-colors">
+              <a href="tel:+4989123456789" className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
                 <Phone size={14} />
                 +49 89 123 456 789
               </a>
-              <span className="flex items-center gap-2 text-sm text-[#8b8da0]">
+              <span className="flex items-center gap-2 text-sm text-slate-400">
                 <MapPin size={14} />
                 München, Deutschland
               </span>
@@ -62,7 +62,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-[#8b8da0] hover:text-white transition-colors"
+                      className="text-sm text-slate-400 hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -73,13 +73,12 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[#8b8da0]">
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-slate-500">
             © {new Date().getFullYear()} DigitalForge GmbH. Alle Rechte vorbehalten.
           </p>
-          <div className="flex items-center gap-1 text-xs text-[#8b8da0]">
-            <span>Gemacht mit</span>
-            <span className="gradient-text font-semibold">Next.js & Tailwind</span>
+          <div className="flex items-center gap-1 text-xs text-slate-500">
+            <span>Gemacht mit Next.js & Tailwind</span>
           </div>
         </div>
       </div>
