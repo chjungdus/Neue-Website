@@ -37,7 +37,7 @@ export default function Services() {
             Was wir tun
           </p>
           <h2 className="text-4xl md:text-5xl font-black text-[#111827] mb-4">
-            Vier Dinge —{""
+            Vier Dinge —{"\ "}
             <span className="gradient-text">richtig gemacht.</span>
           </h2>
           <p className="text-[#6b7280] text-lg max-w-lg">
