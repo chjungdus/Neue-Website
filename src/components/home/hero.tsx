@@ -1,38 +1,40 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, Play } from "lucide-react"
+import { ArrowRight, Check } from "lucide-react"
 import { motion } from "framer-motion"
 
+const checks = [
+  "Festpreis — vorab fix, kein Stundensatz, keine Nachträge",
+  "In 4 Wochen live, verbindlich statt irgendwann",
+  "Erstes Gespräch kostenlos, ehrliche Einschätzung",
+]
+
 const stats = [
-  { value: "73", label: "Projekte abgeschlossen" },
-  { value: "Ø 4,8 / 5", label: "Kundenbewertung" },
-  { value: "Seit 2019", label: "in München" },
+  { value: "73", label: "Projekte" },
+  { value: "Ø 4,8 / 5", label: "Bewertung" },
+  { value: "Seit 2019", label: "München" },
 ]
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      <div aria-hidden className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-1/3 w-[340px] h-[340px] rounded-full bg-[#6366f1]/10 blur-3xl" />
-      </div>
-
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+    <section className="relative min-h-screen flex items-center justify-center pt-16 bg-white">
+      <div className="relative z-10 max-w-2xl mx-auto px-6 text-center w-full">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 bg-[#0e0f1c] border border-white/10 text-[#a5a6c0] text-xs font-medium px-4 py-2 rounded-full mb-8"
+          transition={{ duration: 0.45 }}
+          className="inline-flex items-center gap-2 bg-[#eff6ff] text-[#2563eb] text-xs font-semibold px-4 py-2 rounded-full mb-8"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb]" />
           Aktuell 2 Projektplätze frei
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-black text-white leading-[1.08] tracking-tight mb-6"
+          transition={{ duration: 0.5, delay: 0.08 }}
+          className="text-4xl md:text-6xl font-black text-[#111827] leading-[1.1] tracking-tight mb-4"
         >
           Schöne Websites
           <br />
@@ -42,55 +44,74 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg text-[#8b8da0] max-w-lg mx-auto leading-relaxed mb-10"
+          transition={{ duration: 0.5, delay: 0.16 }}
+          className="text-lg text-[#6b7280] mb-8 leading-relaxed"
         >
-          Wir bauen Websites, die Besucher in Kunden verwandeln — nicht Websites, die in Portfolios gut aussehen.
+          Individuell gestaltet. Messbar wirksamer. In 4 Wochen live.
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
+        <motion.ul
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
+          transition={{ duration: 0.5, delay: 0.22 }}
+          className="flex flex-col gap-3 mb-10 text-left"
+        >
+          {checks.map((text) => (
+            <li key={text} className="flex items-start gap-3 text-[#374151] text-sm">
+              <span className="w-5 h-5 rounded-full bg-[#2563eb] flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Check size={11} className="text-white" strokeWidth={3} />
+              </span>
+              {text}
+            </li>
+          ))}
+        </motion.ul>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.28 }}
+          className="flex flex-col gap-3 mb-4"
         >
           <Link
             href="/anfrage"
-            className="gradient-bg text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-all hover:scale-105 flex items-center gap-2 text-base"
+            className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center justify-center gap-2 text-base w-full"
           >
-            Projekt anfragen
+            Kostenloses Erstgespräch buchen
             <ArrowRight size={18} />
           </Link>
           <Link
             href="/portfolio"
-            className="flex items-center gap-2 text-white font-semibold px-8 py-4 rounded-xl border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/8 transition-all text-base"
+            className="text-[#6b7280] font-medium px-8 py-4 rounded-full border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all flex items-center justify-center gap-2 text-base w-full"
           >
-            <Play size={16} className="text-[#6366f1]" />
-            Unsere Arbeit
+            Unsere Arbeit ansehen
           </Link>
         </motion.div>
 
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.34 }}
+          className="text-xs text-[#9ca3af] mb-16"
+        >
+          15 Min, unverbindlich, ehrliche Einschätzung.
+        </motion.p>
+
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.45 }}
-          className="flex flex-wrap items-center justify-center gap-12"
+          transition={{ duration: 0.5, delay: 0.42 }}
+          className="flex items-center justify-center gap-10 border-t border-gray-100 pt-8"
         >
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="text-3xl md:text-4xl font-black text-white">{stat.value}</div>
-              <div className="text-xs text-[#8b8da0] mt-1">{stat.label}</div>
+              <div className="text-2xl font-black text-[#111827]">{stat.value}</div>
+              <div className="text-xs text-[#9ca3af] mt-0.5">{stat.label}</div>
             </div>
           ))}
         </motion.div>
       </div>
-
-      <div
-        aria-hidden
-        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#6366f1]/30 to-transparent"
-      />
     </section>
   )
 }

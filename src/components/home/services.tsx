@@ -7,73 +7,66 @@ const services = [
     title: "Webdesign",
     description:
       "Kein Template, kein Einheitsbrei. Jede Seite entsteht von Grund auf — für genau Ihr Unternehmen, Ihre Zielgruppe, Ihre Ziele.",
-    color: "#6366f1",
   },
   {
     icon: Code2,
     title: "Web-Entwicklung",
     description:
       "Next.js, React, TypeScript — nicht weil es trendy ist, sondern weil es die schnellsten und sichersten Websites ergibt. Und Google das genauso sieht.",
-    color: "#a855f7",
   },
   {
     icon: ShoppingBag,
     title: "E-Commerce",
     description:
       "Ihr Shop muss nicht schön sein. Er muss verkaufen. Wir sorgen dafür, dass er beides kann — mit reibungslosem Checkout und echtem Conversion-Fokus.",
-    color: "#ec4899",
   },
   {
     icon: Gauge,
     title: "SEO & Performance",
     description:
       "Eine unsichtbare Website bringt nichts. Wir optimieren technisch und inhaltlich — bis Google Sie findet, bevor Ihre Konkurrenz es tut.",
-    color: "#f59e0b",
   },
 ]
 
 export default function Services() {
   return (
-    <section id="leistungen" className="py-28">
+    <section id="leistungen" className="py-24 bg-[#f9fafb]">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-14">
-          <p className="text-[#8b8da0] text-xs font-semibold uppercase tracking-widest mb-3">
+        <div className="mb-12">
+          <p className="text-[#2563eb] text-xs font-semibold uppercase tracking-widest mb-3">
             Was wir tun
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-            Vier Dinge —{\ }
+          <h2 className="text-4xl md:text-5xl font-black text-[#111827] mb-4">
+            Vier Dinge —{" "}
             <span className="gradient-text">richtig gemacht.</span>
           </h2>
-          <p className="text-[#8b8da0] text-lg max-w-lg">
+          <p className="text-[#6b7280] text-lg max-w-lg">
             Andere Agenturen listen 47 Leistungen. Wir konzentrieren uns auf das, was Ihnen wirklich Kunden bringt.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {services.map((service) => {
             const Icon = service.icon
             return (
               <div
                 key={service.title}
-                className="bg-[#0e0f1c] border border-white/6 rounded-2xl p-7 card-hover group"
+                className="bg-white border border-gray-200 rounded-2xl p-7 card-hover"
               >
-                <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
-                  style={{ backgroundColor: `${service.color}18` }}
-                >
-                  <Icon size={20} style={{ color: service.color }} />
+                <div className="w-11 h-11 rounded-xl bg-[#eff6ff] flex items-center justify-center mb-5">
+                  <Icon size={20} className="text-[#2563eb]" />
                 </div>
-                <h3 className="text-white font-bold text-lg mb-2">{service.title}</h3>
-                <p className="text-[#8b8da0] text-sm leading-relaxed">{service.description}</p>
+                <h3 className="text-[#111827] font-bold text-lg mb-2">{service.title}</h3>
+                <p className="text-[#6b7280] text-sm leading-relaxed">{service.description}</p>
               </div>
             )
           })}
         </div>
 
-        <div className="mt-10">
+        <div className="mt-8">
           <Link
             href="/leistungen"
-            className="text-[#8b8da0] text-sm hover:text-white transition-colors inline-flex items-center gap-2 group"
+            className="text-[#6b7280] text-sm hover:text-[#111827] transition-colors inline-flex items-center gap-2 group"
           >
             Alle Leistungen im Detail
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
