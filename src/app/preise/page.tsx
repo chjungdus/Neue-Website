@@ -83,56 +83,56 @@ const faqs = [
 export default function PreisePage() {
   return (
     <div className="pt-16">
-      <section className="py-32 text-center">
+      <section className="py-32 text-center bg-white">
         <div className="max-w-3xl mx-auto px-6">
-          <p className="text-[#6366f1] text-sm font-semibold uppercase tracking-widest mb-3">Preise</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
+          <p className="text-[#2563eb] text-sm font-semibold uppercase tracking-widest mb-3">Preise</p>
+          <h1 className="text-5xl md:text-6xl font-black text-[#111827] mb-6">
             Transparent. <span className="gradient-text">Fair. Klar.</span>
           </h1>
-          <p className="text-[#8b8da0] text-xl leading-relaxed">
+          <p className="text-[#6b7280] text-xl leading-relaxed">
             Keine versteckten Kosten, keine Überraschungen. Nur faire Preise für erstklassige Arbeit.
           </p>
         </div>
       </section>
 
-      <section className="pb-32">
+      <section className="pb-32 bg-[#f9fafb]">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {packages.map((pkg) => (
               <div
                 key={pkg.name}
                 className={`rounded-2xl p-8 flex flex-col relative overflow-hidden ${
                   pkg.highlight
-                    ? "bg-gradient-to-b from-[#6366f1]/20 to-[#a855f7]/10 border border-[#6366f1]/40"
-                    : "bg-[#0e0f1c] border border-white/6"
+                    ? "bg-[#2563eb] border-2 border-[#2563eb]"
+                    : "bg-white border border-gray-200"
                 }`}
               >
                 {pkg.highlight && (
                   <div className="absolute top-4 right-4">
-                    <span className="gradient-bg text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                    <span className="bg-white text-[#2563eb] text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
                       <Zap size={10} /> Beliebt
                     </span>
                   </div>
                 )}
                 <div className="mb-6">
-                  <h2 className="text-white font-bold text-xl mb-2">{pkg.name}</h2>
+                  <h2 className={`font-bold text-xl mb-2 ${pkg.highlight ? "text-white" : "text-[#111827]"}`}>{pkg.name}</h2>
                   <div className="flex items-end gap-1 mb-3">
                     {pkg.price !== "Auf Anfrage" && (
-                      <span className="text-[#8b8da0] text-sm">ab</span>
+                      <span className={`text-sm ${pkg.highlight ? "text-white/70" : "text-[#6b7280]"}`}>ab</span>
                     )}
-                    <span className="text-3xl font-black text-white">
+                    <span className={`text-3xl font-black ${pkg.highlight ? "text-white" : "text-[#111827]"}`}>
                       {pkg.price !== "Auf Anfrage" ? `${pkg.price} €` : pkg.price}
                     </span>
                   </div>
-                  <p className="text-[#8b8da0] text-sm leading-relaxed">{pkg.desc}</p>
+                  <p className={`text-sm leading-relaxed ${pkg.highlight ? "text-white/80" : "text-[#6b7280]"}`}>{pkg.desc}</p>
                 </div>
 
                 <ul className="flex flex-col gap-3 flex-1 mb-8">
                   {pkg.features.map((f) => (
-                    <li key={f} className="flex items-center gap-3 text-sm text-[#c4c5d6]">
+                    <li key={f} className={`flex items-center gap-3 text-sm ${pkg.highlight ? "text-white/90" : "text-[#374151]"}`}>
                       <CheckCircle2
                         size={16}
-                        className={pkg.highlight ? "text-[#a855f7]" : "text-[#6366f1]"}
+                        className={pkg.highlight ? "text-white flex-shrink-0" : "text-[#2563eb] flex-shrink-0"}
                       />
                       {f}
                     </li>
@@ -141,10 +141,10 @@ export default function PreisePage() {
 
                 <Link
                   href={`/anfrage?paket=${pkg.name.toLowerCase()}`}
-                  className={`text-center font-semibold px-6 py-3 rounded-xl transition-all flex items-center justify-center gap-2 ${
+                  className={`text-center font-semibold px-6 py-3 rounded-full transition-all flex items-center justify-center gap-2 ${
                     pkg.highlight
-                      ? "gradient-bg text-white hover:opacity-90"
-                      : "bg-white/6 text-white border border-white/10 hover:border-white/20 hover:bg-white/10"
+                      ? "bg-white text-[#2563eb] hover:bg-gray-50"
+                      : "bg-[#2563eb] text-white hover:bg-[#1d4ed8]"
                   }`}
                 >
                   {pkg.cta} <ArrowRight size={16} />
@@ -155,28 +155,28 @@ export default function PreisePage() {
         </div>
       </section>
 
-      <section className="pb-16">
+      <section className="pb-16 bg-white">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="bg-[#0e0f1c] border border-[#10b981]/20 rounded-2xl p-8 text-center">
+          <div className="bg-[#f0fdf4] border border-[#10b981]/20 rounded-2xl p-8 text-center">
             <p className="text-[#10b981] text-xs font-semibold uppercase tracking-widest mb-3">Unsere Garantie</p>
-            <h3 className="text-white font-black text-xl mb-2">Nicht zufrieden mit dem ersten Entwurf?</h3>
-            <p className="text-[#8b8da0] text-sm max-w-md mx-auto">
+            <h3 className="text-[#111827] font-black text-xl mb-2">Nicht zufrieden mit dem ersten Entwurf?</h3>
+            <p className="text-[#6b7280] text-sm max-w-md mx-auto">
               Wir arbeiten kostenlos nach — ohne Diskussion, ohne Zeitdruck. So lange, bis es passt.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-32 bg-[#0e0f1c]/50">
+      <section className="py-32 bg-[#f9fafb]">
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-white mb-4">Häufige Fragen</h2>
+            <h2 className="text-4xl font-black text-[#111827] mb-4">Häufige Fragen</h2>
           </div>
           <div className="flex flex-col gap-4">
             {faqs.map((faq) => (
-              <div key={faq.q} className="bg-[#0e0f1c] border border-white/6 rounded-xl p-6">
-                <h3 className="text-white font-bold mb-2">{faq.q}</h3>
-                <p className="text-[#8b8da0] text-sm leading-relaxed">{faq.a}</p>
+              <div key={faq.q} className="bg-white border border-gray-200 rounded-xl p-6">
+                <h3 className="text-[#111827] font-bold mb-2">{faq.q}</h3>
+                <p className="text-[#6b7280] text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

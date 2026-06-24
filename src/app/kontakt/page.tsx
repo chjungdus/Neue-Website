@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { Mail, MapPin, Phone, Clock } from "lucide-react"
+import Link from "next/link"
+import { Mail, MapPin, Phone, Clock, ArrowLeft } from "lucide-react"
 import ContactForm from "@/components/forms/contact-form"
 
 export const metadata: Metadata = {
@@ -18,13 +19,19 @@ export default function KontaktPage() {
   return (
     <div className="pt-16">
       <div className="max-w-6xl mx-auto px-6 py-32">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-[#6b7280] hover:text-[#111827] transition-colors text-sm mb-12"
+        >
+          <ArrowLeft size={16} /> Zurück zur Startseite
+        </Link>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div>
-            <p className="text-[#6366f1] text-sm font-semibold uppercase tracking-widest mb-3">Kontakt</p>
-            <h1 className="text-4xl md:text-5xl font-black text-white mb-4">
+            <p className="text-[#2563eb] text-sm font-semibold uppercase tracking-widest mb-3">Kontakt</p>
+            <h1 className="text-4xl md:text-5xl font-black text-[#111827] mb-4">
               Schreiben Sie uns.
             </h1>
-            <p className="text-[#8b8da0] text-lg leading-relaxed mb-10">
+            <p className="text-[#6b7280] text-lg leading-relaxed mb-10">
               Haben Sie Fragen, möchten Sie ein Angebot anfragen oder einfach hallo sagen?
               Wir freuen uns über jede Nachricht.
             </p>
@@ -33,13 +40,13 @@ export default function KontaktPage() {
               {contactInfo.map((item) => {
                 const Icon = item.icon
                 const content = (
-                  <div className="flex items-center gap-4 bg-[#0e0f1c] border border-white/6 rounded-xl p-4">
-                    <div className="w-10 h-10 rounded-lg bg-[#6366f1]/10 flex items-center justify-center flex-shrink-0">
-                      <Icon size={18} className="text-[#6366f1]" />
+                  <div className="flex items-center gap-4 bg-white border border-gray-200 rounded-xl p-4">
+                    <div className="w-10 h-10 rounded-lg bg-[#eff6ff] flex items-center justify-center flex-shrink-0">
+                      <Icon size={18} className="text-[#2563eb]" />
                     </div>
                     <div>
-                      <p className="text-[#8b8da0] text-xs font-medium">{item.label}</p>
-                      <p className="text-white text-sm font-medium">{item.value}</p>
+                      <p className="text-[#6b7280] text-xs font-medium">{item.label}</p>
+                      <p className="text-[#111827] text-sm font-medium">{item.value}</p>
                     </div>
                   </div>
                 )
@@ -56,8 +63,8 @@ export default function KontaktPage() {
             </div>
           </div>
 
-          <div className="bg-[#0e0f1c] border border-white/6 rounded-2xl p-8">
-            <h2 className="text-white font-bold text-xl mb-6">Nachricht senden</h2>
+          <div className="bg-white border border-gray-200 rounded-2xl p-8">
+            <h2 className="text-[#111827] font-bold text-xl mb-6">Nachricht senden</h2>
             <ContactForm />
           </div>
         </div>
