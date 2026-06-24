@@ -79,8 +79,8 @@ export default function InquiryWizard() {
     return (
       <div className="text-center py-12">
         <CheckCircle2 size={64} className="text-[#10b981] mx-auto mb-6" />
-        <h3 className="text-white font-bold text-2xl mb-3">Anfrage eingegangen!</h3>
-        <p className="text-[#8b8da0] text-lg max-w-md mx-auto">
+        <h3 className="text-[#111827] font-bold text-2xl mb-3">Anfrage eingegangen!</h3>
+        <p className="text-[#6b7280] text-lg max-w-md mx-auto">
           Vielen Dank! Wir melden uns innerhalb von 24 Stunden mit einem persönlichen Angebot.
         </p>
       </div>
@@ -95,28 +95,28 @@ export default function InquiryWizard() {
             <div
               className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all ${
                 s === step
-                  ? "gradient-bg text-white"
+                  ? "bg-[#2563eb] text-white"
                   : s < step
-                  ? "bg-[#10b981]/20 text-[#10b981] border border-[#10b981]/30"
-                  : "bg-white/6 text-[#8b8da0] border border-white/10"
+                  ? "bg-[#dcfce7] text-[#10b981] border border-[#10b981]/30"
+                  : "bg-gray-100 text-[#9ca3af] border border-gray-200"
               }`}
             >
               {s < step ? "✓" : s}
             </div>
             {s < 3 && (
               <div
-                className={`h-px flex-1 w-16 transition-all ${s < step ? "bg-[#10b981]/30" : "bg-white/10"}`}
+                className={`h-px flex-1 w-16 transition-all ${s < step ? "bg-[#10b981]/30" : "bg-gray-200"}`}
               />
             )}
           </div>
         ))}
-        <span className="text-[#8b8da0] text-sm ml-2">Schritt {step} von 3</span>
+        <span className="text-[#9ca3af] text-sm ml-2">Schritt {step} von 3</span>
       </div>
 
       {step === 1 && (
         <div>
-          <h2 className="text-white font-bold text-2xl mb-2">Welche Art Projekt planen Sie?</h2>
-          <p className="text-[#8b8da0] text-sm mb-8">Wählen Sie eine Kategorie aus – das hilft uns, das richtige Team für Sie zusammenzustellen.</p>
+          <h2 className="text-[#111827] font-bold text-2xl mb-2">Welche Art Projekt planen Sie?</h2>
+          <p className="text-[#6b7280] text-sm mb-8">Wählen Sie eine Kategorie aus – das hilft uns, das richtige Team für Sie zusammenzustellen.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
             {projectTypes.map((type) => {
               const Icon = type.icon
@@ -126,18 +126,18 @@ export default function InquiryWizard() {
                   onClick={() => setProjectType(type.value)}
                   className={`flex items-center gap-4 p-4 rounded-xl border text-left transition-all ${
                     projectType === type.value
-                      ? "border-[#6366f1]/60 bg-[#6366f1]/10"
-                      : "border-white/10 bg-white/4 hover:border-white/20"
+                      ? "border-[#2563eb]/60 bg-[#eff6ff]"
+                      : "border-gray-200 bg-white hover:border-gray-300"
                   }`}
                 >
                   <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                    projectType === type.value ? "bg-[#6366f1]/20" : "bg-white/6"
+                    projectType === type.value ? "bg-[#2563eb]/15" : "bg-gray-100"
                   }`}>
-                    <Icon size={18} className={projectType === type.value ? "text-[#6366f1]" : "text-[#8b8da0]"} />
+                    <Icon size={18} className={projectType === type.value ? "text-[#2563eb]" : "text-[#6b7280]"} />
                   </div>
                   <div>
-                    <p className="text-white font-medium text-sm">{type.label}</p>
-                    <p className="text-[#8b8da0] text-xs">{type.desc}</p>
+                    <p className="text-[#111827] font-medium text-sm">{type.label}</p>
+                    <p className="text-[#6b7280] text-xs">{type.desc}</p>
                   </div>
                 </button>
               )
@@ -146,7 +146,7 @@ export default function InquiryWizard() {
           <button
             onClick={() => setStep(2)}
             disabled={!projectType}
-            className="gradient-bg text-white font-semibold px-6 py-3 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-40 flex items-center gap-2"
+            className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold px-6 py-3 rounded-full transition-colors disabled:opacity-40 flex items-center gap-2"
           >
             Weiter <ArrowRight size={16} />
           </button>
@@ -155,11 +155,11 @@ export default function InquiryWizard() {
 
       {step === 2 && (
         <div>
-          <h2 className="text-white font-bold text-2xl mb-2">Budget & Zeitrahmen</h2>
-          <p className="text-[#8b8da0] text-sm mb-8">Damit wir das passende Angebot erstellen können.</p>
+          <h2 className="text-[#111827] font-bold text-2xl mb-2">Budget & Zeitrahmen</h2>
+          <p className="text-[#6b7280] text-sm mb-8">Damit wir das passende Angebot erstellen können.</p>
 
           <div className="mb-8">
-            <p className="text-[#c4c5d6] font-medium text-sm mb-4">Geplantes Budget</p>
+            <p className="text-[#374151] font-medium text-sm mb-4">Geplantes Budget</p>
             <div className="grid grid-cols-2 gap-3">
               {budgets.map((b) => (
                 <button
@@ -167,8 +167,8 @@ export default function InquiryWizard() {
                   onClick={() => setBudget(b.value)}
                   className={`p-3 rounded-xl border text-sm font-medium transition-all ${
                     budget === b.value
-                      ? "border-[#6366f1]/60 bg-[#6366f1]/10 text-white"
-                      : "border-white/10 bg-white/4 text-[#8b8da0] hover:border-white/20"
+                      ? "border-[#2563eb]/60 bg-[#eff6ff] text-[#2563eb]"
+                      : "border-gray-200 bg-white text-[#374151] hover:border-gray-300"
                   }`}
                 >
                   {b.label}
@@ -178,7 +178,7 @@ export default function InquiryWizard() {
           </div>
 
           <div className="mb-8">
-            <p className="text-[#c4c5d6] font-medium text-sm mb-4">Gewünschter Zeitrahmen</p>
+            <p className="text-[#374151] font-medium text-sm mb-4">Gewünschter Zeitrahmen</p>
             <div className="grid grid-cols-2 gap-3">
               {timelines.map((t) => (
                 <button
@@ -186,8 +186,8 @@ export default function InquiryWizard() {
                   onClick={() => setTimeline(t.value)}
                   className={`p-3 rounded-xl border text-sm font-medium transition-all ${
                     timeline === t.value
-                      ? "border-[#6366f1]/60 bg-[#6366f1]/10 text-white"
-                      : "border-white/10 bg-white/4 text-[#8b8da0] hover:border-white/20"
+                      ? "border-[#2563eb]/60 bg-[#eff6ff] text-[#2563eb]"
+                      : "border-gray-200 bg-white text-[#374151] hover:border-gray-300"
                   }`}
                 >
                   {t.label}
@@ -199,14 +199,14 @@ export default function InquiryWizard() {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setStep(1)}
-              className="flex items-center gap-2 text-[#8b8da0] hover:text-white transition-colors font-medium px-4 py-3"
+              className="flex items-center gap-2 text-[#6b7280] hover:text-[#111827] transition-colors font-medium px-4 py-3"
             >
               <ArrowLeft size={16} /> Zurück
             </button>
             <button
               onClick={() => setStep(3)}
               disabled={!budget || !timeline}
-              className="gradient-bg text-white font-semibold px-6 py-3 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-40 flex items-center gap-2"
+              className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold px-6 py-3 rounded-full transition-colors disabled:opacity-40 flex items-center gap-2"
             >
               Weiter <ArrowRight size={16} />
             </button>
@@ -216,56 +216,56 @@ export default function InquiryWizard() {
 
       {step === 3 && (
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h2 className="text-white font-bold text-2xl mb-2">Fast geschafft!</h2>
-          <p className="text-[#8b8da0] text-sm mb-8">Beschreiben Sie Ihr Projekt kurz und hinterlassen Sie Ihre Kontaktdaten.</p>
+          <h2 className="text-[#111827] font-bold text-2xl mb-2">Fast geschafft!</h2>
+          <p className="text-[#6b7280] text-sm mb-8">Beschreiben Sie Ihr Projekt kurz und hinterlassen Sie Ihre Kontaktdaten.</p>
 
           <div className="flex flex-col gap-5 mb-8">
             <div>
-              <label className="text-[#c4c5d6] text-sm font-medium block mb-2">Projektbeschreibung *</label>
+              <label className="text-[#374151] text-sm font-medium block mb-2">Projektbeschreibung *</label>
               <textarea
                 {...register("description")}
                 rows={4}
                 placeholder="Was soll die Website leisten? Welche Ziele haben Sie? Gibt es besondere Anforderungen?"
-                className="w-full bg-[#0e0f1c] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-[#4a4b60] focus:outline-none focus:border-[#6366f1]/60 transition-colors text-sm resize-none"
+                className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-[#111827] placeholder:text-[#9ca3af] focus:outline-none focus:border-[#2563eb]/60 focus:ring-1 focus:ring-[#2563eb]/20 transition-colors text-sm resize-none"
               />
-              {errors.description && <p className="text-red-400 text-xs mt-1">{errors.description.message}</p>}
+              {errors.description && <p className="text-red-500 text-xs mt-1">{errors.description.message}</p>}
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label className="text-[#c4c5d6] text-sm font-medium block mb-2">Ihr Name *</label>
+                <label className="text-[#374151] text-sm font-medium block mb-2">Ihr Name *</label>
                 <input
                   {...register("name")}
                   placeholder="Max Mustermann"
-                  className="w-full bg-[#0e0f1c] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-[#4a4b60] focus:outline-none focus:border-[#6366f1]/60 transition-colors text-sm"
+                  className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-[#111827] placeholder:text-[#9ca3af] focus:outline-none focus:border-[#2563eb]/60 focus:ring-1 focus:ring-[#2563eb]/20 transition-colors text-sm"
                 />
-                {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name.message}</p>}
+                {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
               </div>
               <div>
-                <label className="text-[#c4c5d6] text-sm font-medium block mb-2">E-Mail *</label>
+                <label className="text-[#374151] text-sm font-medium block mb-2">E-Mail *</label>
                 <input
                   {...register("email")}
                   type="email"
                   placeholder="max@beispiel.de"
-                  className="w-full bg-[#0e0f1c] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-[#4a4b60] focus:outline-none focus:border-[#6366f1]/60 transition-colors text-sm"
+                  className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-[#111827] placeholder:text-[#9ca3af] focus:outline-none focus:border-[#2563eb]/60 focus:ring-1 focus:ring-[#2563eb]/20 transition-colors text-sm"
                 />
-                {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>}
+                {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
               </div>
             </div>
 
             <div>
-              <label className="text-[#c4c5d6] text-sm font-medium block mb-2">Telefon (optional)</label>
+              <label className="text-[#374151] text-sm font-medium block mb-2">Telefon (optional)</label>
               <input
                 {...register("phone")}
                 type="tel"
                 placeholder="+49 89 ..."
-                className="w-full bg-[#0e0f1c] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-[#4a4b60] focus:outline-none focus:border-[#6366f1]/60 transition-colors text-sm"
+                className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-[#111827] placeholder:text-[#9ca3af] focus:outline-none focus:border-[#2563eb]/60 focus:ring-1 focus:ring-[#2563eb]/20 transition-colors text-sm"
               />
             </div>
           </div>
 
           {status === "error" && (
-            <div className="flex items-center gap-2 text-red-400 text-sm bg-red-400/10 border border-red-400/20 rounded-xl px-4 py-3 mb-4">
+            <div className="flex items-center gap-2 text-red-500 text-sm bg-red-50 border border-red-200 rounded-xl px-4 py-3 mb-4">
               <AlertCircle size={16} />
               Fehler beim Senden. Bitte versuchen Sie es erneut.
             </div>
@@ -275,14 +275,14 @@ export default function InquiryWizard() {
             <button
               type="button"
               onClick={() => setStep(2)}
-              className="flex items-center gap-2 text-[#8b8da0] hover:text-white transition-colors font-medium px-4 py-3"
+              className="flex items-center gap-2 text-[#6b7280] hover:text-[#111827] transition-colors font-medium px-4 py-3"
             >
               <ArrowLeft size={16} /> Zurück
             </button>
             <button
               type="submit"
               disabled={status === "loading"}
-              className="gradient-bg text-white font-semibold px-6 py-3 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-60 flex items-center gap-2"
+              className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold px-6 py-3 rounded-full transition-colors disabled:opacity-60 flex items-center gap-2"
             >
               {status === "loading" ? (
                 <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />

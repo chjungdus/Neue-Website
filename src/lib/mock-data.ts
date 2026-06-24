@@ -47,7 +47,7 @@ export const mockProjects: PortfolioProject[] = [
     id: "4",
     title: "Architekturbüro Meier",
     slug: "architektur-meier",
-    description: "Minimalistisches Portfolio mit Projekt-Galerie und Kontaktformular.",
+    description: "Minimalistisches Portfolio-Portfolio mit Projekt-Galerie und Kontaktformular.",
     long_description:
       "Elegante Präsentations-Website mit animierter Bildergalerie, PDF-Download-Funktion und SEO-optimierten Projektseiten.",
     tags: ["Next.js", "Framer Motion", "Tailwind"],

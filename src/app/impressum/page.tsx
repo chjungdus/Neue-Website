@@ -13,16 +13,16 @@ export default function ImpressumPage() {
       <div className="max-w-3xl mx-auto px-6 py-24">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-[#8b8da0] hover:text-white transition-colors text-sm mb-12"
+          className="inline-flex items-center gap-2 text-[#6b7280] hover:text-[#111827] transition-colors text-sm mb-12"
         >
           <ArrowLeft size={16} /> Zurück zur Startseite
         </Link>
 
-        <h1 className="text-4xl font-black text-white mb-12">Impressum</h1>
+        <h1 className="text-4xl font-black text-[#111827] mb-12">Impressum</h1>
 
-        <div className="space-y-10 text-[#8b8da0]">
+        <div className="space-y-10 text-[#6b7280]">
           <section>
-            <h2 className="text-white font-bold text-base mb-3">Angaben gemäß § 5 TMG</h2>
+            <h2 className="text-[#111827] font-bold text-base mb-3">Angaben gemäß § 5 TMG</h2>
             <p className="leading-relaxed text-sm">
               DigitalForge GmbH
               <br />
@@ -35,19 +35,19 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-white font-bold text-base mb-3">Kontakt</h2>
+            <h2 className="text-[#111827] font-bold text-base mb-3">Kontakt</h2>
             <p className="leading-relaxed text-sm">
               Telefon: +49 (0) 89 123 456 78
               <br />
               E-Mail:{" "}
-              <a href="mailto:hallo@digitalforge.de" className="text-[#6366f1] hover:underline">
+              <a href="mailto:hallo@digitalforge.de" className="text-[#2563eb] hover:underline">
                 hallo@digitalforge.de
               </a>
             </p>
           </section>
 
           <section>
-            <h2 className="text-white font-bold text-base mb-3">Handelsregister</h2>
+            <h2 className="text-[#111827] font-bold text-base mb-3">Handelsregister</h2>
             <p className="leading-relaxed text-sm">
               Registergericht: Amtsgericht München
               <br />
@@ -56,7 +56,7 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-white font-bold text-base mb-3">Umsatzsteuer-ID</h2>
+            <h2 className="text-[#111827] font-bold text-base mb-3">Umsatzsteuer-ID</h2>
             <p className="leading-relaxed text-sm">
               Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:
               <br />
@@ -65,7 +65,7 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-white font-bold text-base mb-3">
+            <h2 className="text-[#111827] font-bold text-base mb-3">
               Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
             </h2>
             <p className="leading-relaxed text-sm">
@@ -78,16 +78,16 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-white font-bold text-base mb-3">EU-Streitschlichtung</h2>
+            <h2 className="text-[#111827] font-bold text-base mb-3">EU-Streitschlichtung</h2>
             <p className="leading-relaxed text-sm">
               Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
-              <span className="text-[#6366f1]">https://ec.europa.eu/consumers/odr</span>. Unsere E-Mail-Adresse finden
+              <span className="text-[#2563eb]">https://ec.europa.eu/consumers/odr</span>. Unsere E-Mail-Adresse finden
               Sie oben im Impressum.
             </p>
           </section>
 
           <section>
-            <h2 className="text-white font-bold text-base mb-3">
+            <h2 className="text-[#111827] font-bold text-base mb-3">
               Verbraucherstreitbeilegung / Universalschlichtungsstelle
             </h2>
             <p className="leading-relaxed text-sm">
@@ -97,7 +97,7 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-white font-bold text-base mb-3">Haftung für Inhalte</h2>
+            <h2 className="text-[#111827] font-bold text-base mb-3">Haftung für Inhalte</h2>
             <p className="leading-relaxed text-sm">
               Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den
               allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
@@ -113,7 +113,7 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-white font-bold text-base mb-3">Haftung für Links</h2>
+            <h2 className="text-[#111827] font-bold text-base mb-3">Haftung für Links</h2>
             <p className="leading-relaxed text-sm">
               Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
               Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten
@@ -128,7 +128,7 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-white font-bold text-base mb-3">Urheberrecht</h2>
+            <h2 className="text-[#111827] font-bold text-base mb-3">Urheberrecht</h2>
             <p className="leading-relaxed text-sm">
               Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen
               Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
@@ -142,11 +142,11 @@ export default function ImpressumPage() {
           </section>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/6 flex flex-wrap gap-4 text-xs text-[#8b8da0]">
-          <Link href="/datenschutz" className="hover:text-white transition-colors">
+        <div className="mt-16 pt-8 border-t border-gray-200 flex flex-wrap gap-4 text-xs text-[#6b7280]">
+          <Link href="/datenschutz" className="hover:text-[#111827] transition-colors">
             Datenschutzerklärung
           </Link>
-          <Link href="/agb" className="hover:text-white transition-colors">
+          <Link href="/agb" className="hover:text-[#111827] transition-colors">
             AGB
           </Link>
         </div>
