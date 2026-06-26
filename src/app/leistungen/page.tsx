@@ -1,171 +1,410 @@
-import type { Metadata } from "next"
-import Link from "next/link"
-import { Globe, Code2, ShoppingBag, Gauge, ArrowRight, CheckCircle2 } from "lucide-react"
+"use client"
 
-export const metadata: Metadata = {
-  title: "Leistungen",
-  description:
-    "Von Webdesign über E-Commerce bis zu Web-Apps – entdecken Sie unsere Leistungen für Ihren digitalen Erfolg.",
-}
+import Link from "next/link"
+import { ArrowRight, Check, X } from "lucide-react"
+import FadeIn from "@/components/ui/fade-in"
 
 const services = [
   {
-    id: "webdesign",
-    icon: Globe,
-    title: "Webdesign",
-    description:
-      "Jede Website, die wir bauen, ist ein Unikat. Wir designen von Grund auf – kein Template, kein Einheitsbrei. Das Ergebnis: Eine digitale Visitenkarte, die Ihre Marke authentisch repräsentiert und Vertrauen schafft.",
-    features: [
-      "Individuelle Gestaltung ohne Templates",
-      "Mobile-first Ansatz",
-      "Moderne UI/UX-Prinzipien",
-      "Brand Identity Integration",
-      "Animationen & Micro-Interactions",
+    number: "01",
+    title: "Webdesign & Entwicklung",
+    tagline: "Für Unternehmen, die mit ihrer Website Kunden gewinnen wollen.",
+    problem:
+      "Die meisten Websites werden nach Geschmack gebaut — nicht nach Conversion-Rate. Das Ergebnis sieht gut aus und tut nichts.",
+    solution:
+      "Wir starten mit der Frage: Was soll der Besucher tun? Dann bauen wir rückwärts: Welches Design, welche Texte, welche Seitenstruktur bringt ihn dahin? Jedes Designentscheidung hat einen Grund.",
+    includes: [
+      "UX-Konzept & Informationsarchitektur",
+      "Figma-Design (Desktop + Mobile)",
+      "Next.js Entwicklung (App Router)",
+      "Performance-Optimierung (Core Web Vitals)",
+      "SEO-Grundstruktur (Semantic HTML, Sitemap)",
+      "4 Wochen Lieferzeit",
     ],
-    color: "#2563eb",
+    notIncludes: ["Copywriting", "Fotografie/Videografie", "Laufende Wartung (optional buchbar)"],
+    price: "ab 200 €",
+    deliverable: "Produktionsreife Website mit vollständigem Code-Übergabe",
   },
   {
-    id: "entwicklung",
-    icon: Code2,
-    title: "Web-Entwicklung",
-    description:
-      "Wir entwickeln mit den modernsten Technologien: Next.js, React, TypeScript. Das bedeutet: blitzschnelle Ladezeiten, maximale Sicherheit und eine Infrastruktur, die mit Ihrem Unternehmen wächst.",
-    features: [
-      "Next.js & React Development",
-      "TypeScript für sicheren Code",
-      "REST APIs & GraphQL",
-      "Datenbank-Design & -Anbindung",
-      "CI/CD & automatisierte Tests",
-    ],
-    color: "#0ea5e9",
-  },
-  {
-    id: "ecommerce",
-    icon: ShoppingBag,
+    number: "02",
     title: "E-Commerce",
-    description:
-      "Ihr Online-Shop, der wirklich verkauft. Von der überzeugenden Produktdarstellung über einen reibungslosen Checkout bis zur automatisierten Bestellabwicklung – wir bauen E-Commerce der nächsten Generation.",
-    features: [
-      "Custom Shop-Entwicklung",
-      "Stripe & PayPal Integration",
-      "Bestandsmanagement",
-      "Automatische Bestellbestätigungen",
-      "Analytics & Conversion-Tracking",
+    tagline: "Für Shops, die mehr verkaufen wollen als sie gerade tun.",
+    problem:
+      "Durchschnittliche E-Commerce-Conversion-Rate: 2–3 %. Bei den meisten unserer neuen Kunden lagen wir darunter. Das bedeutet: 97 von 100 Besuchern kaufen nichts. Das ist kein Traffic-Problem — das ist ein Website-Problem.",
+    solution:
+      "Wir analysieren, wo Nutzer abspringen (Heatmaps, Session-Recordings, Checkout-Funnel) und bauen dann gezielt dagegen: schnellere Ladezeiten, klarerer Checkout, strategisch platzierte Vertrauenssignale.",
+    includes: [
+      "Shop-Konzept & Produktstruktur",
+      "Custom Design (kein Standard-Theme)",
+      "Next.js + Shopify oder WooCommerce",
+      "Checkout-Optimierung",
+      "Mobile-First (>60 % aller Käufe sind mobil)",
+      "Produkt-Seiten-Templates",
     ],
-    color: "#2563eb",
+    notIncludes: [
+      "Produktfotos",
+      "Produktbeschreibungen",
+      "Lagerbestand / ERP-Integration (auf Anfrage)",
+    ],
+    price: "ab 400 €",
+    deliverable: "Fertig konfigurierter Shop mit Schulung für das Team",
   },
   {
-    id: "seo",
-    icon: Gauge,
-    title: "SEO & Performance",
-    description:
-      "Was nützt eine schöne Website, wenn niemand sie findet? Wir optimieren für Google und sorgen für Ladezeiten unter einer Sekunde – technisch und inhaltlich.",
-    features: [
-      "Technisches SEO-Audit",
-      "Core Web Vitals Optimierung",
-      "Structured Data & Schema.org",
-      "Keyword-Recherche & Content-Strategie",
-      "Monatliches Reporting",
+    number: "03",
+    title: "Web-Applikationen",
+    tagline: "Für Prozesse, die noch auf Excel laufen.",
+    problem:
+      "Jedes Unternehmen ab einer gewissen Größe hat mindestens eine Excel-Datei, die eigentlich eine Software sein sollte. Angebotsmanagement, Kundenverwaltung, interne Workflows — die Lösung ist meist ein custom Tool, kein teures ERP.",
+    solution:
+      "Wir bauen Web-Apps, die genau das tun, was Sie brauchen — nicht mehr, nicht weniger. Stack: Next.js + Supabase (PostgreSQL). Auth, Echtzeit-Updates, File-Storage inklusive. Keine überdimensionierten Frameworks, kein Vendor-Lock-in.",
+    includes: [
+      "Anforderungsanalyse & technisches Konzept",
+      "Datenbankdesign (PostgreSQL / Supabase)",
+      "Auth-System (Login, Rollen, Permissions)",
+      "Admin-Interface & Nutzer-Dashboard",
+      "API-Entwicklung",
+      "Testing & Dokumentation",
     ],
-    color: "#f59e0b",
+    notIncludes: ["Mobile Native Apps (iOS/Android)", "ML/AI-Features (auf Anfrage)"],
+    price: "ab 9.500 €",
+    deliverable: "Vollständig dokumentierte Applikation + Source Code",
+  },
+  {
+    number: "04",
+    title: "Website-Relaunch",
+    tagline: "Für bestehende Websites, die unter ihrer eigenen Last zusammenbrechen.",
+    problem:
+      "Alte WordPress-Installationen mit 47 Plugins, Ladezeiten von 8 Sekunden, ein Design aus 2015, das auf dem Handy aussieht als wäre es für Ameisen gebaut — das kostet jeden Tag Kunden, nur unsichtbar.",
+    solution:
+      "Vollständiger Neuaufbau auf modernem Stack. Wir nehmen Ihre bestehenden Inhalte, verbessern Struktur und Texte wo nötig, und liefern eine Website, die in 30 Jahren nicht wie heute wirkt — weil gutes Design zeitlos ist, nicht trendy.",
+    includes: [
+      "Content-Audit & Migrationsplan",
+      "Neuaufbau auf Next.js",
+      "301-Weiterleitung (kein SEO-Verlust)",
+      "Performance-Boost (PageSpeed Insights 90+)",
+      "Performance-Monitoring & Reporting",
+      "Launch-Support & Monitoring",
+    ],
+    notIncludes: ["SEO-Kampagnen", "Content-Erstellung (optional buchbar)"],
+    price: "ab 4.500 €",
+    deliverable: "Migrierte Website ohne SEO-Rankingverlust",
   },
 ]
 
 const process = [
-  { step: "01", title: "Erstgespräch", desc: "Wir lernen Ihr Unternehmen, Ihre Ziele und Ihre Zielgruppe kennen." },
-  { step: "02", title: "Konzept & Angebot", desc: "Binnen 48 Stunden erhalten Sie ein maßgeschneidertes Konzept und transparentes Angebot." },
-  { step: "03", title: "Design & Feedback", desc: "Wir präsentieren Designs, Sie geben Feedback – bis alles passt." },
-  { step: "04", title: "Entwicklung", desc: "Ihr Projekt wird professionell umgesetzt, inkl. wöchentlicher Updates." },
-  { step: "05", title: "Launch", desc: "Go-Live nach gründlichem Testing auf allen Geräten und Browsern." },
-  { step: "06", title: "Support", desc: "Auch nach dem Launch sind wir für Sie da – schnell und zuverlässig." },
+  {
+    step: "Erstgespräch",
+    duration: "30 Min.",
+    desc: "Wir hören zu. Sie erklären das Problem, wir stellen Fragen. Am Ende wissen beide, ob das passt — oder nicht.",
+  },
+  {
+    step: "Konzept & Angebot",
+    duration: "3–5 Tage",
+    desc: "Wir skizzieren die Lösung: Seitenstruktur, technischer Ansatz, Zeitplan. Das Angebot ist ein Festpreis — keine Stundensatze, keine Überraschungen.",
+  },
+  {
+    step: "Design-Phase",
+    duration: "Woche 1–2",
+    desc: "Figma-Prototyp mit allen wichtigen Seiten. Sie geben Feedback, wir überarbeiten. Erst wenn das Design sitzt, fangen wir an zu coden.",
+  },
+  {
+    step: "Entwicklung",
+    duration: "Woche 2–4",
+    desc: "Live-Staging-Link von Tag 1. Sie sehen jederzeit den aktuellen Stand. Keine Überraschungen beim Launch.",
+  },
+  {
+    step: "Launch & Übergabe",
+    duration: "Woche 4",
+    desc: "Go-Live, alle Zugänge, Schulung. Die Website gehört Ihnen — Code, Domain, alles. Kein Lock-in.",
+  },
+]
+
+const trustedBy = [
+  "Handwerk & Bau",
+  "Gastronomie & Hotellerie",
+  "Rechtsanwälte & Steuerberater",
+  "E-Commerce & Retail",
+  "Medizin & Therapie",
+  "Coaching & Beratung",
 ]
 
 export default function LeistungenPage() {
   return (
-    <div className="pt-16">
-      <section className="py-32 text-center bg-white">
-        <div className="max-w-3xl mx-auto px-6">
-          <p className="text-[#2563eb] text-xs font-semibold uppercase tracking-widest mb-3">Leistungen</p>
-          <h1 className="text-5xl md:text-6xl font-black text-[#111827] mb-6">
-            Was kostet eine
-            <br />
-            <span className="gradient-text">schlechte Website?</span>
-          </h1>
-          <p className="text-[#6b7280] text-xl leading-relaxed">
-            Verpasste Kunden, die Sie nie zählen werden. Wir helfen Ihnen, das zu ändern — mit Websites, die wirklich für Sie arbeiten.
-          </p>
-        </div>
-      </section>
-
-      <section className="pb-32 bg-[#f9fafb] pt-12">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col gap-20">
-          {services.map((service, i) => {
-            const Icon = service.icon
-            return (
-              <div
-                key={service.id}
-                id={service.id}
-                className={`flex flex-col ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} gap-12 items-center`}
-              >
-                <div className="flex-1">
-                  <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
-                    style={{ backgroundColor: `${service.color}15` }}
-                  >
-                    <Icon size={26} style={{ color: service.color }} />
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-black text-[#111827] mb-4">{service.title}</h2>
-                  <p className="text-[#6b7280] text-lg leading-relaxed mb-6">{service.description}</p>
-                  <ul className="flex flex-col gap-3">
-                    {service.features.map((f) => (
-                      <li key={f} className="flex items-center gap-3 text-[#374151] text-sm">
-                        <CheckCircle2 size={16} style={{ color: service.color }} className="flex-shrink-0" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="flex-1 w-full h-64 rounded-2xl border border-gray-200 flex items-center justify-center bg-white">
-                  <Icon size={80} style={{ color: service.color, opacity: 0.12 }} />
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      </section>
-
-      <section className="py-32 bg-white">
+    <>
+      {/* Hero */}
+      <section className="pt-28 pb-20 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-[#2563eb] text-sm font-semibold uppercase tracking-widest mb-3">Ablauf</p>
-            <h2 className="text-4xl md:text-5xl font-black text-[#111827]">Wie wir arbeiten</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {process.map((p) => (
-              <div key={p.step} className="bg-white border border-gray-200 rounded-2xl p-6">
-                <div className="text-4xl font-black text-[#2563eb] mb-3">{p.step}</div>
-                <h3 className="text-[#111827] font-bold text-lg mb-2">{p.title}</h3>
-                <p className="text-[#6b7280] text-sm leading-relaxed">{p.desc}</p>
-              </div>
+          <FadeIn>
+            <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
+              Leistungen
+            </p>
+            <h1 className="text-5xl md:text-7xl font-black text-[#111827] leading-[1.05] mb-8 max-w-3xl">
+              Was kostet eine
+              <br />
+              <span className="text-[#ef4444]">schlechte Website</span>
+              <br />
+              wirklich?
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <p className="text-[#6b7280] text-xl max-w-2xl leading-relaxed">
+              Verpasste Kunden, die Sie nie zählen werden. Menschen, die auf Ihre Seite kommen,
+              nicht finden was sie suchen, und zur Konkurrenz gehen. Kein Drama, keine Fehlermeldung
+              — nur stille Verluste, jeden Tag.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <div className="mt-10 flex flex-wrap gap-3">
+              {trustedBy.map((industry) => (
+                <span
+                  key={industry}
+                  className="text-xs bg-[#f3f4f6] text-[#374151] px-3 py-1.5 rounded-full"
+                >
+                  {industry}
+                </span>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Services — numbered rows */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="space-y-0 divide-y divide-gray-100">
+            {services.map((service, i) => (
+              <FadeIn key={i} delay={i * 0.06}>
+                <div className="py-16 grid grid-cols-1 lg:grid-cols-[120px_1fr] gap-8">
+                  {/* Number */}
+                  <div className="shrink-0">
+                    <span
+                      className="text-7xl font-black leading-none select-none"
+                      style={{ color: "#2563eb18" }}
+                    >
+                      {service.number}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <div>
+                    <div className="mb-6">
+                      <h2 className="text-2xl md:text-3xl font-black text-[#111827] mb-2">
+                        {service.title}
+                      </h2>
+                      <p className="text-[#6b7280] text-base">{service.tagline}</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                      <div>
+                        <p className="text-xs font-semibold text-[#9ca3af] uppercase tracking-widest mb-3">
+                          Das Problem
+                        </p>
+                        <p className="text-[#6b7280] text-sm leading-relaxed">{service.problem}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-[#9ca3af] uppercase tracking-widest mb-3">
+                          Unser Ansatz
+                        </p>
+                        <p className="text-[#6b7280] text-sm leading-relaxed">{service.solution}</p>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                      <div>
+                        <p className="text-xs font-semibold text-[#9ca3af] uppercase tracking-widest mb-3">
+                          Enthalten
+                        </p>
+                        <ul className="space-y-2">
+                          {service.includes.map((item, j) => (
+                            <li key={j} className="flex items-start gap-2 text-sm text-[#374151]">
+                              <Check size={14} className="text-[#2563eb] mt-0.5 shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-[#9ca3af] uppercase tracking-widest mb-3">
+                          Nicht enthalten
+                        </p>
+                        <ul className="space-y-2">
+                          {service.notIncludes.map((item, j) => (
+                            <li key={j} className="flex items-start gap-2 text-sm text-[#9ca3af]">
+                              <X size={14} className="mt-0.5 shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-gray-100">
+                      <div>
+                        <span className="text-2xl font-black text-[#111827]">{service.price}</span>
+                        <p className="text-xs text-[#9ca3af] mt-1">{service.deliverable}</p>
+                      </div>
+                      <Link
+                        href="/anfrage"
+                        className="inline-flex items-center gap-2 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-6 py-3 rounded-full transition-colors text-sm"
+                      >
+                        Anfrage stellen
+                        <ArrowRight size={15} />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-32 bg-[#f9fafb]">
-        <div className="max-w-2xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-black text-[#111827] mb-4">Bereit anzufangen?</h2>
-          <p className="text-[#6b7280] text-lg mb-8">
-            Starten Sie mit einem kostenlosen Erstgespräch. Kein Druck, keine versteckten Kosten.
-          </p>
-          <Link
-            href="/anfrage"
-            className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full inline-flex items-center gap-2 transition-colors"
-          >
-            Projekt anfragen <ArrowRight size={18} />
-          </Link>
+      {/* Process — dark */}
+      <section className="py-24 bg-[#0f172a]">
+        <div className="max-w-6xl mx-auto px-6">
+          <FadeIn>
+            <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-6">
+              So läuft es ab
+            </p>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
+              Kein Überraschungsmoment.
+            </h2>
+            <p className="text-slate-400 text-lg mb-16 max-w-lg leading-relaxed">
+              Jeder Schritt hat eine klare Erwartung. Jeder Schritt hat ein klares Ergebnis.
+            </p>
+          </FadeIn>
+
+          <div className="space-y-0">
+            {process.map((step, i) => (
+              <FadeIn key={i} delay={i * 0.06}>
+                <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 py-8 border-b border-slate-800 last:border-b-0">
+                  <div>
+                    <div className="text-white font-bold mb-1">{step.step}</div>
+                    <div className="text-slate-500 text-sm">{step.duration}</div>
+                  </div>
+                  <p className="text-slate-400 text-sm leading-relaxed">{step.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
-    </div>
+
+      {/* Guarantee */}
+      <section className="py-20 bg-[#f9fafb] border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-6">
+          <FadeIn>
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12 items-center">
+              <div>
+                <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-4">
+                  Unsere Garantie
+                </p>
+                <h2 className="text-3xl md:text-4xl font-black text-[#111827] mb-5 leading-tight">
+                  Nicht zufrieden?
+                  <br />
+                  Wir überarbeiten kostenlos.
+                </h2>
+                <p className="text-[#6b7280] leading-relaxed text-base max-w-xl">
+                  Nach dem ersten Design-Entwurf haben Sie das Recht auf beliebig viele
+                  Überarbeitungen — ohne Diskussion, ohne Aufpreis — bis das Design dem entspricht,
+                  was im Briefing vereinbart war. Das steht so im Vertrag.
+                </p>
+                <p className="text-[#9ca3af] text-sm mt-4">
+                  Was nicht gilt: Scope-Änderungen während der Entwicklung. Neue Features nach
+                  Projektstart kosten extra. Das ist nur fair.
+                </p>
+              </div>
+              <div className="bg-white border border-gray-100 rounded-2xl p-8">
+                <div className="space-y-4">
+                  {[
+                    "Festpreis — kein Stundensatz",
+                    "Deadline steht im Vertrag",
+                    "Wöchentliche Updates mit Live-Link",
+                    "Alle Zugänge bei Launch",
+                    "30 Tage Support nach Launch",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-5 h-5 rounded-full bg-[#2563eb]/10 flex items-center justify-center flex-shrink-0">
+                        <Check size={11} className="text-[#2563eb]" />
+                      </div>
+                      <span className="text-[#374151] text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-24 bg-white">
+        <div className="max-w-3xl mx-auto px-6">
+          <FadeIn>
+            <h2 className="text-3xl font-black text-[#111827] mb-12 leading-tight">
+              Häufige Fragen zu unseren Leistungen
+            </h2>
+          </FadeIn>
+
+          <div className="space-y-8">
+            {[
+              {
+                q: "Machen Sie auch SEO?",
+                a: "Technisches SEO ist in jedem Projekt enthalten: saubere Seitenstruktur, schnelle Ladezeiten, Sitemap, Schema-Markup. Laufende SEO-Kampagnen (Linkbuilding, Keyword-Targeting, Content-Strategie) sind nicht Teil unserer Leistungen — das ist ein eigenes Fachgebiet.",
+              },
+              {
+                q: "Was ist mit Pflege und Updates nach dem Launch?",
+                a: "Optional. Wir bieten Pflegepakete ab 30 €/Monat für regelmäßige Updates, Inhaltsänderungen und Backups. Pflicht ist das nicht. Den Code haben Sie, und jeder Entwickler kann damit arbeiten.",
+              },
+              {
+                q: "Ich habe schon ein Design von woanders — können Sie das umsetzen?",
+                a: "Ja, wenn das Figma-File vollständig ist. Wir schauen uns an, was vorliegt, und geben Ihnen ehrliches Feedback, ob das so umsetzbar ist — oder ob wir Anpassungen für Conversion und Performance empfehlen würden.",
+              },
+              {
+                q: "Kann ich die Website später selbst bearbeiten?",
+                a: "Nein — wir bauen keine selbst-editierbaren CMS-Lösungen. Änderungen erledigen wir für Sie über unsere Pflegepakete (ab 30 €/Monat). Das ist für die meisten Kunden günstiger und unkomplizierter als ein eigenes CMS.",
+              },
+            ].map((faq, i) => (
+              <FadeIn key={i} delay={i * 0.06}>
+                <div className="border-b border-gray-100 pb-8">
+                  <h3 className="font-bold text-[#111827] mb-3">{faq.q}</h3>
+                  <p className="text-[#6b7280] text-sm leading-relaxed">{faq.a}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 bg-[#f9fafb]">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <FadeIn>
+            <h2 className="text-4xl font-black text-[#111827] mb-5 leading-tight">
+              Welche Leistung passt zu Ihnen?
+            </h2>
+            <p className="text-[#6b7280] text-lg mb-10 leading-relaxed">
+              Im Erstgespräch finden wir das heraus — kostenlos und ohne Verpflichtung. Wenn wir
+              nicht die Richtige für Ihr Projekt sind, sagen wir das direkt.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <Link
+                href="/anfrage"
+                className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center gap-2 text-[15px]"
+              >
+                Jetzt Projekt anfragen
+                <ArrowRight size={17} />
+              </Link>
+              <Link
+                href="/preise"
+                className="flex items-center gap-2 text-[#374151] font-semibold px-8 py-4 rounded-full border border-gray-200 hover:border-gray-400 transition-colors text-[15px]"
+              >
+                Preise ansehen
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+    </>
   )
 }
