@@ -8,7 +8,7 @@ import FadeIn from "@/components/ui/fade-in"
 export const metadata: Metadata = {
   title: "Projekt anfragen — DigitalForge",
   description:
-    "Erzählen Sie uns von Ihrem Projekt. Kostenlos, unverbindlich, 48h Antwortzeit garantiert.",
+    "Erzählen Sie uns von Ihrem Projekt. Kostenlos, unverbindlich, Antwort innerhalb von 24h garantiert.",
 }
 
 const afterSubmit = [
@@ -57,12 +57,12 @@ const guarantees = [
 
 const quickFaqs = [
   {
-    q: "Was wenn ich noch kein konkretes Budget habe?",
-    a: "Kein Problem. Wählen Sie einfach den Bereich, der am ehesten passt — wir klären Details im Gespräch.",
+    q: "Wie viel Zeit nimmt die Anfrage in Anspruch?",
+    a: "Zwei Minuten. Beschreiben Sie kurz, was Sie brauchen, und hinterlassen Sie Ihre Kontaktdaten. Den Rest klären wir im Gespräch.",
   },
   {
-    q: "Muss ich das Formular vollständig ausfüllen?",
-    a: "Schritt 1 und 2 sind Orientierungshilfen für uns. Wirklich wichtig ist die Projektbeschreibung in Schritt 3.",
+    q: "Was wenn ich noch kein konkretes Budget habe?",
+    a: "Kein Problem. Beschreiben Sie einfach Ihr Projekt — wir erstellen ein passendes Angebot und besprechen Budget und Umfang im Gespräch.",
   },
   {
     q: "Was passiert wenn mein Projekt nicht zu Ihnen passt?",
@@ -93,7 +93,7 @@ export default function AnfragePage() {
               <span className="text-[#2563eb]">Kein Vertrag. Noch nicht.</span>
             </h1>
             <p className="text-[#6b7280] text-xl max-w-xl leading-relaxed">
-              Drei kurze Schritte. Wir lesen Ihre Anfrage und antworten innerhalb von 24 Stunden —
+              Kurz beschreiben was Sie brauchen. Wir lesen Ihre Anfrage und antworten innerhalb von 24 Stunden —
               persönlich, ohne Autoresponder.
             </p>
           </FadeIn>
@@ -189,7 +189,7 @@ export default function AnfragePage() {
                 <div className="px-8 py-6 border-b border-gray-100">
                   <h2 className="font-bold text-[#111827] text-xl mb-1">Ihr Projekt beschreiben</h2>
                   <p className="text-[#9ca3af] text-sm">
-                    3 Schritte · ca. 3 Minuten · kostenlos & unverbindlich
+                    Kostenlos &amp; unverbindlich · Antwort innerhalb 24h
                   </p>
                 </div>
                 <div className="px-8 py-8">
@@ -216,7 +216,7 @@ export default function AnfragePage() {
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-8 text-center">
-              Häufige Fragen zum Formular
+              Häufige Fragen zur Anfrage
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
