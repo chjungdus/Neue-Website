@@ -76,13 +76,23 @@ export default function PortfolioGrid() {
             }`}
           >
             <div
-              className={`w-full bg-gradient-to-br from-[#2563eb]/10 to-[#0ea5e9]/10 flex items-center justify-center ${
+              className={`w-full overflow-hidden ${
                 i === 0 && activeTag === ALL_TAG ? "h-72" : "h-52"
               }`}
             >
-              <span className="text-5xl font-black text-[#2563eb]/20 select-none">
-                {project.client.slice(0, 2).toUpperCase()}
-              </span>
+              {project.image_url ? (
+                <img
+                  src={project.image_url}
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-[#2563eb]/10 to-[#0ea5e9]/10 flex items-center justify-center">
+                  <span className="text-5xl font-black text-[#2563eb]/20 select-none">
+                    {project.client.slice(0, 2).toUpperCase()}
+                  </span>
+                </div>
+              )}
             </div>
             <div className="p-6">
               <div className="flex items-start justify-between gap-4 mb-2">
