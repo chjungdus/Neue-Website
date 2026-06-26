@@ -14,15 +14,22 @@ export default function Hero() {
 
           {/* Left: Copy */}
           <div>
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="text-[#9ca3af] text-sm font-medium mb-8 flex items-center gap-2"
+              className="flex flex-wrap gap-2 mb-8"
             >
-              <span className="inline-block w-5 h-px bg-gray-300" />
-              Düsseldorf
-            </motion.p>
+              <span className="text-xs font-semibold bg-[#eff6ff] text-[#2563eb] px-3 py-1.5 rounded-full border border-[#2563eb]/20">
+                Ab 300 €
+              </span>
+              <span className="text-xs font-semibold bg-[#f0fdf4] text-[#10b981] px-3 py-1.5 rounded-full border border-[#10b981]/20">
+                Lieferung unter 1 Woche
+              </span>
+              <span className="text-xs font-semibold bg-[#f9fafb] text-[#374151] px-3 py-1.5 rounded-full border border-gray-200">
+                Festpreis garantiert
+              </span>
+            </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
@@ -44,7 +51,7 @@ export default function Hero() {
               className="text-xl text-[#374151] leading-relaxed mb-10 max-w-lg"
             >
               Wir bauen Websites, die messbar mehr Anfragen bringen —
-              nicht nur eine neue Optik. Individuell, schnell, mit Festpreis.
+              in unter einer Woche, ab 300 €, mit Festpreis.
             </motion.p>
 
             <motion.div
@@ -79,7 +86,7 @@ export default function Hero() {
                 {avatarInitials.map((init) => (
                   <div
                     key={init}
-                    className="w-9 h-9 rounded-full bg-gradient-to-br from-[#2563eb] to-[#0ea5e9] flex items-center justify-center text-white text-xs font-bold border-2 border-white"
+                    className="w-9 h-9 rounded-full bg-[#f3f4f6] flex items-center justify-center text-[#6b7280] text-xs font-bold border-2 border-white"
                   >
                     {init}
                   </div>
