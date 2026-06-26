@@ -176,7 +176,7 @@ export default function AnfragePage() {
                   <div className="mt-5 pt-5 border-t border-slate-800 flex items-center gap-3">
                     <CheckCircle size={14} className="text-[#10b981] shrink-0" />
                     <span className="text-slate-500 text-xs">
-                      Seit 2019 — in 73 Projekten — keine einzige unbeantwortete Anfrage
+                      in 4 Projekten — keine einzige unbeantwortete Anfrage
                     </span>
                   </div>
                 </div>

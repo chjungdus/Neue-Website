@@ -7,15 +7,13 @@ import FadeIn from "@/components/ui/fade-in"
 export const metadata: Metadata = {
   title: "Portfolio — DigitalForge",
   description:
-    "73 Projekte seit 2019. Von der Landing Page bis zur komplexen Web-App — hier sind die Ergebnisse.",
+    "4 Projekte. Handgebaut, kein Template. Von der Landing Page bis zur Web-App.",
 }
 
 const categories = [
-  { label: "Landing Pages", count: "18" },
-  { label: "Unternehmens-Websites", count: "27" },
-  { label: "Online-Shops", count: "14" },
-  { label: "Web-Apps", count: "11" },
-  { label: "Sonstiges", count: "3" },
+  { label: "Unternehmens-Websites", count: "2" },
+  { label: "Web-Apps", count: "1" },
+  { label: "E-Commerce", count: "1" },
 ]
 
 const selectionPrincipien = [
@@ -32,7 +30,7 @@ const selectionPrincipien = [
   {
     no: "03",
     title: "Wir zeigen Projekte, nicht Mockups.",
-    desc: "Alles hier war oder ist live. Kein Konzept das nie umgesetzt wurde, kein Demo-Store der nichts verkauft.",
+    desc: "Alles hier war oder ist live. Kein konzept das nie umgesetzt wurde, kein Demo-Store der nichts verkauft.",
   },
 ]
 
@@ -48,12 +46,12 @@ export default function PortfolioPage() {
               Portfolio
             </p>
             <h1 className="text-5xl md:text-6xl font-black text-[#111827] leading-[1.05] mb-5 max-w-2xl">
-              73 Projekte.
+              4 Projekte.
               <br />
               <span className="text-[#2563eb]">0 Templates.</span>
             </h1>
             <p className="text-[#6b7280] text-xl max-w-xl leading-relaxed">
-              Seit 2019. Jedes davon handgebaut — weil jedes Unternehmen andere Ziele hat und ein
+              Jedes davon handgebaut — weil jedes Unternehmen andere Ziele hat und ein
               Copy-Paste-Design das nicht abbildet.
             </p>
           </FadeIn>
