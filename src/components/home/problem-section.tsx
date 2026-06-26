@@ -4,21 +4,21 @@ const problems = [
   {
     num: "01",
     title: "Kaum Anfragen trotz Besucher",
-    body: "Google Analytics zeigt 300 Besucher pro Monat — aber das Kontaktformular klingelt nicht. Die Ursache ist fast immer dieselbe: keine klare Handlungsaufforderung, zu viel Text auf einmal, kein erkennbares Vertrauen. Die durchschnittliche Conversion-Rate einer typischen Unternehmensseite liegt bei 1,5 bis 2,5 %. Mit dem richtigen Design sind 4–6 % möglich.",
+    body: "300 Besucher im Monat, kaum Anfragen. Meist liegt es an fehlenden Vertrauenssignalen, zu viel Text oder keiner klaren Handlungsaufforderung. Mit dem richtigen Design sind 3–5× mehr Anfragen möglich.",
     stat: "Ø 1,5 – 2,5%",
     statNote: "Conversion bei Standard-Seiten",
   },
   {
     num: "02",
     title: "Google findet Sie nicht",
-    body: "90 % aller Klicks gehen an die ersten drei organischen Ergebnisse. Wer auf Seite 2 steht, existiert für neue Kunden praktisch nicht. Technische SEO-Fehler — fehlende Meta-Tags, langsame Ladezeiten, falsches Markup — sind oft in 6 bis 8 Wochen behebbar, wenn man weiß, wo man sucht.",
+    body: "90 % aller Klicks landen auf den ersten drei Ergebnissen. Wer auf Seite 2 steht, existiert für neue Kunden nicht. Technische SEO-Fehler lassen sich beheben — aber nur, wenn man weiß, wo man suchen muss.",
     stat: "90%",
     statNote: "klicken nur Top-3-Ergebnisse",
   },
   {
     num: "03",
     title: "Mobile-Nutzer springen ab",
-    body: "Über 63 % Ihrer Besucher kommen per Smartphone. Wenn Ihre Seite sich falsch anfühlt — Texte zu klein, Buttons zu eng, Ladezeit über 3 Sekunden — verlassen sie sie innerhalb von 8 Sekunden. Still. Ohne Anfrage. Google bestraft das doppelt: durch schlechtes Ranking und sinkende Klickrate.",
+    body: "Über 60 % der Besucher kommen per Smartphone. Kleine Texte, enge Buttons, zu lange Ladezeiten — und sie sind weg. Google bestraft das doppelt: schlechteres Ranking, sinkende Klickrate.",
     stat: "63%",
     statNote: "des Web-Traffics kommt mobil",
   },
@@ -36,7 +36,7 @@ export default function ProblemSection() {
             <h2 className="text-4xl md:text-5xl font-black text-white leading-tight mb-6">
               Drei Zeichen, dass Ihre Website
               <br />
-              <span className="text-[#f87171]">täglich Geld kostet.</span>
+              <span className="text-[#60a5fa]">täglich Geld kostet.</span>
             </h2>
             <p className="text-slate-400 text-lg leading-relaxed">
               Die meisten Unternehmer sehen ihre Website als erledigt. Die Realität: Sie verliert
@@ -55,7 +55,7 @@ export default function ProblemSection() {
                   <p className="text-slate-400 text-[15px] leading-relaxed">{p.body}</p>
                 </div>
                 <div className="bg-slate-800/50 border border-slate-700/50 rounded-2xl px-5 py-4 text-center md:text-left">
-                  <div className="text-[#f87171] text-2xl font-black leading-none mb-1">{p.stat}</div>
+                  <div className="text-[#60a5fa] text-2xl font-black leading-none mb-1">{p.stat}</div>
                   <div className="text-slate-500 text-xs leading-snug">{p.statNote}</div>
                 </div>
               </div>

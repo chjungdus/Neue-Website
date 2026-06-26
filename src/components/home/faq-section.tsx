@@ -13,12 +13,12 @@ const faqs = [
   {
     question: "Was kostet eine Website bei Ihnen?",
     answer:
-      "Unsere Projekte starten ab 3.500 € netto für Landing Pages und gehen bei komplexen Web-Apps bis 25.000 €. Der entscheidende Punkt: Sie wissen den genauen Preis vor Projektstart. Kein Stundensatz, keine Überraschungsrechnung am Ende. Was wir anbieten, kostet was es kostet — und das steht im Vertrag.",
+      "Unsere Pakete starten ab 200 € netto. Der entscheidende Punkt: Sie wissen den genauen Preis vor Projektstart. Kein Stundensatz, keine Überraschungsrechnung am Ende. Was wir anbieten, kostet was es kostet — und das steht im Vertrag.",
   },
   {
     question: "Vier Wochen — ist das wirklich realistisch?",
     answer:
-      "Ja, wenn Ihre Inhalte bereit sind: Texte, Bilder, Logo. Wenn das vor Projektstart vorliegt, halten wir vier Wochen seit 2019 in jedem Projekt ein. Wir helfen auch bei der Inhaltserstellung — das verlängert den Zeitplan, aber nur transparent und vorab vereinbart.",
+      "Ja, wenn Ihre Inhalte bereit sind: Texte, Bilder, Logo. Wenn das vor Projektstart vorliegt, halten wir vier Wochen in jedem Projekt ein. Wir helfen auch bei der Inhaltserstellung — das verlängert den Zeitplan, aber nur transparent und vorab vereinbart.",
   },
   {
     question: "Ich hatte schlechte Erfahrungen mit anderen Agenturen.",
@@ -28,12 +28,12 @@ const faqs = [
   {
     question: "Was passiert nach dem Launch?",
     answer:
-      "Sie bekommen alle Zugänge: Domain, Hosting, kompletten Code. Keine monatlichen Pflichtzahlungen, kein Lock-in. Optional bieten wir Wartungspakete ab 150 €/Monat für Updates, Backups und kleine Änderungen an. Aber: Pflicht ist das nicht. Die Website gehört Ihnen.",
+      "Sie bekommen alle Zugänge: Domain, Hosting, kompletten Code. Die Website gehört Ihnen. Optional bieten wir Pflegepakete ab 30 €/Monat für Updates, Inhaltsänderungen und Backups an — Pflicht ist das nicht.",
   },
   {
     question: "Kann ich Inhalte selbst bearbeiten?",
     answer:
-      "Im Professional-Paket ist ein CMS inklusive — damit können Sie Texte, Bilder und Seiten selbst verwalten, ohne technisches Wissen. Für alle anderen Pakete bauen wir auf Wunsch ein CMS ein. Das kostet extra, ist aber in 30 Minuten erklärt und danach selbstständig nutzbar.",
+      "Nein — wir bauen keine CMS-Lösungen. Änderungen erledigen wir für Sie über unsere Pflegepakete (ab 30 €/Monat). Für die meisten Kunden ist das günstiger und einfacher als ein eigenes CMS. Kleine Anpassungen sind in der Regel innerhalb von 24 Stunden erledigt.",
   },
 ]
 

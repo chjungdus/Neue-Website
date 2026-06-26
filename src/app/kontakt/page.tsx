@@ -146,13 +146,13 @@ export default function KontaktPage() {
                   </p>
                   <div className="flex flex-col gap-3">
                     <a
-                      href="tel:+498912345678"
+                      href="tel:+492111234567"
                       className="flex items-center gap-3 text-[#374151] hover:text-[#2563eb] transition-colors group"
                     >
                       <span className="w-9 h-9 rounded-xl bg-[#f3f4f6] flex items-center justify-center group-hover:bg-[#eff6ff] transition-colors">
                         <Phone size={15} className="text-[#6b7280] group-hover:text-[#2563eb] transition-colors" />
                       </span>
-                      <span className="text-sm font-medium">+49 89 123 456 78</span>
+                      <span className="text-sm font-medium">+49 211 123 456 7</span>
                     </a>
                     <a
                       href="mailto:hallo@digitalforge.de"

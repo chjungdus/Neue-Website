@@ -21,7 +21,7 @@ export default function Hero() {
               className="text-[#9ca3af] text-sm font-medium mb-8 flex items-center gap-2"
             >
               <span className="inline-block w-5 h-px bg-gray-300" />
-              München · Seit 2019 · 73 Projekte
+              Düsseldorf
             </motion.p>
 
             <motion.h1
@@ -89,7 +89,7 @@ export default function Hero() {
                 </div>
               </div>
               <div>
-                <div className="text-sm font-semibold text-[#111827]">73 Unternehmen vertrauen uns</div>
+                <div className="text-sm font-semibold text-[#111827]">4 Unternehmen vertrauen uns</div>
                 <div className="text-xs text-[#9ca3af]">Ø 4,8 / 5 Bewertung</div>
               </div>
             </motion.div>

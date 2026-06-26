@@ -25,7 +25,7 @@ const steps = [
   {
     week: "Woche 4",
     title: "Testing & Launch",
-    body: "Gründliches Testing auf allen gängigen Geräten und Browsern. Danach: Go-Live. Nicht \"irgendwann in den nächsten Wochen\" — ein konkretes Datum, das wir einhalten. Seit 2019, ohne Ausnahme.",
+    body: "Gründliches Testing auf allen gängigen Geräten und Browsern. Danach: Go-Live. Nicht \"irgendwann in den nächsten Wochen\" — ein konkretes Datum, das wir einhalten. Ohne Ausnahme.",
     deliverable: "Launch · Domain-Setup · Schulung · Übergabe",
     color: "#10b981",
   },
@@ -45,8 +45,8 @@ export default function Process() {
             <span className="text-[#9ca3af] font-normal text-3xl md:text-4xl">Wirklich.</span>
           </h2>
           <p className="text-[#6b7280] text-lg mb-20 max-w-lg leading-relaxed">
-            Nicht als Marketing-Versprechen — als verbindliche Deadline, die wir seit 2019
-            einhalten. Mit einem echten Prozess dahinter.
+            Nicht als Marketing-Versprechen — als verbindliche Deadline, die wir in jedem
+            Projekt einhalten. Mit einem echten Prozess dahinter.
           </p>
         </FadeIn>
 

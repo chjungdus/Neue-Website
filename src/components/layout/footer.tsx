@@ -43,13 +43,13 @@ export default function Footer() {
                 <Mail size={14} />
                 hallo@digitalforge.de
               </a>
-              <a href="tel:+4989123456789" className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
+              <a href="tel:+492111234567" className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
                 <Phone size={14} />
-                +49 89 123 456 789
+                +49 211 123 456 7
               </a>
               <span className="flex items-center gap-2 text-sm text-slate-400">
                 <MapPin size={14} />
-                München, Deutschland
+                Düsseldorf, Deutschland
               </span>
             </div>
           </div>

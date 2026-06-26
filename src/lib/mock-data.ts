@@ -45,9 +45,9 @@ export const mockProjects: PortfolioProject[] = [
   },
   {
     id: "4",
-    title: "Architekturbüro Meier",
+    title: "ArchitekturBüro Meier",
     slug: "architektur-meier",
-    description: "Minimalistisches Portfolio-Portfolio mit Projekt-Galerie und Kontaktformular.",
+    description: "Minimalistisches Portfolio mit Projekt-Galerie und Kontaktformular.",
     long_description:
       "Elegante Präsentations-Website mit animierter Bildergalerie, PDF-Download-Funktion und SEO-optimierten Projektseiten.",
     tags: ["Next.js", "Framer Motion", "Tailwind"],
@@ -56,33 +56,5 @@ export const mockProjects: PortfolioProject[] = [
     image_url: "/images/portfolio-4.jpg",
     featured: false,
     created_at: "2024-05-10",
-  },
-  {
-    id: "5",
-    title: "TechStart – SaaS Landing Page",
-    slug: "techstart-saas",
-    description: "Hochkonvertierende Landing Page für ein B2B-SaaS-Produkt.",
-    long_description:
-      "Conversion-optimierte Landing Page mit A/B-Testing, animierten Feature-Showcases, Pricing-Tabelle und integriertem Demo-Buchungskalender.",
-    tags: ["Next.js", "Tailwind", "Framer Motion", "Calendly"],
-    client: "TechStart Solutions",
-    url: "https://example.com",
-    image_url: "/images/portfolio-5.jpg",
-    featured: false,
-    created_at: "2024-03-18",
-  },
-  {
-    id: "6",
-    title: "NaturShop – Organic E-Commerce",
-    slug: "naturshop-ecommerce",
-    description: "Vollständiger Online-Shop für Bio-Produkte mit über 500 Artikeln.",
-    long_description:
-      "Shopify-Alternative auf Next.js Basis mit eigenem Warenkorb, Checkout, Lager-Management und automatischen Versandbenachrichtigungen.",
-    tags: ["Next.js", "Stripe", "Supabase", "Resend"],
-    client: "NaturShop Bayern",
-    url: "https://example.com",
-    image_url: "/images/portfolio-6.jpg",
-    featured: false,
-    created_at: "2024-01-30",
   },
 ]
