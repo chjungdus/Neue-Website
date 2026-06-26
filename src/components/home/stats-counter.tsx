@@ -13,10 +13,10 @@ interface StatData {
 
 const stats: StatData[] = [
   {
-    target: 73,
+    target: 4,
     suffix: "",
     label: "Projekte abgeschlossen",
-    note: "seit Gründung 2019",
+    note: "jedes pünktlich geliefert",
   },
   {
     target: 4.8,
