@@ -1,23 +1,24 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Geist } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/layout/navbar"
 import Footer from "@/components/layout/footer"
+import ScrollToTop from "@/components/ui/scroll-to-top"
 
-const inter = Inter({
-  variable: "--font-inter",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
   display: "swap",
 })
 
 export const metadata: Metadata = {
   title: {
-    default: "DigitalForge – Webdesign Agentur",
+    default: "DigitalForge – Webdesign Agentur Düsseldorf",
     template: "%s | DigitalForge",
   },
   description:
-    "Wir entwickeln professionelle Websites, Online-Shops und Web-Apps, die Ihre Kunden begeistern und Ihren Umsatz steigern.",
-  keywords: ["Webdesign", "Web-Entwicklung", "Online-Shop", "SEO", "Agentur"],
+    "Webdesign Agentur in Düsseldorf. Websites ab 300 € — fertig in unter einer Woche. Festpreis, keine Überraschungen.",
+  keywords: ["Webdesign", "Web-Entwicklung", "Online-Shop", "SEO", "Agentur", "Düsseldorf"],
   openGraph: {
     type: "website",
     locale: "de_DE",
@@ -31,11 +32,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="de" className={inter.variable}>
+    <html lang="de" className={geist.variable}>
       <body className="min-h-screen flex flex-col antialiased">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   )
