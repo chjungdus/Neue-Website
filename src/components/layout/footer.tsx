@@ -12,6 +12,7 @@ const footerLinks = {
     { href: "/portfolio", label: "Portfolio" },
     { href: "/ueber-uns", label: "Über uns" },
     { href: "/preise", label: "Preise" },
+    { href: "/faq", label: "FAQ" },
     { href: "/kontakt", label: "Kontakt" },
   ],
   Rechtliches: [
