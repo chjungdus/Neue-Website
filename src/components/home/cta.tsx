@@ -1,40 +1,97 @@
 import Link from "next/link"
-import { ArrowRight, Calendar } from "lucide-react"
+import { ArrowRight, Clock, Mail, Phone } from "lucide-react"
+import FadeIn from "@/components/ui/fade-in"
 
 export default function CTA() {
   return (
-    <section className="py-24">
+    <section className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="bg-[#2563eb] rounded-3xl">
-          <div className="text-center py-20 px-6">
-            <p className="text-white/70 text-xs font-semibold uppercase tracking-widest mb-4">
-              Jetzt starten
-            </p>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-              Bereit für eine Website,
-              <br />die wirklich arbeitet?
-            </h2>
-            <p className="text-white/80 text-lg max-w-xl mx-auto mb-3">
-              30 Minuten Erstgespräch. Kein Pitch, keine Folien.
-            </p>
-            <p className="text-white/60 text-base max-w-lg mx-auto mb-10">
-              Wir hören zu — und sagen Ihnen ehrlich, ob und wie wir helfen können. Ohne Druck, ohne Verpflichtung.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/anfrage"
-                className="bg-white text-[#2563eb] font-bold px-8 py-4 rounded-full hover:bg-gray-50 transition-all flex items-center gap-2 text-base"
-              >
-                Jetzt Projekt anfragen
-                <ArrowRight size={18} />
-              </Link>
-              <Link
-                href="/kontakt"
-                className="flex items-center gap-2 text-white font-semibold px-8 py-4 rounded-full border border-white/30 hover:bg-white/10 transition-all text-base"
-              >
-                <Calendar size={18} />
-                Termin vereinbaren
-              </Link>
+        <div className="bg-[#0f172a] rounded-3xl overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] divide-y lg:divide-y-0 lg:divide-x divide-slate-800">
+
+            {/* Left: main CTA */}
+            <div className="p-10 md:p-14">
+              <FadeIn>
+                <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-6">
+                  Nächster Schritt
+                </p>
+                <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+                  30 Minuten.
+                  <br />
+                  <span className="text-slate-500 font-light">Kein Pitch. Kein Druck.</span>
+                </h2>
+                <p className="text-slate-400 text-lg mb-5 max-w-lg leading-relaxed">
+                  Wir hören zu und sagen Ihnen ehrlich, ob und wie wir helfen können. Wenn wir
+                  nicht die richtige Agentur für Ihr Projekt sind — sagen wir das auch.
+                </p>
+                <p className="text-slate-600 text-sm mb-10 max-w-md leading-relaxed">
+                  Nicht zufrieden mit dem ersten Design-Entwurf? Wir überarbeiten kostenlos,
+                  ohne Diskussion, so lange bis es passt.
+                </p>
+                <div className="flex flex-col sm:flex-row items-start gap-3">
+                  <Link
+                    href="/anfrage"
+                    className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center gap-2 text-[15px]"
+                  >
+                    Jetzt Projekt anfragen
+                    <ArrowRight size={17} />
+                  </Link>
+                  <Link
+                    href="/kontakt"
+                    className="flex items-center gap-2 text-slate-400 font-semibold px-8 py-4 rounded-full border border-slate-700 hover:border-slate-500 hover:text-white transition-all text-[15px]"
+                  >
+                    Erst mal schreiben
+                  </Link>
+                </div>
+              </FadeIn>
+            </div>
+
+            {/* Right: contact info */}
+            <div className="p-10 md:p-14 flex flex-col justify-center gap-6">
+              <FadeIn direction="right">
+                <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-8">
+                  Direktkontakt
+                </p>
+                <div className="flex flex-col gap-5">
+                  <a
+                    href="tel:+498912345678"
+                    className="flex items-center gap-3.5 text-slate-400 hover:text-white transition-colors group"
+                  >
+                    <span className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563eb] transition-colors">
+                      <Phone
+                        size={15}
+                        className="text-slate-500 group-hover:text-white transition-colors"
+                      />
+                    </span>
+                    <span className="text-sm font-medium">+49 89 123 456 78</span>
+                  </a>
+                  <a
+                    href="mailto:hallo@digitalforge.de"
+                    className="flex items-center gap-3.5 text-slate-400 hover:text-white transition-colors group"
+                  >
+                    <span className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563eb] transition-colors">
+                      <Mail
+                        size={15}
+                        className="text-slate-500 group-hover:text-white transition-colors"
+                      />
+                    </span>
+                    <span className="text-sm font-medium">hallo@digitalforge.de</span>
+                  </a>
+                  <div className="flex items-center gap-3.5 text-slate-600">
+                    <span className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0">
+                      <Clock size={15} />
+                    </span>
+                    <span className="text-sm">Mo – Fr · 9 – 18 Uhr</span>
+                  </div>
+                </div>
+                <div className="mt-8 pt-6 border-t border-slate-800">
+                  <p className="text-slate-700 text-xs leading-relaxed">
+                    Antwort innerhalb von 24 Stunden
+                    <br />
+                    Erstgespräch kostenlos & unverbindlich
+                  </p>
+                </div>
+              </FadeIn>
             </div>
           </div>
         </div>
