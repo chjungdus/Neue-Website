@@ -26,12 +26,6 @@ const stats: StatData[] = [
     decimal: true,
   },
   {
-    target: 4,
-    suffix: " Wo.",
-    label: "Bis zum Go-Live",
-    note: "verbindlich — nicht \"irgendwann\"",
-  },
-  {
     target: 0,
     suffix: "",
     label: "Templates verwendet",
@@ -88,7 +82,7 @@ export default function StatsCounter() {
   return (
     <section className="py-24 bg-[#f9fafb] border-y border-gray-100">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
           {stats.map((stat, i) => (
             <FadeIn key={stat.label} delay={i * 0.08} direction="up">
               <div className="text-center">
