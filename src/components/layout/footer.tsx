@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Zap, Mail, MapPin, Phone } from "lucide-react"
+import { Zap, MapPin } from "lucide-react"
 
 const footerLinks = {
   Leistungen: [
@@ -39,14 +39,6 @@ export default function Footer() {
               Wir bauen Websites, die nicht nur schön aussehen – sondern messbar mehr Kunden bringen.
             </p>
             <div className="mt-6 flex flex-col gap-2">
-              <a href="mailto:hallo@digitalforge.de" className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
-                <Mail size={14} />
-                hallo@digitalforge.de
-              </a>
-              <a href="tel:+492111234567" className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
-                <Phone size={14} />
-                +49 211 123 456 7
-              </a>
               <span className="flex items-center gap-2 text-sm text-slate-400">
                 <MapPin size={14} />
                 Düsseldorf, Deutschland
