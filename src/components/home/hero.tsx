@@ -1,116 +1,191 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, Check } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 
-const checks = [
-  "Festpreis — vorab fix, kein Stundensatz, keine Nachträge",
-  "In 4 Wochen live, verbindlich statt irgendwann",
-  "Erstes Gespräch kostenlos, ehrliche Einschätzung",
-]
-
-const stats = [
-  { value: "73", label: "Projekte" },
-  { value: "Ø 4,8 / 5", label: "Bewertung" },
-  { value: "Seit 2019", label: "München" },
-]
+const avatarInitials = ["MW", "SM", "TR", "AK"]
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-16 bg-white">
-      <div className="relative z-10 max-w-2xl mx-auto px-6 text-center w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45 }}
-          className="inline-flex items-center gap-2 bg-[#eff6ff] text-[#2563eb] text-xs font-semibold px-4 py-2 rounded-full mb-8"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb]" />
-          Aktuell 2 Projektplätze frei
-        </motion.div>
+    <section className="min-h-screen flex items-center pt-16 bg-white overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 w-full py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-16 xl:gap-24 items-center">
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.08 }}
-          className="text-4xl md:text-6xl font-black text-[#111827] leading-[1.1] tracking-tight mb-4"
-        >
-          Schöne Websites
-          <br />
-          gibt es viele.
-          <br />
-          <span className="gradient-text">Wirksame selten.</span>
-        </motion.h1>
+          {/* Left: Copy */}
+          <div>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="text-[#9ca3af] text-sm font-medium mb-8 flex items-center gap-2"
+            >
+              <span className="inline-block w-5 h-px bg-gray-300" />
+              München · Seit 2019 · 73 Projekte
+            </motion.p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.16 }}
-          className="text-lg text-[#6b7280] mb-8 leading-relaxed"
-        >
-          Individuell gestaltet. Messbar wirksamer. In 4 Wochen live.
-        </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.08 }}
+              className="text-[52px] md:text-[72px] font-black text-[#111827] leading-[1.03] tracking-tight mb-8"
+            >
+              Ihre Konkurrenz
+              <br />
+              gewinnt Kunden
+              <br />
+              <span className="gradient-text">im Internet.</span>
+            </motion.h1>
 
-        <motion.ul
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.22 }}
-          className="flex flex-col gap-3 mb-10 text-left"
-        >
-          {checks.map((text) => (
-            <li key={text} className="flex items-start gap-3 text-[#374151] text-sm">
-              <span className="w-5 h-5 rounded-full bg-[#2563eb] flex items-center justify-center flex-shrink-0 mt-0.5">
-                <Check size={11} className="text-white" strokeWidth={3} />
-              </span>
-              {text}
-            </li>
-          ))}
-        </motion.ul>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.18 }}
+              className="text-xl text-[#374151] leading-relaxed mb-10 max-w-lg"
+            >
+              Wir bauen Websites, die messbar mehr Anfragen bringen —
+              nicht nur eine neue Optik. Individuell, schnell, mit Festpreis.
+            </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.28 }}
-          className="flex flex-col gap-3 mb-4"
-        >
-          <Link
-            href="/anfrage"
-            className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center justify-center gap-2 text-base w-full"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.26 }}
+              className="flex flex-col sm:flex-row items-start gap-3 mb-12"
+            >
+              <Link
+                href="/anfrage"
+                className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center gap-2 text-[15px] shrink-0"
+              >
+                Kostenloses Erstgespräch
+                <ArrowRight size={17} />
+              </Link>
+              <Link
+                href="/portfolio"
+                className="text-[#374151] font-semibold px-8 py-4 rounded-full border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all text-[15px]"
+              >
+                Unsere Arbeit ansehen
+              </Link>
+            </motion.div>
+
+            {/* Social proof row */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.42 }}
+              className="flex items-center gap-5 pt-8 border-t border-gray-100"
+            >
+              <div className="flex -space-x-2">
+                {avatarInitials.map((init) => (
+                  <div
+                    key={init}
+                    className="w-9 h-9 rounded-full bg-gradient-to-br from-[#2563eb] to-[#0ea5e9] flex items-center justify-center text-white text-xs font-bold border-2 border-white"
+                  >
+                    {init}
+                  </div>
+                ))}
+                <div className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-[#9ca3af] text-xs font-bold border-2 border-white">
+                  +
+                </div>
+              </div>
+              <div>
+                <div className="text-sm font-semibold text-[#111827]">73 Unternehmen vertrauen uns</div>
+                <div className="text-xs text-[#9ca3af]">Ø 4,8 / 5 Bewertung</div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right: Browser mockup with floating metrics */}
+          <motion.div
+            initial={{ opacity: 0, x: 40, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="hidden lg:block"
           >
-            Kostenloses Erstgespräch buchen
-            <ArrowRight size={18} />
-          </Link>
-          <Link
-            href="/portfolio"
-            className="text-[#6b7280] font-medium px-8 py-4 rounded-full border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all flex items-center justify-center gap-2 text-base w-full"
-          >
-            Unsere Arbeit ansehen
-          </Link>
-        </motion.div>
+            <div className="relative">
+              {/* Browser window */}
+              <div className="bg-[#0f172a] rounded-2xl p-1.5 shadow-2xl shadow-slate-900/20">
+                <div className="bg-[#1e293b] rounded-xl overflow-hidden">
+                  {/* Chrome bar */}
+                  <div className="flex items-center gap-1.5 px-4 py-3 bg-[#334155]">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+                    <div className="flex-1 mx-3 bg-[#475569] rounded-md px-3 py-1 text-[10px] text-slate-300 font-mono">
+                      www.ihr-unternehmen.de
+                    </div>
+                  </div>
+                  {/* Simulated page content */}
+                  <div className="bg-white">
+                    <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100">
+                      <div className="h-2.5 w-20 bg-[#2563eb] rounded-full" />
+                      <div className="flex items-center gap-3">
+                        <div className="h-1.5 w-8 bg-gray-200 rounded-full" />
+                        <div className="h-1.5 w-8 bg-gray-200 rounded-full" />
+                        <div className="h-1.5 w-8 bg-gray-200 rounded-full" />
+                        <div className="h-5 w-16 bg-[#2563eb] rounded-full" />
+                      </div>
+                    </div>
+                    <div className="px-5 py-6 space-y-2.5">
+                      <div className="h-2 w-1/3 bg-gray-200 rounded-full" />
+                      <div className="h-6 w-3/4 bg-[#0f172a] rounded-lg" />
+                      <div className="h-5 w-2/3 bg-[#0f172a] rounded-lg opacity-60" />
+                      <div className="h-3 w-full bg-gray-100 rounded-full mt-3" />
+                      <div className="h-3 w-5/6 bg-gray-100 rounded-full" />
+                      <div className="flex gap-2 mt-5">
+                        <div className="h-9 w-32 bg-[#2563eb] rounded-full" />
+                        <div className="h-9 w-28 border border-gray-200 rounded-full" />
+                      </div>
+                    </div>
+                    <div className="px-5 pb-5">
+                      <div className="grid grid-cols-3 gap-2">
+                        {[1, 2, 3].map((i) => (
+                          <div key={i} className="h-20 bg-[#f9fafb] rounded-xl" />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.34 }}
-          className="text-xs text-[#9ca3af] mb-16"
-        >
-          15 Min, unverbindlich, ehrliche Einschätzung.
-        </motion.p>
+              {/* Floating: Conversion */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.5 }}
+                className="absolute -bottom-5 -left-8 bg-white rounded-2xl shadow-xl border border-gray-100 px-5 py-3.5 min-w-[165px]"
+              >
+                <div className="text-[10px] text-[#9ca3af] mb-1.5 font-medium uppercase tracking-wide">
+                  Conversion Rate
+                </div>
+                <div className="flex items-baseline gap-2 mb-0.5">
+                  <span className="text-2xl font-black text-[#111827]">3,2%</span>
+                  <span className="text-xs font-bold text-[#10b981] bg-[#f0fdf4] px-1.5 py-0.5 rounded-full">
+                    ↑ +128%
+                  </span>
+                </div>
+                <div className="text-[10px] text-[#9ca3af]">nach dem Relaunch · GreenMeal</div>
+              </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.42 }}
-          className="flex items-center justify-center gap-10 border-t border-gray-100 pt-8"
-        >
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-2xl font-black text-[#111827]">{stat.value}</div>
-              <div className="text-xs text-[#9ca3af] mt-0.5">{stat.label}</div>
+              {/* Floating: Google */}
+              <motion.div
+                initial={{ opacity: 0, y: -16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.85, duration: 0.5 }}
+                className="absolute -top-5 -right-5 bg-white rounded-2xl shadow-xl border border-gray-100 px-5 py-3.5 min-w-[155px]"
+              >
+                <div className="text-[10px] text-[#9ca3af] mb-1.5 font-medium uppercase tracking-wide">
+                  Google Ranking
+                </div>
+                <div className="flex items-baseline gap-1.5 mb-0.5">
+                  <span className="text-2xl font-black text-[#111827]">#1</span>
+                  <span className="text-xs text-[#6b7280]">organisch</span>
+                </div>
+                <div className="text-[10px] text-[#9ca3af]">Hauptkeyword · LuxeRooms</div>
+              </motion.div>
             </div>
-          ))}
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )

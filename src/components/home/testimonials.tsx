@@ -1,86 +1,100 @@
-import { Star } from "lucide-react"
+import { Quote } from "lucide-react"
+import FadeIn from "@/components/ui/fade-in"
 
-const testimonials = [
+const secondary = [
   {
-    quote:
-      "Nach dem Relaunch im Februar sind unsere monatlichen Online-Anfragen von durchschnittlich 3 auf 11 gestiegen. Das sind keine Hochrechnungen — das sind echte Zahlen aus unserem CRM.",
-    author: "Markus Weber",
-    role: "Geschäftsführer",
-    company: "LuxeRooms",
-    rating: 5,
-    time: "vor 3 Monaten",
-  },
-  {
-    quote:
-      "Conversion von 1,4 % auf 3,2 % — in den ersten drei Monaten nach Launch. Ich war ehrlich gesagt skeptisch, ob sich die Investition lohnt. Sie hat sich gelohnt.",
-    author: "Sarah Müller",
-    role: "Marketing Leiterin",
+    name: "Sarah M.",
     company: "GreenMeal",
-    rating: 5,
-    time: "vor 5 Monaten",
+    quote:
+      "Conversion von 1,4 % auf 3,2 % — in den ersten drei Monaten nach Launch. Ich war ehrlich gesagt skeptisch, ob sich die Investition lohnt.",
   },
   {
-    quote:
-      "Ich hatte davor zwei schlechte Erfahrungen mit anderen Agenturen. Bei DigitalForge wurde pünktlich geliefert, der Prozess war transparent — und ich musste nicht dreimal nachfragen, was gerade passiert.",
-    author: "Thomas Richter",
-    role: "Inhaber",
+    name: "Thomas R.",
     company: "KraftWerk Fitness",
-    rating: 4,
-    time: "vor 7 Monaten",
+    quote:
+      "Pünktlich geliefert, transparenter Prozess. Nach zwei schlechten Erfahrungen mit anderen Agenturen war das keine Selbstverständlichkeit.",
+  },
+  {
+    name: "Andrea K.",
+    company: "HolzMeister",
+    quote:
+      "Erstmals auf Seite 1 für unser wichtigstes Keyword — 6 Wochen nach dem Launch. Ohne bezahlte Anzeigen.",
   },
 ]
 
-function Stars({ count }: { count: number }) {
-  return (
-    <div className="flex gap-0.5">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <Star
-          key={i}
-          size={14}
-          className={i < count ? "fill-[#f59e0b] text-[#f59e0b]" : "fill-gray-200 text-gray-200"}
-        />
-      ))}
-    </div>
-  )
-}
-
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-28 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-12">
-          <p className="text-[#2563eb] text-xs font-semibold uppercase tracking-widest mb-3">
-            Kundenstimmen
+        <FadeIn>
+          <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-16">
+            Was Kunden sagen
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-[#111827]">
-            Was unsere Kunden berichten.
-          </h2>
-        </div>
+        </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {testimonials.map((t) => (
-            <div
-              key={t.author}
-              className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col gap-4 card-hover"
-            >
-              <Stars count={t.rating} />
-              <p className="text-[#374151] text-sm leading-relaxed flex-1">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <div className="pt-4 border-t border-gray-100 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-[#eff6ff] flex items-center justify-center text-[#2563eb] font-bold text-sm flex-shrink-0">
-                  {t.author.split(" ").map((n) => n[0]).join("")}
+        {/* Main testimonial */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12 lg:gap-20 items-start mb-16">
+          <FadeIn>
+            <div>
+              <Quote size={52} className="text-[#f3f4f6] mb-6" strokeWidth={1.5} />
+              <blockquote className="text-2xl md:text-3xl font-medium text-[#111827] leading-relaxed mb-10">
+                &bdquo;Nach dem Relaunch im Februar sind unsere monatlichen Online-Anfragen von
+                durchschnittlich 3 auf 11 gestiegen. Das sind keine Hochrechnungen — das sind
+                echte Zahlen aus unserem CRM.&ldquo;
+              </blockquote>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#2563eb] to-[#0ea5e9] flex items-center justify-center text-white font-bold text-sm">
+                  MW
                 </div>
                 <div>
-                  <div className="font-semibold text-[#111827] text-sm">{t.author}</div>
-                  <div className="text-[#9ca3af] text-xs">
-                    {t.role} · {t.company} · {t.time}
+                  <div className="font-bold text-[#111827]">Markus Weber</div>
+                  <div className="text-[#6b7280] text-sm">
+                    Geschäftsführer · LuxeRooms GmbH
                   </div>
                 </div>
               </div>
             </div>
-          ))}
+          </FadeIn>
+
+          {/* Right: Key metrics from the testimonial */}
+          <FadeIn delay={0.15} direction="right">
+            <div className="flex flex-col gap-4">
+              <div className="bg-[#f9fafb] border border-gray-100 rounded-2xl p-6">
+                <div className="text-[10px] text-[#9ca3af] font-semibold uppercase tracking-wide mb-2">
+                  Ergebnis
+                </div>
+                <div className="text-4xl font-black text-[#111827] mb-1">3 → 11</div>
+                <div className="text-sm text-[#6b7280]">Online-Anfragen pro Monat</div>
+                <div className="text-xs text-[#10b981] font-semibold mt-2 bg-[#f0fdf4] inline-block px-2.5 py-1 rounded-full">
+                  +267% Steigerung
+                </div>
+              </div>
+              <div className="bg-[#f9fafb] border border-gray-100 rounded-2xl p-6">
+                <div className="text-[10px] text-[#9ca3af] font-semibold uppercase tracking-wide mb-2">
+                  Timeline
+                </div>
+                <div className="text-4xl font-black text-[#111827] mb-1">4 Wo.</div>
+                <div className="text-sm text-[#6b7280]">Von Briefing bis Launch</div>
+                <div className="text-xs text-[#6b7280] font-medium mt-2">wie versprochen</div>
+              </div>
+            </div>
+          </FadeIn>
         </div>
+
+        {/* Secondary testimonials */}
+        <FadeIn delay={0.2}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10 border-t border-gray-100">
+            {secondary.map((t) => (
+              <div key={t.name} className="space-y-4">
+                <p className="text-[#374151] text-sm leading-relaxed">&bdquo;{t.quote}&ldquo;</p>
+                <div>
+                  <div className="text-xs font-bold text-[#111827]">{t.name}</div>
+                  <div className="text-xs text-[#9ca3af]">{t.company}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
       </div>
     </section>
   )
