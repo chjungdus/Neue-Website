@@ -15,7 +15,7 @@ const values = [
   },
   {
     title: "Prozess über Improvisation",
-    body: "Jedes Projekt läuft nach demselben Schema: Briefing, Konzept, Design, Entwicklung, Launch. Wöchentliche Status-Updates mit Live-Link. Kein Raten, keine bösen Überraschungen.",
+    body: "Jedes Projekt läuft nach demselben Schema: Briefing, Konzept, Design, Entwicklung, Launch. Klare Status-Updates mit Live-Link. Kein Raten, keine bösen Überraschungen.",
   },
   {
     title: "Weniger Kunden, bessere Arbeit",
@@ -26,7 +26,7 @@ const values = [
 const notForUs = [
   {
     type: "Billigst-Anfragen",
-    desc: "Wer eine 500-€-Website will, findet sie woanders. Wir machen das nicht.",
+    desc: "Wer einen Discounter-Preis ohne Qualität erwartet, findet diese Kombination woanders.",
   },
   {
     type: "Kein klares Ziel",
@@ -44,21 +44,20 @@ const notForUs = [
 
 const team = [
   {
-    name: "Christian Jung",
+    name: "Mateo Sainz de la Maza",
     role: "Gründer & Lead Developer",
     since: "Düsseldorf",
-    body: "Hat vor DigitalForge mehrere Jahre als Frontend-Entwickler bei anderen Agenturen gearbeitet. Hat die Muster gesehen: Overpromising im Vertrieb, Underdelivering in der Umsetzung. Hat DigitalForge gegründet, um das Gegenteil zu beweisen.",
+    body: "Hat mehrere Jahre als Frontend-Entwickler und digitaler Stratege für verschiedene Unternehmen und Agenturen gearbeitet. Hat die immer gleichen Muster gesehen: Overpromising im Vertrieb, Underdelivering in der Umsetzung. Hat DigitalForge gegründet, um das Gegenteil zu beweisen.",
     focus: ["Next.js & React", "Conversion-Optimierung", "Performance"],
   },
   {
-    name: "Lena Hofmann",
+    name: "Zhou Jun",
     role: "Design & UX",
     since: "Düsseldorf",
-    body: "Hat UX-Design studiert und danach in einem E-Commerce-Startup die Auswirkung von Design-Entscheidungen auf Kaufraten direkt gemessen. Gestaltet keine schönen Seiten — gestaltet Seiten, die verkaufen.",
+    body: "Hat UX-Design studiert und danach in mehreren digitalen Projekten die direkte Auswirkung von Design-Entscheidungen auf Konversionsraten gemessen. Gestaltet keine schönen Seiten — gestaltet Seiten, die Besucher in Kunden verwandeln.",
     focus: ["Figma & Prototyping", "UX-Research", "A/B-Testing"],
   },
 ]
-
 
 export default function UeberUnsPage() {
   return (
@@ -92,9 +91,9 @@ export default function UeberUnsPage() {
                 Wie es begann
               </p>
               <h2 className="text-3xl md:text-4xl font-black text-[#111827] mb-6 leading-tight">
-                Zwei Entwickler,
+                Eine kaputte Website,
                 <br />
-                eine kaputte Website,
+                vier Nachbesserungen,
                 <br />
                 ein Beschluss.
               </h2>
@@ -103,14 +102,14 @@ export default function UeberUnsPage() {
             <FadeIn delay={0.1}>
               <div className="space-y-5 text-[#6b7280] leading-relaxed">
                 <p>
-                  Christian hat als Freelancer für eine andere Agentur gearbeitet. Aufgabe:
+                  Mateo hat als Freelancer für eine andere Agentur gearbeitet. Aufgabe:
                   Eine Website für einen Steuerberater &quot;reparieren&quot;, die die Agentur selbst gebaut
                   hatte. Vier Nachbesserungsrunden. Zwei verpasste Deadlines. Ein Kunde, der bereits
                   bezahlt hatte und trotzdem nichts in der Hand hatte.
                 </p>
                 <p>
                   Das war kein Einzelfall — das war das Geschäftsmodell. Overpromise, Underdeliver,
-                  nächsten Kunden akquirieren. Christian beschloss, eine Agentur zu gründen, bei der
+                  nächsten Kunden akquirieren. Mateo beschloss, eine Agentur zu gründen, bei der
                   das Gegenteil das Geschäftsmodell ist.
                 </p>
                 <p className="text-[#374151] font-medium">
@@ -121,7 +120,6 @@ export default function UeberUnsPage() {
               </div>
             </FadeIn>
           </div>
-
         </div>
       </section>
 
@@ -234,7 +232,8 @@ export default function UeberUnsPage() {
                       {member.name
                         .split(" ")
                         .map((n) => n[0])
-                        .join("")}
+                        .join("")
+                        .slice(0, 2)}
                     </span>
                   </div>
 
