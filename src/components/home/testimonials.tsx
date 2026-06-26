@@ -38,19 +38,17 @@ export default function Testimonials() {
             <div>
               <Quote size={52} className="text-[#f3f4f6] mb-6" strokeWidth={1.5} />
               <blockquote className="text-2xl md:text-3xl font-medium text-[#111827] leading-relaxed mb-10">
-                &bdquo;Nach dem Relaunch im Februar sind unsere monatlichen Online-Anfragen von
+                „Nach dem Relaunch im Februar sind unsere monatlichen Online-Anfragen von
                 durchschnittlich 3 auf 11 gestiegen. Das sind keine Hochrechnungen — das sind
-                echte Zahlen aus unserem CRM.&ldquo;
+                echte Zahlen aus unserem CRM."
               </blockquote>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#2563eb] to-[#0ea5e9] flex items-center justify-center text-white font-bold text-sm">
+                <div className="w-12 h-12 rounded-full bg-[#f3f4f6] flex items-center justify-center text-[#6b7280] font-bold text-sm">
                   MW
                 </div>
                 <div>
                   <div className="font-bold text-[#111827]">Markus Weber</div>
-                  <div className="text-[#6b7280] text-sm">
-                    Geschäftsführer · LuxeRooms GmbH
-                  </div>
+                  <div className="text-[#9ca3af] text-sm">Kunde</div>
                 </div>
               </div>
             </div>
@@ -86,7 +84,7 @@ export default function Testimonials() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10 border-t border-gray-100">
             {secondary.map((t) => (
               <div key={t.name} className="space-y-4">
-                <p className="text-[#374151] text-sm leading-relaxed">&bdquo;{t.quote}&ldquo;</p>
+                <p className="text-[#374151] text-sm leading-relaxed">„{t.quote}"</p>
                 <div>
                   <div className="text-xs font-bold text-[#111827]">{t.name}</div>
                   <div className="text-xs text-[#9ca3af]">{t.company}</div>

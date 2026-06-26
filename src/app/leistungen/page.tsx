@@ -141,7 +141,7 @@ export default function LeistungenPage() {
             <h1 className="text-5xl md:text-7xl font-black text-[#111827] leading-[1.05] mb-8 max-w-3xl">
               Was kostet eine
               <br />
-              <span className="text-[#ef4444]">schlechte Website</span>
+              <span className="text-[#2563eb]">schlechte Website</span>
               <br />
               wirklich?
             </h1>
@@ -304,7 +304,7 @@ export default function LeistungenPage() {
                   <br />
                   Wir überarbeiten kostenlos.
                 </h2>
-                <p className="text-[#6b7280] leading-relaxed text-base max-w-xl">
+                <p className="text-[#6b7280] text-base leading-relaxed max-w-xl">
                   Nach dem ersten Design-Entwurf haben Sie das Recht auf beliebig viele
                   Überarbeitungen — ohne Diskussion, ohne Aufpreis — bis das Design dem entspricht,
                   was im Briefing vereinbart war. Das steht so im Vertrag.
