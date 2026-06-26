@@ -31,14 +31,14 @@ export default function AGBPage() {
 
         <h1 className="text-4xl font-black text-[#111827] mb-4">Allgemeine Geschäftsbedingungen</h1>
         <p className="text-[#6b7280] text-sm mb-12">
-          der DigitalForge GmbH, Maximilianstraße 12, 80539 München — Stand: Juni 2026
+          der DigitalForge GmbH, Königsallee 14, 40212 Düsseldorf — Stand: Juni 2026
         </p>
 
         <div className="space-y-10">
           <Section num="1" title="Geltungsbereich">
             <p>
               Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen der DigitalForge GmbH
-              (nachfolgend „Auftragnehmer“) und dem Auftraggeber über die Erbringung von Web-Design-, Web-Entwicklungs-
+              (nachfolgend „Auftragnehmer") und dem Auftraggeber über die Erbringung von Web-Design-, Web-Entwicklungs-
               und damit zusammenhängenden Dienstleistungen.
             </p>
             <p>
@@ -171,7 +171,7 @@ export default function AGBPage() {
           <Section num="12" title="Schlussbestimmungen">
             <p>
               Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts. Gerichtsstand für
-              alle Streitigkeiten ist München, sofern der Auftraggeber Kaufmann ist.
+              alle Streitigkeiten ist Düsseldorf, sofern der Auftraggeber Kaufmann ist.
             </p>
             <p>
               Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, berührt dies die Wirksamkeit der

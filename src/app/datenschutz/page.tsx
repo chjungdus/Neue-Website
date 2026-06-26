@@ -46,11 +46,11 @@ export default function DatenschutzPage() {
             <p>
               DigitalForge GmbH
               <br />
-              Maximilianstraße 12
+              Königsallee 14
               <br />
-              80539 München
+              40212 Düsseldorf
               <br />
-              Telefon: +49 (0) 89 123 456 78
+              Telefon: +49 (0) 211 123 456 7
               <br />
               E-Mail:{" "}
               <a href="mailto:datenschutz@digitalforge.de" className="text-[#2563eb] hover:underline">
@@ -62,7 +62,7 @@ export default function DatenschutzPage() {
           <Section title="3. Datenerfassung auf dieser Website">
             <h3 className="text-[#111827] font-semibold text-sm mb-2">Cookies</h3>
             <p>
-              Unsere Internetseiten verwenden sogenannte „Cookies“. Cookies sind kleine Datenpakete und richten auf
+              Unsere Internetseiten verwenden sogenannte „Cookies". Cookies sind kleine Datenpakete und richten auf
               Ihrem Endgerät keinen Schaden an. Sie werden entweder vorübergehend für die Dauer einer Sitzung
               (Session-Cookies) oder dauerhaft (permanente Cookies) auf Ihrem Endgerät gespeichert.
             </p>
@@ -190,7 +190,7 @@ export default function DatenschutzPage() {
             <p>
               Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine
               SSL-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers
-              von „http://“ auf „https://“ wechselt.
+              von „http://" auf „https://" wechselt.
             </p>
           </Section>
 

@@ -26,9 +26,9 @@ export default function ImpressumPage() {
             <p className="leading-relaxed text-sm">
               DigitalForge GmbH
               <br />
-              Maximilianstraße 12
+              Königsallee 14
               <br />
-              80539 München
+              40212 Düsseldorf
               <br />
               Deutschland
             </p>
@@ -37,7 +37,7 @@ export default function ImpressumPage() {
           <section>
             <h2 className="text-[#111827] font-bold text-base mb-3">Kontakt</h2>
             <p className="leading-relaxed text-sm">
-              Telefon: +49 (0) 89 123 456 78
+              Telefon: +49 (0) 211 123 456 7
               <br />
               E-Mail:{" "}
               <a href="mailto:hallo@digitalforge.de" className="text-[#2563eb] hover:underline">
@@ -49,9 +49,9 @@ export default function ImpressumPage() {
           <section>
             <h2 className="text-[#111827] font-bold text-base mb-3">Handelsregister</h2>
             <p className="leading-relaxed text-sm">
-              Registergericht: Amtsgericht München
+              Registergericht: Amtsgericht Düsseldorf
               <br />
-              Registernummer: HRB 245678
+              Registernummer: HRB 98765
             </p>
           </section>
 
@@ -71,9 +71,9 @@ export default function ImpressumPage() {
             <p className="leading-relaxed text-sm">
               Leon Bauer
               <br />
-              Maximilianstraße 12
+              Königsallee 14
               <br />
-              80539 München
+              40212 Düsseldorf
             </p>
           </section>
 
