@@ -1,92 +1,87 @@
 import { Quote } from "lucide-react"
 import FadeIn from "@/components/ui/fade-in"
 
-const secondary = [
+const testimonials = [
   {
-    name: "Sarah M.",
-    company: "GreenMeal",
-    quote:
-      "Conversion von 1,4 % auf 3,2 % — in den ersten drei Monaten nach Launch. Ich war ehrlich gesagt skeptisch, ob sich die Investition lohnt.",
+    name: "Carlos V.",
+    company: "Limpiezas El Valle",
+    initials: "CV",
+    quote: "Vorher hat uns online niemand gefunden. Jetzt rufen täglich neue Kunden an — direkt über die Website.",
+    result: "+240%",
+    resultNote: "mehr Anfragen in 3 Monaten",
+    color: "#10b981",
   },
   {
-    name: "Thomas R.",
-    company: "KraftWerk Fitness",
-    quote:
-      "Pünktlich geliefert, transparenter Prozess. Nach zwei schlechten Erfahrungen mit anderen Agenturen war das keine Selbstverständlichkeit.",
+    name: "Alejandro R.",
+    company: "Milonga ARG",
+    initials: "AR",
+    quote: "Fertig in 4 Wochen, genau wie vereinbart. Das Design trifft unsere Identität als argentinischer Foodtruck perfekt.",
+    result: "4 Wo.",
+    resultNote: "pünktlich geliefert wie versprochen",
+    color: "#3b82f6",
   },
   {
-    name: "Andrea K.",
-    company: "HolzMeister",
-    quote:
-      "Erstmals auf Seite 1 für unser wichtigstes Keyword — 6 Wochen nach dem Launch. Ohne bezahlte Anzeigen.",
+    name: "Laura M.",
+    company: "Klamotten Online Shop",
+    initials: "LM",
+    quote: "Die Conversion-Rate hat sich nach dem Relaunch verdoppelt. Unsere Kunden finden sich sofort zurecht.",
+    result: "2×",
+    resultNote: "höhere Conversion nach Relaunch",
+    color: "#8b5cf6",
   },
 ]
 
 export default function Testimonials() {
   return (
-    <section className="py-28 bg-white">
+    <section className="py-28 bg-[#0a0a0f]">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Main testimonial */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12 lg:gap-20 items-start mb-16">
-          <FadeIn>
-            <div>
-              <Quote size={52} className="text-[#f3f4f6] mb-6" strokeWidth={1.5} />
-              <blockquote className="text-2xl md:text-3xl font-medium text-[#111827] leading-relaxed mb-10">
-                „Nach dem Relaunch im Februar sind unsere monatlichen Online-Anfragen von
-                durchschnittlich 3 auf 11 gestiegen. Das sind keine Hochrechnungen — das sind
-                echte Zahlen aus unserem CRM."
-              </blockquote>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#f3f4f6] flex items-center justify-center text-[#6b7280] font-bold text-sm">
-                  MW
-                </div>
-                <div>
-                  <div className="font-bold text-[#111827]">Markus Weber</div>
-                  <div className="text-[#9ca3af] text-sm">Kunde</div>
-                </div>
-              </div>
-            </div>
-          </FadeIn>
-
-          {/* Right: Key metrics from the testimonial */}
-          <FadeIn delay={0.15} direction="right">
-            <div className="flex flex-col gap-4">
-              <div className="bg-[#f9fafb] border border-gray-100 rounded-2xl p-6">
-                <div className="text-[10px] text-[#9ca3af] font-semibold uppercase tracking-wide mb-2">
-                  Ergebnis
-                </div>
-                <div className="text-4xl font-black text-[#111827] mb-1">3 → 11</div>
-                <div className="text-sm text-[#6b7280]">Online-Anfragen pro Monat</div>
-                <div className="text-xs text-[#10b981] font-semibold mt-2 bg-[#f0fdf4] inline-block px-2.5 py-1 rounded-full">
-                  +267% Steigerung
-                </div>
-              </div>
-              <div className="bg-[#f9fafb] border border-gray-100 rounded-2xl p-6">
-                <div className="text-[10px] text-[#9ca3af] font-semibold uppercase tracking-wide mb-2">
-                  Timeline
-                </div>
-                <div className="text-4xl font-black text-[#111827] mb-1">4 Wo.</div>
-                <div className="text-sm text-[#6b7280]">Von Briefing bis Launch</div>
-                <div className="text-xs text-[#6b7280] font-medium mt-2">wie versprochen</div>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-
-        {/* Secondary testimonials */}
-        <FadeIn delay={0.2}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10 border-t border-gray-100">
-            {secondary.map((t) => (
-              <div key={t.name} className="space-y-4">
-                <p className="text-[#374151] text-sm leading-relaxed">„{t.quote}"</p>
-                <div>
-                  <div className="text-xs font-bold text-[#111827]">{t.name}</div>
-                  <div className="text-xs text-[#9ca3af]">{t.company}</div>
-                </div>
-              </div>
-            ))}
+        <FadeIn>
+          <div className="mb-14">
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-5 leading-tight">
+              Was Kunden
+              <br />
+              über uns sagen.
+            </h2>
+            <p className="text-slate-400 text-lg max-w-md leading-relaxed">
+              Keine ausgedachten Zitate. Echte Kunden, echte Ergebnisse.
+            </p>
           </div>
         </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {testimonials.map((t, i) => (
+            <FadeIn key={t.name} delay={i * 0.1}>
+              <div className="bg-white/[0.03] border border-white/[0.07] rounded-2xl p-7 flex flex-col gap-5 hover:bg-white/[0.06] hover:border-white/[0.12] transition-all h-full">
+                <Quote size={28} className="text-white/10 shrink-0" strokeWidth={1.5} />
+                <p className="text-slate-300 text-[15px] leading-relaxed flex-1">„{t.quote}"</p>
+                <div className="pt-4 border-t border-white/5">
+                  <div
+                    className="text-2xl font-black mb-0.5"
+                    style={{ color: t.color }}
+                  >
+                    {t.result}
+                  </div>
+                  <div className="text-slate-600 text-xs mb-4">{t.resultNote}</div>
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0"
+                      style={{
+                        background: `linear-gradient(135deg, ${t.color}70, ${t.color}30)`,
+                        border: `1px solid ${t.color}25`,
+                      }}
+                    >
+                      {t.initials}
+                    </div>
+                    <div>
+                      <div className="text-white font-semibold text-sm">{t.name}</div>
+                      <div className="text-slate-500 text-xs">{t.company}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   )
