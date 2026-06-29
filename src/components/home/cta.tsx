@@ -12,9 +12,6 @@ export default function CTA() {
             {/* Left: main CTA */}
             <div className="p-10 md:p-14">
               <FadeIn>
-                <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-6">
-                  Nächster Schritt
-                </p>
                 <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
                   30 Minuten.
                   <br />
@@ -49,12 +46,11 @@ export default function CTA() {
             {/* Right: contact info */}
             <div className="p-10 md:p-14 flex flex-col justify-center gap-6">
               <FadeIn direction="right">
-                <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-8">
-                  Direktkontakt
-                </p>
                 <div className="flex flex-col gap-5">
                   <a
-                    href="tel:+498912345678"
+                    href="https://wa.me/4917680257270"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-3.5 text-slate-400 hover:text-white transition-colors group"
                   >
                     <span className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563eb] transition-colors">
@@ -63,10 +59,10 @@ export default function CTA() {
                         className="text-slate-500 group-hover:text-white transition-colors"
                       />
                     </span>
-                    <span className="text-sm font-medium">+49 89 123 456 78</span>
+                    <span className="text-sm font-medium">+49 176 8025 7270</span>
                   </a>
                   <a
-                    href="mailto:hallo@digitalforge.de"
+                    href="mailto:mateo.sdlm@gmail.com"
                     className="flex items-center gap-3.5 text-slate-400 hover:text-white transition-colors group"
                   >
                     <span className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563eb] transition-colors">
@@ -75,7 +71,7 @@ export default function CTA() {
                         className="text-slate-500 group-hover:text-white transition-colors"
                       />
                     </span>
-                    <span className="text-sm font-medium">hallo@digitalforge.de</span>
+                    <span className="text-sm font-medium">mateo.sdlm@gmail.com</span>
                   </a>
                   <div className="flex items-center gap-3.5 text-slate-600">
                     <span className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0">

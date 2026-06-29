@@ -4,8 +4,6 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 
-const avatarInitials = ["MW", "SM", "TR", "AK"]
-
 export default function Hero() {
   return (
     <section className="min-h-screen flex items-center pt-16 bg-white overflow-hidden">
@@ -14,27 +12,10 @@ export default function Hero() {
 
           {/* Left: Copy */}
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="flex flex-wrap gap-2 mb-8"
-            >
-              <span className="text-xs font-semibold bg-[#eff6ff] text-[#2563eb] px-3 py-1.5 rounded-full border border-[#2563eb]/20">
-                Ab 300 €
-              </span>
-              <span className="text-xs font-semibold bg-[#f0fdf4] text-[#10b981] px-3 py-1.5 rounded-full border border-[#10b981]/20">
-                Lieferung unter 1 Woche
-              </span>
-              <span className="text-xs font-semibold bg-[#f9fafb] text-[#374151] px-3 py-1.5 rounded-full border border-gray-200">
-                Festpreis garantiert
-              </span>
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.08 }}
+              transition={{ duration: 0.55 }}
               className="text-[52px] md:text-[72px] font-black text-[#111827] leading-[1.03] tracking-tight mb-8"
             >
               Ihre Konkurrenz
@@ -47,7 +28,7 @@ export default function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.18 }}
+              transition={{ duration: 0.5, delay: 0.12 }}
               className="text-xl text-[#374151] leading-relaxed mb-10 max-w-lg"
             >
               Wir bauen Websites, die messbar mehr Anfragen bringen —
@@ -57,8 +38,8 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.26 }}
-              className="flex flex-col sm:flex-row items-start gap-3 mb-12"
+              transition={{ duration: 0.5, delay: 0.22 }}
+              className="flex flex-col sm:flex-row items-start gap-4"
             >
               <Link
                 href="/anfrage"
@@ -69,36 +50,11 @@ export default function Hero() {
               </Link>
               <Link
                 href="/portfolio"
-                className="text-[#374151] font-semibold px-8 py-4 rounded-full border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all text-[15px]"
+                className="text-[#6b7280] hover:text-[#111827] font-semibold py-4 transition-colors text-[15px] flex items-center gap-2 group"
               >
                 Unsere Arbeit ansehen
+                <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-            </motion.div>
-
-            {/* Social proof row */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.42 }}
-              className="flex items-center gap-5 pt-8 border-t border-gray-100"
-            >
-              <div className="flex -space-x-2">
-                {avatarInitials.map((init) => (
-                  <div
-                    key={init}
-                    className="w-9 h-9 rounded-full bg-[#f3f4f6] flex items-center justify-center text-[#6b7280] text-xs font-bold border-2 border-white"
-                  >
-                    {init}
-                  </div>
-                ))}
-                <div className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-[#9ca3af] text-xs font-bold border-2 border-white">
-                  +
-                </div>
-              </div>
-              <div>
-                <div className="text-sm font-semibold text-[#111827]">4 Unternehmen vertrauen uns</div>
-                <div className="text-xs text-[#9ca3af]">Ø 4,8 / 5 Bewertung</div>
-              </div>
             </motion.div>
           </div>
 

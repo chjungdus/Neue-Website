@@ -13,9 +13,6 @@ export default function PortfolioTeaser() {
         <FadeIn>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
             <div>
-              <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-4">
-                Ausgewählte Projekte
-              </p>
               <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
                 Unsere Arbeit
                 <br />

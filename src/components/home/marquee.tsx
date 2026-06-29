@@ -1,18 +1,16 @@
 const items = [
   "Webdesign",
-  "Next.js Entwicklung",
-  "E-Commerce",
-  "SEO & Performance",
-  "Conversion-Optimierung",
+  "Von Grund auf gebaut",
+  "SEO & Sichtbarkeit",
+  "Mehr Anfragen",
   "Landing Pages",
-  "Web-Apps",
   "Festpreis",
   "4 Wochen bis Launch",
   "Keine Templates",
-  "TypeScript",
-  "Supabase",
-  "Framer Motion",
-  "Stripe Integration",
+  "Mobil optimiert",
+  "Schnelle Ladezeiten",
+  "Düsseldorf",
+  "Entwicklung",
 ]
 
 export default function Marquee() {
