@@ -12,7 +12,7 @@ const steps = [
     week: "Woche 2",
     title: "Design & Feedback",
     body: "Wir präsentieren den vollständigen Design-Entwurf. Sie geben Feedback — wir passen an. Dieser Prozess wiederholt sich, bis es wirklich passt. Keine versteckten Kosten für Korrekturrunden. Kein \"das kostet extra\".",
-    deliverable: "Vollständiges Design in Figma",
+    deliverable: "Vollständiges Design zur Freigabe",
     color: "#0ea5e9",
   },
   {
@@ -36,9 +36,6 @@ export default function Process() {
     <section className="py-28 bg-white">
       <div className="max-w-4xl mx-auto px-6">
         <FadeIn>
-          <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-5">
-            Wie wir arbeiten
-          </p>
           <h2 className="text-4xl md:text-5xl font-black text-[#111827] mb-5 leading-tight">
             In 4 Wochen live.
             <br />
@@ -51,14 +48,12 @@ export default function Process() {
         </FadeIn>
 
         <div className="relative">
-          {/* Vertical connector line */}
           <div className="absolute left-[18px] top-5 bottom-16 w-px bg-gray-100 hidden md:block" />
 
           <div className="flex flex-col gap-0">
             {steps.map((step, i) => (
               <FadeIn key={step.week} delay={i * 0.1}>
                 <div className="grid grid-cols-1 md:grid-cols-[40px_1fr] gap-5 md:gap-8 pb-12">
-                  {/* Timeline dot */}
                   <div className="hidden md:flex flex-col items-center">
                     <div
                       className="w-[37px] h-[37px] rounded-full flex items-center justify-center text-white text-sm font-bold z-10 shrink-0 ring-4 ring-white"
