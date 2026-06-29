@@ -4,9 +4,8 @@ import { Zap, MapPin, Mail, MessageCircle, Instagram } from "lucide-react"
 const footerLinks = {
   Leistungen: [
     { href: "/leistungen#webdesign", label: "Webdesign" },
-    { href: "/leistungen#entwicklung", label: "Web-Entwicklung" },
-    { href: "/leistungen#ecommerce", label: "E-Commerce" },
-    { href: "/leistungen#seo", label: "SEO & Performance" },
+    { href: "/leistungen#entwicklung", label: "Entwicklung" },
+    { href: "/leistungen#seo", label: "SEO & Sichtbarkeit" },
   ],
   Unternehmen: [
     { href: "/portfolio", label: "Portfolio" },
@@ -37,7 +36,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-blue-100 text-sm leading-relaxed max-w-xs">
-              Wir bauen Websites, die nicht nur schön aussehen – sondern messbar mehr Kunden bringen.
+              Wir bauen Websites, die nicht nur schön aussehen, sondern messbar mehr Kunden bringen.
             </p>
             <div className="mt-6 flex flex-col gap-2.5">
               <span className="flex items-center gap-2 text-sm text-blue-100">
