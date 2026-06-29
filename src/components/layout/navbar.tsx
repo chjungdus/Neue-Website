@@ -73,7 +73,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/anfrage"
-            className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
+            className="border border-[#2563eb] text-[#2563eb] hover:bg-[#2563eb] hover:text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
           >
             Kostenloses Erstgespräch
           </Link>
@@ -120,7 +120,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/anfrage"
-              className="bg-[#2563eb] text-white text-sm font-semibold px-5 py-3 rounded-full text-center mt-3"
+              className="border border-[#2563eb] text-[#2563eb] text-sm font-semibold px-5 py-3 rounded-full text-center mt-3 hover:bg-[#2563eb] hover:text-white transition-colors"
             >
               Kostenloses Erstgespräch
             </Link>
