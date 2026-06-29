@@ -11,22 +11,22 @@ const values = [
   },
   {
     title: "Ergebnisse über Ästhetik",
-    body: "Eine schöne Website, die keine Kunden bringt, ist ein teures Kunstwerk. Wir designen für Conversion — Farben, Layout, Texte, alles mit dem Ziel, dass Besucher zu Kunden werden.",
+    body: "Eine schöne Website, die keine Kunden bringt, ist ein teures Kunstwerk. Wir designen für mehr Anfragen, Farben, Layout, Texte, alles mit dem Ziel, dass Besucher zu Kunden werden.",
   },
   {
     title: "Prozess über Improvisation",
-    body: "Jedes Projekt läuft nach demselben Schema: Briefing, Konzept, Design, Entwicklung, Launch. Wöchentliche Status-Updates mit Live-Link. Kein Raten, keine bösen Überraschungen.",
+    body: "Jedes Projekt läuft nach demselben Schema: Briefing, Konzept, Design, Entwicklung, Launch. Klare Status-Updates mit Live-Link. Kein Raten, keine bösen Überraschungen.",
   },
   {
     title: "Weniger Kunden, bessere Arbeit",
-    body: "Wir nehmen maximal 4 Projekte gleichzeitig an. Das ist keine Marketingstrategie — das ist eine Entscheidung für Qualität. Jedes Projekt bekommt unsere volle Aufmerksamkeit.",
+    body: "Wir nehmen maximal 4 Projekte gleichzeitig an. Das ist keine Marketingstrategie. Das ist eine Entscheidung für Qualität. Jedes Projekt bekommt unsere volle Aufmerksamkeit.",
   },
 ]
 
 const notForUs = [
   {
     type: "Billigst-Anfragen",
-    desc: "Wer eine 500-€-Website will, findet sie woanders. Wir machen das nicht.",
+    desc: "Wer einen Discounter-Preis ohne Qualität erwartet, findet diese Kombination woanders.",
   },
   {
     type: "Kein klares Ziel",
@@ -34,7 +34,7 @@ const notForUs = [
   },
   {
     type: "Mikro-Management",
-    desc: "Sie haben eine Agentur engagiert — lassen Sie uns die Arbeit machen.",
+    desc: "Sie haben eine Agentur engagiert. Lassen Sie uns die Arbeit machen.",
   },
   {
     type: "Wöchentliche Strategiewechsel",
@@ -44,21 +44,20 @@ const notForUs = [
 
 const team = [
   {
-    name: "Christian Jung",
+    name: "Mateo Sainz de la Maza",
     role: "Gründer & Lead Developer",
     since: "Düsseldorf",
-    body: "Hat vor DigitalForge mehrere Jahre als Frontend-Entwickler bei anderen Agenturen gearbeitet. Hat die Muster gesehen: Overpromising im Vertrieb, Underdelivering in der Umsetzung. Hat DigitalForge gegründet, um das Gegenteil zu beweisen.",
-    focus: ["Next.js & React", "Conversion-Optimierung", "Performance"],
+    body: "Hat mehrere Jahre als Frontend-Entwickler und digitaler Stratege für verschiedene Unternehmen und Agenturen gearbeitet. Hat die immer gleichen Muster gesehen: Overpromising im Vertrieb, Underdelivering in der Umsetzung. Hat DigitalForge gegründet, um das Gegenteil zu beweisen.",
+    focus: ["Webentwicklung", "Schnelle Ladezeiten", "Mehr Anfragen durch die Website"],
   },
   {
-    name: "Lena Hofmann",
+    name: "Zhou Jun",
     role: "Design & UX",
     since: "Düsseldorf",
-    body: "Hat UX-Design studiert und danach in einem E-Commerce-Startup die Auswirkung von Design-Entscheidungen auf Kaufraten direkt gemessen. Gestaltet keine schönen Seiten — gestaltet Seiten, die verkaufen.",
-    focus: ["Figma & Prototyping", "UX-Research", "A/B-Testing"],
+    body: "Hat UX-Design studiert und danach in mehreren digitalen Projekten die direkte Auswirkung von Design-Entscheidungen auf Anfragen und Verkäufe gemessen. Gestaltet keine schönen Seiten. Gestaltet Seiten, die Besucher in Kunden verwandeln.",
+    focus: ["Design & Konzept", "Benutzerfreundlichkeit", "Kunden-Analyse"],
   },
 ]
-
 
 export default function UeberUnsPage() {
   return (
@@ -92,9 +91,9 @@ export default function UeberUnsPage() {
                 Wie es begann
               </p>
               <h2 className="text-3xl md:text-4xl font-black text-[#111827] mb-6 leading-tight">
-                Zwei Entwickler,
+                Eine kaputte Website,
                 <br />
-                eine kaputte Website,
+                vier Nachbesserungen,
                 <br />
                 ein Beschluss.
               </h2>
@@ -103,29 +102,28 @@ export default function UeberUnsPage() {
             <FadeIn delay={0.1}>
               <div className="space-y-5 text-[#6b7280] leading-relaxed">
                 <p>
-                  Christian hat als Freelancer für eine andere Agentur gearbeitet. Aufgabe:
+                  Mateo hat als Freelancer für eine andere Agentur gearbeitet. Aufgabe:
                   Eine Website für einen Steuerberater &quot;reparieren&quot;, die die Agentur selbst gebaut
                   hatte. Vier Nachbesserungsrunden. Zwei verpasste Deadlines. Ein Kunde, der bereits
                   bezahlt hatte und trotzdem nichts in der Hand hatte.
                 </p>
                 <p>
-                  Das war kein Einzelfall — das war das Geschäftsmodell. Overpromise, Underdeliver,
-                  nächsten Kunden akquirieren. Christian beschloss, eine Agentur zu gründen, bei der
+                  Das war kein Einzelfall. Das war das Geschäftsmodell. Overpromise, Underdeliver,
+                  nächsten Kunden akquirieren. Mateo beschloss, eine Agentur zu gründen, bei der
                   das Gegenteil das Geschäftsmodell ist.
                 </p>
                 <p className="text-[#374151] font-medium">
                   Die Hypothese: Wenn man weniger Kunden annimmt und dafür jedes Projekt wirklich
-                  fertig macht — pünktlich, zum vereinbarten Preis — entstehen Referenzen, die für
+                  fertig macht, pünktlich, zum vereinbarten Preis, entstehen Referenzen, die für
                   sich selbst sprechen. Die Hypothese hat sich bewahrheitet.
                 </p>
               </div>
             </FadeIn>
           </div>
-
         </div>
       </section>
 
-      {/* Not for us — dark section */}
+      {/* Not for us */}
       <section className="py-24 bg-[#0f172a]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
@@ -137,7 +135,7 @@ export default function UeberUnsPage() {
             </h2>
             <p className="text-slate-400 text-lg mb-14 max-w-lg leading-relaxed">
               Nicht aus Arroganz. Sondern weil wir gelernt haben, dass bestimmte Konstellationen
-              immer in Frustration enden — für beide Seiten.
+              immer in Frustration enden, für beide Seiten.
             </p>
           </FadeIn>
 
@@ -160,7 +158,7 @@ export default function UeberUnsPage() {
           <FadeIn delay={0.3}>
             <div className="mt-10 border-t border-slate-800 pt-8">
               <p className="text-slate-500 text-sm leading-relaxed max-w-xl">
-                Wenn Sie sich in einem dieser Punkte wiedererkennen — ehrlich: ein anderer Anbieter
+                Wenn Sie sich in einem dieser Punkte wiedererkennen: Ein anderer Anbieter
                 wird Ihnen besser helfen als wir. Wenn nicht:{" "}
                 <Link href="/anfrage" className="text-[#2563eb] hover:underline">
                   dann reden wir.
@@ -234,7 +232,8 @@ export default function UeberUnsPage() {
                       {member.name
                         .split(" ")
                         .map((n) => n[0])
-                        .join("")}
+                        .join("")
+                        .slice(0, 2)}
                     </span>
                   </div>
 
@@ -265,7 +264,7 @@ export default function UeberUnsPage() {
               <p className="text-[#6b7280] text-sm leading-relaxed">
                 <strong className="text-[#111827]">Was das bedeutet für Sie:</strong> Wenn Sie mit
                 uns sprechen, sprechen Sie mit jemandem, der Ihr Projekt persönlich umsetzt. Keine
-                Handoffs an Junior-Entwickler, kein &quot;Ihr Ansprechpartner ist jetzt...&quot;-E-Mail
+                Weitergabe an andere Mitarbeiter, kein &quot;Ihr Ansprechpartner ist jetzt...&quot;-E-Mail
                 nach dem Erstgespräch.
               </p>
             </div>
@@ -273,7 +272,7 @@ export default function UeberUnsPage() {
         </div>
       </section>
 
-      {/* Stats bar */}
+      {/* Stats */}
       <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-gray-100 rounded-2xl overflow-hidden">
@@ -299,8 +298,8 @@ export default function UeberUnsPage() {
               Klingt nach der richtigen Agentur?
             </h2>
             <p className="text-[#6b7280] text-lg mb-10 leading-relaxed">
-              30 Minuten Erstgespräch. Kostenlos. Unverbindlich. Und wenn wir nicht passen — sagen
-              wir das.
+              30 Minuten Erstgespräch. Kostenlos. Unverbindlich. Und wenn wir nicht passen,
+              sagen wir das.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
