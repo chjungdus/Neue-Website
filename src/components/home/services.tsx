@@ -7,47 +7,35 @@ const services = [
     num: "01",
     title: "Webdesign",
     description:
-      "Kein Baukastensystem, kein Template. Jede Website entsteht von Grund auf — für Ihr Unternehmen, Ihre Zielgruppe, Ihre Ziele. Das Ergebnis sieht nicht aus wie die Website Ihrer Konkurrenz, weil sie es buchstäblich nicht kann.",
+      "Kein Baukastensystem, kein Template. Jede Website entsteht von Grund auf, für Ihr Unternehmen, Ihre Zielgruppe, Ihre Ziele. Das Ergebnis sieht nicht aus wie die Website Ihrer Konkurrenz, weil sie es buchstäblich nicht kann.",
     points: [
-      "Mobile-first — nicht als Nachgedanke, sondern als Startpunkt",
-      "Micro-Animationen, die führen statt ablenken",
-      "Brand-Integration, die Vertrauen aufbaut vor dem ersten Klick",
+      "Für Smartphone zuerst gebaut, nicht als Nachgedanke",
+      "Gestaltung, die den Nutzer führt statt verwirrt",
+      "Design, das Vertrauen aufbaut bevor jemand anruft",
     ],
     accent: "#2563eb",
   },
   {
     num: "02",
-    title: "Web-Entwicklung",
+    title: "Entwicklung",
     description:
-      "Wir entwickeln mit Next.js und TypeScript — nicht weil es trendy ist, sondern weil es die schnellsten, sichersten Websites ergibt. Jede Millisekunde Ladezeit kostet 1 % Conversion. Das ist kein Marketing — das ist Googles eigene Studie.",
+      "Wir bauen Websites, die schnell laden und zuverlässig funktionieren. Keine Baukastensysteme, keine vorgefertigten Templates. Jede Zeile ist für Ihre Website gemacht.",
     points: [
-      "Lighthouse Score 90+ als Standard, nicht als Ausnahme",
-      "Skalierbar gebaut — damit Sie nicht in 2 Jahren neu anfangen",
-      "Kein Lock-in zu teuren CMS-Lizenzen",
+      "Schnelle Ladezeiten auf jedem Gerät und jeder Verbindung",
+      "Solide gebaut, damit Sie nicht in zwei Jahren neu anfangen",
+      "Kein teures System, das regelmäßig Probleme verursacht",
     ],
     accent: "#0ea5e9",
   },
   {
     num: "03",
-    title: "E-Commerce",
+    title: "SEO & Sichtbarkeit",
     description:
-      "Ihr Shop muss nicht hübsch sein — er muss verkaufen. Wir bauen Checkout-Flows, die keine Kunden verlieren, und Produktseiten, die Kaufentscheidungen beschleunigen statt verlangsamen.",
+      "Wer bei Google nicht auftaucht, existiert für potenzielle Kunden nicht. Wir sorgen dafür, dass Ihre Website technisch korrekt aufgebaut ist und gefunden wird.",
     points: [
-      "Warenkorbabbruch-Optimierung von Anfang an eingebaut",
-      "Stripe & PayPal — sauber integriert, nicht als Pflaster",
-      "Analytics, die zeigen was verkauft und was blockiert",
-    ],
-    accent: "#2563eb",
-  },
-  {
-    num: "04",
-    title: "SEO & Performance",
-    description:
-      "Google vergibt Platz #1 nicht zufällig. Wir optimieren technisch und inhaltlich — damit Sie gefunden werden, bevor Ihre Konkurrenz den nächsten Schritt macht. Kein Bullshit-Reporting, keine leeren Versprechen.",
-    points: [
-      "Technisches SEO-Audit mit konkretem Aktionsplan",
-      "Core Web Vitals: Googles verstecktes Ranking-Signal",
-      "Keyword-Strategie, die kaufbereite Nutzer anzieht",
+      "Technische Grundlagen in jedem Projekt inklusive",
+      "Schnelle Ladezeiten als Ranking-Faktor berücksichtigt",
+      "Keyword-Analyse für Ihre Branche auf Anfrage",
     ],
     accent: "#f59e0b",
   },
@@ -63,15 +51,15 @@ export default function Services() {
               Was wir tun
             </p>
             <h2 className="text-4xl md:text-5xl font-black text-[#111827] mb-4 leading-tight">
-              Vier Dinge.
+              Drei Dinge.
               <br />
               <span className="text-[#9ca3af] font-normal text-3xl md:text-4xl">
                 Richtig gemacht.
               </span>
             </h2>
             <p className="text-[#6b7280] text-lg max-w-lg leading-relaxed">
-              Andere Agenturen listen 47 Leistungen. Wir konzentrieren uns auf vier — weil das
-              die vier sind, die tatsächlich Kunden bringen.
+              Andere Agenturen listen 47 Leistungen. Wir konzentrieren uns auf drei,
+              weil das die drei sind, die tatsächlich Kunden bringen.
             </p>
           </div>
         </FadeIn>
