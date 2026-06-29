@@ -26,12 +26,6 @@ export default function Testimonials() {
   return (
     <section className="py-28 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <FadeIn>
-          <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-16">
-            Was Kunden sagen
-          </p>
-        </FadeIn>
-
         {/* Main testimonial */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12 lg:gap-20 items-start mb-16">
           <FadeIn>
