@@ -1,112 +1,101 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Monitor, Code2, ShoppingBag, TrendingUp } from "lucide-react"
 import FadeIn from "@/components/ui/fade-in"
 
 const services = [
   {
-    num: "01",
+    icon: Monitor,
     title: "Webdesign",
-    description:
-      "Kein Baukastensystem, kein Template. Jede Website entsteht von Grund auf, für Ihr Unternehmen, Ihre Zielgruppe, Ihre Ziele. Das Ergebnis sieht nicht aus wie die Website Ihrer Konkurrenz, weil sie es buchstäblich nicht kann.",
-    points: [
-      "Für Smartphone zuerst gebaut, nicht als Nachgedanke",
-      "Gestaltung, die den Nutzer führt statt verwirrt",
-      "Design, das Vertrauen aufbaut bevor jemand anruft",
-    ],
-    accent: "#2563eb",
+    description: "Kein Template, kein Baukasten. Individuell für Ihr Unternehmen, Ihre Zielgruppe, Ihre Ziele.",
+    points: ["Mobile-first von Anfang an", "Design schafft Vertrauen", "Einmalig — kein Copy-Paste"],
+    accent: "#3b82f6",
+    bg: "rgba(59,130,246,0.08)",
   },
   {
-    num: "02",
+    icon: Code2,
     title: "Entwicklung",
-    description:
-      "Wir bauen Websites, die schnell laden und zuverlässig funktionieren. Keine Baukastensysteme, keine vorgefertigten Templates. Jede Zeile ist für Ihre Website gemacht.",
-    points: [
-      "Schnelle Ladezeiten auf jedem Gerät und jeder Verbindung",
-      "Solide gebaut, damit Sie nicht in zwei Jahren neu anfangen",
-      "Kein teures System, das regelmäßig Probleme verursacht",
-    ],
-    accent: "#0ea5e9",
+    description: "Schnell, sicher, ohne Lock-in. Jede Millisekunde Ladezeit kostet Conversion.",
+    points: ["Lighthouse 90+ als Standard", "Kein teures CMS", "Auf jedem Gerät fehlerfrei"],
+    accent: "#06b6d4",
+    bg: "rgba(6,182,212,0.08)",
   },
   {
-    num: "03",
-    title: "SEO & Sichtbarkeit",
-    description:
-      "Wer bei Google nicht auftaucht, existiert für potenzielle Kunden nicht. Wir sorgen dafür, dass Ihre Website technisch korrekt aufgebaut ist und gefunden wird.",
-    points: [
-      "Technische Grundlagen in jedem Projekt inklusive",
-      "Schnelle Ladezeiten als Ranking-Faktor berücksichtigt",
-      "Keyword-Analyse für Ihre Branche auf Anfrage",
-    ],
-    accent: "#f59e0b",
+    icon: ShoppingBag,
+    title: "E-Commerce",
+    description: "Ihr Shop muss nicht hübsch sein — er muss verkaufen. Checkout-Flows ohne Abbrüche.",
+    points: ["Stripe & PayPal integriert", "Produktseiten, die überzeugen", "Analytics statt Raten"],
+    accent: "#8b5cf6",
+    bg: "rgba(139,92,246,0.08)",
+  },
+  {
+    icon: TrendingUp,
+    title: "SEO & Performance",
+    description: "#1 bei Google bekommt man nicht zufällig. Wir sorgen dafür, dass Sie gefunden werden.",
+    points: ["Technisches SEO inklusive", "Core Web Vitals optimiert", "Kaufbereite Kunden erreichen"],
+    accent: "#10b981",
+    bg: "rgba(16,185,129,0.08)",
   },
 ]
 
 export default function Services() {
   return (
-    <section className="py-28 bg-white">
+    <section className="py-28 bg-[#0a0a0f]">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <div className="mb-20">
-            <h2 className="text-4xl md:text-5xl font-black text-[#111827] mb-4 leading-tight">
-              Drei Dinge.
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
+              Vier Dinge.
               <br />
-              <span className="text-[#9ca3af] font-normal text-3xl md:text-4xl">
-                Richtig gemacht.
-              </span>
+              <span className="text-slate-600 font-normal text-3xl md:text-4xl">Richtig gemacht.</span>
             </h2>
-            <p className="text-[#6b7280] text-lg max-w-lg leading-relaxed">
-              Andere Agenturen listen 47 Leistungen. Wir konzentrieren uns auf drei,
-              weil das die drei sind, die tatsächlich Kunden bringen.
+            <p className="text-slate-400 text-lg max-w-lg leading-relaxed">
+              Andere Agenturen listen 47 Leistungen. Wir konzentrieren uns auf vier — die vier, die tatsächlich Kunden bringen.
             </p>
           </div>
         </FadeIn>
 
-        <div className="divide-y divide-gray-100">
-          {services.map((s, i) => (
-            <FadeIn key={s.num} delay={i * 0.08}>
-              <div className="py-12 grid grid-cols-1 lg:grid-cols-[100px_1fr_1fr] gap-6 lg:gap-14 items-start group">
-                <div
-                  className="text-7xl font-black leading-none select-none"
-                  style={{ color: `${s.accent}18` }}
-                >
-                  {s.num}
-                </div>
-                <div>
-                  <h3 className="text-2xl font-black text-[#111827] mb-3 group-hover:text-[#2563eb] transition-colors">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {services.map((s, i) => {
+            const Icon = s.icon
+            return (
+              <FadeIn key={s.title} delay={i * 0.08}>
+                <div className="group bg-white/[0.03] border border-white/[0.07] rounded-2xl p-8 hover:bg-white/[0.06] hover:border-white/[0.14] transition-all duration-300 h-full flex flex-col">
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 shrink-0"
+                    style={{ backgroundColor: s.bg }}
+                  >
+                    <Icon size={22} style={{ color: s.accent }} />
+                  </div>
+                  <h3 className="text-xl font-black text-white mb-3 group-hover:text-[#3b82f6] transition-colors">
                     {s.title}
                   </h3>
-                  <p className="text-[#6b7280] leading-relaxed text-[15px]">{s.description}</p>
+                  <p className="text-slate-400 text-sm leading-relaxed mb-5 flex-1">{s.description}</p>
+                  <ul className="space-y-2">
+                    {s.points.map((point) => (
+                      <li key={point} className="flex items-center gap-2.5 text-sm text-slate-500">
+                        <span
+                          className="w-1 h-1 rounded-full flex-shrink-0"
+                          style={{ backgroundColor: s.accent }}
+                        />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="flex flex-col gap-3.5 mt-1">
-                  {s.points.map((point) => (
-                    <li key={point} className="flex items-start gap-3 text-sm text-[#374151]">
-                      <span
-                        className="w-1.5 h-1.5 rounded-full mt-[7px] flex-shrink-0"
-                        style={{ backgroundColor: s.accent }}
-                      />
-                      <span className="leading-relaxed">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </FadeIn>
-          ))}
+              </FadeIn>
+            )
+          })}
         </div>
 
         <FadeIn>
-          <div className="mt-4 pt-10 border-t border-gray-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <p className="text-[#9ca3af] text-sm">
-              Benötigen Sie etwas anderes? Wir reden gerne darüber.
-            </p>
+          <div className="mt-10 pt-10 border-t border-white/5 flex items-center justify-between gap-4 flex-wrap">
+            <p className="text-slate-600 text-sm">Etwas anderes? Wir reden gerne darüber.</p>
             <Link
               href="/leistungen"
-              className="text-[#374151] text-sm font-semibold hover:text-[#111827] transition-colors inline-flex items-center gap-2 group"
+              className="text-slate-400 text-sm font-semibold hover:text-white transition-colors flex items-center gap-2 group"
             >
-              Alle Leistungen im Detail
-              <ArrowRight
-                size={14}
-                className="group-hover:translate-x-1 transition-transform"
-              />
+              Alle Leistungen
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </FadeIn>
