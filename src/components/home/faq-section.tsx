@@ -13,7 +13,7 @@ const faqs = [
   {
     question: "Was kostet eine Website bei Ihnen?",
     answer:
-      "Unsere Pakete starten ab 200 € netto. Der entscheidende Punkt: Sie wissen den genauen Preis vor Projektstart. Kein Stundensatz, keine Überraschungsrechnung am Ende. Was wir anbieten, kostet was es kostet — und das steht im Vertrag.",
+      "Unsere Pakete starten ab 300 € netto. Der entscheidende Punkt: Sie wissen den genauen Preis vor Projektstart. Kein Stundensatz, keine Überraschungsrechnung am Ende. Was wir anbieten, kostet was es kostet — und das steht im Vertrag.",
   },
   {
     question: "Vier Wochen — ist das wirklich realistisch?",
@@ -78,9 +78,6 @@ export default function FAQSection() {
     <section className="py-28 bg-[#f9fafb]">
       <div className="max-w-3xl mx-auto px-6">
         <FadeIn>
-          <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-5">
-            Häufige Fragen
-          </p>
           <h2 className="text-4xl md:text-5xl font-black text-[#111827] mb-5 leading-tight">
             Ehrliche Antworten.
           </h2>
