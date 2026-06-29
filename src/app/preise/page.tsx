@@ -18,9 +18,9 @@ const packages = [
     desc: "Eine saubere, professionelle Website, die Ihre Leistungen klar kommuniziert und Anfragen generiert.",
     features: [
       "1–3 Seiten, individuelles Design",
-      "Mobile-optimiert",
+      "Für Smartphone optimiert",
       "Kontaktformular",
-      "SEO-Grundoptimierung",
+      "Grundstruktur für Google",
       "30 Tage Support nach Launch",
       "2 Korrekturrunden inklusive",
     ],
@@ -32,12 +32,12 @@ const packages = [
     tagline: "Für wachsende Unternehmen",
     price: "550",
     badge: "Beliebtestes Paket",
-    desc: "Mehr Seiten, mehr Funktionen, besseres SEO-Fundament. Für Unternehmen, die online wachsen wollen.",
+    desc: "Mehr Seiten, mehr Funktionen, besser für Google. Für Unternehmen, die online wachsen wollen.",
     features: [
       "4–8 Seiten, Premium-Design mit Animationen",
-      "Google Analytics Integration",
+      "Besucherstatistiken eingebunden",
       "Umfassendes SEO-Paket",
-      "Core Web Vitals Optimierung",
+      "Schnelle Ladezeiten optimiert",
       "3 Monate Support",
       "Unbegrenzte Korrekturrunden",
     ],
@@ -49,12 +49,12 @@ const packages = [
     tagline: "Komplexere Anforderungen",
     price: "900",
     badge: null,
-    desc: "Unbegrenzte Seiten, individuelle Funktionen (Buchungssystem, Kundenbereich, Shop-Anbindung) und erweiterte technische Umsetzung.",
+    desc: "Unbegrenzte Seiten, individuelle Funktionen und erweiterte technische Umsetzung.",
     features: [
       "Unbegrenzte Seiten",
-      "Individuelle Funktionen auf Anfrage",
-      "E-Commerce- oder Buchungssystem möglich",
-      "Performance-Monitoring Setup",
+      "Individuelle Zusatzfunktionen nach Absprache",
+      "Buchungssystem oder Kundenbereich möglich",
+      "Auswertung & Monitoring eingerichtet",
       "6 Monate dedizierter Support",
       "Unbegrenzte Korrekturrunden",
     ],
@@ -69,7 +69,7 @@ const carePackages = [
     features: [
       "2 Inhaltsänderungen pro Monat",
       "Monatliches Backup",
-      "Hosting-Überwachung",
+      "Überwachung der Website",
     ],
   },
   {
@@ -77,7 +77,7 @@ const carePackages = [
     price: "40",
     features: [
       "5 Inhaltsänderungen pro Monat",
-      "Reaktionszeit innerhalb 24h",
+      "Antwort innerhalb 24h",
       "Regelmäßige Backups",
       "Kleine Design-Anpassungen",
     ],
@@ -88,9 +88,9 @@ const carePackages = [
     price: "60",
     features: [
       "Unbegrenzte kleine Änderungen",
-      "Reaktionszeit innerhalb 12h",
+      "Antwort innerhalb 12h",
       "Wöchentliche Backups",
-      "Performance-Reports",
+      "Auswertung & Reports",
     ],
   },
 ]
@@ -121,19 +121,19 @@ const paymentMethods = [
 const priceFAQs = [
   {
     q: "Was ist im Preis enthalten?",
-    a: "Design, Entwicklung, Testing und Launch sind immer inklusive. Hosting (ab ca. 10 €/Monat beim Anbieter Ihrer Wahl) und optionale Pflegepakete werden separat vereinbart — transparent, schriftlich vor Projektstart.",
+    a: "Design, Umsetzung, Tests und Launch sind immer inklusive. Hosting (ab ca. 10 €/Monat beim Anbieter Ihrer Wahl) und optionale Pflegepakete werden separat vereinbart, transparent, schriftlich vor Projektstart.",
   },
   {
     q: "Gibt es Nachzahlungen?",
-    a: "Nein. Der vereinbarte Festpreis ist der Endpreis. Neue Seiten oder Funktionen, die nicht im ursprünglichen Angebot standen, werden separat besprochen — nie still in Rechnung gestellt.",
+    a: "Nein. Der vereinbarte Festpreis ist der Endpreis. Neue Seiten oder Funktionen, die nicht im ursprünglichen Angebot standen, werden separat besprochen, nie still in Rechnung gestellt.",
   },
   {
     q: "Wie läuft die Zahlung ab?",
-    a: "50 % bei Auftragserteilung, 50 % bei Launch. Wir akzeptieren Banküberweisung, Kreditkarte, PayPal und Vorkasse. Für größere Projekte passen wir die Zahlungsstruktur auf Wunsch individuell an.",
+    a: "50 % bei Auftragserteilung, 50 % bei Launch. Wir akzeptieren Banküberweisung, Kreditkarte, PayPal und Vorkasse. Für größere Projekte passen wir die Zahlungsstruktur auf Wunsch an.",
   },
   {
     q: "Wie bearbeite ich meine Website nach dem Launch?",
-    a: "Über uns. Wir bauen keine selbst-editierbaren CMS-Lösungen — stattdessen erledigen wir Änderungen schnell und unkompliziert über unsere Pflegepakete. Kleine Anpassungen sind meist innerhalb von 24 Stunden erledigt.",
+    a: "Über uns. Änderungen erledigen wir für Sie über unsere Pflegepakete, schnell und unkompliziert, ohne dass Sie technisches Vorwissen brauchen. Kleine Anpassungen sind meist innerhalb von 24 Stunden erledigt.",
   },
 ]
 
@@ -152,7 +152,7 @@ export default function PreisePage() {
             <span className="text-[#2563eb]">Kein Überraschungsangebot.</span>
           </h1>
           <p className="text-[#6b7280] text-xl leading-relaxed max-w-2xl">
-            Festpreise — weil Sie vor dem Auftrag wissen sollten, was er kostet. Nicht danach.
+            Festpreise, weil Sie vor dem Auftrag wissen sollten, was er kostet. Nicht danach.
           </p>
           <p className="text-[#9ca3af] text-sm mt-4">
             Alle Preise netto zzgl. 19 % MwSt.
@@ -257,7 +257,7 @@ export default function PreisePage() {
                 Nicht zufrieden mit dem ersten Entwurf?
               </h3>
               <p className="text-[#6b7280] text-sm leading-relaxed max-w-xl">
-                Wir überarbeiten kostenlos — ohne Diskussion, ohne Zeitdruck, so oft wie nötig.
+                Wir überarbeiten kostenlos, ohne Diskussion, ohne Zeitdruck, so oft wie nötig.
                 Diese Aussage steht im Vertrag. Nicht im Marketing.
               </p>
             </div>
@@ -309,7 +309,7 @@ export default function PreisePage() {
               </h2>
             </div>
             <p className="text-[#9ca3af] text-sm max-w-xs text-right hidden sm:block leading-relaxed">
-              Wir machen die Änderungen für Sie — schnell, unkompliziert, ohne technisches Vorwissen Ihrerseits.
+              Wir machen die Änderungen für Sie, schnell und unkompliziert.
             </p>
           </div>
 
@@ -383,7 +383,7 @@ export default function PreisePage() {
             Bereit für ein konkretes Angebot?
           </h2>
           <p className="text-[#6b7280] text-lg mb-10 leading-relaxed">
-            Kostenlos anfragen — wir melden uns innerhalb von 24 Stunden mit einem persönlichen Angebot.
+            Kostenlos anfragen. Wir melden uns innerhalb von 24 Stunden mit einem persönlichen Angebot.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
