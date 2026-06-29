@@ -1,101 +1,136 @@
 import FadeIn from "@/components/ui/fade-in"
+import { Search, Palette, Code2, Rocket } from "lucide-react"
 
 const steps = [
   {
     week: "Woche 1",
-    title: "Discovery & Konzept",
-    body: "Wir lernen Ihr Unternehmen, Ihre Zielgruppe und Ihre Ziele kennen. Am Ende dieser Woche haben Sie ein detailliertes Konzept mit Seitenstruktur, Inhaltsstrategie und einem transparenten Festpreis-Angebot. Kein Stundensatz, kein Nachrechnen.",
-    deliverable: "Sitemap · Konzeptdokument · Festpreis",
-    color: "#2563eb",
+    icon: Search,
+    title: "Discovery",
+    body: "Wir lernen Ihr Unternehmen kennen und liefern ein konkretes Konzept — mit Festpreis.",
+    deliverable: "Sitemap · Festpreis",
+    color: "#3b82f6",
+    bg: "rgba(59,130,246,0.12)",
   },
   {
     week: "Woche 2",
-    title: "Design & Feedback",
-    body: "Wir präsentieren den vollständigen Design-Entwurf. Sie geben Feedback — wir passen an. Dieser Prozess wiederholt sich, bis es wirklich passt. Keine versteckten Kosten für Korrekturrunden. Kein \"das kostet extra\".",
-    deliverable: "Vollständiges Design zur Freigabe",
-    color: "#0ea5e9",
+    icon: Palette,
+    title: "Design",
+    body: "Vollständiger Design-Entwurf zur Freigabe. Unbegrenzte Feedbackrunden — ohne Aufpreis.",
+    deliverable: "Design zur Freigabe",
+    color: "#06b6d4",
+    bg: "rgba(6,182,212,0.12)",
   },
   {
     week: "Woche 3",
+    icon: Code2,
     title: "Entwicklung",
-    body: "Design wird zu Code. Sie erhalten wöchentliche Updates mit einem echten Staging-Link — keine Screenshots, sondern das echte Ding auf allen Geräten. Keine Black Box, kein Raten was gerade passiert.",
-    deliverable: "Staging-Link · vollständige Entwicklung",
-    color: "#2563eb",
+    body: "Design wird zu Code. Live-Staging-Link zum Testen auf dem echten Gerät.",
+    deliverable: "Staging-Link · Entwicklung",
+    color: "#8b5cf6",
+    bg: "rgba(139,92,246,0.12)",
   },
   {
     week: "Woche 4",
-    title: "Testing & Launch",
-    body: "Gründliches Testing auf allen gängigen Geräten und Browsern. Danach: Go-Live. Nicht \"irgendwann in den nächsten Wochen\" — ein konkretes Datum, das wir einhalten. Ohne Ausnahme.",
-    deliverable: "Launch · Domain-Setup · Schulung · Übergabe",
+    icon: Rocket,
+    title: "Launch",
+    body: "Testing auf allen Geräten, dann Go-Live. Ein konkretes Datum — eingehalten. Immer.",
+    deliverable: "Launch · Übergabe",
     color: "#10b981",
+    bg: "rgba(16,185,129,0.12)",
   },
 ]
 
 export default function Process() {
   return (
     <section className="py-28 bg-white">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <h2 className="text-4xl md:text-5xl font-black text-[#111827] mb-5 leading-tight">
-            In 4 Wochen live.
-            <br />
-            <span className="text-[#9ca3af] font-normal text-3xl md:text-4xl">Wirklich.</span>
-          </h2>
-          <p className="text-[#6b7280] text-lg mb-20 max-w-lg leading-relaxed">
-            Nicht als Marketing-Versprechen — als verbindliche Deadline, die wir in jedem
-            Projekt einhalten. Mit einem echten Prozess dahinter.
-          </p>
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-[#111827] mb-5 leading-tight">
+              In 4 Wochen live.
+              <br />
+              <span className="text-[#9ca3af] font-normal text-3xl md:text-4xl">Wirklich.</span>
+            </h2>
+            <p className="text-[#6b7280] text-lg max-w-lg leading-relaxed">
+              Kein Marketing-Versprechen — eine verbindliche Deadline mit echtem Prozess dahinter.
+            </p>
+          </div>
         </FadeIn>
 
-        <div className="relative">
-          <div className="absolute left-[18px] top-5 bottom-16 w-px bg-gray-100 hidden md:block" />
-
-          <div className="flex flex-col gap-0">
-            {steps.map((step, i) => (
-              <FadeIn key={step.week} delay={i * 0.1}>
-                <div className="grid grid-cols-1 md:grid-cols-[40px_1fr] gap-5 md:gap-8 pb-12">
-                  <div className="hidden md:flex flex-col items-center">
-                    <div
-                      className="w-[37px] h-[37px] rounded-full flex items-center justify-center text-white text-sm font-bold z-10 shrink-0 ring-4 ring-white"
-                      style={{ backgroundColor: step.color }}
-                    >
-                      {i + 1}
-                    </div>
-                  </div>
-
-                  <div className="bg-[#f9fafb] border border-gray-100 rounded-2xl p-7 md:ml-4">
-                    <div className="flex items-start justify-between gap-4 mb-4">
-                      <div>
+        {/* Desktop: horizontal timeline */}
+        <div className="hidden md:block">
+          <div className="relative">
+            {/* Connecting gradient line */}
+            <div className="absolute top-[26px] left-[52px] right-[52px] h-px opacity-20"
+              style={{ background: "linear-gradient(to right, #3b82f6, #06b6d4, #8b5cf6, #10b981)" }}
+            />
+            <div className="grid grid-cols-4 gap-4">
+              {steps.map((step, i) => {
+                const Icon = step.icon
+                return (
+                  <FadeIn key={step.week} delay={i * 0.1}>
+                    <div className="flex flex-col items-center">
+                      {/* Icon circle */}
+                      <div
+                        className="w-[52px] h-[52px] rounded-full flex items-center justify-center mb-6 z-10 relative ring-4 ring-white"
+                        style={{ backgroundColor: step.bg }}
+                      >
+                        <Icon size={22} style={{ color: step.color }} />
+                      </div>
+                      {/* Card */}
+                      <div className="bg-[#f9fafb] border border-gray-100 rounded-2xl p-6 w-full text-left">
                         <span
-                          className="text-xs font-bold uppercase tracking-wider"
+                          className="text-[10px] font-bold uppercase tracking-wider mb-1 block"
                           style={{ color: step.color }}
                         >
                           {step.week}
                         </span>
-                        <h3 className="text-[#111827] font-bold text-xl mt-0.5">
-                          {step.title}
-                        </h3>
-                      </div>
-                      <div
-                        className="md:hidden w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0"
-                        style={{ backgroundColor: step.color }}
-                      >
-                        {i + 1}
+                        <h3 className="text-[#111827] font-black text-lg mb-2">{step.title}</h3>
+                        <p className="text-[#6b7280] text-sm leading-relaxed mb-4">{step.body}</p>
+                        <span className="text-xs font-medium text-[#374151] bg-white border border-gray-200 px-3 py-1.5 rounded-full inline-block">
+                          {step.deliverable}
+                        </span>
                       </div>
                     </div>
-                    <p className="text-[#6b7280] leading-relaxed text-[15px] mb-5">{step.body}</p>
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-[10px] text-[#9ca3af] font-semibold uppercase tracking-wide">
-                        Ergebnis:
+                  </FadeIn>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile: vertical timeline */}
+        <div className="md:hidden relative">
+          <div className="absolute left-[24px] top-4 bottom-4 w-px bg-gray-100" />
+          <div className="flex flex-col gap-6">
+            {steps.map((step, i) => {
+              const Icon = step.icon
+              return (
+                <FadeIn key={step.week} delay={i * 0.1}>
+                  <div className="grid grid-cols-[50px_1fr] gap-4 items-start">
+                    <div
+                      className="w-[50px] h-[50px] rounded-full flex items-center justify-center z-10 ring-4 ring-white"
+                      style={{ backgroundColor: step.bg }}
+                    >
+                      <Icon size={20} style={{ color: step.color }} />
+                    </div>
+                    <div className="bg-[#f9fafb] border border-gray-100 rounded-2xl p-6">
+                      <span
+                        className="text-[10px] font-bold uppercase tracking-wider mb-0.5 block"
+                        style={{ color: step.color }}
+                      >
+                        {step.week}
                       </span>
-                      <span className="text-xs font-medium text-[#374151] bg-white border border-gray-200 px-3 py-1.5 rounded-full">
+                      <h3 className="text-[#111827] font-black text-lg mb-2">{step.title}</h3>
+                      <p className="text-[#6b7280] text-sm leading-relaxed mb-3">{step.body}</p>
+                      <span className="text-xs font-medium text-[#374151] bg-white border border-gray-200 px-3 py-1.5 rounded-full inline-block">
                         {step.deliverable}
                       </span>
                     </div>
                   </div>
-                </div>
-              </FadeIn>
-            ))}
+                </FadeIn>
+              )
+            })}
           </div>
         </div>
       </div>
