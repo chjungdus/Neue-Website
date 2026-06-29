@@ -47,9 +47,6 @@ export default function Services() {
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <div className="mb-20">
-            <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-5">
-              Was wir tun
-            </p>
             <h2 className="text-4xl md:text-5xl font-black text-[#111827] mb-4 leading-tight">
               Drei Dinge.
               <br />
