@@ -1,60 +1,60 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Check, ArrowRight, Shield, RefreshCw } from "lucide-react"
+import { Check, ArrowRight, Shield, RefreshCw, CreditCard, Building, Smartphone, Wallet } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Preise – Transparente Festpreise",
+  title: "Preise – Transparente Festpreise ab 300 €",
   description:
-    "Kein Stundensatz, keine Überraschungen. Transparente Festpreise ab 200 €.",
+    "Kein Stundensatz, keine Überraschungen. Transparente Festpreise ab 300 €. Starter, Pro und Enterprise.",
 }
 
 const packages = [
   {
-    id: "basic",
-    name: "Basic",
+    id: "starter",
+    name: "Starter",
     tagline: "Selbstständige & kleine Unternehmen",
-    price: "200",
+    price: "300",
     badge: null,
     desc: "Eine saubere, professionelle Website, die Ihre Leistungen klar kommuniziert und Anfragen generiert.",
     features: [
-      "Bis zu 3 Seiten, individuelles Design",
-      "Mobile-optimiert",
+      "1–3 Seiten, individuelles Design",
+      "Für Smartphone optimiert",
       "Kontaktformular",
-      "SEO-Grundoptimierung",
+      "Grundstruktur für Google",
       "30 Tage Support nach Launch",
-      "2 Korrekturrunden",
+      "2 Korrekturrunden inklusive",
     ],
     highlight: false,
   },
   {
-    id: "standard",
-    name: "Standard",
+    id: "pro",
+    name: "Pro",
     tagline: "Für wachsende Unternehmen",
-    price: "400",
+    price: "550",
     badge: "Beliebtestes Paket",
-    desc: "Mehr Seiten, mehr Funktionen, besseres SEO-Fundament. Für Unternehmen, die online wachsen wollen.",
+    desc: "Mehr Seiten, mehr Funktionen, besser für Google. Für Unternehmen, die online wachsen wollen.",
     features: [
-      "Bis zu 6 Seiten, Premium-Design mit Animationen",
-      "Google Analytics Integration",
-      "Umfassenderes SEO-Paket",
-      "Core Web Vitals Optimierung",
+      "4–8 Seiten, Premium-Design mit Animationen",
+      "Besucherstatistiken eingebunden",
+      "Umfassendes SEO-Paket",
+      "Schnelle Ladezeiten optimiert",
       "3 Monate Support",
       "Unbegrenzte Korrekturrunden",
     ],
     highlight: true,
   },
   {
-    id: "premium",
-    name: "Premium",
+    id: "enterprise",
+    name: "Enterprise",
     tagline: "Komplexere Anforderungen",
-    price: "650",
+    price: "900",
     badge: null,
-    desc: "Mehr Seiten, individuelle Funktionen (Buchungssystem, Kundenbereich, Shop-Anbindung) und erweiterte technische Umsetzung.",
+    desc: "Unbegrenzte Seiten, individuelle Funktionen und erweiterte technische Umsetzung.",
     features: [
       "Unbegrenzte Seiten",
-      "Individuelle Funktionen auf Anfrage",
-      "E-Commerce- oder Buchungssystem möglich",
-      "Performance-Monitoring Setup",
+      "Individuelle Zusatzfunktionen nach Absprache",
+      "Buchungssystem oder Kundenbereich möglich",
+      "Auswertung & Monitoring eingerichtet",
       "6 Monate dedizierter Support",
       "Unbegrenzte Korrekturrunden",
     ],
@@ -69,7 +69,7 @@ const carePackages = [
     features: [
       "2 Inhaltsänderungen pro Monat",
       "Monatliches Backup",
-      "Hosting-Überwachung",
+      "Überwachung der Website",
     ],
   },
   {
@@ -77,7 +77,7 @@ const carePackages = [
     price: "40",
     features: [
       "5 Inhaltsänderungen pro Monat",
-      "Reaktionszeit innerhalb 24h",
+      "Antwort innerhalb 24h",
       "Regelmäßige Backups",
       "Kleine Design-Anpassungen",
     ],
@@ -88,29 +88,52 @@ const carePackages = [
     price: "60",
     features: [
       "Unbegrenzte kleine Änderungen",
-      "Reaktionszeit innerhalb 12h",
+      "Antwort innerhalb 12h",
       "Wöchentliche Backups",
-      "Performance-Reports",
+      "Auswertung & Reports",
     ],
+  },
+]
+
+const paymentMethods = [
+  {
+    icon: Building,
+    name: "Überweisung",
+    desc: "Klassische Banküberweisung",
+  },
+  {
+    icon: CreditCard,
+    name: "Kreditkarte",
+    desc: "Visa, Mastercard, Amex",
+  },
+  {
+    icon: Wallet,
+    name: "PayPal",
+    desc: "Schnell & sicher",
+  },
+  {
+    icon: Smartphone,
+    name: "Vorkasse",
+    desc: "50 % bei Start, 50 % bei Launch",
   },
 ]
 
 const priceFAQs = [
   {
     q: "Was ist im Preis enthalten?",
-    a: "Design, Entwicklung, Testing und Launch sind immer inklusive. Hosting (ab ca. 10 €/Monat beim Anbieter Ihrer Wahl) und optionale Pflegepakete werden separat vereinbart — transparent, schriftlich vor Projektstart.",
+    a: "Design, Umsetzung, Tests und Launch sind immer inklusive. Hosting (ab ca. 10 €/Monat beim Anbieter Ihrer Wahl) und optionale Pflegepakete werden separat vereinbart, transparent, schriftlich vor Projektstart.",
   },
   {
     q: "Gibt es Nachzahlungen?",
-    a: "Nein. Der vereinbarte Festpreis ist der Endpreis. Neue Seiten oder Funktionen, die nicht im ursprünglichen Angebot standen, werden separat besprochen — nie still in Rechnung gestellt.",
+    a: "Nein. Der vereinbarte Festpreis ist der Endpreis. Neue Seiten oder Funktionen, die nicht im ursprünglichen Angebot standen, werden separat besprochen, nie still in Rechnung gestellt.",
   },
   {
     q: "Wie läuft die Zahlung ab?",
-    a: "50 % bei Auftragserteilung, 50 % bei Launch. Für größere Projekte passen wir die Zahlungsstruktur auf Wunsch individuell an.",
+    a: "50 % bei Auftragserteilung, 50 % bei Launch. Wir akzeptieren Banküberweisung, Kreditkarte, PayPal und Vorkasse. Für größere Projekte passen wir die Zahlungsstruktur auf Wunsch an.",
   },
   {
     q: "Wie bearbeite ich meine Website nach dem Launch?",
-    a: "Über uns. Wir bauen keine selbst-editierbaren CMS-Lösungen — stattdessen erledigen wir Änderungen schnell und unkompliziert über unsere Pflegepakete. Kleine Anpassungen sind meist innerhalb von 24 Stunden erledigt.",
+    a: "Über uns. Änderungen erledigen wir für Sie über unsere Pflegepakete, schnell und unkompliziert, ohne dass Sie technisches Vorwissen brauchen. Kleine Anpassungen sind meist innerhalb von 24 Stunden erledigt.",
   },
 ]
 
@@ -129,7 +152,7 @@ export default function PreisePage() {
             <span className="text-[#2563eb]">Kein Überraschungsangebot.</span>
           </h1>
           <p className="text-[#6b7280] text-xl leading-relaxed max-w-2xl">
-            Festpreise — weil Sie vor dem Auftrag wissen sollten, was er kostet. Nicht danach.
+            Festpreise, weil Sie vor dem Auftrag wissen sollten, was er kostet. Nicht danach.
           </p>
           <p className="text-[#9ca3af] text-sm mt-4">
             Alle Preise netto zzgl. 19 % MwSt.
@@ -234,7 +257,7 @@ export default function PreisePage() {
                 Nicht zufrieden mit dem ersten Entwurf?
               </h3>
               <p className="text-[#6b7280] text-sm leading-relaxed max-w-xl">
-                Wir überarbeiten kostenlos — ohne Diskussion, ohne Zeitdruck, so oft wie nötig.
+                Wir überarbeiten kostenlos, ohne Diskussion, ohne Zeitdruck, so oft wie nötig.
                 Diese Aussage steht im Vertrag. Nicht im Marketing.
               </p>
             </div>
@@ -242,8 +265,39 @@ export default function PreisePage() {
         </div>
       </section>
 
-      {/* Monthly care packages */}
+      {/* Payment Methods */}
       <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
+            Zahlungsmethoden
+          </p>
+          <h2 className="text-2xl font-black text-[#111827] mb-8 leading-tight">
+            So können Sie zahlen.
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {paymentMethods.map((method) => {
+              const Icon = method.icon
+              return (
+                <div key={method.name} className="bg-[#f9fafb] border border-gray-100 rounded-xl p-5 flex flex-col items-center text-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center">
+                    <Icon size={18} className="text-[#2563eb]" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[#111827] text-sm">{method.name}</p>
+                    <p className="text-[#9ca3af] text-xs mt-0.5">{method.desc}</p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+          <p className="text-[#9ca3af] text-xs mt-5">
+            Zahlungsstruktur: 50 % bei Auftragserteilung · 50 % bei Launch
+          </p>
+        </div>
+      </section>
+
+      {/* Monthly care packages */}
+      <section className="py-16 bg-[#f9fafb] border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <div>
@@ -251,11 +305,11 @@ export default function PreisePage() {
                 Laufende Betreuung
               </p>
               <h2 className="text-3xl font-black text-[#111827] leading-tight">
-                Pflege & Aktualisierung
+                Pflege &amp; Aktualisierung
               </h2>
             </div>
             <p className="text-[#9ca3af] text-sm max-w-xs text-right hidden sm:block leading-relaxed">
-              Wir machen die Änderungen für Sie — schnell, unkompliziert, ohne technisches Vorwissen Ihrerseits.
+              Wir machen die Änderungen für Sie, schnell und unkompliziert.
             </p>
           </div>
 
@@ -266,7 +320,7 @@ export default function PreisePage() {
                 className={`rounded-2xl p-7 ${
                   pkg.highlight
                     ? "bg-[#0f172a] text-white"
-                    : "bg-[#f9fafb] border border-gray-100"
+                    : "bg-white border border-gray-100"
                 }`}
               >
                 <div className="flex items-center justify-between mb-5">
@@ -306,14 +360,14 @@ export default function PreisePage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-[#f9fafb] border-t border-gray-100">
+      <section className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="text-3xl font-black text-[#111827] mb-10">
             Fragen zu Preisen
           </h2>
           <div className="flex flex-col gap-4">
             {priceFAQs.map((faq) => (
-              <div key={faq.q} className="bg-white border border-gray-100 rounded-2xl p-7">
+              <div key={faq.q} className="bg-[#f9fafb] border border-gray-100 rounded-2xl p-7">
                 <h3 className="text-[#111827] font-bold mb-3 text-base">{faq.q}</h3>
                 <p className="text-[#6b7280] text-sm leading-relaxed">{faq.a}</p>
               </div>
@@ -323,13 +377,13 @@ export default function PreisePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-white border-t border-gray-100">
+      <section className="py-20 bg-[#f9fafb] border-t border-gray-100">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-black text-[#111827] mb-4">
             Bereit für ein konkretes Angebot?
           </h2>
           <p className="text-[#6b7280] text-lg mb-10 leading-relaxed">
-            Kostenlos anfragen — wir melden uns innerhalb von 24 Stunden mit einem persönlichen Angebot.
+            Kostenlos anfragen. Wir melden uns innerhalb von 24 Stunden mit einem persönlichen Angebot.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
