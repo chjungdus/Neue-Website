@@ -29,9 +29,6 @@ export default function ProblemSection() {
     <section className="py-28 bg-[#0f172a]">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-5">
-            Die unbequeme Wahrheit
-          </p>
           <div className="max-w-3xl mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-white leading-tight mb-6">
               Drei Zeichen, dass Ihre Website
