@@ -10,84 +10,40 @@ const services = [
     title: "Webdesign & Entwicklung",
     tagline: "Für Unternehmen, die mit ihrer Website Kunden gewinnen wollen.",
     problem:
-      "Die meisten Websites werden nach Geschmack gebaut — nicht nach Conversion-Rate. Das Ergebnis sieht gut aus und tut nichts.",
+      "Die meisten Websites werden nach Geschmack gebaut, nicht danach wie sie funktionieren. Das Ergebnis sieht gut aus und tut nichts.",
     solution:
-      "Wir starten mit der Frage: Was soll der Besucher tun? Dann bauen wir rückwärts: Welches Design, welche Texte, welche Seitenstruktur bringt ihn dahin? Jedes Designentscheidung hat einen Grund.",
+      "Wir starten mit einer einfachen Frage: Was soll der Besucher tun? Dann bauen wir rückwärts. Welches Design, welche Texte, welche Seitenstruktur bringt ihn dahin? Jede Entscheidung hat einen Grund.",
     includes: [
-      "UX-Konzept & Informationsarchitektur",
-      "Figma-Design (Desktop + Mobile)",
-      "Next.js Entwicklung (App Router)",
-      "Performance-Optimierung (Core Web Vitals)",
-      "SEO-Grundstruktur (Semantic HTML, Sitemap)",
-      "4 Wochen Lieferzeit",
+      "Konzept: Welche Seiten braucht die Website, was steht wo?",
+      "Design-Entwurf zum Abnicken, bevor wir anfangen zu bauen",
+      "Umsetzung ohne Baukastensystem oder Templates",
+      "Schnelle Ladezeiten auf jedem Gerät",
+      "Seitenstruktur, die Google versteht",
+      "Starter-Projekte fertig in unter einer Woche",
     ],
-    notIncludes: ["Copywriting", "Fotografie/Videografie", "Laufende Wartung (optional buchbar)"],
-    price: "ab 200 €",
-    deliverable: "Produktionsreife Website mit vollständigem Code-Übergabe",
+    notIncludes: ["Texte & Fotos", "Laufende Wartung (optional buchbar)"],
+    price: "ab 300 €",
+    deliverable: "Fertige Website mit allen Zugängen bei Launch",
   },
   {
     number: "02",
-    title: "E-Commerce",
-    tagline: "Für Shops, die mehr verkaufen wollen als sie gerade tun.",
-    problem:
-      "Durchschnittliche E-Commerce-Conversion-Rate: 2–3 %. Bei den meisten unserer neuen Kunden lagen wir darunter. Das bedeutet: 97 von 100 Besuchern kaufen nichts. Das ist kein Traffic-Problem — das ist ein Website-Problem.",
-    solution:
-      "Wir analysieren, wo Nutzer abspringen (Heatmaps, Session-Recordings, Checkout-Funnel) und bauen dann gezielt dagegen: schnellere Ladezeiten, klarerer Checkout, strategisch platzierte Vertrauenssignale.",
-    includes: [
-      "Shop-Konzept & Produktstruktur",
-      "Custom Design (kein Standard-Theme)",
-      "Next.js + Shopify oder WooCommerce",
-      "Checkout-Optimierung",
-      "Mobile-First (>60 % aller Käufe sind mobil)",
-      "Produkt-Seiten-Templates",
-    ],
-    notIncludes: [
-      "Produktfotos",
-      "Produktbeschreibungen",
-      "Lagerbestand / ERP-Integration (auf Anfrage)",
-    ],
-    price: "ab 400 €",
-    deliverable: "Fertig konfigurierter Shop mit Schulung für das Team",
-  },
-  {
-    number: "03",
-    title: "Web-Applikationen",
-    tagline: "Für Prozesse, die noch auf Excel laufen.",
-    problem:
-      "Jedes Unternehmen ab einer gewissen Größe hat mindestens eine Excel-Datei, die eigentlich eine Software sein sollte. Angebotsmanagement, Kundenverwaltung, interne Workflows — die Lösung ist meist ein custom Tool, kein teures ERP.",
-    solution:
-      "Wir bauen Web-Apps, die genau das tun, was Sie brauchen — nicht mehr, nicht weniger. Stack: Next.js + Supabase (PostgreSQL). Auth, Echtzeit-Updates, File-Storage inklusive. Keine überdimensionierten Frameworks, kein Vendor-Lock-in.",
-    includes: [
-      "Anforderungsanalyse & technisches Konzept",
-      "Datenbankdesign (PostgreSQL / Supabase)",
-      "Auth-System (Login, Rollen, Permissions)",
-      "Admin-Interface & Nutzer-Dashboard",
-      "API-Entwicklung",
-      "Testing & Dokumentation",
-    ],
-    notIncludes: ["Mobile Native Apps (iOS/Android)", "ML/AI-Features (auf Anfrage)"],
-    price: "ab 9.500 €",
-    deliverable: "Vollständig dokumentierte Applikation + Source Code",
-  },
-  {
-    number: "04",
     title: "Website-Relaunch",
     tagline: "Für bestehende Websites, die unter ihrer eigenen Last zusammenbrechen.",
     problem:
-      "Alte WordPress-Installationen mit 47 Plugins, Ladezeiten von 8 Sekunden, ein Design aus 2015, das auf dem Handy aussieht als wäre es für Ameisen gebaut — das kostet jeden Tag Kunden, nur unsichtbar.",
+      "Alte Websites mit dutzenden Plugins, Ladezeiten von 8 Sekunden, ein Design aus 2015, das auf dem Handy kaum nutzbar ist. Das kostet jeden Tag Kunden, nur unsichtbar.",
     solution:
-      "Vollständiger Neuaufbau auf modernem Stack. Wir nehmen Ihre bestehenden Inhalte, verbessern Struktur und Texte wo nötig, und liefern eine Website, die in 30 Jahren nicht wie heute wirkt — weil gutes Design zeitlos ist, nicht trendy.",
+      "Vollständiger Neuaufbau. Wir nehmen Ihre bestehenden Inhalte, verbessern Struktur und Texte wo nötig, und liefern eine Website, die nicht in zwei Jahren wieder veraltet aussieht.",
     includes: [
-      "Content-Audit & Migrationsplan",
-      "Neuaufbau auf Next.js",
-      "301-Weiterleitung (kein SEO-Verlust)",
-      "Performance-Boost (PageSpeed Insights 90+)",
-      "Performance-Monitoring & Reporting",
-      "Launch-Support & Monitoring",
+      "Analyse der bestehenden Website",
+      "Vollständiger Neuaufbau auf modernem Fundament",
+      "Alle alten Links bleiben erreichbar, kein Verlust bei Google",
+      "Deutlich schnellere Ladezeiten",
+      "Übernahme aller bestehenden Inhalte",
+      "Launch-Begleitung",
     ],
-    notIncludes: ["SEO-Kampagnen", "Content-Erstellung (optional buchbar)"],
-    price: "ab 4.500 €",
-    deliverable: "Migrierte Website ohne SEO-Rankingverlust",
+    notIncludes: ["Texte neu schreiben (auf Anfrage möglich)", "SEO-Kampagnen"],
+    price: "ab 550 €",
+    deliverable: "Neue Website ohne Rankingverlust",
   },
 ]
 
@@ -95,27 +51,27 @@ const process = [
   {
     step: "Erstgespräch",
     duration: "30 Min.",
-    desc: "Wir hören zu. Sie erklären das Problem, wir stellen Fragen. Am Ende wissen beide, ob das passt — oder nicht.",
+    desc: "Wir hören zu. Sie erklären das Problem, wir stellen Fragen. Am Ende wissen beide, ob das passt oder nicht.",
   },
   {
     step: "Konzept & Angebot",
-    duration: "3–5 Tage",
-    desc: "Wir skizzieren die Lösung: Seitenstruktur, technischer Ansatz, Zeitplan. Das Angebot ist ein Festpreis — keine Stundensatze, keine Überraschungen.",
+    duration: "1–2 Tage",
+    desc: "Wir skizzieren die Lösung: Welche Seiten braucht die Website, wie sind sie aufgebaut, was kostet das. Das Angebot ist ein Festpreis ohne Überraschungen.",
   },
   {
-    step: "Design-Phase",
-    duration: "Woche 1–2",
-    desc: "Figma-Prototyp mit allen wichtigen Seiten. Sie geben Feedback, wir überarbeiten. Erst wenn das Design sitzt, fangen wir an zu coden.",
+    step: "Design-Entwurf",
+    duration: "2–3 Tage",
+    desc: "Wir zeigen Ihnen, wie die Website aussehen wird, bevor wir anfangen zu bauen. Sie geben Feedback, wir überarbeiten. Erst wenn das Design sitzt, geht es weiter.",
   },
   {
     step: "Entwicklung",
-    duration: "Woche 2–4",
-    desc: "Live-Staging-Link von Tag 1. Sie sehen jederzeit den aktuellen Stand. Keine Überraschungen beim Launch.",
+    duration: "3–5 Tage",
+    desc: "Sie sehen jederzeit den aktuellen Stand über einen Live-Link. Keine Überraschungen beim Launch.",
   },
   {
     step: "Launch & Übergabe",
-    duration: "Woche 4",
-    desc: "Go-Live, alle Zugänge, Schulung. Die Website gehört Ihnen — Code, Domain, alles. Kein Lock-in.",
+    duration: "1 Tag",
+    desc: "Go-Live, alle Zugänge, kurze Einweisung. Die Website gehört Ihnen, kein Lock-in.",
   },
 ]
 
@@ -123,7 +79,7 @@ const trustedBy = [
   "Handwerk & Bau",
   "Gastronomie & Hotellerie",
   "Rechtsanwälte & Steuerberater",
-  "E-Commerce & Retail",
+  "Online-Dienstleister",
   "Medizin & Therapie",
   "Coaching & Beratung",
 ]
@@ -141,7 +97,7 @@ export default function LeistungenPage() {
             <h1 className="text-5xl md:text-7xl font-black text-[#111827] leading-[1.05] mb-8 max-w-3xl">
               Was kostet eine
               <br />
-              <span className="text-[#ef4444]">schlechte Website</span>
+              <span className="text-[#2563eb]">schlechte Website</span>
               <br />
               wirklich?
             </h1>
@@ -149,8 +105,8 @@ export default function LeistungenPage() {
           <FadeIn delay={0.1}>
             <p className="text-[#6b7280] text-xl max-w-2xl leading-relaxed">
               Verpasste Kunden, die Sie nie zählen werden. Menschen, die auf Ihre Seite kommen,
-              nicht finden was sie suchen, und zur Konkurrenz gehen. Kein Drama, keine Fehlermeldung
-              — nur stille Verluste, jeden Tag.
+              nicht finden was sie suchen, und zur Konkurrenz gehen. Kein Drama, keine Fehlermeldung.
+              Nur stille Verluste, jeden Tag.
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
@@ -168,14 +124,13 @@ export default function LeistungenPage() {
         </div>
       </section>
 
-      {/* Services — numbered rows */}
+      {/* Services */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="space-y-0 divide-y divide-gray-100">
             {services.map((service, i) => (
               <FadeIn key={i} delay={i * 0.06}>
                 <div className="py-16 grid grid-cols-1 lg:grid-cols-[120px_1fr] gap-8">
-                  {/* Number */}
                   <div className="shrink-0">
                     <span
                       className="text-7xl font-black leading-none select-none"
@@ -185,7 +140,6 @@ export default function LeistungenPage() {
                     </span>
                   </div>
 
-                  {/* Content */}
                   <div>
                     <div className="mb-6">
                       <h2 className="text-2xl md:text-3xl font-black text-[#111827] mb-2">
@@ -259,7 +213,7 @@ export default function LeistungenPage() {
         </div>
       </section>
 
-      {/* Process — dark */}
+      {/* Process */}
       <section className="py-24 bg-[#0f172a]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
@@ -270,7 +224,7 @@ export default function LeistungenPage() {
               Kein Überraschungsmoment.
             </h2>
             <p className="text-slate-400 text-lg mb-16 max-w-lg leading-relaxed">
-              Jeder Schritt hat eine klare Erwartung. Jeder Schritt hat ein klares Ergebnis.
+              Jeder Schritt hat eine klare Erwartung und ein klares Ergebnis.
             </p>
           </FadeIn>
 
@@ -304,22 +258,21 @@ export default function LeistungenPage() {
                   <br />
                   Wir überarbeiten kostenlos.
                 </h2>
-                <p className="text-[#6b7280] leading-relaxed text-base max-w-xl">
+                <p className="text-[#6b7280] text-base leading-relaxed max-w-xl">
                   Nach dem ersten Design-Entwurf haben Sie das Recht auf beliebig viele
-                  Überarbeitungen — ohne Diskussion, ohne Aufpreis — bis das Design dem entspricht,
+                  Überarbeitungen, ohne Diskussion und ohne Aufpreis, bis das Design dem entspricht,
                   was im Briefing vereinbart war. Das steht so im Vertrag.
                 </p>
                 <p className="text-[#9ca3af] text-sm mt-4">
-                  Was nicht gilt: Scope-Änderungen während der Entwicklung. Neue Features nach
-                  Projektstart kosten extra. Das ist nur fair.
+                  Was nicht gilt: Neue Features nach Projektstart kosten extra. Das ist nur fair.
                 </p>
               </div>
               <div className="bg-white border border-gray-100 rounded-2xl p-8">
                 <div className="space-y-4">
                   {[
-                    "Festpreis — kein Stundensatz",
+                    "Festpreis ohne Stundensatz",
                     "Deadline steht im Vertrag",
-                    "Wöchentliche Updates mit Live-Link",
+                    "Live-Link während der Entwicklung",
                     "Alle Zugänge bei Launch",
                     "30 Tage Support nach Launch",
                   ].map((item, i) => (
@@ -350,19 +303,19 @@ export default function LeistungenPage() {
             {[
               {
                 q: "Machen Sie auch SEO?",
-                a: "Technisches SEO ist in jedem Projekt enthalten: saubere Seitenstruktur, schnelle Ladezeiten, Sitemap, Schema-Markup. Laufende SEO-Kampagnen (Linkbuilding, Keyword-Targeting, Content-Strategie) sind nicht Teil unserer Leistungen — das ist ein eigenes Fachgebiet.",
+                a: "Technische Grundlagen sind in jedem Projekt dabei: saubere Seitenstruktur, schnelle Ladezeiten, Sitemap. Laufende SEO-Kampagnen (Werbeanzeigen, Textstrategie, Linkaufbau) übernehmen wir nicht. Das ist ein eigenes Fachgebiet.",
               },
               {
                 q: "Was ist mit Pflege und Updates nach dem Launch?",
-                a: "Optional. Wir bieten Pflegepakete ab 30 €/Monat für regelmäßige Updates, Inhaltsänderungen und Backups. Pflicht ist das nicht. Den Code haben Sie, und jeder Entwickler kann damit arbeiten.",
+                a: "Optional. Wir bieten Pflegepakete ab 30 €/Monat für regelmäßige Updates, Inhaltsänderungen und Backups an — Pflicht ist das nicht. Den Code haben Sie, und jeder Entwickler kann damit arbeiten.",
               },
               {
-                q: "Ich habe schon ein Design von woanders — können Sie das umsetzen?",
-                a: "Ja, wenn das Figma-File vollständig ist. Wir schauen uns an, was vorliegt, und geben Ihnen ehrliches Feedback, ob das so umsetzbar ist — oder ob wir Anpassungen für Conversion und Performance empfehlen würden.",
+                q: "Ich habe schon ein Design von woanders. Können Sie das umsetzen?",
+                a: "Ja, wenn das Design vollständig ist. Wir schauen uns an, was vorliegt, und geben Ihnen ehrliches Feedback, ob das so umsetzbar ist oder ob wir Anpassungen empfehlen würden.",
               },
               {
                 q: "Kann ich die Website später selbst bearbeiten?",
-                a: "Nein — wir bauen keine selbst-editierbaren CMS-Lösungen. Änderungen erledigen wir für Sie über unsere Pflegepakete (ab 30 €/Monat). Das ist für die meisten Kunden günstiger und unkomplizierter als ein eigenes CMS.",
+                a: "Nein. Wir bauen keine selbst-editierbaren Systeme. Änderungen erledigen wir für Sie über unsere Pflegepakete ab 30 €/Monat. Das ist für die meisten Kunden günstiger und unkomplizierter als ein eigenes Verwaltungssystem.",
               },
             ].map((faq, i) => (
               <FadeIn key={i} delay={i * 0.06}>
@@ -384,8 +337,8 @@ export default function LeistungenPage() {
               Welche Leistung passt zu Ihnen?
             </h2>
             <p className="text-[#6b7280] text-lg mb-10 leading-relaxed">
-              Im Erstgespräch finden wir das heraus — kostenlos und ohne Verpflichtung. Wenn wir
-              nicht die Richtige für Ihr Projekt sind, sagen wir das direkt.
+              Im Erstgespräch finden wir das heraus, kostenlos und ohne Verpflichtung.
+              Wenn wir nicht die Richtigen für Ihr Projekt sind, sagen wir das direkt.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
