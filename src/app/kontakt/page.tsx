@@ -155,13 +155,13 @@ export default function KontaktPage() {
                       <span className="text-sm font-medium">+49 211 123 456 7</span>
                     </a>
                     <a
-                      href="mailto:hallo@digitalforge.de"
+                      href="mailto:hallo@nexuzo.de"
                       className="flex items-center gap-3 text-[#374151] hover:text-[#2563eb] transition-colors group"
                     >
                       <span className="w-9 h-9 rounded-xl bg-[#f3f4f6] flex items-center justify-center group-hover:bg-[#eff6ff] transition-colors">
                         <Mail size={15} className="text-[#6b7280] group-hover:text-[#2563eb] transition-colors" />
                       </span>
-                      <span className="text-sm font-medium">hallo@digitalforge.de</span>
+                      <span className="text-sm font-medium">hallo@nexuzo.de</span>
                     </a>
                     <div className="flex items-center gap-3 text-[#9ca3af]">
                       <span className="w-9 h-9 rounded-xl bg-[#f3f4f6] flex items-center justify-center">
