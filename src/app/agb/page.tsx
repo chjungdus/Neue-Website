@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "AGB",
-  description: "Allgemeine Geschäftsbedingungen der DigitalForge GmbH.",
+  description: "Allgemeine Geschäftsbedingungen von Nexuzo.",
 }
 
 function Section({ num, title, children }: { num: string; title: string; children: React.ReactNode }) {
@@ -31,13 +31,13 @@ export default function AGBPage() {
 
         <h1 className="text-4xl font-black text-[#111827] mb-4">Allgemeine Geschäftsbedingungen</h1>
         <p className="text-[#6b7280] text-sm mb-12">
-          der DigitalForge GmbH, Königsallee 14, 40212 Düsseldorf — Stand: Juni 2026
+          von Nexuzo, Königsallee 14, 40212 Düsseldorf — Stand: Juni 2026
         </p>
 
         <div className="space-y-10">
           <Section num="1" title="Geltungsbereich">
             <p>
-              Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen der DigitalForge GmbH
+              Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen Nexuzo
               (nachfolgend „Auftragnehmer") und dem Auftraggeber über die Erbringung von Web-Design-, Web-Entwicklungs-
               und damit zusammenhängenden Dienstleistungen.
             </p>
