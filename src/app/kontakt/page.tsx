@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Mail, Phone, Clock, ArrowRight, CheckCircle } from "lucide-react"
+import { Mail, MessageCircle, Clock, ArrowRight, CheckCircle } from "lucide-react"
 import ContactForm from "@/components/forms/contact-form"
 import FadeIn from "@/components/ui/fade-in"
 
@@ -146,22 +146,24 @@ export default function KontaktPage() {
                   </p>
                   <div className="flex flex-col gap-3">
                     <a
-                      href="tel:+492111234567"
-                      className="flex items-center gap-3 text-[#374151] hover:text-[#2563eb] transition-colors group"
+                      href="https://wa.me/4917680257270"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 text-[#374151] hover:text-[#25D366] transition-colors group"
                     >
-                      <span className="w-9 h-9 rounded-xl bg-[#f3f4f6] flex items-center justify-center group-hover:bg-[#eff6ff] transition-colors">
-                        <Phone size={15} className="text-[#6b7280] group-hover:text-[#2563eb] transition-colors" />
+                      <span className="w-9 h-9 rounded-xl bg-[#f3f4f6] flex items-center justify-center group-hover:bg-[#f0fdf4] transition-colors">
+                        <MessageCircle size={15} className="text-[#6b7280] group-hover:text-[#25D366] transition-colors" />
                       </span>
-                      <span className="text-sm font-medium">+49 211 123 456 7</span>
+                      <span className="text-sm font-medium">WhatsApp: +49 176 80257270</span>
                     </a>
                     <a
-                      href="mailto:hallo@nexuzo.de"
+                      href="mailto:mateo.sdlm@gmail.com"
                       className="flex items-center gap-3 text-[#374151] hover:text-[#2563eb] transition-colors group"
                     >
                       <span className="w-9 h-9 rounded-xl bg-[#f3f4f6] flex items-center justify-center group-hover:bg-[#eff6ff] transition-colors">
                         <Mail size={15} className="text-[#6b7280] group-hover:text-[#2563eb] transition-colors" />
                       </span>
-                      <span className="text-sm font-medium">hallo@nexuzo.de</span>
+                      <span className="text-sm font-medium">mateo.sdlm@gmail.com</span>
                     </a>
                     <div className="flex items-center gap-3 text-[#9ca3af]">
                       <span className="w-9 h-9 rounded-xl bg-[#f3f4f6] flex items-center justify-center">
