@@ -4,7 +4,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react"
 const usefulLinks = [
   { label: "Startseite", href: "/", desc: "Zurück zum Anfang" },
   { label: "Leistungen", href: "/leistungen", desc: "Was wir anbieten" },
-  { label: "Portfolio", href: "/portfolio", desc: "4 abgeschlossene Projekte" },
+  { label: "Portfolio", href: "/portfolio", desc: "Unsere bisherigen Projekte" },
   { label: "Preise", href: "/preise", desc: "Transparente Festpreise" },
   { label: "Über uns", href: "/ueber-uns", desc: "Wer wir sind" },
   { label: "Kontakt", href: "/kontakt", desc: "Kein Pitch, kein Druck" },
@@ -89,7 +89,7 @@ export default function NotFound() {
         {/* Small reminder of who we are */}
         <div className="mt-12 pt-8 border-t border-gray-100">
           <p className="text-[#d1d5db] text-xs text-center">
-            Nexuzo · Düsseldorf · 4 Projekte · Kein Template wurde in der
+            Nexuzo · Düsseldorf · Kein Template wurde in der
             Herstellung dieser Website verletzt
           </p>
         </div>

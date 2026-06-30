@@ -68,54 +68,51 @@ export default function PortfolioGrid() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map((project, i) => (
-          <Link
-            key={project.id}
-            href={`/portfolio/${project.slug}`}
-            className={`group rounded-2xl overflow-hidden bg-white border border-gray-200 card-hover ${
-              i === 0 && activeTag === ALL_TAG ? "md:col-span-2" : ""
-            }`}
-          >
-            <div
-              className={`w-full bg-gradient-to-br from-[#2563eb]/10 to-[#0ea5e9]/10 flex items-center justify-center ${
-                i === 0 && activeTag === ALL_TAG ? "h-72" : "h-52"
-              }`}
-            >
-              <span className="text-5xl font-black text-[#2563eb]/20 select-none">
-                {project.client.slice(0, 2).toUpperCase()}
-              </span>
-            </div>
+          <div key={project.id} className={`group rounded-2xl overflow-hidden bg-white border border-gray-200 card-hover ${ i === 0 && activeTag === ALL_TAG ? "md:col-span-2" : "" }`}>
+            <Link href={`/portfolio/${project.slug}`} className="block">
+              <div className={`w-full bg-gradient-to-br from-[#2563eb]/10 to-[#0ea5e9]/10 flex items-center justify-center ${ i === 0 && activeTag === ALL_TAG ? "h-72" : "h-52" }`}>
+                <span className="text-5xl font-black text-[#2563eb]/20 select-none">{project.client.slice(0, 2).toUpperCase()}</span>
+              </div>
+            </Link>
             <div className="p-6">
               <div className="flex items-start justify-between gap-4 mb-2">
-                <div>
-                  <h2 className="text-[#111827] font-bold text-lg leading-snug">{project.title}</h2>
+                <Link href={`/portfolio/${project.slug}`}>
+                  <h2 className="text-[#111827] font-bold text-lg leading-snug group-hover:text-[#2563eb] transition-colors">{project.title}</h2>
                   <p className="text-[#2563eb] text-xs mt-0.5">{project.client}</p>
-                </div>
-                <ExternalLink
-                  size={16}
-                  className="text-[#9ca3af] group-hover:text-[#2563eb] transition-colors flex-shrink-0 mt-1"
-                />
+                </Link>
+                {project.url && (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Website ansehen"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-[#9ca3af] hover:text-[#2563eb] transition-colors flex-shrink-0 mt-1"
+                  >
+                    <ExternalLink size={16} />
+                  </a>
+                )}
               </div>
               <p className="text-[#6b7280] text-sm mb-4 leading-relaxed">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 {project.tags.map((tag) => (
-                  <button
-                    key={tag}
-                    onClick={(e) => {
-                      e.preventDefault()
-                      setActiveTag(tag)
-                    }}
-                    className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
-                      activeTag === tag
-                        ? "bg-[#eff6ff] text-[#2563eb] border-[#2563eb]/30"
-                        : "bg-[#f9fafb] text-[#6b7280] border-gray-200 hover:border-[#2563eb]/30 hover:text-[#2563eb]"
-                    }`}
-                  >
+                  <button key={tag} onClick={() => setActiveTag(tag)} className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${ activeTag === tag ? "bg-[#eff6ff] text-[#2563eb] border-[#2563eb]/30" : "bg-[#f9fafb] text-[#6b7280] border-gray-200 hover:border-[#2563eb]/30 hover:text-[#2563eb]" }`}>
                     {tag}
                   </button>
                 ))}
+                {project.url && (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-auto text-xs font-semibold text-[#2563eb] hover:underline flex items-center gap-1"
+                  >
+                    Website ansehen <ExternalLink size={11} />
+                  </a>
+                )}
               </div>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
 

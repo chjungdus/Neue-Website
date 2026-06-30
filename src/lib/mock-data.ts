@@ -10,7 +10,7 @@ export const mockProjects: PortfolioProject[] = [
       "Komplette Website für einen argentinischen Foodtruck in Düsseldorf. Mit Speisekarte, Standortinfos und einem starken visuellen Auftritt, der die Leidenschaft für argentinische Küche transportiert.",
     tags: ["Restaurant", "Webdesign", "Next.js"],
     client: "Milonga ARG",
-    url: "",
+    url: "https://www.milonga-arg.de/",
     image_url: "",
     featured: true,
     created_at: "2025-03-10",

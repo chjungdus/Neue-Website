@@ -2,33 +2,8 @@ import { Quote } from "lucide-react"
 import FadeIn from "@/components/ui/fade-in"
 
 const testimonials = [
-  {
-    name: "Carlos V.",
-    company: "Limpiezas El Valle",
-    initials: "CV",
-    quote: "Vorher hat uns online niemand gefunden. Jetzt rufen täglich neue Kunden an — direkt über die Website.",
-    result: "+240%",
-    resultNote: "mehr Anfragen in 3 Monaten",
-    color: "#10b981",
-  },
-  {
-    name: "Alejandro R.",
-    company: "Milonga ARG",
-    initials: "AR",
-    quote: "Fertig in 4 Wochen, genau wie vereinbart. Das Design trifft unsere Identität als argentinischer Foodtruck perfekt.",
-    result: "4 Wo.",
-    resultNote: "pünktlich geliefert wie versprochen",
-    color: "#3b82f6",
-  },
-  {
-    name: "Laura M.",
-    company: "Klamotten Online Shop",
-    initials: "LM",
-    quote: "Die Conversion-Rate hat sich nach dem Relaunch verdoppelt. Unsere Kunden finden sich sofort zurecht.",
-    result: "2×",
-    resultNote: "höhere Conversion nach Relaunch",
-    color: "#8b5cf6",
-  },
+  { name: "Carlos V.", company: "Limpiezas El Valle", initials: "CV", quote: "Vorher hat uns online niemand gefunden. Jetzt rufen täglich neue Kunden an — direkt über die Website.", result: "+240%", resultNote: "mehr Anfragen in 3 Monaten", color: "#10b981" },
+  { name: "Alejandro R.", company: "Milonga ARG", initials: "AR", quote: "Seit dem Launch kennen uns Leute, die vorher nie am Truck vorbeigekommen wären. Mehr Kunden, ohne dass wir mehr Werbung geschaltet haben.", result: "3 → 11", resultNote: "Online-Anfragen pro Monat", color: "#3b82f6" },
 ]
 
 export default function Testimonials() {
@@ -47,8 +22,7 @@ export default function Testimonials() {
             </p>
           </div>
         </FadeIn>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl">
           {testimonials.map((t, i) => (
             <FadeIn key={t.name} delay={i * 0.1}>
               <div className="bg-white/[0.03] border border-white/[0.07] rounded-2xl p-7 flex flex-col gap-5 hover:bg-white/[0.06] hover:border-white/[0.12] transition-all h-full">

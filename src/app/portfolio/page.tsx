@@ -7,14 +7,8 @@ import FadeIn from "@/components/ui/fade-in"
 export const metadata: Metadata = {
   title: "Portfolio — Nexuzo",
   description:
-    "4 Projekte. Von der Landing Page bis zur komplexen Web-App — hier sind die Ergebnisse.",
+    "Handgebaute Websites für reale Kunden — kein Template, keine Demo-Projekte.",
 }
-
-const categories = [
-  { label: "Unternehmens-Websites", count: "2" },
-  { label: "Web-Apps", count: "1" },
-  { label: "E-Commerce", count: "1" },
-]
 
 const selectionPrincipien = [
   {
@@ -46,7 +40,7 @@ export default function PortfolioPage() {
               Portfolio
             </p>
             <h1 className="text-5xl md:text-6xl font-black text-[#111827] leading-[1.05] mb-5 max-w-2xl">
-              4 Projekte.
+              Echte Projekte.
               <br />
               <span className="text-[#2563eb]">0 Templates.</span>
             </h1>
@@ -54,18 +48,6 @@ export default function PortfolioPage() {
               Jedes davon handgebaut — weil jedes Unternehmen andere Ziele hat und ein
               Copy-Paste-Design das nicht abbildet.
             </p>
-          </FadeIn>
-
-          {/* Category stats */}
-          <FadeIn delay={0.12}>
-            <div className="mt-12 flex flex-wrap gap-px bg-gray-100 rounded-2xl overflow-hidden w-fit">
-              {categories.map((cat) => (
-                <div key={cat.label} className="bg-white px-6 py-4">
-                  <p className="text-2xl font-black text-[#111827] leading-none mb-1">{cat.count}</p>
-                  <p className="text-xs text-[#9ca3af] leading-snug">{cat.label}</p>
-                </div>
-              ))}
-            </div>
           </FadeIn>
         </div>
       </section>

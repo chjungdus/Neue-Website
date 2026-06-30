@@ -1,8 +1,8 @@
 import Hero from "@/components/home/hero"
 import Marquee from "@/components/home/marquee"
+import WhyUs from "@/components/home/why-us"
 import ProblemSection from "@/components/home/problem-section"
 import Services from "@/components/home/services"
-import StatsCounter from "@/components/home/stats-counter"
 import Testimonials from "@/components/home/testimonials"
 import PortfolioTeaser from "@/components/home/portfolio-teaser"
 import Process from "@/components/home/process"
@@ -14,9 +14,9 @@ export default function HomePage() {
     <>
       <Hero />
       <Marquee />
+      <WhyUs />
       <ProblemSection />
       <Services />
-      <StatsCounter />
       <Testimonials />
       <PortfolioTeaser />
       <Process />

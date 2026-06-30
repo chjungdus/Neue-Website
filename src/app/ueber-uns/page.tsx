@@ -274,19 +274,8 @@ export default function UeberUnsPage() {
 
       {/* Stats */}
       <section className="py-16 bg-white border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-gray-100 rounded-2xl overflow-hidden">
-            {[
-              { number: "4", label: "Projekte abgeschlossen" },
-              { number: "4,8/5", label: "Durchschnittsbewertung" },
-              { number: "0", label: "Verpasste Deadlines" },
-            ].map((stat, i) => (
-              <div key={i} className="bg-white px-6 py-8 text-center">
-                <div className="text-3xl font-black text-[#111827] mb-1">{stat.number}</div>
-                <div className="text-xs text-[#9ca3af] leading-snug">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <p className="text-[#374151] font-semibold text-lg">Null verpasste Deadlines. Bisher.</p>
         </div>
       </section>
 
