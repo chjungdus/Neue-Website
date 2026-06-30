@@ -31,9 +31,7 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center">
                 <Zap size={16} className="text-white" />
               </div>
-              <span>
-                Digital<span className="text-blue-200">Forge</span>
-              </span>
+              <span>Nexuzo</span>
             </Link>
             <p className="text-blue-100 text-sm leading-relaxed max-w-xs">
               Wir bauen Websites, die nicht nur schön aussehen, sondern messbar mehr Kunden bringen.
@@ -62,7 +60,7 @@ export default function Footer() {
             </div>
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="https://instagram.com/digitalforge.de"
+                href="https://instagram.com/nexuzo.de"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/15 hover:bg-white/25 flex items-center justify-center transition-colors"
@@ -71,7 +69,7 @@ export default function Footer() {
                 <Instagram size={16} className="text-white" />
               </a>
               <a
-                href="https://tiktok.com/@digitalforge.de"
+                href="https://tiktok.com/@nexuzo.de"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/15 hover:bg-white/25 flex items-center justify-center transition-colors"
@@ -105,7 +103,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-blue-100">
-            © {new Date().getFullYear()} DigitalForge. Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} Nexuzo. Alle Rechte vorbehalten.
           </p>
           <div className="text-xs text-blue-100">
             Gemacht mit Next.js &amp; Tailwind
