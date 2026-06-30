@@ -94,7 +94,7 @@ export default function LeistungenPage() {
             <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
               Leistungen
             </p>
-            <h1 className="text-5xl md:text-7xl font-black text-[#111827] leading-[1.05] mb-8 max-w-3xl">
+            <h1 className="text-[26px] sm:text-5xl md:text-7xl font-black text-[#111827] leading-[1.05] mb-8 max-w-3xl">
               Was kostet eine
               <br />
               <span className="text-[#2563eb]">schlechte Website</span>
@@ -103,7 +103,7 @@ export default function LeistungenPage() {
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <p className="text-[#6b7280] text-xl max-w-2xl leading-relaxed">
+            <p className="text-[#6b7280] text-base sm:text-xl max-w-2xl leading-relaxed">
               Verpasste Kunden, die Sie nie zählen werden. Menschen, die auf Ihre Seite kommen,
               nicht finden was sie suchen, und zur Konkurrenz gehen. Kein Drama, keine Fehlermeldung.
               Nur stille Verluste, jeden Tag.
@@ -333,24 +333,24 @@ export default function LeistungenPage() {
       <section className="py-24 bg-[#f9fafb]">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="text-4xl font-black text-[#111827] mb-5 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#111827] mb-5 leading-tight">
               Welche Leistung passt zu Ihnen?
             </h2>
-            <p className="text-[#6b7280] text-lg mb-10 leading-relaxed">
+            <p className="text-[#6b7280] text-base sm:text-lg mb-10 leading-relaxed">
               Im Erstgespräch finden wir das heraus, kostenlos und ohne Verpflichtung.
               Wenn wir nicht die Richtigen für Ihr Projekt sind, sagen wir das direkt.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
               <Link
                 href="/anfrage"
-                className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center gap-2 text-[15px]"
+                className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center justify-center gap-2 text-[15px]"
               >
                 Jetzt Projekt anfragen
                 <ArrowRight size={17} />
               </Link>
               <Link
                 href="/preise"
-                className="flex items-center gap-2 text-[#374151] font-semibold px-8 py-4 rounded-full border border-gray-200 hover:border-gray-400 transition-colors text-[15px]"
+                className="flex items-center justify-center gap-2 text-[#374151] font-semibold px-8 py-4 rounded-full border border-gray-200 hover:border-gray-400 transition-colors text-[15px]"
               >
                 Preise ansehen
               </Link>
