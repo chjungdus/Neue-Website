@@ -22,8 +22,8 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(process.env.RESEND_API_KEY)
 
     await resend.emails.send({
-      from: "DigitalForge <noreply@digitalforge.de>",
-      to: [process.env.CONTACT_EMAIL ?? "hallo@digitalforge.de"],
+      from: "Nexuzo <noreply@nexuzo.de>",
+      to: [process.env.CONTACT_EMAIL ?? "hallo@nexuzo.de"],
       replyTo: data.email,
       subject: `Kontaktanfrage: ${data.subject}`,
       html: `
@@ -36,14 +36,14 @@ export async function POST(req: NextRequest) {
     })
 
     await resend.emails.send({
-      from: "DigitalForge <noreply@digitalforge.de>",
+      from: "Nexuzo <noreply@nexuzo.de>",
       to: [data.email],
       subject: "Wir haben Ihre Nachricht erhalten",
       html: `
         <h2>Hallo ${data.name},</h2>
         <p>vielen Dank für Ihre Nachricht! Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.</p>
         <br />
-        <p>Mit freundlichen Grüßen,<br />Das DigitalForge Team</p>
+        <p>Mit freundlichen Grüßen,<br />Das Nexuzo Team</p>
       `,
     })
 

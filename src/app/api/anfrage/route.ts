@@ -64,17 +64,17 @@ export async function POST(req: NextRequest) {
       const timelineLabel = timelineLabels[data.timeline] ?? data.timeline
 
       await resend.emails.send({
-        from: "DigitalForge <noreply@digitalforge.de>",
-        to: [process.env.CONTACT_EMAIL ?? "hallo@digitalforge.de"],
+        from: "Nexuzo <noreply@nexuzo.de>",
+        to: [process.env.CONTACT_EMAIL ?? "hallo@nexuzo.de"],
         replyTo: data.email,
         subject: `Neue Projektanfrage: ${projectTypeLabel} von ${data.name}`,
         html: `<h2>Neue Projektanfrage</h2><p>${data.name} (${data.email})</p><p>${projectTypeLabel} | ${budgetLabel} | ${timelineLabel}</p><p>${data.description}</p>`,
       })
 
       await resend.emails.send({
-        from: "DigitalForge <noreply@digitalforge.de>",
+        from: "Nexuzo <noreply@nexuzo.de>",
         to: [data.email],
-        subject: "Ihre Projektanfrage bei DigitalForge",
+        subject: "Ihre Projektanfrage bei Nexuzo",
         html: `<h2>Hallo ${data.name},</h2><p>vielen Dank! Wir melden uns innerhalb von 24 Stunden.</p>`,
       })
     }
