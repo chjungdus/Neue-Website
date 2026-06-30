@@ -5,7 +5,7 @@ import PortfolioGrid from "@/components/portfolio/portfolio-grid"
 import FadeIn from "@/components/ui/fade-in"
 
 export const metadata: Metadata = {
-  title: "Portfolio — DigitalForge",
+  title: "Portfolio — Nexuzo",
   description:
     "4 Projekte. Von der Landing Page bis zur komplexen Web-App — hier sind die Ergebnisse.",
 }
