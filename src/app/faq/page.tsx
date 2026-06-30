@@ -14,7 +14,7 @@ const faqs = [
     category: "Preise & Zahlung",
     items: [
       {
-        q: "Was kostet eine Website bei DigitalForge?",
+        q: "Was kostet eine Website bei Nexuzo?",
         a: "Unsere Pakete starten ab 300 € (Starter) und gehen bis 900 € (Enterprise) — alles als Festpreis, netto zzgl. 19 % MwSt. Kein Stundensatz, keine Schätzung mit Stern. Was im Angebot steht, ist der Endpreis.",
       },
       {
@@ -95,13 +95,10 @@ const faqs = [
 export default function FaqPage() {
   return (
     <div className="pt-16">
-      {/* Hero */}
       <section className="pt-20 pb-14 bg-white border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-6">
           <FadeIn>
-            <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-5">
-              FAQ
-            </p>
+            <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-5">FAQ</p>
             <h1 className="text-5xl md:text-6xl font-black text-[#111827] leading-[1.05] mb-5 max-w-2xl">
               Ihre Fragen.
               <br />
@@ -115,7 +112,6 @@ export default function FaqPage() {
         </div>
       </section>
 
-      {/* FAQ sections */}
       <section className="py-16 bg-[#f9fafb]">
         <div className="max-w-4xl mx-auto px-6 space-y-16">
           {faqs.map((section, si) => (
@@ -127,9 +123,7 @@ export default function FaqPage() {
                 <div className="flex flex-col gap-4">
                   {section.items.map((faq, i) => (
                     <div key={i} className="bg-white border border-gray-100 rounded-2xl p-7">
-                      <h2 className="text-[#111827] font-bold mb-3 text-base leading-snug">
-                        {faq.q}
-                      </h2>
+                      <h2 className="text-[#111827] font-bold mb-3 text-base leading-snug">{faq.q}</h2>
                       <p className="text-[#6b7280] text-sm leading-relaxed">{faq.a}</p>
                     </div>
                   ))}
@@ -140,13 +134,10 @@ export default function FaqPage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="text-3xl font-black text-[#111827] mb-4 leading-tight">
-              Noch eine Frage?
-            </h2>
+            <h2 className="text-3xl font-black text-[#111827] mb-4 leading-tight">Noch eine Frage?</h2>
             <p className="text-[#6b7280] text-lg mb-10 leading-relaxed">
               Schreiben Sie uns einfach. Wir antworten innerhalb von 24 Stunden — ehrlich,
               auch wenn die ehrliche Antwort &quot;wir sind nicht die Richtigen für Sie&quot; ist.

@@ -24,7 +24,7 @@ export default function ImpressumPage() {
           <section>
             <h2 className="text-[#111827] font-bold text-base mb-3">Angaben gemäß § 5 TMG</h2>
             <p className="leading-relaxed text-sm">
-              DigitalForge GmbH
+              Nexuzo
               <br />
               Königsallee 14
               <br />
@@ -40,8 +40,8 @@ export default function ImpressumPage() {
               Telefon: +49 (0) 211 123 456 7
               <br />
               E-Mail:{" "}
-              <a href="mailto:hallo@digitalforge.de" className="text-[#2563eb] hover:underline">
-                hallo@digitalforge.de
+              <a href="mailto:hallo@nexuzo.de" className="text-[#2563eb] hover:underline">
+                hallo@nexuzo.de
               </a>
             </p>
           </section>
