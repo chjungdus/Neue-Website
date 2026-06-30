@@ -47,7 +47,7 @@ const team = [
     name: "Mateo Sainz de la Maza",
     role: "Gründer & Lead Developer",
     since: "Düsseldorf",
-    body: "Hat mehrere Jahre als Frontend-Entwickler und digitaler Stratege für verschiedene Unternehmen und Agenturen gearbeitet. Hat die immer gleichen Muster gesehen: Overpromising im Vertrieb, Underdelivering in der Umsetzung. Hat DigitalForge gegründet, um das Gegenteil zu beweisen.",
+    body: "Hat mehrere Jahre als Frontend-Entwickler und digitaler Stratege für verschiedene Unternehmen und Agenturen gearbeitet. Hat die immer gleichen Muster gesehen: Overpromising im Vertrieb, Underdelivering in der Umsetzung. Hat Nexuzo gegründet, um das Gegenteil zu beweisen.",
     focus: ["Webentwicklung", "Schnelle Ladezeiten", "Mehr Anfragen durch die Website"],
   },
   {
