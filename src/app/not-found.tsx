@@ -89,7 +89,7 @@ export default function NotFound() {
         {/* Small reminder of who we are */}
         <div className="mt-12 pt-8 border-t border-gray-100">
           <p className="text-[#d1d5db] text-xs text-center">
-            DigitalForge · Düsseldorf · 4 Projekte · Kein Template wurde in der
+            Nexuzo · Düsseldorf · 4 Projekte · Kein Template wurde in der
             Herstellung dieser Website verletzt
           </p>
         </div>
