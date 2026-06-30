@@ -5,9 +5,9 @@ import PortfolioGrid from "@/components/portfolio/portfolio-grid"
 import FadeIn from "@/components/ui/fade-in"
 
 export const metadata: Metadata = {
-  title: "Portfolio — DigitalForge",
+  title: "Portfolio — Nexuzo",
   description:
-    "4 Projekte. Handgebaut, kein Template. Von der Landing Page bis zur Web-App.",
+    "4 Projekte. Von der Landing Page bis zur komplexen Web-App — hier sind die Ergebnisse.",
 }
 
 const categories = [
@@ -56,7 +56,6 @@ export default function PortfolioPage() {
             </p>
           </FadeIn>
 
-          {/* Category stats */}
           <FadeIn delay={0.12}>
             <div className="mt-12 flex flex-wrap gap-px bg-gray-100 rounded-2xl overflow-hidden w-fit">
               {categories.map((cat) => (
@@ -70,7 +69,6 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* How we choose projects — dark section */}
       <section className="py-16 bg-[#0f172a]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
@@ -97,7 +95,6 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Grid */}
       <section className="py-16 bg-[#f9fafb]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
@@ -109,7 +106,6 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* CTA strip */}
       <section className="py-14 bg-white border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>

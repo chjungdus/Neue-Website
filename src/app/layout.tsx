@@ -13,8 +13,8 @@ const geist = Geist({
 
 export const metadata: Metadata = {
   title: {
-    default: "DigitalForge – Webdesign Agentur Düsseldorf",
-    template: "%s | DigitalForge",
+    default: "Nexuzo – Webdesign Agentur Düsseldorf",
+    template: "%s | Nexuzo",
   },
   description:
     "Webdesign Agentur in Düsseldorf. Websites ab 300 € — fertig in unter einer Woche. Festpreis, keine Überraschungen.",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "de_DE",
-    siteName: "DigitalForge",
+    siteName: "Nexuzo",
   },
 }
 

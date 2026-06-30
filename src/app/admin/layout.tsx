@@ -19,7 +19,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           <div className="w-7 h-7 rounded-md gradient-bg flex items-center justify-center">
             <Zap size={13} className="text-white" />
           </div>
-          <span className="text-sm">DigitalForge</span>
+          <span className="text-sm">Nexuzo</span>
         </Link>
 
         <nav className="flex flex-col gap-1 flex-1">
