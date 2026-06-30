@@ -6,7 +6,7 @@ import InquiryWizard from "@/components/forms/inquiry-wizard"
 import FadeIn from "@/components/ui/fade-in"
 
 export const metadata: Metadata = {
-  title: "Projekt anfragen — DigitalForge",
+  title: "Projekt anfragen — Nexuzo",
   description:
     "Erzählen Sie uns von Ihrem Projekt. Kostenlos, unverbindlich, Antwort innerhalb von 24h garantiert.",
 }
