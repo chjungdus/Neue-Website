@@ -141,17 +141,17 @@ export default function PreisePage() {
   return (
     <div className="pt-16">
       {/* Header */}
-      <section className="py-20 bg-white border-b border-gray-100">
+      <section className="py-16 sm:py-20 bg-white border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-6">
           <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-5">
             Preise
           </p>
-          <h1 className="text-5xl md:text-6xl font-black text-[#111827] mb-5 leading-tight">
+          <h1 className="text-[26px] sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#111827] mb-5 leading-tight">
             Kein Stundensatz.
             <br />
             <span className="text-[#2563eb]">Kein Überraschungsangebot.</span>
           </h1>
-          <p className="text-[#6b7280] text-xl leading-relaxed max-w-2xl">
+          <p className="text-[#6b7280] text-base sm:text-xl leading-relaxed max-w-2xl">
             Festpreise, weil Sie vor dem Auftrag wissen sollten, was er kostet. Nicht danach.
           </p>
           <p className="text-[#9ca3af] text-sm mt-4">
@@ -170,7 +170,7 @@ export default function PreisePage() {
             {packages.map((pkg) => (
               <div
                 key={pkg.id}
-                className={`rounded-2xl p-8 flex flex-col relative ${
+                className={`rounded-2xl p-7 sm:p-8 flex flex-col relative ${
                   pkg.highlight
                     ? "bg-[#2563eb] shadow-xl shadow-blue-500/15"
                     : "bg-white border border-gray-200"
@@ -248,12 +248,12 @@ export default function PreisePage() {
       {/* Guarantee */}
       <section className="py-8 bg-[#f9fafb]">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="bg-white border border-green-100 rounded-2xl p-7 flex flex-col sm:flex-row items-start gap-5">
+          <div className="bg-white border border-green-100 rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row items-start gap-5">
             <div className="w-10 h-10 rounded-xl bg-[#f0fdf4] flex items-center justify-center flex-shrink-0">
               <Shield size={20} className="text-[#10b981]" />
             </div>
             <div>
-              <h3 className="text-[#111827] font-black text-lg mb-1.5">
+              <h3 className="text-[#111827] font-black text-base sm:text-lg mb-1.5">
                 Nicht zufrieden mit dem ersten Entwurf?
               </h3>
               <p className="text-[#6b7280] text-sm leading-relaxed max-w-xl">
@@ -271,14 +271,14 @@ export default function PreisePage() {
           <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
             Zahlungsmethoden
           </p>
-          <h2 className="text-2xl font-black text-[#111827] mb-8 leading-tight">
+          <h2 className="text-xl sm:text-2xl font-black text-[#111827] mb-8 leading-tight">
             So können Sie zahlen.
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {paymentMethods.map((method) => {
               const Icon = method.icon
               return (
-                <div key={method.name} className="bg-[#f9fafb] border border-gray-100 rounded-xl p-5 flex flex-col items-center text-center gap-3">
+                <div key={method.name} className="bg-[#f9fafb] border border-gray-100 rounded-xl p-4 sm:p-5 flex flex-col items-center text-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center">
                     <Icon size={18} className="text-[#2563eb]" />
                   </div>
@@ -304,7 +304,7 @@ export default function PreisePage() {
               <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-3">
                 Laufende Betreuung
               </p>
-              <h2 className="text-3xl font-black text-[#111827] leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#111827] leading-tight">
                 Pflege &amp; Aktualisierung
               </h2>
             </div>
@@ -317,7 +317,7 @@ export default function PreisePage() {
             {carePackages.map((pkg) => (
               <div
                 key={pkg.name}
-                className={`rounded-2xl p-7 ${
+                className={`rounded-2xl p-6 sm:p-7 ${
                   pkg.highlight
                     ? "bg-[#0f172a] text-white"
                     : "bg-white border border-gray-100"
@@ -360,14 +360,14 @@ export default function PreisePage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-white border-t border-gray-100">
+      <section className="py-16 sm:py-20 bg-white border-t border-gray-100">
         <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl font-black text-[#111827] mb-10">
+          <h2 className="text-2xl sm:text-3xl font-black text-[#111827] mb-10">
             Fragen zu Preisen
           </h2>
           <div className="flex flex-col gap-4">
             {priceFAQs.map((faq) => (
-              <div key={faq.q} className="bg-[#f9fafb] border border-gray-100 rounded-2xl p-7">
+              <div key={faq.q} className="bg-[#f9fafb] border border-gray-100 rounded-2xl p-6 sm:p-7">
                 <h3 className="text-[#111827] font-bold mb-3 text-base">{faq.q}</h3>
                 <p className="text-[#6b7280] text-sm leading-relaxed">{faq.a}</p>
               </div>
@@ -377,24 +377,24 @@ export default function PreisePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#f9fafb] border-t border-gray-100">
+      <section className="py-16 sm:py-20 bg-[#f9fafb] border-t border-gray-100">
         <div className="max-w-2xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-black text-[#111827] mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#111827] mb-4 leading-tight">
             Bereit für ein konkretes Angebot?
           </h2>
-          <p className="text-[#6b7280] text-lg mb-10 leading-relaxed">
+          <p className="text-[#6b7280] text-base sm:text-lg mb-10 leading-relaxed">
             Kostenlos anfragen. Wir melden uns innerhalb von 24 Stunden mit einem persönlichen Angebot.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
             <Link
               href="/anfrage"
-              className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full inline-flex items-center gap-2 transition-colors"
+              className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full inline-flex items-center justify-center gap-2 transition-colors"
             >
               Kostenlos anfragen <ArrowRight size={18} />
             </Link>
             <Link
               href="/kontakt"
-              className="text-[#374151] font-semibold px-8 py-4 rounded-full border border-gray-200 hover:border-gray-300 transition-all"
+              className="text-[#374151] font-semibold px-8 py-4 rounded-full border border-gray-200 hover:border-gray-300 transition-all text-center"
             >
               Erst mal fragen
             </Link>
