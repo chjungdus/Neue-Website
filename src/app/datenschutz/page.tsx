@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung",
-  description: "Informationen zum Datenschutz gemäß DSGVO auf der Website von DigitalForge.",
+  description: "Informationen zum Datenschutz gemäß DSGVO auf der Website von Nexuzo.",
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -44,7 +44,7 @@ export default function DatenschutzPage() {
               Verantwortlicher für die Datenverarbeitung auf dieser Website ist:
             </p>
             <p>
-              DigitalForge GmbH
+              Nexuzo
               <br />
               Königsallee 14
               <br />
@@ -53,8 +53,8 @@ export default function DatenschutzPage() {
               Telefon: +49 (0) 211 123 456 7
               <br />
               E-Mail:{" "}
-              <a href="mailto:datenschutz@digitalforge.de" className="text-[#2563eb] hover:underline">
-                datenschutz@digitalforge.de
+              <a href="mailto:datenschutz@nexuzo.de" className="text-[#2563eb] hover:underline">
+                datenschutz@nexuzo.de
               </a>
             </p>
           </Section>
@@ -176,8 +176,8 @@ export default function DatenschutzPage() {
             </ul>
             <p>
               Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:{" "}
-              <a href="mailto:datenschutz@digitalforge.de" className="text-[#2563eb] hover:underline">
-                datenschutz@digitalforge.de
+              <a href="mailto:datenschutz@nexuzo.de" className="text-[#2563eb] hover:underline">
+                datenschutz@nexuzo.de
               </a>
             </p>
             <p>
