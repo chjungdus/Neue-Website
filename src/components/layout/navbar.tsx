@@ -43,9 +43,7 @@ export default function Navbar() {
           <div className="w-8 h-8 rounded-lg bg-[#2563eb] flex items-center justify-center group-hover:bg-[#1d4ed8] transition-colors">
             <Zap size={16} className="text-white" />
           </div>
-          <span>
-            Digital<span className="text-[#2563eb]">Forge</span>
-          </span>
+          <span>Nexuzo</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
