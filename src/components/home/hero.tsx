@@ -35,7 +35,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.08 }}
-              className="text-[48px] md:text-[68px] font-black text-white leading-[1.05] tracking-tight mb-6"
+              className="text-[32px] sm:text-[48px] md:text-[68px] font-black text-white leading-[1.05] tracking-tight mb-6"
             >
               Ihre Konkurrenz
               <br />
@@ -50,7 +50,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.18 }}
-              className="text-lg text-slate-400 leading-relaxed mb-10 max-w-md"
+              className="text-base sm:text-lg text-slate-400 leading-relaxed mb-10 max-w-md"
             >
               Wir bauen Websites, die mehr Anfragen bringen.
               <span className="block text-slate-500 mt-0.5">Festpreis. 4 Wochen. Kein Template.</span>
@@ -60,18 +60,18 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.26 }}
-              className="flex flex-col sm:flex-row items-start gap-3 mb-12"
+              className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 mb-12"
             >
               <Link
                 href="/anfrage"
-                className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-7 py-3.5 rounded-full transition-colors flex items-center gap-2 text-[15px] shrink-0"
+                className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-7 py-3.5 rounded-full transition-colors flex items-center justify-center gap-2 text-[15px] shrink-0"
               >
                 Kostenlos anfragen
                 <ArrowRight size={16} />
               </Link>
               <Link
                 href="/portfolio"
-                className="text-slate-400 hover:text-white font-semibold py-3.5 px-2 transition-colors text-[15px] flex items-center gap-2 group"
+                className="text-slate-400 hover:text-white font-semibold py-3.5 px-2 transition-colors text-[15px] flex items-center justify-center sm:justify-start gap-2 group"
               >
                 Unsere Arbeit ansehen
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
