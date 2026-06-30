@@ -69,12 +69,12 @@ export default function UeberUnsPage() {
             <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
               Über uns
             </p>
-            <h1 className="text-5xl md:text-7xl font-black text-[#111827] leading-[1.05] mb-8 max-w-3xl">
+            <h1 className="text-[26px] sm:text-5xl md:text-7xl font-black text-[#111827] leading-[1.05] mb-8 max-w-3xl">
               Wir nehmen nicht
               <br />
               <span className="text-[#2563eb]">jeden Auftrag an.</span>
             </h1>
-            <p className="text-[#6b7280] text-xl max-w-xl leading-relaxed">
+            <p className="text-[#6b7280] text-base sm:text-xl max-w-xl leading-relaxed">
               Das klingt nach schlechtem Business. Für uns ist es der Grund, warum kein einziges
               unserer Projekte unter Erwartung abgeliefert wurde.
             </p>
@@ -294,24 +294,24 @@ export default function UeberUnsPage() {
       <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="text-4xl font-black text-[#111827] mb-5 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#111827] mb-5 leading-tight">
               Klingt nach der richtigen Agentur?
             </h2>
-            <p className="text-[#6b7280] text-lg mb-10 leading-relaxed">
+            <p className="text-[#6b7280] text-base sm:text-lg mb-10 leading-relaxed">
               30 Minuten Erstgespräch. Kostenlos. Unverbindlich. Und wenn wir nicht passen,
               sagen wir das.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
               <Link
                 href="/anfrage"
-                className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center gap-2 text-[15px]"
+                className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center justify-center gap-2 text-[15px]"
               >
                 Projekt anfragen
                 <ArrowRight size={17} />
               </Link>
               <Link
                 href="/kontakt"
-                className="flex items-center gap-2 text-[#374151] font-semibold px-8 py-4 rounded-full border border-gray-200 hover:border-gray-400 transition-colors text-[15px]"
+                className="flex items-center justify-center gap-2 text-[#374151] font-semibold px-8 py-4 rounded-full border border-gray-200 hover:border-gray-400 transition-colors text-[15px]"
               >
                 Erst Fragen stellen
               </Link>
