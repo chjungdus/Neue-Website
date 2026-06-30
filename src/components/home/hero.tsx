@@ -4,198 +4,150 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 
-const avatarInitials = ["MS", "EV", "CF", "KO"]
-
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-[#0a0a0f]">
-      {/* Ambient glow blobs */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-40 -left-20 w-[600px] h-[600px] rounded-full bg-[#2563eb]/20 blur-[140px]" />
-        <div className="absolute -bottom-20 -right-10 w-[500px] h-[500px] rounded-full bg-[#0ea5e9]/12 blur-[120px]" />
-        <div className="absolute top-1/2 left-[35%] w-[280px] h-[280px] rounded-full bg-[#6366f1]/8 blur-[80px]" />
-      </div>
-
-      <div className="relative max-w-6xl mx-auto px-6 w-full py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_460px] gap-16 xl:gap-20 items-center">
+    <section className="min-h-screen flex items-center pt-16 bg-white overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 w-full py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-16 xl:gap-24 items-center">
 
           {/* Left: Copy */}
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse" />
-              <span className="text-slate-400 text-xs font-medium">Düsseldorf · 2 Plätze verfügbar</span>
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.08 }}
-              className="text-[32px] sm:text-[48px] md:text-[68px] font-black text-white leading-[1.05] tracking-tight mb-6"
+              transition={{ duration: 0.55 }}
+              className="text-[32px] sm:text-[52px] md:text-[72px] font-black text-[#111827] leading-[1.03] tracking-tight mb-8"
             >
               Ihre Konkurrenz
               <br />
               gewinnt Kunden
               <br />
-              <span className="bg-gradient-to-r from-[#3b82f6] to-[#06b6d4] bg-clip-text text-transparent">
-                im Internet.
-              </span>
+              <span className="gradient-text">im Internet.</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.18 }}
-              className="text-base sm:text-lg text-slate-400 leading-relaxed mb-10 max-w-md"
+              transition={{ duration: 0.5, delay: 0.12 }}
+              className="text-base sm:text-xl text-[#374151] leading-relaxed mb-10 max-w-lg"
             >
-              Wir bauen Websites, die mehr Anfragen bringen.
-              <span className="block text-slate-500 mt-0.5">Festpreis. 4 Wochen. Kein Template.</span>
+              Wir bauen Websites, die messbar mehr Anfragen bringen —
+              in unter einer Woche, ab 300 €, mit Festpreis.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.26 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 mb-12"
+              transition={{ duration: 0.5, delay: 0.22 }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-start gap-4"
             >
               <Link
                 href="/anfrage"
-                className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-7 py-3.5 rounded-full transition-colors flex items-center justify-center gap-2 text-[15px] shrink-0"
+                className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center justify-center gap-2 text-[15px] shrink-0"
               >
-                Kostenlos anfragen
-                <ArrowRight size={16} />
+                Kostenloses Erstgespräch
+                <ArrowRight size={17} />
               </Link>
               <Link
                 href="/portfolio"
-                className="text-slate-400 hover:text-white font-semibold py-3.5 px-2 transition-colors text-[15px] flex items-center justify-center sm:justify-start gap-2 group"
+                className="text-[#6b7280] hover:text-[#111827] font-semibold py-4 transition-colors text-[15px] flex items-center justify-center sm:justify-start gap-2 group"
               >
                 Unsere Arbeit ansehen
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-            </motion.div>
-
-            {/* Social proof */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.42 }}
-              className="flex items-center gap-4"
-            >
-              <div className="flex -space-x-2">
-                {avatarInitials.map((init) => (
-                  <div
-                    key={init}
-                    className="w-8 h-8 rounded-full bg-gradient-to-br from-[#2563eb] to-[#0ea5e9] flex items-center justify-center text-white text-[10px] font-bold border-2 border-[#0a0a0f]"
-                  >
-                    {init}
-                  </div>
-                ))}
-              </div>
-              <div>
-                <div className="text-sm font-semibold text-white">4 Unternehmen vertrauen uns</div>
-                <div className="text-xs text-slate-600">Ø 4,8 / 5 Bewertung</div>
-              </div>
             </motion.div>
           </div>
 
-          {/* Right: MacBook mockup */}
+          {/* Right: Browser mockup with floating metrics */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 40, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="hidden lg:flex justify-center"
+            className="hidden lg:block"
           >
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-full max-w-[420px]"
-            >
-              {/* MacBook lid/screen */}
-              <div className="bg-gradient-to-b from-[#2d2d3d] to-[#1a1a2a] rounded-2xl p-2.5 shadow-2xl shadow-black/70 border border-white/10">
-                <div className="flex justify-center mb-1.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#2d3748]" />
-                </div>
-                <div className="bg-[#0f172a] rounded-xl overflow-hidden">
-                  {/* Browser chrome */}
-                  <div className="flex items-center gap-1.5 px-3 py-2 bg-[#1e293b] border-b border-white/5">
-                    <div className="w-2 h-2 rounded-full bg-[#ff5f57]" />
-                    <div className="w-2 h-2 rounded-full bg-[#ffbd2e]" />
-                    <div className="w-2 h-2 rounded-full bg-[#28c840]" />
-                    <div className="flex-1 mx-2 bg-[#0f172a] rounded px-2 py-0.5 text-[9px] text-slate-500 font-mono">
-                      ihr-unternehmen.de
+            <div className="relative">
+              {/* Browser window */}
+              <div className="bg-[#0f172a] rounded-2xl p-1.5 shadow-2xl shadow-slate-900/20">
+                <div className="bg-[#1e293b] rounded-xl overflow-hidden">
+                  {/* Chrome bar */}
+                  <div className="flex items-center gap-1.5 px-4 py-3 bg-[#334155]">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+                    <div className="flex-1 mx-3 bg-[#475569] rounded-md px-3 py-1 text-[10px] text-slate-300 font-mono">
+                      www.ihr-unternehmen.de
                     </div>
                   </div>
-                  {/* Simulated page */}
+                  {/* Simulated page content */}
                   <div className="bg-white">
-                    <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100">
-                      <div className="h-2 w-14 bg-[#2563eb] rounded-full" />
-                      <div className="flex items-center gap-2">
-                        <div className="h-1.5 w-5 bg-gray-200 rounded" />
-                        <div className="h-1.5 w-5 bg-gray-200 rounded" />
-                        <div className="h-1.5 w-5 bg-gray-200 rounded" />
-                        <div className="h-5 w-12 bg-[#2563eb] rounded-full" />
+                    <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100">
+                      <div className="h-2.5 w-20 bg-[#2563eb] rounded-full" />
+                      <div className="flex items-center gap-3">
+                        <div className="h-1.5 w-8 bg-gray-200 rounded-full" />
+                        <div className="h-1.5 w-8 bg-gray-200 rounded-full" />
+                        <div className="h-1.5 w-8 bg-gray-200 rounded-full" />
+                        <div className="h-5 w-16 bg-[#2563eb] rounded-full" />
                       </div>
                     </div>
-                    <div className="px-4 py-4 space-y-2">
-                      <div className="h-1.5 w-1/4 bg-gray-200 rounded-full" />
-                      <div className="h-5 w-4/5 bg-[#0f172a] rounded-lg" />
-                      <div className="h-4 w-3/5 bg-gray-300 rounded-lg" />
-                      <div className="h-2 w-full bg-gray-100 rounded-full mt-2" />
-                      <div className="h-2 w-4/5 bg-gray-100 rounded-full" />
-                      <div className="flex gap-2 mt-3">
-                        <div className="h-7 w-24 bg-[#2563eb] rounded-full" />
-                        <div className="h-7 w-20 border border-gray-200 rounded-full" />
+                    <div className="px-5 py-6 space-y-2.5">
+                      <div className="h-2 w-1/3 bg-gray-200 rounded-full" />
+                      <div className="h-6 w-3/4 bg-[#0f172a] rounded-lg" />
+                      <div className="h-5 w-2/3 bg-[#0f172a] rounded-lg opacity-60" />
+                      <div className="h-3 w-full bg-gray-100 rounded-full mt-3" />
+                      <div className="h-3 w-5/6 bg-gray-100 rounded-full" />
+                      <div className="flex gap-2 mt-5">
+                        <div className="h-9 w-32 bg-[#2563eb] rounded-full" />
+                        <div className="h-9 w-28 border border-gray-200 rounded-full" />
                       </div>
                     </div>
-                    <div className="px-4 pb-4 grid grid-cols-3 gap-2">
-                      {[1, 2, 3].map((i) => (
-                        <div key={i} className="h-12 bg-gray-50 rounded-xl border border-gray-100" />
-                      ))}
+                    <div className="px-5 pb-5">
+                      <div className="grid grid-cols-3 gap-2">
+                        {[1, 2, 3].map((i) => (
+                          <div key={i} className="h-20 bg-[#f9fafb] rounded-xl" />
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              {/* Hinge */}
-              <div className="h-1.5 bg-[#1a1a2a] mx-8 border-x border-b border-white/5" />
-              {/* Base */}
-              <div className="h-3 bg-gradient-to-b from-[#252535] to-[#1a1a25] rounded-b-xl border border-white/[0.06] shadow-lg" />
 
-              {/* Floating: Conversion Rate */}
+              {/* Floating: Conversion */}
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute -bottom-8 -left-12 bg-[#0f172a]/95 backdrop-blur-md border border-white/10 rounded-2xl px-4 py-3 shadow-2xl"
+                transition={{ delay: 0.7, duration: 0.5 }}
+                className="absolute -bottom-5 -left-8 bg-white rounded-2xl shadow-xl border border-gray-100 px-5 py-3.5 min-w-[165px]"
               >
-                <div className="text-[9px] text-slate-500 font-medium uppercase tracking-wide mb-1">Conversion Rate</div>
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-lg font-black text-white">3,2%</span>
-                  <span className="text-[9px] font-bold text-[#10b981] bg-[#10b981]/10 px-1.5 py-0.5 rounded-full">↑ +128%</span>
+                <div className="text-[10px] text-[#9ca3af] mb-1.5 font-medium uppercase tracking-wide">
+                  Conversion Rate
                 </div>
-                <div className="text-[9px] text-slate-600 mt-0.5">GreenMeal</div>
+                <div className="flex items-baseline gap-2 mb-0.5">
+                  <span className="text-2xl font-black text-[#111827]">3,2%</span>
+                  <span className="text-xs font-bold text-[#10b981] bg-[#f0fdf4] px-1.5 py-0.5 rounded-full">
+                    ↑ +128%
+                  </span>
+                </div>
+                <div className="text-[10px] text-[#9ca3af]">nach dem Relaunch · GreenMeal</div>
               </motion.div>
 
-              {/* Floating: Google Ranking */}
+              {/* Floating: Google */}
               <motion.div
-                initial={{ opacity: 0, y: -10 }}
+                initial={{ opacity: 0, y: -16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.0, duration: 0.5 }}
-                className="absolute -top-6 -right-10 bg-[#0f172a]/95 backdrop-blur-md border border-white/10 rounded-2xl px-4 py-3 shadow-2xl"
+                transition={{ delay: 0.85, duration: 0.5 }}
+                className="absolute -top-5 -right-5 bg-white rounded-2xl shadow-xl border border-gray-100 px-5 py-3.5 min-w-[155px]"
               >
-                <div className="text-[9px] text-slate-500 font-medium uppercase tracking-wide mb-1">Google Ranking</div>
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-lg font-black text-white">#1</span>
-                  <span className="text-[9px] text-slate-500">organisch</span>
+                <div className="text-[10px] text-[#9ca3af] mb-1.5 font-medium uppercase tracking-wide">
+                  Google Ranking
                 </div>
-                <div className="text-[9px] text-slate-600 mt-0.5">Limpiezas El Valle</div>
+                <div className="flex items-baseline gap-1.5 mb-0.5">
+                  <span className="text-2xl font-black text-[#111827]">#1</span>
+                  <span className="text-xs text-[#6b7280]">organisch</span>
+                </div>
+                <div className="text-[10px] text-[#9ca3af]">Hauptkeyword · LuxeRooms</div>
               </motion.div>
-            </motion.div>
+            </div>
           </motion.div>
-
         </div>
       </div>
     </section>
