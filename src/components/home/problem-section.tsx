@@ -5,7 +5,7 @@ const problems = [
   {
     icon: TrendingDown,
     title: "Kaum Anfragen trotz Besucher",
-    body: "Zu viel Text, kein klarer Aufruf — und Besucher gehen ohne Kontakt. Mit richtigem Design kommen 3–5× mehr Anfragen.",
+    body: "Kein klarer Aufruf. Besucher gehen ohne Kontakt.",
     stat: "Ø 1,5%",
     statNote: "Conversion bei Standard-Seiten",
     iconColor: "#ef4444",
@@ -15,7 +15,7 @@ const problems = [
   {
     icon: Search,
     title: "Google findet Sie nicht",
-    body: "90 % der Klicks gehen an die Top 3. Wer auf Seite 2 steht, existiert für neue Kunden schlicht nicht.",
+    body: "90% der Klicks gehen an die Top 3. Seite 2 existiert nicht.",
     stat: "90%",
     statNote: "klicken nur Top-3-Ergebnisse",
     iconColor: "#f59e0b",
@@ -25,7 +25,7 @@ const problems = [
   {
     icon: Smartphone,
     title: "Mobile-Nutzer springen ab",
-    body: "63 % der Besucher kommen per Smartphone. Langsame, unübersichtliche Seiten verlieren sie in Sekunden.",
+    body: "63% kommen per Smartphone. Langsame Seiten verlieren sie sofort.",
     stat: "63%",
     statNote: "Web-Traffic kommt mobil",
     iconColor: "#3b82f6",
@@ -45,9 +45,6 @@ export default function ProblemSection() {
               <br />
               <span className="text-[#60a5fa]">täglich Geld kostet.</span>
             </h2>
-            <p className="text-slate-400 text-lg leading-relaxed">
-              Die meisten sehen ihre Website als erledigt. Dabei verliert sie jeden Tag potenzielle Kunden — still, messbar.
-            </p>
           </div>
         </FadeIn>
 
@@ -74,15 +71,6 @@ export default function ProblemSection() {
             )
           })}
         </div>
-
-        <FadeIn delay={0.3}>
-          <div className="mt-12 pt-10 border-t border-white/5 flex items-center justify-between gap-4 flex-wrap">
-            <p className="text-slate-400 text-base font-medium">
-              Erkannt? Alle drei Probleme lösen wir systematisch.
-            </p>
-            <div className="text-slate-700 text-xs">Alle Daten aus 2024–2025</div>
-          </div>
-        </FadeIn>
       </div>
     </section>
   )

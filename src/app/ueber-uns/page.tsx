@@ -7,38 +7,38 @@ import FadeIn from "@/components/ui/fade-in"
 const values = [
   {
     title: "Ehrlichkeit über Höflichkeit",
-    body: "Wenn Ihr Projekt zu uns nicht passt, sagen wir das. Wenn Ihr Design-Vorschlag schlecht konvertieren wird, sagen wir das. Wir bevorzugen ein unangenehmes Gespräch heute gegenüber einem teuren Ergebnis in drei Monaten.",
+    body: "Wenn Ihr Projekt nicht passt, sagen wir das. Ein unangenehmes Gespräch heute ist besser als ein teures Ergebnis in drei Monaten.",
   },
   {
     title: "Ergebnisse über Ästhetik",
-    body: "Eine schöne Website, die keine Kunden bringt, ist ein teures Kunstwerk. Wir designen für mehr Anfragen, Farben, Layout, Texte, alles mit dem Ziel, dass Besucher zu Kunden werden.",
+    body: "Eine schöne Website, die keine Kunden bringt, ist ein teures Kunstwerk.",
   },
   {
     title: "Prozess über Improvisation",
-    body: "Jedes Projekt läuft nach demselben Schema: Briefing, Konzept, Design, Entwicklung, Launch. Klare Status-Updates mit Live-Link. Kein Raten, keine bösen Überraschungen.",
+    body: "Briefing, Konzept, Design, Entwicklung, Launch. Status-Updates mit Live-Link. Keine bösen Überraschungen.",
   },
   {
     title: "Weniger Kunden, bessere Arbeit",
-    body: "Wir nehmen maximal 4 Projekte gleichzeitig an. Das ist keine Marketingstrategie. Das ist eine Entscheidung für Qualität. Jedes Projekt bekommt unsere volle Aufmerksamkeit.",
+    body: "Maximal 4 Projekte gleichzeitig. Jedes bekommt volle Aufmerksamkeit.",
   },
 ]
 
 const forEveryone = [
   {
     type: "Handwerk & Gewerbe",
-    desc: "Vom Elektriker bis zur Schreinerei — eine professionelle Website bringt Ihnen mehr lokale Kunden.",
+    desc: "Elektriker, Schreiner, Sanitär. Mehr lokale Kunden über Google.",
   },
   {
     type: "Gastronomie & Hotellerie",
-    desc: "Restaurants, Cafés, Hotels: Ihre Website ist die erste Visitenkarte. Wir machen sie überzeugend.",
+    desc: "Restaurants, Cafés, Hotels. Ihre Website als erste Visitenkarte.",
   },
   {
     type: "Freiberufler & Berater",
-    desc: "Coaches, Anwälte, Therapeuten — wir zeigen Ihre Expertise so, dass Kunden Vertrauen fassen.",
+    desc: "Coaches, Anwälte, Therapeuten. Vertrauen schaffen, bevor jemand anruft.",
   },
   {
     type: "Online-Shops",
-    desc: "Vom kleinen Nischenshop bis zum Markenshop — Checkout-Flows, die verkaufen statt abbrechen.",
+    desc: "Checkout-Flows ohne Abbrüche.",
   },
 ]
 
@@ -47,15 +47,15 @@ const team = [
     name: "Mateo Sainz de la Maza",
     role: "Gründer & Lead Developer",
     since: "Düsseldorf",
-    body: "Hat mehrere Jahre als Frontend-Entwickler und digitaler Stratege für verschiedene Unternehmen und Agenturen gearbeitet. Hat die immer gleichen Muster gesehen: Overpromising im Vertrieb, Underdelivering in der Umsetzung. Hat Nexuzo gegründet, um das Gegenteil zu beweisen.",
-    focus: ["Webentwicklung", "Schnelle Ladezeiten", "Mehr Anfragen durch die Website"],
+    body: "Mehrere Jahre Erfahrung als Frontend-Entwickler. Gegründet, weil Overpromising und Underdelivering das Standardmodell war.",
+    focus: ["Webentwicklung", "Performance", "Conversion"],
   },
   {
     name: "Zhou Jun",
     role: "Design & UX",
     since: "Düsseldorf",
-    body: "Hat UX-Design studiert und danach in mehreren digitalen Projekten die direkte Auswirkung von Design-Entscheidungen auf Anfragen und Verkäufe gemessen. Gestaltet keine schönen Seiten. Gestaltet Seiten, die Besucher in Kunden verwandeln.",
-    focus: ["Design & Konzept", "Benutzerfreundlichkeit", "Kunden-Analyse"],
+    body: "UX-Design mit Fokus auf messbare Ergebnisse. Gestaltet keine schönen Seiten, sondern Seiten, die verkaufen.",
+    focus: ["Design", "Benutzerfreundlichkeit", "Analyse"],
   },
 ]
 
@@ -75,8 +75,7 @@ export default function UeberUnsPage() {
               <span className="text-[#2563eb]">auf Ihre Anfrage.</span>
             </h1>
             <p className="text-[#6b7280] text-base sm:text-xl max-w-xl leading-relaxed">
-              Egal ob kleine Landing Page oder komplexer Online-Shop — wir hören zu, denken mit
-              und liefern eine Website, die wirklich für Ihr Unternehmen arbeitet.
+              Wir hören zu und liefern eine Website, die für Ihr Unternehmen arbeitet.
             </p>
           </FadeIn>
         </div>
@@ -102,20 +101,10 @@ export default function UeberUnsPage() {
             <FadeIn delay={0.1}>
               <div className="space-y-5 text-[#6b7280] leading-relaxed">
                 <p>
-                  Mateo hat als Freelancer für eine andere Agentur gearbeitet. Aufgabe:
-                  Eine Website für einen Steuerberater &quot;reparieren&quot;, die die Agentur selbst gebaut
-                  hatte. Vier Nachbesserungsrunden. Zwei verpasste Deadlines. Ein Kunde, der bereits
-                  bezahlt hatte und trotzdem nichts in der Hand hatte.
-                </p>
-                <p>
-                  Das war kein Einzelfall. Das war das Geschäftsmodell. Overpromise, Underdeliver,
-                  nächsten Kunden akquirieren. Mateo beschloss, eine Agentur zu gründen, bei der
-                  das Gegenteil das Geschäftsmodell ist.
+                  Mateo hat als Freelancer für eine andere Agentur gearbeitet. Vier Nachbesserungsrunden, zwei verpasste Deadlines, ein Kunde der bereits bezahlt hatte und trotzdem nichts in der Hand hatte.
                 </p>
                 <p className="text-[#374151] font-medium">
-                  Die Hypothese: Wenn man weniger Kunden annimmt und dafür jedes Projekt wirklich
-                  fertig macht, pünktlich, zum vereinbarten Preis, entstehen Referenzen, die für
-                  sich selbst sprechen. Die Hypothese hat sich bewahrheitet.
+                  Das Gegenteil wurde das Geschäftsmodell: weniger Projekte, jedes wirklich fertig, zum vereinbarten Preis.
                 </p>
               </div>
             </FadeIn>
@@ -135,8 +124,7 @@ export default function UeberUnsPage() {
               <br />mehr erreichen will.
             </h2>
             <p className="text-slate-400 text-lg mb-14 max-w-lg leading-relaxed">
-              Egal welche Branche, welche Größe, welches Budget — wir finden gemeinsam
-              die beste Lösung für Ihr Unternehmen.
+              Egal welche Branche, welche Größe, welches Budget.
             </p>
           </FadeIn>
 
@@ -159,9 +147,9 @@ export default function UeberUnsPage() {
           <FadeIn delay={0.3}>
             <div className="mt-10 border-t border-slate-800 pt-8">
               <p className="text-slate-500 text-sm leading-relaxed max-w-xl">
-                Nicht sicher ob wir zu Ihnen passen? Schreiben Sie uns einfach —{" "}
+                Nicht sicher?{" "}
                 <Link href="/anfrage" className="text-[#2563eb] hover:underline">
-                  wir melden uns innerhalb von 24h.
+                  Schreiben Sie uns, wir melden uns innerhalb von 24h.
                 </Link>
               </p>
             </div>

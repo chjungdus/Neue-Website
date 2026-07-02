@@ -6,8 +6,8 @@ const services = [
   {
     icon: Monitor,
     title: "Webdesign",
-    description: "Kein Template, kein Baukasten. Individuell für Ihr Unternehmen, Ihre Zielgruppe, Ihre Ziele.",
-    points: ["Mobile-first von Anfang an", "Design schafft Vertrauen", "Einmalig — kein Copy-Paste"],
+    description: "Kein Template. Gebaut für Ihr Unternehmen.",
+    points: ["Mobile-first", "Design schafft Vertrauen", "Einmalig. Kein Copy-Paste"],
     accent: "#3b82f6",
     bg: "rgba(59,130,246,0.08)",
     visual: "design",
@@ -15,7 +15,7 @@ const services = [
   {
     icon: Code2,
     title: "Entwicklung",
-    description: "Schnell, sicher, ohne Lock-in. Jede Millisekunde Ladezeit kostet Conversion.",
+    description: "Schnell, sicher, ohne Lock-in.",
     points: ["Lighthouse 90+ als Standard", "Kein teures CMS", "Auf jedem Gerät fehlerfrei"],
     accent: "#06b6d4",
     bg: "rgba(6,182,212,0.08)",
@@ -24,7 +24,7 @@ const services = [
   {
     icon: ShoppingBag,
     title: "E-Commerce",
-    description: "Ihr Shop muss nicht hübsch sein — er muss verkaufen. Checkout-Flows ohne Abbrüche.",
+    description: "Checkout-Flows ohne Abbrüche.",
     points: ["Stripe & PayPal integriert", "Produktseiten, die überzeugen", "Analytics statt Raten"],
     accent: "#8b5cf6",
     bg: "rgba(139,92,246,0.08)",
@@ -33,7 +33,7 @@ const services = [
   {
     icon: TrendingUp,
     title: "SEO & Performance",
-    description: "#1 bei Google bekommt man nicht zufällig. Wir sorgen dafür, dass Sie gefunden werden.",
+    description: "Gefunden werden von kaufbereiten Kunden.",
     points: ["Technisches SEO inklusive", "Core Web Vitals optimiert", "Kaufbereite Kunden erreichen"],
     accent: "#10b981",
     bg: "rgba(16,185,129,0.08)",
@@ -108,9 +108,6 @@ export default function Services() {
               <br />
               <span className="text-slate-600 font-normal text-3xl md:text-4xl">Richtig gemacht.</span>
             </h2>
-            <p className="text-slate-400 text-lg max-w-lg leading-relaxed">
-              Andere Agenturen listen 47 Leistungen. Wir konzentrieren uns auf vier — die vier, die tatsächlich Kunden bringen.
-            </p>
           </div>
         </FadeIn>
 
@@ -148,8 +145,7 @@ export default function Services() {
         </div>
 
         <FadeIn>
-          <div className="mt-10 pt-10 border-t border-white/5 flex items-center justify-between gap-4 flex-wrap">
-            <p className="text-slate-600 text-sm">Etwas anderes? Wir reden gerne darüber.</p>
+          <div className="mt-10 pt-10 border-t border-white/5 flex items-center justify-end">
             <Link
               href="/leistungen"
               className="text-slate-400 text-sm font-semibold hover:text-white transition-colors flex items-center gap-2 group"

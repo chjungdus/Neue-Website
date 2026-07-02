@@ -15,7 +15,7 @@ const faqs = [
     items: [
       {
         q: "Was kostet eine Website bei DigitalForge?",
-        a: "Unsere Pakete starten ab 300 € (Starter) und gehen bis 900 € (Enterprise) — alles als Festpreis, netto zzgl. 19 % MwSt. Kein Stundensatz, keine Schätzung mit Stern. Was im Angebot steht, ist der Endpreis.",
+        a: "Unsere Pakete starten ab 300 € (Starter) und gehen bis 900 € (Enterprise). alles als Festpreis, netto zzgl. 19 % MwSt. Kein Stundensatz, keine Schätzung mit Stern. Was im Angebot steht, ist der Endpreis.",
       },
       {
         q: "Welche Zahlungsmethoden akzeptieren Sie?",
@@ -40,7 +40,7 @@ const faqs = [
       },
       {
         q: "Wie läuft ein Projekt bei Ihnen ab?",
-        a: "1. Kurzes Kennenlerngespräch (30 Min.) 2. Konkretes Angebot mit Festpreis innerhalb von 3–5 Tagen 3. Briefing und Konzept 4. Design-Entwurf zur Freigabe 5. Entwicklung mit Live-Link zum Mitverfolgen 6. Launch. Jede Phase endet mit Ihrer Freigabe — kein Schritt ohne Ihre Zustimmung.",
+        a: "1. Kurzes Kennenlerngespräch (30 Min.) 2. Konkretes Angebot mit Festpreis innerhalb von 3–5 Tagen 3. Briefing und Konzept 4. Design-Entwurf zur Freigabe 5. Entwicklung mit Live-Link zum Mitverfolgen 6. Launch. Jede Phase endet mit Ihrer Freigabe. kein Schritt ohne Ihre Zustimmung.",
       },
       {
         q: "Was brauche ich, um ein Projekt zu starten?",
@@ -57,15 +57,15 @@ const faqs = [
     items: [
       {
         q: "Was passiert, wenn ich mit dem ersten Entwurf nicht zufrieden bin?",
-        a: "Wir überarbeiten kostenlos — ohne Diskussion, ohne Zeitdruck. Diese Aussage steht im Vertrag. Beim Starter-Paket sind 2 Korrekturrunden inklusive, bei Pro und Enterprise unbegrenzt.",
+        a: "Wir überarbeiten kostenlos. ohne Diskussion, ohne Zeitdruck. Diese Aussage steht im Vertrag. Beim Starter-Paket sind 2 Korrekturrunden inklusive, bei Pro und Enterprise unbegrenzt.",
       },
       {
         q: "Kann ich Wünsche und Vorbilder mitbringen?",
-        a: "Absolut. Je konkreter Ihre Vorstellung, desto besser das Ergebnis. Schicken Sie uns Websites, die Ihnen gefallen, Screenshots, oder eine einfache Beschreibung des Stils. Wir hören zu — und fragen nach, wenn etwas unklar ist.",
+        a: "Absolut. Je konkreter Ihre Vorstellung, desto besser das Ergebnis. Schicken Sie uns Websites, die Ihnen gefallen, Screenshots, oder eine einfache Beschreibung des Stils. Wir hören zu. und fragen nach, wenn etwas unklar ist.",
       },
       {
         q: "Sind Ihre Websites mobil-optimiert?",
-        a: "Immer. Alle unsere Websites sind vollständig responsive — sie sehen auf Smartphone, Tablet und Desktop gleich professionell aus. Das ist kein optionales Feature, sondern Standard.",
+        a: "Immer. Alle unsere Websites sind vollständig responsive. sie sehen auf Smartphone, Tablet und Desktop gleich professionell aus. Das ist kein optionales Feature, sondern Standard.",
       },
     ],
   },
@@ -74,19 +74,19 @@ const faqs = [
     items: [
       {
         q: "Kann ich meine Website nach dem Launch selbst bearbeiten?",
-        a: "Wir bauen keine selbst-editierbaren CMS-Systeme — nicht weil wir Sie abhängig halten wollen, sondern weil diese Systeme Performance, Sicherheit und Design-Qualität kosten. Änderungen erledigen wir für Sie über unsere Pflegepakete, meist innerhalb von 24 Stunden.",
+        a: "Wir bauen keine selbst-editierbaren CMS-Systeme. nicht weil wir Sie abhängig halten wollen, sondern weil diese Systeme Performance, Sicherheit und Design-Qualität kosten. Änderungen erledigen wir für Sie über unsere Pflegepakete, meist innerhalb von 24 Stunden.",
       },
       {
         q: "Kümmern Sie sich um Hosting?",
-        a: "Wir richten das Hosting ein — bei einem Anbieter Ihrer Wahl (Vercel, Hetzner, o.ä.) oder empfehlen eine Option. Die Rechnung zahlen Sie direkt beim Anbieter, typisch 10–15 €/Monat. Kein Aufpreis von unserer Seite.",
+        a: "Wir richten das Hosting ein. bei einem Anbieter Ihrer Wahl (Vercel, Hetzner, o.ä.) oder empfehlen eine Option. Die Rechnung zahlen Sie direkt beim Anbieter, typisch 10–15 €/Monat. Kein Aufpreis von unserer Seite.",
       },
       {
         q: "Was passiert, wenn etwas nach dem Launch kaputtgeht?",
-        a: "30 Tage nach Launch sind im Starter-Paket inklusive. Bei Pro und Enterprise länger. Fehler, die wir verursacht haben, beheben wir immer kostenlos — unabhängig vom Support-Zeitraum.",
+        a: "30 Tage nach Launch sind im Starter-Paket inklusive. Bei Pro und Enterprise länger. Fehler, die wir verursacht haben, beheben wir immer kostenlos. unabhängig vom Support-Zeitraum.",
       },
       {
         q: "Bauen Sie auch Online-Shops?",
-        a: "Ja, im Enterprise-Paket. Wir bauen maßgeschneiderte Shop-Lösungen — keine Baukastensysteme. Wenn Ihr Shop-Projekt sehr umfangreich ist, sprechen wir das im Erstgespräch offen an und erstellen ein individuelles Angebot.",
+        a: "Ja, im Enterprise-Paket. Wir bauen maßgeschneiderte Shop-Lösungen. keine Baukastensysteme. Wenn Ihr Shop-Projekt sehr umfangreich ist, sprechen wir das im Erstgespräch offen an und erstellen ein individuelles Angebot.",
       },
     ],
   },
@@ -109,7 +109,7 @@ export default function FaqPage() {
             </h1>
             <p className="text-[#6b7280] text-xl max-w-xl leading-relaxed">
               Die häufigsten Fragen zu Preisen, Prozessen und was nach dem Launch passiert.
-              Keine Standardfloskeln — echte Antworten.
+              Keine Standardfloskeln. echte Antworten.
             </p>
           </FadeIn>
         </div>
@@ -148,7 +148,7 @@ export default function FaqPage() {
               Noch eine Frage?
             </h2>
             <p className="text-[#6b7280] text-lg mb-10 leading-relaxed">
-              Schreiben Sie uns einfach. Wir antworten innerhalb von 24 Stunden — ehrlich,
+              Schreiben Sie uns einfach. Wir antworten innerhalb von 24 Stunden. ehrlich,
               auch wenn die ehrliche Antwort &quot;wir sind nicht die Richtigen für Sie&quot; ist.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

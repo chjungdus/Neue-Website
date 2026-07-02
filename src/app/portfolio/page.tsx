@@ -5,9 +5,9 @@ import PortfolioGrid from "@/components/portfolio/portfolio-grid"
 import FadeIn from "@/components/ui/fade-in"
 
 export const metadata: Metadata = {
-  title: "Portfolio — Nexuzo",
+  title: "Portfolio. Nexuzo",
   description:
-    "Handgebaute Websites für reale Kunden — kein Template, keine Demo-Projekte.",
+    "Handgebaute Websites für reale Kunden. kein Template, keine Demo-Projekte.",
 }
 
 const selectionPrincipien = [
@@ -19,7 +19,7 @@ const selectionPrincipien = [
   {
     no: "02",
     title: "Jedes Projekt hier hat einen messbaren Effekt gehabt.",
-    desc: "Conversion-Rates, Anfragen, Umsatz — nicht Ästhetik allein. Schön ist kein Ziel, nur ein Mittel.",
+    desc: "Conversion-Rates, Anfragen, Umsatz. nicht Ästhetik allein. Schön ist kein Ziel, nur ein Mittel.",
   },
   {
     no: "03",
@@ -45,14 +45,14 @@ export default function PortfolioPage() {
               <span className="text-[#2563eb]">0 Templates.</span>
             </h1>
             <p className="text-[#6b7280] text-xl max-w-xl leading-relaxed">
-              Jedes davon handgebaut — weil jedes Unternehmen andere Ziele hat und ein
+              Jedes davon handgebaut. weil jedes Unternehmen andere Ziele hat und ein
               Copy-Paste-Design das nicht abbildet.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* How we choose projects — dark section */}
+      {/* How we choose projects. dark section */}
       <section className="py-16 bg-[#1a3570]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
@@ -99,7 +99,7 @@ export default function PortfolioPage() {
               <div>
                 <p className="font-bold text-[#111827] mb-1 text-lg">Ihr Projekt könnte hier stehen.</p>
                 <p className="text-[#6b7280] text-sm max-w-md leading-relaxed">
-                  Wir nehmen nicht jedes Projekt an — aber wenn wir denken, dass wir einen echten
+                  Wir nehmen nicht jedes Projekt an. aber wenn wir denken, dass wir einen echten
                   Unterschied machen können, sagen wir das direkt.
                 </p>
               </div>

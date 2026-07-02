@@ -9,7 +9,7 @@ const worries = [
   {
     worry: "Werde ich danach mit Angeboten bombardiert?",
     answer:
-      "Nein. Wir fragen, ob Sie ein Angebot wollen — wir schicken keines ungefragt. Eine Nachricht ist eine Nachricht, kein Kaufvertrag.",
+      "Nein. Wir fragen, ob Sie ein Angebot wollen. wir schicken keines ungefragt. Eine Nachricht ist eine Nachricht, kein Kaufvertrag.",
   },
   {
     worry: "Was wenn ich noch keine konkreten Vorstellungen habe?",
@@ -19,7 +19,7 @@ const worries = [
   {
     worry: "Wie lange dauert es bis ich eine Antwort bekomme?",
     answer:
-      "Innerhalb von 24 Stunden an Werktagen — keine Autoresponder, eine echte Antwort von einer echten Person.",
+      "Innerhalb von 24 Stunden an Werktagen. keine Autoresponder, eine echte Antwort von einer echten Person.",
   },
   {
     worry: "Bin ich verpflichtet, wenn ich schreibe?",
@@ -33,12 +33,12 @@ const afterContact = [
     step: "01",
     title: "Antwort innerhalb von 24h",
     desc: "Keine automatische Bestätigungsmail, die nichts sagt. Eine echte Antwort mit konkreten nächsten Schritten.",
-    time: "Mo – Fr",
+    time: "Mo bis Fr",
   },
   {
     step: "02",
     title: "Kurzes Kennenlerngespräch",
-    desc: "Wenn das Projekt interessant klingt, schlagen wir einen 30-minütigen Call vor. Kein Pflichtprogramm — nur wenn es für Sie passt.",
+    desc: "Wenn das Projekt interessant klingt, schlagen wir einen 30-minütigen Call vor. Kein Pflichtprogramm. nur wenn es für Sie passt.",
     time: "Auf Wunsch",
   },
   {
@@ -65,7 +65,7 @@ export default function KontaktPage() {
               <span className="text-[#2563eb]">Kein Druck.</span>
             </h1>
             <p className="text-[#6b7280] text-xl max-w-xl leading-relaxed">
-              Schreiben Sie uns, wenn Sie eine Frage haben — nicht nur wenn Sie bereits kaufen
+              Schreiben Sie uns, wenn Sie eine Frage haben. nicht nur wenn Sie bereits kaufen
               wollen. Wir antworten ehrlich, auch wenn die ehrliche Antwort ist: &quot;Wir sind
               nicht die Richtigen für Sie.&quot;
             </p>
@@ -169,7 +169,7 @@ export default function KontaktPage() {
                       <span className="w-9 h-9 rounded-xl bg-[#f3f4f6] flex items-center justify-center">
                         <Clock size={15} />
                       </span>
-                      <span className="text-sm">Mo – Fr · 9 – 18 Uhr</span>
+                      <span className="text-sm">Mo bis Fr · 9 bis 18 Uhr</span>
                     </div>
                   </div>
                 </div>
@@ -181,7 +181,7 @@ export default function KontaktPage() {
               <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
                 <h2 className="text-[#111827] font-bold text-xl mb-2">Nachricht senden</h2>
                 <p className="text-[#9ca3af] text-sm mb-7">
-                  Antwort innerhalb von 24 Stunden — versprochen.
+                  Antwort innerhalb von 24 Stunden. versprochen.
                 </p>
                 <ContactForm />
               </div>
