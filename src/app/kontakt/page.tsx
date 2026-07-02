@@ -52,10 +52,13 @@ const afterContact = [
 export default function KontaktPage() {
   return (
     <>
+      {/* Hero */}
       <section className="pt-28 pb-16 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
-            <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">Kontakt</p>
+            <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
+              Kontakt
+            </p>
             <h1 className="text-5xl md:text-6xl font-black text-[#111827] leading-[1.05] mb-6 max-w-2xl">
               Kein Pitch.
               <br />
@@ -70,17 +73,23 @@ export default function KontaktPage() {
         </div>
       </section>
 
+      {/* What happens after */}
       <section className="py-16 bg-[#f9fafb] border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
-            <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-8">Was danach passiert</p>
+            <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-8">
+              Was danach passiert
+            </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {afterContact.map((item, i) => (
               <FadeIn key={i} delay={i * 0.08}>
                 <div className="bg-white border border-gray-100 rounded-2xl p-7">
                   <div className="flex items-center justify-between mb-5">
-                    <span className="text-4xl font-black leading-none" style={{ color: "#2563eb18" }}>
+                    <span
+                      className="text-4xl font-black leading-none"
+                      style={{ color: "#2563eb18" }}
+                    >
                       {item.step}
                     </span>
                     <span className="text-[#9ca3af] text-xs font-medium bg-[#f3f4f6] px-2.5 py-1 rounded-full">
@@ -96,9 +105,11 @@ export default function KontaktPage() {
         </div>
       </section>
 
+      {/* Main: worries + form */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-16 items-start">
+            {/* Left: Worries addressed */}
             <div>
               <FadeIn>
                 <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
@@ -110,6 +121,7 @@ export default function KontaktPage() {
                   vielleicht nicht stellen.
                 </h2>
               </FadeIn>
+
               <div className="space-y-6">
                 {worries.map((item, i) => (
                   <FadeIn key={i} delay={i * 0.07}>
@@ -125,9 +137,13 @@ export default function KontaktPage() {
                   </FadeIn>
                 ))}
               </div>
+
+              {/* Direct contact */}
               <FadeIn delay={0.35}>
                 <div className="mt-12 pt-10 border-t border-gray-100">
-                  <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-5">Lieber direkt?</p>
+                  <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-5">
+                    Lieber direkt?
+                  </p>
                   <div className="flex flex-col gap-3">
                     <a
                       href="https://wa.me/4917680257270"
@@ -159,10 +175,14 @@ export default function KontaktPage() {
                 </div>
               </FadeIn>
             </div>
+
+            {/* Right: Form */}
             <FadeIn delay={0.1} direction="right">
               <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
                 <h2 className="text-[#111827] font-bold text-xl mb-2">Nachricht senden</h2>
-                <p className="text-[#9ca3af] text-sm mb-7">Antwort innerhalb von 24 Stunden — versprochen.</p>
+                <p className="text-[#9ca3af] text-sm mb-7">
+                  Antwort innerhalb von 24 Stunden — versprochen.
+                </p>
                 <ContactForm />
               </div>
             </FadeIn>
@@ -170,19 +190,23 @@ export default function KontaktPage() {
         </div>
       </section>
 
+      {/* Bottom: for those who want to take a project step */}
       <section className="py-16 bg-[#f9fafb] border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div>
                 <p className="font-bold text-[#111827] mb-1">Konkrete Projektidee?</p>
-                <p className="text-[#6b7280] text-sm">Mit dem Anfrage-Formular bekommt Ihr Projekt in 48h ein Angebot.</p>
+                <p className="text-[#6b7280] text-sm">
+                  Mit dem Anfrage-Formular bekommt Ihr Projekt in 48h ein Angebot.
+                </p>
               </div>
               <Link
                 href="/anfrage"
                 className="inline-flex items-center gap-2 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-6 py-3 rounded-full transition-colors text-sm shrink-0"
               >
-                Projekt anfragen <ArrowRight size={15} />
+                Projekt anfragen
+                <ArrowRight size={15} />
               </Link>
             </div>
           </FadeIn>

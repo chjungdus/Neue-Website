@@ -7,14 +7,8 @@ import FadeIn from "@/components/ui/fade-in"
 export const metadata: Metadata = {
   title: "Portfolio — Nexuzo",
   description:
-    "4 Projekte. Von der Landing Page bis zur komplexen Web-App — hier sind die Ergebnisse.",
+    "Handgebaute Websites für reale Kunden — kein Template, keine Demo-Projekte.",
 }
-
-const categories = [
-  { label: "Unternehmens-Websites", count: "2" },
-  { label: "Web-Apps", count: "1" },
-  { label: "E-Commerce", count: "1" },
-]
 
 const selectionPrincipien = [
   {
@@ -46,7 +40,7 @@ export default function PortfolioPage() {
               Portfolio
             </p>
             <h1 className="text-5xl md:text-6xl font-black text-[#111827] leading-[1.05] mb-5 max-w-2xl">
-              4 Projekte.
+              Echte Projekte.
               <br />
               <span className="text-[#2563eb]">0 Templates.</span>
             </h1>
@@ -55,21 +49,11 @@ export default function PortfolioPage() {
               Copy-Paste-Design das nicht abbildet.
             </p>
           </FadeIn>
-
-          <FadeIn delay={0.12}>
-            <div className="mt-12 flex flex-wrap gap-px bg-gray-100 rounded-2xl overflow-hidden w-fit">
-              {categories.map((cat) => (
-                <div key={cat.label} className="bg-white px-6 py-4">
-                  <p className="text-2xl font-black text-[#111827] leading-none mb-1">{cat.count}</p>
-                  <p className="text-xs text-[#9ca3af] leading-snug">{cat.label}</p>
-                </div>
-              ))}
-            </div>
-          </FadeIn>
         </div>
       </section>
 
-      <section className="py-16 bg-[#0f172a]">
+      {/* How we choose projects — dark section */}
+      <section className="py-16 bg-[#0d1b40]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-8">
@@ -79,7 +63,7 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-800 rounded-2xl overflow-hidden">
             {selectionPrincipien.map((p, i) => (
               <FadeIn key={i} delay={i * 0.08}>
-                <div className="bg-[#0f172a] p-8">
+                <div className="bg-[#0d1b40] p-8">
                   <span
                     className="text-5xl font-black leading-none block mb-5"
                     style={{ color: "#2563eb18" }}
@@ -95,7 +79,8 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-[#f9fafb]">
+      {/* Grid */}
+      <section className="py-16 bg-[#eff6ff]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-8">
@@ -106,6 +91,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
+      {/* CTA strip */}
       <section className="py-14 bg-white border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>

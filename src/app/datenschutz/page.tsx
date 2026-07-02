@@ -40,7 +40,9 @@ export default function DatenschutzPage() {
           </Section>
 
           <Section title="2. Verantwortlicher">
-            <p>Verantwortlicher für die Datenverarbeitung auf dieser Website ist:</p>
+            <p>
+              Verantwortlicher für die Datenverarbeitung auf dieser Website ist:
+            </p>
             <p>
               Nexuzo
               <br />
@@ -69,6 +71,7 @@ export default function DatenschutzPage() {
               (z. B. Sitzungs-Management für den Admin-Bereich). Es werden keine Marketing- oder Tracking-Cookies
               eingesetzt.
             </p>
+
             <h3 className="text-[#111827] font-semibold text-sm mt-4 mb-2">Server-Log-Dateien</h3>
             <p>
               Der Provider dieser Website erhebt und speichert automatisch Informationen in sogenannten
@@ -147,12 +150,29 @@ export default function DatenschutzPage() {
           <Section title="8. Ihre Rechte">
             <p>Sie haben jederzeit das Recht:</p>
             <ul className="list-disc list-inside space-y-1 pl-2">
-              <li><strong className="text-[#374151]">Auskunft</strong> über Ihre bei uns gespeicherten personenbezogenen Daten zu erhalten (Art. 15 DSGVO)</li>
-              <li><strong className="text-[#374151]">Berichtigung</strong> unrichtiger Daten zu verlangen (Art. 16 DSGVO)</li>
-              <li><strong className="text-[#374151]">Löschung</strong> Ihrer bei uns gespeicherten Daten zu verlangen (Art. 17 DSGVO)</li>
-              <li><strong className="text-[#374151]">Einschränkung</strong> der Datenverarbeitung zu verlangen (Art. 18 DSGVO)</li>
-              <li><strong className="text-[#374151]">Datenübertragbarkeit</strong> in einem gängigen Format zu erhalten (Art. 20 DSGVO)</li>
-              <li><strong className="text-[#374151]">Widerspruch</strong> gegen die Verarbeitung einzulegen (Art. 21 DSGVO)</li>
+              <li>
+                <strong className="text-[#374151]">Auskunft</strong> über Ihre bei uns gespeicherten personenbezogenen
+                Daten zu erhalten (Art. 15 DSGVO)
+              </li>
+              <li>
+                <strong className="text-[#374151]">Berichtigung</strong> unrichtiger Daten zu verlangen (Art. 16 DSGVO)
+              </li>
+              <li>
+                <strong className="text-[#374151]">Löschung</strong> Ihrer bei uns gespeicherten Daten zu verlangen
+                (Art. 17 DSGVO)
+              </li>
+              <li>
+                <strong className="text-[#374151]">Einschränkung</strong> der Datenverarbeitung zu verlangen (Art. 18
+                DSGVO)
+              </li>
+              <li>
+                <strong className="text-[#374151]">Datenübertragbarkeit</strong> in einem gängigen Format zu erhalten
+                (Art. 20 DSGVO)
+              </li>
+              <li>
+                <strong className="text-[#374151]">Widerspruch</strong> gegen die Verarbeitung einzulegen (Art. 21
+                DSGVO)
+              </li>
             </ul>
             <p>
               Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:{" "}
@@ -184,8 +204,12 @@ export default function DatenschutzPage() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-gray-200 flex flex-wrap gap-4 text-xs text-[#6b7280]">
-          <Link href="/impressum" className="hover:text-[#111827] transition-colors">Impressum</Link>
-          <Link href="/agb" className="hover:text-[#111827] transition-colors">AGB</Link>
+          <Link href="/impressum" className="hover:text-[#111827] transition-colors">
+            Impressum
+          </Link>
+          <Link href="/agb" className="hover:text-[#111827] transition-colors">
+            AGB
+          </Link>
         </div>
       </div>
     </div>

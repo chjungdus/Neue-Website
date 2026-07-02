@@ -6,10 +6,11 @@ export const mockProjects: PortfolioProject[] = [
     title: "Milonga Food Truck – Argentinische Küche",
     slug: "milonga-arg",
     description: "Argentinischer Foodtruck am Düsseldorfer Rheinufer, spezialisiert auf das original Lomito Steak Sandwich.",
-    long_description: "Komplette Website für einen argentinischen Foodtruck in Düsseldorf. Mit Speisekarte, Standortinfos und einem starken visuellen Auftritt, der die Leidenschaft für argentinische Küche transportiert.",
+    long_description:
+      "Komplette Website für einen argentinischen Foodtruck in Düsseldorf. Mit Speisekarte, Standortinfos und einem starken visuellen Auftritt, der die Leidenschaft für argentinische Küche transportiert.",
     tags: ["Restaurant", "Webdesign", "Next.js"],
     client: "Milonga ARG",
-    url: "",
+    url: "https://www.milonga-arg.de/",
     image_url: "",
     featured: true,
     created_at: "2025-03-10",
@@ -19,7 +20,8 @@ export const mockProjects: PortfolioProject[] = [
     title: "Limpiezas El Valle | Limpieza Profesional en Merindades, Burgos",
     slug: "limpiezas-el-valle",
     description: "Professionelle Reinigungsfirma in Espinosa de los Monteros, Burgos — mit lokalem SEO-Fokus für die Region Merindades.",
-    long_description: "Website mit starkem lokalem SEO für eine Reinigungsfirma in der Region Merindades, Burgos. Ergebnis: Top-Ranking für die wichtigsten Suchbegriffe in der Region.",
+    long_description:
+      "Website mit starkem lokalem SEO für eine Reinigungsfirma in der Region Merindades, Burgos. Ergebnis: Top-Ranking für die wichtigsten Suchbegriffe in der Region.",
     tags: ["Reinigung", "SEO", "Webdesign"],
     client: "Limpiezas El Valle",
     url: "",
@@ -32,7 +34,8 @@ export const mockProjects: PortfolioProject[] = [
     title: "Caféthiopia – Origin of Coffee",
     slug: "cafethiopia",
     description: "Von Äthiopien inspiriertes Café in Düsseldorf Bilk — moderner Auftritt für eine authentische Kaffeeerfahrung.",
-    long_description: "Moderne Website für ein äthiopisch inspiriertes Café in Düsseldorf Bilk. Das Projekt betont die Herkunft und Qualität des Kaffees und schafft ein Erlebnis, das die Kultur Äthiopiens widerspiegelt.",
+    long_description:
+      "Moderne Website für ein äthiopisch inspiriertes Café in Düsseldorf Bilk. Das Projekt betont die Herkunft und Qualität des Kaffees und schafft ein Erlebnis, das die Kultur Äthiopiens widerspiegelt.",
     tags: ["Café", "Webdesign", "Branding"],
     client: "Caféthiopia",
     url: "",
