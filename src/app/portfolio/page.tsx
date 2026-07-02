@@ -53,7 +53,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* How we choose projects — dark section */}
-      <section className="py-16 bg-[#0d1b40]">
+      <section className="py-16 bg-[#1a3570]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-8">
@@ -63,7 +63,7 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-800 rounded-2xl overflow-hidden">
             {selectionPrincipien.map((p, i) => (
               <FadeIn key={i} delay={i * 0.08}>
-                <div className="bg-[#0d1b40] p-8">
+                <div className="bg-[#1a3570] p-8">
                   <span
                     className="text-5xl font-black leading-none block mb-5"
                     style={{ color: "#2563eb18" }}
@@ -80,7 +80,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Grid */}
-      <section className="py-16 bg-[#eff6ff]">
+      <section className="py-16 bg-[#f0f4ff]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-8">

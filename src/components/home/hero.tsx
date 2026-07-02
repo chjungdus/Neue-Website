@@ -51,7 +51,7 @@ export default function Hero() {
   const current = sites[active]
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center bg-[#0d1b40] overflow-hidden pt-20 pb-10">
+    <section className="relative min-h-screen flex flex-col items-center justify-center bg-[#1a3570] overflow-hidden pt-20 pb-10">
 
       {/* Hintergrund-Raster */}
       <div
@@ -62,7 +62,7 @@ export default function Hero() {
           backgroundSize: "60px 60px",
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b40] via-transparent to-[#07102b]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1a3570] via-transparent to-[#0d2050]" />
 
       {/* ── TEXT ── */}
       <div className="relative z-10 text-center px-6 mb-10 max-w-2xl">
@@ -189,7 +189,7 @@ export default function Hero() {
                       />
                     ) : (
                       /* Platzhalter wenn URL noch nicht eingetragen */
-                      <div className="w-full h-full bg-gradient-to-br from-[#eff6ff] to-[#dbeafe] flex flex-col items-center justify-center gap-3">
+                      <div className="w-full h-full bg-gradient-to-br from-[#f0f4ff] to-[#dbeafe] flex flex-col items-center justify-center gap-3">
                         <div className="w-12 h-12 rounded-xl bg-[#2563eb]/10 flex items-center justify-center">
                           <ExternalLink size={22} className="text-[#2563eb]" />
                         </div>

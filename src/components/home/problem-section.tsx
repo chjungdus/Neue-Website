@@ -36,7 +36,7 @@ const problems = [
 
 export default function ProblemSection() {
   return (
-    <section className="py-28 bg-[#0d1b40]">
+    <section className="py-28 bg-[#1a3570]">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <div className="max-w-2xl mb-16">

@@ -124,7 +124,7 @@ export default function UeberUnsPage() {
       </section>
 
       {/* For everyone */}
-      <section className="py-24 bg-[#0d1b40]">
+      <section className="py-24 bg-[#1a3570]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-6">
@@ -170,7 +170,7 @@ export default function UeberUnsPage() {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-[#eff6ff]">
+      <section className="py-24 bg-[#f0f4ff]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
@@ -260,7 +260,7 @@ export default function UeberUnsPage() {
           </div>
 
           <FadeIn delay={0.25}>
-            <div className="mt-8 border border-gray-100 rounded-2xl p-8 bg-[#eff6ff]">
+            <div className="mt-8 border border-gray-100 rounded-2xl p-8 bg-[#f0f4ff]">
               <p className="text-[#6b7280] text-sm leading-relaxed">
                 <strong className="text-[#111827]">Was das bedeutet für Sie:</strong> Wenn Sie mit
                 uns sprechen, sprechen Sie mit jemandem, der Ihr Projekt persönlich umsetzt. Keine

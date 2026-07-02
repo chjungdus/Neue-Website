@@ -79,7 +79,7 @@ export default function PortfolioGrid() {
               <p className="text-[#6b7280] text-sm mb-4 leading-relaxed">{project.description}</p>
               <div className="flex flex-wrap items-center gap-2">
                 {project.tags.map((tag) => (
-                  <button key={tag} onClick={() => setActiveTag(tag)} className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${ activeTag === tag ? "bg-[#eff6ff] text-[#2563eb] border-[#2563eb]/30" : "bg-[#f9fafb] text-[#6b7280] border-gray-200 hover:border-[#2563eb]/30 hover:text-[#2563eb]" }`}>
+                  <button key={tag} onClick={() => setActiveTag(tag)} className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${ activeTag === tag ? "bg-[#f0f4ff] text-[#2563eb] border-[#2563eb]/30" : "bg-[#f9fafb] text-[#6b7280] border-gray-200 hover:border-[#2563eb]/30 hover:text-[#2563eb]" }`}>
                     {tag}
                   </button>
                 ))}

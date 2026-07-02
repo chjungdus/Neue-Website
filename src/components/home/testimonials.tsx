@@ -8,7 +8,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-28 bg-[#0d1b40]">
+    <section className="py-28 bg-[#1a3570]">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <div className="mb-14">

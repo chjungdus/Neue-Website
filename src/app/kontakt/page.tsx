@@ -160,7 +160,7 @@ export default function KontaktPage() {
                       href="mailto:mateo.sdlm@gmail.com"
                       className="flex items-center gap-3 text-[#374151] hover:text-[#2563eb] transition-colors group"
                     >
-                      <span className="w-9 h-9 rounded-xl bg-[#f3f4f6] flex items-center justify-center group-hover:bg-[#eff6ff] transition-colors">
+                      <span className="w-9 h-9 rounded-xl bg-[#f3f4f6] flex items-center justify-center group-hover:bg-[#f0f4ff] transition-colors">
                         <Mail size={15} className="text-[#6b7280] group-hover:text-[#2563eb] transition-colors" />
                       </span>
                       <span className="text-sm font-medium">mateo.sdlm@gmail.com</span>
