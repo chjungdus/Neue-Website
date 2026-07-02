@@ -6,7 +6,7 @@ export default function CTA() {
   return (
     <section className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="bg-[#0f172a] rounded-3xl overflow-hidden">
+        <div className="bg-[#0d1b40] rounded-3xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] divide-y lg:divide-y-0 lg:divide-x divide-slate-800">
 
             {/* Left: main CTA */}

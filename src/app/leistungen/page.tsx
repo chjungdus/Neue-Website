@@ -214,7 +214,7 @@ export default function LeistungenPage() {
       </section>
 
       {/* Process */}
-      <section className="py-24 bg-[#0f172a]">
+      <section className="py-24 bg-[#0d1b40]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-6">
@@ -245,7 +245,7 @@ export default function LeistungenPage() {
       </section>
 
       {/* Guarantee */}
-      <section className="py-20 bg-[#f9fafb] border-b border-gray-100">
+      <section className="py-20 bg-[#eff6ff] border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12 items-center">
@@ -330,7 +330,7 @@ export default function LeistungenPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-[#f9fafb]">
+      <section className="py-24 bg-[#eff6ff]">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#111827] mb-5 leading-tight">

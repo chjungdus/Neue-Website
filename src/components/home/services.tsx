@@ -99,7 +99,7 @@ function ServiceVisual({ type, accent }: { type: string; accent: string }) {
 
 export default function Services() {
   return (
-    <section className="py-28 bg-[#0a0a0f]">
+    <section className="py-28 bg-[#0d1b40]">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <div className="mb-16">

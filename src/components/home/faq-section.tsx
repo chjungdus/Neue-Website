@@ -75,7 +75,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section className="py-28 bg-[#f9fafb]">
+    <section className="py-28 bg-[#eff6ff]">
       <div className="max-w-3xl mx-auto px-6">
         <FadeIn>
           <h2 className="text-4xl md:text-5xl font-black text-[#111827] mb-5 leading-tight">

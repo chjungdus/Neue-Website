@@ -78,7 +78,7 @@ export default function Process() {
                         <Icon size={22} style={{ color: step.color }} />
                       </div>
                       {/* Card */}
-                      <div className="bg-[#f9fafb] border border-gray-100 rounded-2xl p-6 w-full text-left">
+                      <div className="bg-[#eff6ff] border border-gray-100 rounded-2xl p-6 w-full text-left">
                         <span
                           className="text-[10px] font-bold uppercase tracking-wider mb-1 block"
                           style={{ color: step.color }}
@@ -114,7 +114,7 @@ export default function Process() {
                     >
                       <Icon size={20} style={{ color: step.color }} />
                     </div>
-                    <div className="bg-[#f9fafb] border border-gray-100 rounded-2xl p-6">
+                    <div className="bg-[#eff6ff] border border-gray-100 rounded-2xl p-6">
                       <span
                         className="text-[10px] font-bold uppercase tracking-wider mb-0.5 block"
                         style={{ color: step.color }}

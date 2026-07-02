@@ -101,7 +101,7 @@ export default function AnfragePage() {
       </section>
 
       {/* Main: sidebar + form */}
-      <section className="py-16 bg-[#f9fafb]">
+      <section className="py-16 bg-[#eff6ff]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_540px] gap-14 items-start">
 
@@ -161,7 +161,7 @@ export default function AnfragePage() {
 
               {/* Who reviews */}
               <FadeIn delay={0.2}>
-                <div className="bg-[#0f172a] rounded-2xl p-7">
+                <div className="bg-[#0d1b40] rounded-2xl p-7">
                   <p className="text-slate-500 text-xs font-semibold uppercase tracking-widest mb-4">
                     Wer antwortet
                   </p>
@@ -197,7 +197,7 @@ export default function AnfragePage() {
                     <InquiryWizard />
                   </Suspense>
                 </div>
-                <div className="px-8 py-4 bg-[#f9fafb] border-t border-gray-100">
+                <div className="px-8 py-4 bg-[#eff6ff] border-t border-gray-100">
                   <p className="text-[#9ca3af] text-xs text-center leading-relaxed">
                     Mit dem Absenden stimmen Sie zu, dass wir Sie einmalig kontaktieren dürfen.
                     Kein Newsletter, kein Remarketing.
@@ -231,7 +231,7 @@ export default function AnfragePage() {
       </section>
 
       {/* Alternative: just write */}
-      <section className="py-12 bg-[#f9fafb] border-t border-gray-100">
+      <section className="py-12 bg-[#eff6ff] border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">

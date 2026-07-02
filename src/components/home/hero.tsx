@@ -108,7 +108,7 @@ export default function Hero() {
                     <div className="px-5 pb-5">
                       <div className="grid grid-cols-3 gap-2">
                         {[1, 2, 3].map((i) => (
-                          <div key={i} className="h-20 bg-[#f9fafb] rounded-xl" />
+                          <div key={i} className="h-20 bg-[#eff6ff] rounded-xl" />
                         ))}
                       </div>
                     </div>

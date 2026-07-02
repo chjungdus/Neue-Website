@@ -161,7 +161,7 @@ export default function PreisePage() {
       </section>
 
       {/* One-time packages */}
-      <section className="py-12 bg-[#f9fafb]">
+      <section className="py-12 bg-[#eff6ff]">
         <div className="max-w-6xl mx-auto px-6">
           <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-8">
             Einmalige Website-Erstellung
@@ -246,7 +246,7 @@ export default function PreisePage() {
       </section>
 
       {/* Guarantee */}
-      <section className="py-8 bg-[#f9fafb]">
+      <section className="py-8 bg-[#eff6ff]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="bg-white border border-green-100 rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row items-start gap-5">
             <div className="w-10 h-10 rounded-xl bg-[#f0fdf4] flex items-center justify-center flex-shrink-0">
@@ -278,7 +278,7 @@ export default function PreisePage() {
             {paymentMethods.map((method) => {
               const Icon = method.icon
               return (
-                <div key={method.name} className="bg-[#f9fafb] border border-gray-100 rounded-xl p-4 sm:p-5 flex flex-col items-center text-center gap-3">
+                <div key={method.name} className="bg-[#eff6ff] border border-gray-100 rounded-xl p-4 sm:p-5 flex flex-col items-center text-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center">
                     <Icon size={18} className="text-[#2563eb]" />
                   </div>
@@ -297,7 +297,7 @@ export default function PreisePage() {
       </section>
 
       {/* Monthly care packages */}
-      <section className="py-16 bg-[#f9fafb] border-t border-gray-100">
+      <section className="py-16 bg-[#eff6ff] border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <div>
@@ -319,7 +319,7 @@ export default function PreisePage() {
                 key={pkg.name}
                 className={`rounded-2xl p-6 sm:p-7 ${
                   pkg.highlight
-                    ? "bg-[#0f172a] text-white"
+                    ? "bg-[#0d1b40] text-white"
                     : "bg-white border border-gray-100"
                 }`}
               >
@@ -367,7 +367,7 @@ export default function PreisePage() {
           </h2>
           <div className="flex flex-col gap-4">
             {priceFAQs.map((faq) => (
-              <div key={faq.q} className="bg-[#f9fafb] border border-gray-100 rounded-2xl p-6 sm:p-7">
+              <div key={faq.q} className="bg-[#eff6ff] border border-gray-100 rounded-2xl p-6 sm:p-7">
                 <h3 className="text-[#111827] font-bold mb-3 text-base">{faq.q}</h3>
                 <p className="text-[#6b7280] text-sm leading-relaxed">{faq.a}</p>
               </div>
@@ -377,7 +377,7 @@ export default function PreisePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 sm:py-20 bg-[#f9fafb] border-t border-gray-100">
+      <section className="py-16 sm:py-20 bg-[#eff6ff] border-t border-gray-100">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#111827] mb-4 leading-tight">
             Bereit für ein konkretes Angebot?
@@ -402,7 +402,7 @@ export default function PreisePage() {
         </div>
       </section>
 
-      <div className="bg-[#f9fafb] border-t border-gray-200 py-6">
+      <div className="bg-[#eff6ff] border-t border-gray-200 py-6">
         <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-[#9ca3af]">
           <Link href="/impressum" className="hover:text-[#374151] transition-colors">Impressum</Link>
           <Link href="/datenschutz" className="hover:text-[#374151] transition-colors">Datenschutz</Link>

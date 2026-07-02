@@ -13,7 +13,7 @@ export default function PortfolioTeaser() {
   const featured = mockProjects.filter((p) => p.featured)
 
   return (
-    <section className="py-28 bg-[#0f172a]">
+    <section className="py-28 bg-[#0d1b40]">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
@@ -34,7 +34,7 @@ export default function PortfolioTeaser() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {featured.map((project, i) => {
-            const meta = projectMeta[project.slug] ?? { from: "#1e293b", to: "#0f172a", emoji: "🌐" }
+            const meta = projectMeta[project.slug] ?? { from: "#1e293b", to: "#0d1b40", emoji: "🌐" }
             return (
               <FadeIn key={project.id} delay={i * 0.1}>
                 <Link
