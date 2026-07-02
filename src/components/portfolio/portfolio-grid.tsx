@@ -15,16 +15,8 @@ function getAllTags(projects: typeof mockProjects): string[] {
 
 export default function PortfolioGrid() {
   const [activeTag, setActiveTag] = useState(ALL_TAG)
-
   const allTags = useMemo(() => getAllTags(mockProjects), [])
-
-  const filtered = useMemo(
-    () =>
-      activeTag === ALL_TAG
-        ? mockProjects
-        : mockProjects.filter((p) => p.tags.includes(activeTag)),
-    [activeTag]
-  )
+  const filtered = useMemo(() => activeTag === ALL_TAG ? mockProjects : mockProjects.filter((p) => p.tags.includes(activeTag)), [activeTag])
 
   return (
     <div>
@@ -41,19 +33,11 @@ export default function PortfolioGrid() {
           >
             {tag}
             {activeTag === tag && tag !== ALL_TAG && (
-              <X
-                size={12}
-                className="opacity-70"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  setActiveTag(ALL_TAG)
-                }}
-              />
+              <X size={12} className="opacity-70" onClick={(e) => { e.stopPropagation(); setActiveTag(ALL_TAG) }} />
             )}
           </button>
         ))}
       </div>
-
       {filtered.length === 0 && (
         <div className="py-24 text-center">
           <p className="text-[#6b7280] text-lg">Keine Projekte für diesen Filter.</p>
@@ -65,7 +49,6 @@ export default function PortfolioGrid() {
           </button>
         </div>
       )}
-
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map((project, i) => (
           <div key={project.id} className={`group rounded-2xl overflow-hidden bg-white border border-gray-200 card-hover ${ i === 0 && activeTag === ALL_TAG ? "md:col-span-2" : "" }`}>

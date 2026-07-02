@@ -84,6 +84,8 @@ const trustedBy = [
   "Coaching & Beratung",
 ]
 
+const trustedBy = ["Handwerk & Bau", "Gastronomie & Hotellerie", "Rechtsanwälte & Steuerberater", "Online-Dienstleister", "Medizin & Therapie", "Coaching & Beratung"]
+
 export default function LeistungenPage() {
   return (
     <>

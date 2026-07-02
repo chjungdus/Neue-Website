@@ -23,9 +23,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  useEffect(() => {
-    setMobileOpen(false)
-  }, [pathname])
+  useEffect(() => { setMobileOpen(false) }, [pathname])
 
   return (
     <header
@@ -45,7 +43,6 @@ export default function Navbar() {
           </div>
           <span>Nexuzo</span>
         </Link>
-
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
@@ -61,7 +58,6 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-
         <div className="hidden md:flex items-center gap-4">
           <Link
             href="/kontakt"
@@ -85,7 +81,6 @@ export default function Navbar() {
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </nav>
-
       {mobileOpen && (
         <div className="md:hidden bg-white border-b border-gray-200 shadow-lg">
           <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-1">

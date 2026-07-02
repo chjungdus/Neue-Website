@@ -70,16 +70,12 @@ export default function TechStack() {
             </p>
           </div>
         </FadeIn>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {technologies.map((tech, i) => (
             <FadeIn key={tech.name} delay={i * 0.05}>
               <div className="bg-white border border-gray-200 rounded-2xl p-5 h-full hover:border-gray-300 hover:shadow-sm transition-all">
                 <div className="flex items-center gap-3 mb-3">
-                  <div
-                    className="w-9 h-9 rounded-lg flex items-center justify-center text-sm font-black flex-shrink-0"
-                    style={{ backgroundColor: `${tech.color}18`, color: tech.color }}
-                  >
+                  <div className="w-9 h-9 rounded-lg flex items-center justify-center text-sm font-black flex-shrink-0" style={{ backgroundColor: `${tech.color}18`, color: tech.color }}>
                     {tech.logo}
                   </div>
                   <h3 className="text-[#111827] font-bold text-sm">{tech.name}</h3>
@@ -89,7 +85,6 @@ export default function TechStack() {
             </FadeIn>
           ))}
         </div>
-
         <FadeIn delay={0.3}>
           <p className="text-[#9ca3af] text-sm mt-10 text-center">
             Haben Sie spezifische Anforderungen?{" "}

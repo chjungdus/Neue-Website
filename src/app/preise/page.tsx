@@ -157,6 +157,7 @@ export default function PreisePage() {
           <p className="text-[#9ca3af] text-sm mt-4">
             Alle Preise netto zzgl. 19 % MwSt.
           </p>
+          <p className="text-[#9ca3af] text-sm mt-4">Alle Preise netto zzgl. 19 % MwSt.</p>
         </div>
       </section>
 
@@ -210,7 +211,6 @@ export default function PreisePage() {
                     {pkg.desc}
                   </p>
                 </div>
-
                 <ul className="flex flex-col gap-3 flex-1 mb-8">
                   {pkg.features.map((f) => (
                     <li

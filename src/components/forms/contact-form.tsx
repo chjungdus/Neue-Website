@@ -18,12 +18,7 @@ type FormData = z.infer<typeof schema>
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<FormData>({ resolver: zodResolver(schema) })
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) })
 
   const onSubmit = async (data: FormData) => {
     setStatus("loading")
@@ -86,7 +81,6 @@ export default function ContactForm() {
           )}
         </div>
       </div>
-
       <div>
         <label className="text-[#374151] text-sm font-medium block mb-2">Betreff *</label>
         <input
@@ -98,7 +92,6 @@ export default function ContactForm() {
           <p className="text-red-500 text-xs mt-1">{errors.subject.message}</p>
         )}
       </div>
-
       <div>
         <label className="text-[#374151] text-sm font-medium block mb-2">Nachricht *</label>
         <textarea
@@ -111,7 +104,6 @@ export default function ContactForm() {
           <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>
         )}
       </div>
-
       {status === "error" && (
         <div className="flex items-center gap-2 text-red-500 text-sm bg-red-50 border border-red-200 rounded-xl px-4 py-3">
           <AlertCircle size={16} />
