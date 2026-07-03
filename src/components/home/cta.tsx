@@ -6,7 +6,7 @@ export default function CTA() {
   return (
     <section className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="bg-[#0d1b40] rounded-3xl overflow-hidden">
+        <div className="bg-[#1a3570] rounded-3xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] divide-y lg:divide-y-0 lg:divide-x divide-slate-800">
 
             {/* Left: main CTA */}
@@ -17,13 +17,8 @@ export default function CTA() {
                   <br />
                   <span className="text-slate-500 font-light">Kein Pitch. Kein Druck.</span>
                 </h2>
-                <p className="text-slate-400 text-lg mb-5 max-w-lg leading-relaxed">
-                  Wir hören zu und sagen Ihnen ehrlich, ob und wie wir helfen können. Wenn wir
-                  nicht die richtige Agentur für Ihr Projekt sind — sagen wir das auch.
-                </p>
-                <p className="text-slate-600 text-sm mb-10 max-w-md leading-relaxed">
-                  Nicht zufrieden mit dem ersten Design-Entwurf? Wir überarbeiten kostenlos,
-                  ohne Diskussion, so lange bis es passt.
+                <p className="text-slate-400 text-lg mb-10 max-w-lg leading-relaxed">
+                  Wir hören zu und sagen Ihnen ehrlich, ob wir helfen können.
                 </p>
                 <div className="flex flex-col sm:flex-row items-start gap-3">
                   <Link
@@ -77,15 +72,8 @@ export default function CTA() {
                     <span className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0">
                       <Clock size={15} />
                     </span>
-                    <span className="text-sm">Mo – Fr · 9 – 18 Uhr</span>
+                    <span className="text-sm">Mo bis Fr, 9 bis 18 Uhr</span>
                   </div>
-                </div>
-                <div className="mt-8 pt-6 border-t border-slate-800">
-                  <p className="text-slate-700 text-xs leading-relaxed">
-                    Antwort innerhalb von 24 Stunden
-                    <br />
-                    Erstgespräch kostenlos & unverbindlich
-                  </p>
                 </div>
               </FadeIn>
             </div>

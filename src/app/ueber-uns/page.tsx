@@ -1,44 +1,44 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, X } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import FadeIn from "@/components/ui/fade-in"
 
 const values = [
   {
     title: "Ehrlichkeit über Höflichkeit",
-    body: "Wenn Ihr Projekt zu uns nicht passt, sagen wir das. Wenn Ihr Design-Vorschlag schlecht konvertieren wird, sagen wir das. Wir bevorzugen ein unangenehmes Gespräch heute gegenüber einem teuren Ergebnis in drei Monaten.",
+    body: "Wenn Ihr Projekt nicht passt, sagen wir das. Ein unangenehmes Gespräch heute ist besser als ein teures Ergebnis in drei Monaten.",
   },
   {
     title: "Ergebnisse über Ästhetik",
-    body: "Eine schöne Website, die keine Kunden bringt, ist ein teures Kunstwerk. Wir designen für mehr Anfragen, Farben, Layout, Texte, alles mit dem Ziel, dass Besucher zu Kunden werden.",
+    body: "Eine schöne Website, die keine Kunden bringt, ist ein teures Kunstwerk.",
   },
   {
     title: "Prozess über Improvisation",
-    body: "Jedes Projekt läuft nach demselben Schema: Briefing, Konzept, Design, Entwicklung, Launch. Klare Status-Updates mit Live-Link. Kein Raten, keine bösen Überraschungen.",
+    body: "Briefing, Konzept, Design, Entwicklung, Launch. Status-Updates mit Live-Link. Keine bösen Überraschungen.",
   },
   {
     title: "Weniger Kunden, bessere Arbeit",
-    body: "Wir nehmen maximal 4 Projekte gleichzeitig an. Das ist keine Marketingstrategie. Das ist eine Entscheidung für Qualität. Jedes Projekt bekommt unsere volle Aufmerksamkeit.",
+    body: "Maximal 4 Projekte gleichzeitig. Jedes bekommt volle Aufmerksamkeit.",
   },
 ]
 
-const notForUs = [
+const forEveryone = [
   {
-    type: "Billigst-Anfragen",
-    desc: "Wer einen Discounter-Preis ohne Qualität erwartet, findet diese Kombination woanders.",
+    type: "Handwerk & Gewerbe",
+    desc: "Elektriker, Schreiner, Sanitär. Mehr lokale Kunden über Google.",
   },
   {
-    type: "Kein klares Ziel",
-    desc: "Wer nicht weiß, was die Website leisten soll, ist noch nicht bereit für uns.",
+    type: "Gastronomie & Hotellerie",
+    desc: "Restaurants, Cafés, Hotels. Ihre Website als erste Visitenkarte.",
   },
   {
-    type: "Mikro-Management",
-    desc: "Sie haben eine Agentur engagiert. Lassen Sie uns die Arbeit machen.",
+    type: "Freiberufler & Berater",
+    desc: "Coaches, Anwälte, Therapeuten. Vertrauen schaffen, bevor jemand anruft.",
   },
   {
-    type: "Wöchentliche Strategiewechsel",
-    desc: "Wir brauchen einen stabilen Rahmen, um gute Arbeit zu liefern.",
+    type: "Online-Shops",
+    desc: "Checkout-Flows ohne Abbrüche.",
   },
 ]
 
@@ -47,15 +47,15 @@ const team = [
     name: "Mateo Sainz de la Maza",
     role: "Gründer & Lead Developer",
     since: "Düsseldorf",
-    body: "Hat mehrere Jahre als Frontend-Entwickler und digitaler Stratege für verschiedene Unternehmen und Agenturen gearbeitet. Hat die immer gleichen Muster gesehen: Overpromising im Vertrieb, Underdelivering in der Umsetzung. Hat Nexuzo gegründet, um das Gegenteil zu beweisen.",
-    focus: ["Webentwicklung", "Schnelle Ladezeiten", "Mehr Anfragen durch die Website"],
+    body: "Mehrere Jahre Erfahrung als Frontend-Entwickler. Gegründet, weil Overpromising und Underdelivering das Standardmodell war.",
+    focus: ["Webentwicklung", "Performance", "Conversion"],
   },
   {
     name: "Zhou Jun",
     role: "Design & UX",
     since: "Düsseldorf",
-    body: "Hat UX-Design studiert und danach in mehreren digitalen Projekten die direkte Auswirkung von Design-Entscheidungen auf Anfragen und Verkäufe gemessen. Gestaltet keine schönen Seiten. Gestaltet Seiten, die Besucher in Kunden verwandeln.",
-    focus: ["Design & Konzept", "Benutzerfreundlichkeit", "Kunden-Analyse"],
+    body: "UX-Design mit Fokus auf messbare Ergebnisse. Gestaltet keine schönen Seiten, sondern Seiten, die verkaufen.",
+    focus: ["Design", "Benutzerfreundlichkeit", "Analyse"],
   },
 ]
 
@@ -70,13 +70,12 @@ export default function UeberUnsPage() {
               Über uns
             </p>
             <h1 className="text-[26px] sm:text-5xl md:text-7xl font-black text-[#111827] leading-[1.05] mb-8 max-w-3xl">
-              Wir nehmen nicht
+              Wir freuen uns
               <br />
-              <span className="text-[#2563eb]">jeden Auftrag an.</span>
+              <span className="text-[#2563eb]">auf Ihre Anfrage.</span>
             </h1>
             <p className="text-[#6b7280] text-base sm:text-xl max-w-xl leading-relaxed">
-              Das klingt nach schlechtem Business. Für uns ist es der Grund, warum kein einziges
-              unserer Projekte unter Erwartung abgeliefert wurde.
+              Wir hören zu und liefern eine Website, die für Ihr Unternehmen arbeitet.
             </p>
           </FadeIn>
         </div>
@@ -102,20 +101,10 @@ export default function UeberUnsPage() {
             <FadeIn delay={0.1}>
               <div className="space-y-5 text-[#6b7280] leading-relaxed">
                 <p>
-                  Mateo hat als Freelancer für eine andere Agentur gearbeitet. Aufgabe:
-                  Eine Website für einen Steuerberater &quot;reparieren&quot;, die die Agentur selbst gebaut
-                  hatte. Vier Nachbesserungsrunden. Zwei verpasste Deadlines. Ein Kunde, der bereits
-                  bezahlt hatte und trotzdem nichts in der Hand hatte.
-                </p>
-                <p>
-                  Das war kein Einzelfall. Das war das Geschäftsmodell. Overpromise, Underdeliver,
-                  nächsten Kunden akquirieren. Mateo beschloss, eine Agentur zu gründen, bei der
-                  das Gegenteil das Geschäftsmodell ist.
+                  Mateo hat als Freelancer für eine andere Agentur gearbeitet. Vier Nachbesserungsrunden, zwei verpasste Deadlines, ein Kunde der bereits bezahlt hatte und trotzdem nichts in der Hand hatte.
                 </p>
                 <p className="text-[#374151] font-medium">
-                  Die Hypothese: Wenn man weniger Kunden annimmt und dafür jedes Projekt wirklich
-                  fertig macht, pünktlich, zum vereinbarten Preis, entstehen Referenzen, die für
-                  sich selbst sprechen. Die Hypothese hat sich bewahrheitet.
+                  Das Gegenteil wurde das Geschäftsmodell: weniger Projekte, jedes wirklich fertig, zum vereinbarten Preis.
                 </p>
               </div>
             </FadeIn>
@@ -123,28 +112,28 @@ export default function UeberUnsPage() {
         </div>
       </section>
 
-      {/* Not for us */}
-      <section className="py-24 bg-[#0d1b40]">
+      {/* For everyone */}
+      <section className="py-24 bg-[#1a3570]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-6">
-              Klare Kante
+              Für wen wir arbeiten
             </p>
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
-              Womit wir nicht arbeiten.
+              Für jeden, der online
+              <br />mehr erreichen will.
             </h2>
             <p className="text-slate-400 text-lg mb-14 max-w-lg leading-relaxed">
-              Nicht aus Arroganz. Sondern weil wir gelernt haben, dass bestimmte Konstellationen
-              immer in Frustration enden, für beide Seiten.
+              Egal welche Branche, welche Größe, welches Budget.
             </p>
           </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {notForUs.map((item, i) => (
+            {forEveryone.map((item, i) => (
               <FadeIn key={i} delay={i * 0.07}>
                 <div className="border border-slate-800 rounded-xl p-6 flex gap-4">
-                  <div className="w-6 h-6 rounded-full bg-red-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <X size={12} className="text-red-400" />
+                  <div className="w-6 h-6 rounded-full bg-[#2563eb]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <ArrowRight size={12} className="text-[#2563eb]" />
                   </div>
                   <div>
                     <div className="text-white font-semibold mb-1">{item.type}</div>
@@ -158,10 +147,9 @@ export default function UeberUnsPage() {
           <FadeIn delay={0.3}>
             <div className="mt-10 border-t border-slate-800 pt-8">
               <p className="text-slate-500 text-sm leading-relaxed max-w-xl">
-                Wenn Sie sich in einem dieser Punkte wiedererkennen: Ein anderer Anbieter
-                wird Ihnen besser helfen als wir. Wenn nicht:{" "}
+                Nicht sicher?{" "}
                 <Link href="/anfrage" className="text-[#2563eb] hover:underline">
-                  dann reden wir.
+                  Schreiben Sie uns, wir melden uns innerhalb von 24h.
                 </Link>
               </p>
             </div>
@@ -170,7 +158,7 @@ export default function UeberUnsPage() {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-[#eff6ff]">
+      <section className="py-24 bg-[#f0f4ff]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
@@ -260,7 +248,7 @@ export default function UeberUnsPage() {
           </div>
 
           <FadeIn delay={0.25}>
-            <div className="mt-8 border border-gray-100 rounded-2xl p-8 bg-[#eff6ff]">
+            <div className="mt-8 border border-gray-100 rounded-2xl p-8 bg-[#f0f4ff]">
               <p className="text-[#6b7280] text-sm leading-relaxed">
                 <strong className="text-[#111827]">Was das bedeutet für Sie:</strong> Wenn Sie mit
                 uns sprechen, sprechen Sie mit jemandem, der Ihr Projekt persönlich umsetzt. Keine

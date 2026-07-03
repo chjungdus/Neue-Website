@@ -15,7 +15,7 @@ export default function NotFound() {
     <div className="min-h-screen bg-white pt-16">
       <div className="max-w-5xl mx-auto px-6 py-24">
 
-        {/* Big 404 number — barely visible, just texture */}
+        {/* Big 404 number. barely visible, just texture */}
         <div
           className="text-[20rem] font-black leading-none select-none text-right pr-8 mb-0"
           style={{ color: "#f3f4f6", lineHeight: 1 }}
@@ -23,7 +23,7 @@ export default function NotFound() {
           404
         </div>
 
-        {/* Main content — overlapping the number visually */}
+        {/* Main content. overlapping the number visually */}
         <div className="-mt-32 relative z-10 max-w-2xl">
           <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-5">
             Seite nicht gefunden
@@ -34,7 +34,7 @@ export default function NotFound() {
             wir <span className="text-[#2563eb]">abgelehnt.</span>
           </h1>
           <p className="text-[#6b7280] text-lg leading-relaxed mb-4 max-w-lg">
-            Wir nehmen nicht jedes Projekt an — manchmal tun wir das auch mit Seiten.
+            Wir nehmen nicht jedes Projekt an. manchmal tun wir das auch mit Seiten.
           </p>
           <p className="text-[#9ca3af] text-sm leading-relaxed mb-10 max-w-md">
             Entweder wurde der Link verschoben, gelöscht oder Sie haben sich vertippt. Das passiert.

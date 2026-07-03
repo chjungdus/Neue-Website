@@ -6,7 +6,7 @@ import InquiryWizard from "@/components/forms/inquiry-wizard"
 import FadeIn from "@/components/ui/fade-in"
 
 export const metadata: Metadata = {
-  title: "Projekt anfragen — Nexuzo",
+  title: "Projekt anfragen. Nexuzo",
   description:
     "Erzählen Sie uns von Ihrem Projekt. Kostenlos, unverbindlich, Antwort innerhalb von 24h garantiert.",
 }
@@ -16,19 +16,19 @@ const afterSubmit = [
     step: "01",
     time: "Innerhalb 24h",
     title: "Persönliche Antwort",
-    desc: "Keine automatische Bestätigung, die nichts sagt. Eine echte Person liest Ihre Anfrage und antwortet mit konkreten nächsten Schritten — oder ehrlich, wenn wir nicht die Richtigen für Sie sind.",
+    desc: "Eine echte Person liest Ihre Anfrage. Konkrete nächste Schritte oder ehrliche Absage.",
   },
   {
     step: "02",
     time: "Optional",
     title: "30-Minuten-Gespräch",
-    desc: "Wenn das Projekt interessant klingt und zu uns passt, schlagen wir ein kurzes Kennenlerngespräch vor. Kein Pitch, keine Präsentation — einfach herausfinden, ob wir zusammenpassen.",
+    desc: "Wenn es passt, schlagen wir ein kurzes Gespräch vor. Kein Pitch.",
   },
   {
     step: "03",
-    time: "3 – 5 Tage",
+    time: "3 bis 5 Tage",
     title: "Konkretes Angebot",
-    desc: "Wenn wir loslegen wollen: ein detailliertes Konzept mit Festpreis. Kein Stundensatz, keine Schätzung mit Stern. Was wir anbieten, kostet was es kostet — und das steht schwarz auf weiß.",
+    desc: "Festpreis, schriftlich. Kein Stundensatz.",
   },
 ]
 
@@ -36,37 +36,37 @@ const guarantees = [
   {
     icon: Shield,
     title: "Keine Verpflichtung",
-    desc: "Zu keinem Zeitpunkt gibt es eine Verpflichtung ohne Ihren expliziten, schriftlichen Auftrag.",
+    desc: "Kein Auftrag ohne Ihre schriftliche Freigabe.",
   },
   {
     icon: Clock,
     title: "24h Antwortzeit",
-    desc: "An Werktagen, keine Autoresponder-Mails die nichts sagen — eine echte Antwort von einer echten Person.",
+    desc: "Echte Antwort, kein Autoresponder.",
   },
   {
     icon: Lock,
     title: "Keine Datenweitergabe",
-    desc: "Ihre Daten bleiben bei uns. Kein Remarketing, kein Verkauf, kein Newsletter ohne Ihre Erlaubnis.",
+    desc: "Kein Remarketing, kein Newsletter.",
   },
   {
     icon: MessageSquare,
     title: "Ehrliche Absage",
-    desc: "Wenn wir nicht passen, sagen wir das — mit einer konkreten Empfehlung, wen Sie stattdessen fragen sollten.",
+    desc: "Wenn wir nicht passen, sagen wir das direkt.",
   },
 ]
 
 const quickFaqs = [
   {
     q: "Wie viel Zeit nimmt die Anfrage in Anspruch?",
-    a: "Zwei Minuten. Beschreiben Sie kurz, was Sie brauchen, und hinterlassen Sie Ihre Kontaktdaten. Den Rest klären wir im Gespräch.",
+    a: "Zwei Minuten. Den Rest klären wir im Gespräch.",
   },
   {
     q: "Was wenn ich noch kein konkretes Budget habe?",
-    a: "Kein Problem. Beschreiben Sie einfach Ihr Projekt — wir erstellen ein passendes Angebot und besprechen Budget und Umfang im Gespräch.",
+    a: "Kein Problem. Wir besprechen Budget und Umfang im Gespräch.",
   },
   {
     q: "Was passiert wenn mein Projekt nicht zu Ihnen passt?",
-    a: "Wir sagen es Ihnen direkt — und nennen eine konkrete Alternative. Wir verschwenden weder Ihre Zeit noch unsere.",
+    a: "Wir sagen es direkt und nennen eine Alternative.",
   },
 ]
 
@@ -93,7 +93,7 @@ export default function AnfragePage() {
               <span className="text-[#2563eb]">Kein Vertrag. Noch nicht.</span>
             </h1>
             <p className="text-[#6b7280] text-xl max-w-xl leading-relaxed">
-              Kurz beschreiben was Sie brauchen. Wir lesen Ihre Anfrage und antworten innerhalb von 24 Stunden —
+              Kurz beschreiben was Sie brauchen. Wir lesen Ihre Anfrage und antworten innerhalb von 24 Stunden 
               persönlich, ohne Autoresponder.
             </p>
           </FadeIn>
@@ -101,7 +101,7 @@ export default function AnfragePage() {
       </section>
 
       {/* Main: sidebar + form */}
-      <section className="py-16 bg-[#eff6ff]">
+      <section className="py-16 bg-[#f0f4ff]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_540px] gap-14 items-start">
 
@@ -148,7 +148,7 @@ export default function AnfragePage() {
                     const Icon = g.icon
                     return (
                       <div key={i} className="bg-white border border-gray-100 rounded-xl p-5">
-                        <div className="w-8 h-8 rounded-lg bg-[#eff6ff] flex items-center justify-center mb-3">
+                        <div className="w-8 h-8 rounded-lg bg-[#f0f4ff] flex items-center justify-center mb-3">
                           <Icon size={15} className="text-[#2563eb]" />
                         </div>
                         <p className="font-semibold text-[#111827] text-sm mb-1">{g.title}</p>
@@ -161,7 +161,7 @@ export default function AnfragePage() {
 
               {/* Who reviews */}
               <FadeIn delay={0.2}>
-                <div className="bg-[#0d1b40] rounded-2xl p-7">
+                <div className="bg-[#1a3570] rounded-2xl p-7">
                   <p className="text-slate-500 text-xs font-semibold uppercase tracking-widest mb-4">
                     Wer antwortet
                   </p>
@@ -169,9 +169,7 @@ export default function AnfragePage() {
                     Keine Junior-Mitarbeiter. Keine ausgelagerten Teams.
                   </p>
                   <p className="text-slate-400 text-sm leading-relaxed">
-                    Jede Anfrage wird von einem unserer Seniors gelesen — der auch das Projekt
-                    umsetzen würde. Sie bekommen eine fundierte Einschätzung, keine
-                    Standardantwort.
+                    Jede Anfrage wird von der Person gelesen, die das Projekt auch umsetzt.
                   </p>
                   <div className="mt-5 pt-5 border-t border-slate-800 flex items-center gap-3">
                     <CheckCircle size={14} className="text-[#10b981] shrink-0" />
@@ -197,7 +195,7 @@ export default function AnfragePage() {
                     <InquiryWizard />
                   </Suspense>
                 </div>
-                <div className="px-8 py-4 bg-[#eff6ff] border-t border-gray-100">
+                <div className="px-8 py-4 bg-[#f0f4ff] border-t border-gray-100">
                   <p className="text-[#9ca3af] text-xs text-center leading-relaxed">
                     Mit dem Absenden stimmen Sie zu, dass wir Sie einmalig kontaktieren dürfen.
                     Kein Newsletter, kein Remarketing.
@@ -231,14 +229,14 @@ export default function AnfragePage() {
       </section>
 
       {/* Alternative: just write */}
-      <section className="py-12 bg-[#eff6ff] border-t border-gray-100">
+      <section className="py-12 bg-[#f0f4ff] border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
               <div>
                 <p className="font-bold text-[#111827] mb-1">Lieber einfach schreiben?</p>
                 <p className="text-[#6b7280] text-sm max-w-md">
-                  Kein Formular-Stress. Schicken Sie uns eine kurze Nachricht — wir fragen nach,
+                  Kein Formular-Stress. Schicken Sie uns eine kurze Nachricht. wir fragen nach,
                   was wir wissen müssen.
                 </p>
               </div>

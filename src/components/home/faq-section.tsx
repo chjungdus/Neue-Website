@@ -7,33 +7,27 @@ import FadeIn from "@/components/ui/fade-in"
 const faqs = [
   {
     question: "Brauche ich wirklich eine neue Website?",
-    answer:
-      "Nicht immer. Manchmal reichen gezielte Optimierungen — und wenn das der Fall ist, sagen wir Ihnen das im Erstgespräch ehrlich. Wir nehmen keine Projekte an, bei denen wir keinen echten Mehrwert sehen. Nicht aus Altruismus, sondern weil unzufriedene Kunden weder uns noch Ihnen nützen.",
+    answer: "Nicht immer. Manchmal reichen Optimierungen. Wir sagen Ihnen das ehrlich im Erstgespräch.",
   },
   {
     question: "Was kostet eine Website bei Ihnen?",
-    answer:
-      "Unsere Pakete starten ab 300 € netto. Der entscheidende Punkt: Sie wissen den genauen Preis vor Projektstart. Kein Stundensatz, keine Überraschungsrechnung am Ende. Was wir anbieten, kostet was es kostet — und das steht im Vertrag.",
+    answer: "Ab 300 € netto. Festpreis vor Projektstart, kein Stundensatz.",
   },
   {
-    question: "Vier Wochen — ist das wirklich realistisch?",
-    answer:
-      "Ja, wenn Ihre Inhalte bereit sind: Texte, Bilder, Logo. Wenn das vor Projektstart vorliegt, halten wir vier Wochen in jedem Projekt ein. Wir helfen auch bei der Inhaltserstellung — das verlängert den Zeitplan, aber nur transparent und vorab vereinbart.",
+    question: "Vier Wochen. Wirklich?",
+    answer: "Ja, wenn Texte und Bilder vorliegen. Wir helfen auch dabei.",
   },
   {
     question: "Ich hatte schlechte Erfahrungen mit anderen Agenturen.",
-    answer:
-      "Das hören wir oft. Die häufigsten Probleme: Deadlines halten nicht, Kosten explodieren, Kommunikation bricht nach dem Erstkontakt ab. Wir haben drei konkrete Sicherungen dagegen: Festpreis-Vertrag, wöchentliche Updates mit Live-Staging-Link, und eine persönliche Ansprechperson — kein Ticketsystem.",
+    answer: "Festpreis-Vertrag, wöchentliche Updates mit Staging-Link, eine Ansprechperson.",
   },
   {
     question: "Was passiert nach dem Launch?",
-    answer:
-      "Sie bekommen alle Zugänge: Domain, Hosting, kompletten Code. Die Website gehört Ihnen. Optional bieten wir Pflegepakete ab 30 €/Monat für Updates, Inhaltsänderungen und Backups an — Pflicht ist das nicht.",
+    answer: "Alle Zugänge: Domain, Hosting, Code. Pflegepakete ab 30 €/Monat optional.",
   },
   {
     question: "Kann ich Inhalte selbst bearbeiten?",
-    answer:
-      "Nein — wir bauen keine CMS-Lösungen. Änderungen erledigen wir für Sie über unsere Pflegepakete (ab 30 €/Monat). Für die meisten Kunden ist das günstiger und einfacher als ein eigenes CMS. Kleine Anpassungen sind in der Regel innerhalb von 24 Stunden erledigt.",
+    answer: "Über Pflegepakete ab 30 €/Monat. Meist günstiger als ein eigenes CMS.",
   },
 ]
 
@@ -75,16 +69,12 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section className="py-28 bg-[#eff6ff]">
+    <section className="py-28 bg-[#f0f4ff]">
       <div className="max-w-3xl mx-auto px-6">
         <FadeIn>
-          <h2 className="text-4xl md:text-5xl font-black text-[#111827] mb-5 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-[#111827] mb-14 leading-tight">
             Ehrliche Antworten.
           </h2>
-          <p className="text-[#6b7280] text-lg mb-14 max-w-lg leading-relaxed">
-            Die Fragen, die alle haben — aber manche sich nicht trauen zu stellen. Wir stellen
-            sie hier für Sie.
-          </p>
         </FadeIn>
 
         <FadeIn delay={0.12}>

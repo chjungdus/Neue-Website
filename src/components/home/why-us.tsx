@@ -5,28 +5,28 @@ const reasons = [
   {
     icon: Sparkles,
     title: "Individuelles Design",
-    body: "Kein Template, kein Baukasten. Jede Seite wird für Ihr Unternehmen entworfen — nicht aus einer Vorlage kopiert.",
+    body: "Kein Template. Jede Seite individuell für Ihr Unternehmen.",
     accent: "#3b82f6",
     bg: "rgba(59,130,246,0.1)",
   },
   {
     icon: Cpu,
     title: "Moderner Tech-Stack",
-    body: "Next.js, TypeScript, durchdachte Performance. Dieselben Werkzeuge, mit denen große Agenturen arbeiten — ohne deren Preisschild.",
+    body: "Next.js, TypeScript, Performance. Große Agentur-Werkzeuge ohne den Preis.",
     accent: "#06b6d4",
     bg: "rgba(6,182,212,0.1)",
   },
   {
     icon: Zap,
-    title: "Schneller Festpreis-Prozess",
-    body: "Klares Angebot vor Projektstart, keine versteckten Stunden-Abrechnungen. Sie wissen vorher, was es kostet.",
+    title: "Festpreis",
+    body: "Klares Angebot vor Projektstart. Keine versteckten Kosten.",
     accent: "#f59e0b",
     bg: "rgba(245,158,11,0.1)",
   },
   {
     icon: MessageCircle,
     title: "Persönlicher Kontakt",
-    body: "Sie sprechen direkt mit der Person, die Ihre Website baut — nicht mit einem Sales-Team und wechselnden Ansprechpartnern.",
+    body: "Sie sprechen direkt mit der Person, die Ihre Website baut.",
     accent: "#10b981",
     bg: "rgba(16,185,129,0.1)",
   },
@@ -43,10 +43,6 @@ export default function WhyUs() {
               <br />
               bei uns?
             </h2>
-            <p className="text-[#6b7280] text-lg leading-relaxed">
-              Agentur-Qualität, ohne den Agentur-Preis. Das ist kein Slogan — das ist, wie wir
-              arbeiten.
-            </p>
           </div>
         </FadeIn>
 
