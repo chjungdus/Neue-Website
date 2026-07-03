@@ -18,8 +18,10 @@ const sites = [
 export default function Hero() {
   const [active, setActive] = useState(0)
   const [direction, setDirection] = useState(1)
+  const [userInteracted, setUserInteracted] = useState(false)
 
   const prev = useCallback(() => {
+    setUserInteracted(true)
     setDirection(-1)
     setActive((i) => (i - 1 + sites.length) % sites.length)
   }, [])
@@ -29,10 +31,17 @@ export default function Hero() {
     setActive((i) => (i + 1) % sites.length)
   }, [])
 
+  const goTo = useCallback((i: number) => {
+    setUserInteracted(true)
+    setDirection(i > active ? 1 : -1)
+    setActive(i)
+  }, [active])
+
   useEffect(() => {
+    if (userInteracted) return
     const t = setTimeout(next, 6000)
     return () => clearTimeout(t)
-  }, [active, next])
+  }, [active, next, userInteracted])
 
   const current = sites[active]
 
@@ -102,7 +111,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.3 }}
-        className="relative z-10 w-full max-w-5xl px-4"
+        className="relative z-10 w-full max-w-6xl px-4"
       >
         <div className="relative flex items-center">
 
@@ -179,7 +188,7 @@ export default function Hero() {
 
           {/* Arrow Right */}
           <button
-            onClick={next}
+            onClick={() => { setUserInteracted(true); next() }}
             aria-label="Nächste Website"
             className="absolute -right-2 sm:right-2 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm flex items-center justify-center transition-all"
           >
@@ -207,7 +216,7 @@ export default function Hero() {
             {sites.map((_, i) => (
               <button
                 key={i}
-                onClick={() => { setDirection(i > active ? 1 : -1); setActive(i) }}
+                onClick={() => goTo(i)}
                 aria-label={`Website ${i + 1}`}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
                   i === active ? "w-6 bg-[#2563eb]" : "w-1.5 bg-white/25 hover:bg-white/40"
