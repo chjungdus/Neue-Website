@@ -63,7 +63,7 @@ export default function UeberUnsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-28 pb-20 bg-white border-b border-gray-100">
+      <section className="pt-24 pb-14 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
@@ -82,7 +82,7 @@ export default function UeberUnsPage() {
       </section>
 
       {/* Origin Story */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <FadeIn>
@@ -113,7 +113,7 @@ export default function UeberUnsPage() {
       </section>
 
       {/* For everyone */}
-      <section className="py-24 bg-[#1a3570]">
+      <section className="py-16 bg-[#1a3570]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-6">
@@ -158,18 +158,14 @@ export default function UeberUnsPage() {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-[#f0f4ff]">
+      <section className="py-16 bg-[#f0f4ff]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
               Wie wir arbeiten
             </p>
             <h2 className="text-3xl md:text-4xl font-black text-[#111827] mb-14 leading-tight">
-              Vier Prinzipien.
-              <br />
-              <span className="text-[#6b7280] font-normal text-2xl md:text-3xl">
-                Keine Mission-Statements.
-              </span>
+              Was uns antreibt
             </h2>
           </FadeIn>
 
@@ -196,18 +192,14 @@ export default function UeberUnsPage() {
       </section>
 
       {/* Team */}
-      <section className="py-24 bg-white border-b border-gray-100">
+      <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
               Das Team
             </p>
             <h2 className="text-3xl md:text-4xl font-black text-[#111827] mb-14 leading-tight">
-              Zwei Personen.
-              <br />
-              <span className="text-[#6b7280] font-normal text-2xl md:text-3xl">
-                Keine ausgelagerte Produktion.
-              </span>
+              Wir machen alles selbst
             </h2>
           </FadeIn>
 
@@ -250,10 +242,9 @@ export default function UeberUnsPage() {
           <FadeIn delay={0.25}>
             <div className="mt-8 border border-gray-100 rounded-2xl p-8 bg-[#f0f4ff]">
               <p className="text-[#6b7280] text-sm leading-relaxed">
-                <strong className="text-[#111827]">Was das bedeutet für Sie:</strong> Wenn Sie mit
-                uns sprechen, sprechen Sie mit jemandem, der Ihr Projekt persönlich umsetzt. Keine
-                Weitergabe an andere Mitarbeiter, kein &quot;Ihr Ansprechpartner ist jetzt...&quot;-E-Mail
-                nach dem Erstgespräch.
+                <strong className="text-[#111827]">Was das für Sie bedeutet:</strong> Wenn Sie mit
+                uns sprechen, sprechen Sie mit der Person, die Ihr Projekt auch umsetzt. Keine
+                Weitergabe, kein Wechsel des Ansprechpartners.
               </p>
             </div>
           </FadeIn>
@@ -261,36 +252,35 @@ export default function UeberUnsPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-16 bg-white border-b border-gray-100">
+      <section className="py-10 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <p className="text-[#374151] font-semibold text-lg">Null verpasste Deadlines. Bisher.</p>
+          <p className="text-[#374151] font-semibold text-lg">Jede Deadline bisher eingehalten.</p>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#111827] mb-5 leading-tight">
-              Klingt nach der richtigen Agentur?
+              Bereit für Ihre neue Website?
             </h2>
             <p className="text-[#6b7280] text-base sm:text-lg mb-10 leading-relaxed">
-              30 Minuten Erstgespräch. Kostenlos. Unverbindlich. Und wenn wir nicht passen,
-              sagen wir das.
+              Schreiben Sie uns kurz, was Sie brauchen. Wir antworten innerhalb von 24 Stunden mit einem konkreten Angebot.
             </p>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
               <Link
                 href="/anfrage"
                 className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center justify-center gap-2 text-[15px]"
               >
-                Projekt anfragen
+                Jetzt anfragen
                 <ArrowRight size={17} />
               </Link>
               <Link
                 href="/kontakt"
                 className="flex items-center justify-center gap-2 text-[#374151] font-semibold px-8 py-4 rounded-full border border-gray-200 hover:border-gray-400 transition-colors text-[15px]"
               >
-                Erst Fragen stellen
+                Erst eine Frage stellen
               </Link>
             </div>
           </FadeIn>

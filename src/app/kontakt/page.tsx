@@ -9,22 +9,22 @@ const worries = [
   {
     worry: "Werde ich danach mit Angeboten bombardiert?",
     answer:
-      "Nein. Wir fragen, ob Sie ein Angebot wollen. wir schicken keines ungefragt. Eine Nachricht ist eine Nachricht, kein Kaufvertrag.",
+      "Nein. Wir schicken kein Angebot ungefragt. Eine Nachricht ist eine Nachricht, kein Kaufvertrag.",
   },
   {
     worry: "Was wenn ich noch keine konkreten Vorstellungen habe?",
     answer:
-      "Perfekt. Viele unserer besten Projekte haben mit \"Ich weiß noch nicht genau\" angefangen. Dafür ist das Erstgespräch da.",
+      "Viele unserer besten Projekte haben mit 'Ich weiß noch nicht genau' angefangen. Schreiben Sie einfach, was Sie sich vorstellen.",
   },
   {
     worry: "Wie lange dauert es bis ich eine Antwort bekomme?",
     answer:
-      "Innerhalb von 24 Stunden an Werktagen. keine Autoresponder, eine echte Antwort von einer echten Person.",
+      "Innerhalb von 24 Stunden an Werktagen. Eine echte Antwort von einer echten Person.",
   },
   {
     worry: "Bin ich verpflichtet, wenn ich schreibe?",
     answer:
-      "Nein. Zu keinem Zeitpunkt gibt es eine Verpflichtung ohne Ihren expliziten Auftrag. Schriftlich.",
+      "Nein. Zu keinem Zeitpunkt gibt es eine Verpflichtung ohne Ihren expliziten schriftlichen Auftrag.",
   },
 ]
 
@@ -32,20 +32,20 @@ const afterContact = [
   {
     step: "01",
     title: "Antwort innerhalb von 24h",
-    desc: "Keine automatische Bestätigungsmail, die nichts sagt. Eine echte Antwort mit konkreten nächsten Schritten.",
+    desc: "Keine automatische Bestätigungsmail. Eine echte Antwort mit konkreten nächsten Schritten.",
     time: "Mo bis Fr",
   },
   {
     step: "02",
-    title: "Kurzes Kennenlerngespräch",
-    desc: "Wenn das Projekt interessant klingt, schlagen wir einen 30-minütigen Call vor. Kein Pflichtprogramm. nur wenn es für Sie passt.",
-    time: "Auf Wunsch",
+    title: "Konkretes Angebot",
+    desc: "Wenn Ihre Anfrage zu uns passt, bekommen Sie ein schriftliches Angebot mit Festpreis. Kein Stundensatz.",
+    time: "3 bis 5 Tage",
   },
   {
     step: "03",
-    title: "Konzept oder Absage",
-    desc: "Wenn wir das richtige Team für Ihr Projekt sind: ein konkretes Konzept mit Preis. Wenn nicht: eine ehrliche Empfehlung, wen Sie stattdessen fragen sollten.",
-    time: "3 – 5 Tage",
+    title: "Projektstart",
+    desc: "Nach Ihrer Freigabe beginnen wir. Briefing, Konzept, Design, Entwicklung, Launch. Immer mit Live-Link zum Zwischenstand.",
+    time: "Nach Beauftragung",
   },
 ]
 
@@ -60,21 +60,17 @@ export default function KontaktPage() {
               Kontakt
             </p>
             <h1 className="text-5xl md:text-6xl font-black text-[#111827] leading-[1.05] mb-6 max-w-2xl">
-              Kein Pitch.
-              <br />
-              <span className="text-[#2563eb]">Kein Druck.</span>
+              Schreiben Sie uns.
             </h1>
             <p className="text-[#6b7280] text-xl max-w-xl leading-relaxed">
-              Schreiben Sie uns, wenn Sie eine Frage haben. nicht nur wenn Sie bereits kaufen
-              wollen. Wir antworten ehrlich, auch wenn die ehrliche Antwort ist: &quot;Wir sind
-              nicht die Richtigen für Sie.&quot;
+              Ob konkrete Projektidee oder noch eine offene Frage. Wir antworten innerhalb von 24 Stunden persönlich.
             </p>
           </FadeIn>
         </div>
       </section>
 
       {/* What happens after */}
-      <section className="py-16 bg-[#f9fafb] border-b border-gray-100">
+      <section className="py-12 bg-[#f9fafb] border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-8">
@@ -106,7 +102,7 @@ export default function KontaktPage() {
       </section>
 
       {/* Main: worries + form */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-16 items-start">
             {/* Left: Worries addressed */}
@@ -116,9 +112,7 @@ export default function KontaktPage() {
                   Was viele denken, bevor sie schreiben
                 </p>
                 <h2 className="text-3xl font-black text-[#111827] mb-10 leading-tight">
-                  Die Fragen, die Sie
-                  <br />
-                  vielleicht nicht stellen.
+                  Häufige Fragen
                 </h2>
               </FadeIn>
 

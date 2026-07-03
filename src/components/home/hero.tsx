@@ -96,42 +96,10 @@ export default function Hero() {
               </Link>
             </motion.div>
 
-            {/* Site label below buttons on mobile */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="mt-10 flex flex-col gap-3 lg:hidden"
-            >
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={active}
-                  initial={{ opacity: 0, y: 5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -5 }}
-                  transition={{ duration: 0.2 }}
-                  className="text-white/50 text-sm"
-                >
-                  {current.label} · <span className="text-white/30 text-xs">{current.tag}</span>
-                </motion.p>
-              </AnimatePresence>
-              <div className="flex gap-2">
-                {sites.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setActive(i)}
-                    aria-label={`Website ${i + 1}`}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      i === active ? "w-6 bg-[#2563eb]" : "w-1.5 bg-white/20 hover:bg-white/40"
-                    }`}
-                  />
-                ))}
-              </div>
-            </motion.div>
           </div>
 
-          {/* Right: Phone mockup */}
-          <div className="hidden lg:flex flex-col items-center gap-6">
+          {/* Right: Phone mockup – visible on all screens */}
+          <div className="flex flex-col items-center gap-6">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -140,8 +108,7 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, -12, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="relative"
-                style={{ width: "260px", height: "540px" }}
+                className="relative w-[210px] h-[436px] sm:w-[240px] sm:h-[498px] lg:w-[260px] lg:h-[540px]"
               >
                 {/* Glow */}
                 <div className="absolute -inset-6 rounded-[60px] bg-[#2563eb]/15 blur-3xl" />
