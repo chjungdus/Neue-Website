@@ -64,33 +64,33 @@ const packages = [
 
 const carePackages = [
   {
-    name: "Pflege Basic",
-    price: "39",
+    name: "Basic",
+    price: "19",
     features: [
-      "2 Inhaltsänderungen pro Monat",
-      "Monatliches Backup",
-      "Überwachung der Website",
+      "Hosting auf Vercel",
+      "SSL-Zertifikat inklusive",
+      "Monatliche Updates & Sicherheitschecks",
+      "1 kleine Änderung pro Monat",
     ],
   },
   {
-    name: "Pflege Standard",
-    price: "59",
+    name: "Standard",
+    price: "39",
     features: [
-      "5 Inhaltsänderungen pro Monat",
-      "Antwort innerhalb 24h",
-      "Regelmäßige Backups",
-      "Kleine Design-Anpassungen",
+      "Alles aus Basic",
+      "3 Änderungen pro Monat",
+      "Priorität bei Anfragen",
     ],
     highlight: true,
   },
   {
-    name: "Pflege Premium",
-    price: "89",
+    name: "Premium",
+    price: "59",
     features: [
-      "Unbegrenzte kleine Änderungen",
-      "Antwort innerhalb 12h",
-      "Wöchentliche Backups",
-      "Auswertung & Reports",
+      "Hosting auf Vercel + Supabase-Datenbank",
+      "SSL-Zertifikat inklusive",
+      "Monatliche Updates & Sicherheitschecks",
+      "Unbegrenzte Änderungen",
     ],
   },
 ]
@@ -350,8 +350,8 @@ export default function PreisePage() {
               </div>
             ))}
           </div>
-          <p className="text-[#9ca3af] text-xs mt-5 text-center">
-            Pflegepakete sind optional. Sie können jederzeit kündigen. · Alle Preise netto zzgl. MwSt.
+          <p className="text-[#9ca3af] text-xs mt-5 leading-relaxed max-w-xl">
+            In jedem Paket enthalten: Hosting auf Vercel&apos;s globalem Edge-Network und automatische SSL-Verschlüsselung. Premium inkl. Supabase-Datenbank für dynamische Inhalte. Monatlich kündbar, keine Vertragsbindung. · Alle Preise netto zzgl. MwSt.
           </p>
         </div>
       </section>
