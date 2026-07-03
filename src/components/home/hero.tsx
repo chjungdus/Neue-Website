@@ -42,6 +42,12 @@ const sites = [
     label: "Lorenz DJ",
     tag: "DJ & Events",
   },
+  {
+    url: "https://chjungdus.github.io/No-ra/",
+    display: "no-ra.de",
+    label: "No-ra",
+    tag: "Beauty & Nails",
+  },
 ]
 
 export default function Hero() {
