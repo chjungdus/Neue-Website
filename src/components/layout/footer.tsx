@@ -42,11 +42,11 @@ export default function Footer() {
                 Düsseldorf, Deutschland
               </span>
               <a
-                href="mailto:mateo.sdlm@gmail.com"
+                href="mailto:nexuzo.kontakt@gmail.com"
                 className="flex items-center gap-2 text-sm text-blue-100 hover:text-white transition-colors"
               >
                 <Mail size={14} />
-                mateo.sdlm@gmail.com
+                nexuzo.kontakt@gmail.com
               </a>
               <a
                 href="https://wa.me/4917680257270"

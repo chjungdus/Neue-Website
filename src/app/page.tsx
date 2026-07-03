@@ -4,6 +4,7 @@ import WhyUs from "@/components/home/why-us"
 import ProblemSection from "@/components/home/problem-section"
 import Services from "@/components/home/services"
 import PortfolioTeaser from "@/components/home/portfolio-teaser"
+import Testimonials from "@/components/home/testimonials"
 import Process from "@/components/home/process"
 import FAQSection from "@/components/home/faq-section"
 import CTA from "@/components/home/cta"
@@ -17,6 +18,7 @@ export default function HomePage() {
       <ProblemSection />
       <Services />
       <PortfolioTeaser />
+      <Testimonials />
       <Process />
       <FAQSection />
       <CTA />

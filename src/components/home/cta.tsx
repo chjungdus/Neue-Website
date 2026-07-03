@@ -57,7 +57,7 @@ export default function CTA() {
                     <span className="text-sm font-medium">+49 176 8025 7270</span>
                   </a>
                   <a
-                    href="mailto:mateo.sdlm@gmail.com"
+                    href="mailto:nexuzo.kontakt@gmail.com"
                     className="flex items-center gap-3.5 text-slate-400 hover:text-white transition-colors group"
                   >
                     <span className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563eb] transition-colors">
@@ -66,7 +66,7 @@ export default function CTA() {
                         className="text-slate-500 group-hover:text-white transition-colors"
                       />
                     </span>
-                    <span className="text-sm font-medium">mateo.sdlm@gmail.com</span>
+                    <span className="text-sm font-medium">nexuzo.kontakt@gmail.com</span>
                   </a>
                   <div className="flex items-center gap-3.5 text-slate-600">
                     <span className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0">

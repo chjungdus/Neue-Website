@@ -69,7 +69,7 @@ export default function Navbar() {
             href="/anfrage"
             className="border border-[#2563eb] text-[#2563eb] hover:bg-[#2563eb] hover:text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
           >
-            Kostenloses Erstgespräch
+            Kostenlos anfragen
           </Link>
         </div>
 
@@ -115,7 +115,7 @@ export default function Navbar() {
               href="/anfrage"
               className="border border-[#2563eb] text-[#2563eb] text-sm font-semibold px-5 py-3 rounded-full text-center mt-3 hover:bg-[#2563eb] hover:text-white transition-colors"
             >
-              Kostenloses Erstgespräch
+              Kostenlos anfragen
             </Link>
           </div>
         </div>

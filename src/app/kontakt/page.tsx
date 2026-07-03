@@ -157,13 +157,13 @@ export default function KontaktPage() {
                       <span className="text-sm font-medium">WhatsApp: +49 176 80257270</span>
                     </a>
                     <a
-                      href="mailto:mateo.sdlm@gmail.com"
+                      href="mailto:nexuzo.kontakt@gmail.com"
                       className="flex items-center gap-3 text-[#374151] hover:text-[#2563eb] transition-colors group"
                     >
                       <span className="w-9 h-9 rounded-xl bg-[#f3f4f6] flex items-center justify-center group-hover:bg-[#f0f4ff] transition-colors">
                         <Mail size={15} className="text-[#6b7280] group-hover:text-[#2563eb] transition-colors" />
                       </span>
-                      <span className="text-sm font-medium">mateo.sdlm@gmail.com</span>
+                      <span className="text-sm font-medium">nexuzo.kontakt@gmail.com</span>
                     </a>
                     <div className="flex items-center gap-3 text-[#9ca3af]">
                       <span className="w-9 h-9 rounded-xl bg-[#f3f4f6] flex items-center justify-center">

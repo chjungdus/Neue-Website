@@ -3,9 +3,9 @@ import Link from "next/link"
 import { Check, ArrowRight, Shield, RefreshCw, CreditCard, Building, Smartphone, Wallet } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Preise – Transparente Festpreise ab 300 €",
+  title: "Preise – Transparente Festpreise ab 199 €",
   description:
-    "Kein Stundensatz, keine Überraschungen. Transparente Festpreise ab 300 €. Starter, Pro und Enterprise.",
+    "Kein Stundensatz, keine Überraschungen. Transparente Festpreise ab 199 €. Starter, Pro und Premium.",
 }
 
 const packages = [
@@ -13,9 +13,9 @@ const packages = [
     id: "starter",
     name: "Starter",
     tagline: "Selbstständige & kleine Unternehmen",
-    price: "300",
+    price: "199",
     badge: null,
-    desc: "Eine saubere, professionelle Website, die Ihre Leistungen klar kommuniziert und Anfragen generiert.",
+    desc: "Eine klare, professionelle Website, die Ihre Leistungen zeigt und Anfragen generiert.",
     features: [
       "1–3 Seiten, individuelles Design",
       "Für Smartphone optimiert",
@@ -30,7 +30,7 @@ const packages = [
     id: "pro",
     name: "Pro",
     tagline: "Für wachsende Unternehmen",
-    price: "550",
+    price: "399",
     badge: "Beliebtestes Paket",
     desc: "Mehr Seiten, mehr Funktionen, besser für Google. Für Unternehmen, die online wachsen wollen.",
     features: [
@@ -44,10 +44,10 @@ const packages = [
     highlight: true,
   },
   {
-    id: "enterprise",
-    name: "Enterprise",
+    id: "premium",
+    name: "Premium",
     tagline: "Komplexere Anforderungen",
-    price: "900",
+    price: "699",
     badge: null,
     desc: "Unbegrenzte Seiten, individuelle Funktionen und erweiterte technische Umsetzung.",
     features: [
@@ -65,7 +65,7 @@ const packages = [
 const carePackages = [
   {
     name: "Pflege Basic",
-    price: "30",
+    price: "39",
     features: [
       "2 Inhaltsänderungen pro Monat",
       "Monatliches Backup",
@@ -74,7 +74,7 @@ const carePackages = [
   },
   {
     name: "Pflege Standard",
-    price: "40",
+    price: "59",
     features: [
       "5 Inhaltsänderungen pro Monat",
       "Antwort innerhalb 24h",
@@ -85,7 +85,7 @@ const carePackages = [
   },
   {
     name: "Pflege Premium",
-    price: "60",
+    price: "89",
     features: [
       "Unbegrenzte kleine Änderungen",
       "Antwort innerhalb 12h",
@@ -152,10 +152,7 @@ export default function PreisePage() {
             <span className="text-[#2563eb]">Kein Überraschungsangebot.</span>
           </h1>
           <p className="text-[#6b7280] text-base sm:text-xl leading-relaxed max-w-2xl">
-            Festpreise, weil Sie vor dem Auftrag wissen sollten, was er kostet. Nicht danach.
-          </p>
-          <p className="text-[#9ca3af] text-sm mt-4">
-            Alle Preise netto zzgl. 19 % MwSt.
+            Festpreise ab 199 €. Weil Sie vor dem Auftrag wissen sollten, was er kostet.
           </p>
           <p className="text-[#9ca3af] text-sm mt-4">Alle Preise netto zzgl. 19 % MwSt.</p>
         </div>
