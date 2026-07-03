@@ -3,14 +3,8 @@ import { ArrowRight, ExternalLink } from "lucide-react"
 import { mockProjects } from "@/lib/mock-data"
 import FadeIn from "@/components/ui/fade-in"
 
-const projectMeta: Record<string, { from: string; to: string; emoji: string }> = {
-  "milonga-arg":       { from: "#7c2d12", to: "#1c0703", emoji: "🥩" },
-  "limpiezas-el-valle": { from: "#064e3b", to: "#022c22", emoji: "✨" },
-  "cafethiopia":        { from: "#78350f", to: "#1c0903", emoji: "☕" },
-}
-
 export default function PortfolioTeaser() {
-  const featured = mockProjects.filter((p) => p.featured)
+  const liveProjects = mockProjects.filter((p) => p.url && p.featured)
 
   return (
     <section className="py-28 bg-[#1a3570]">
@@ -18,9 +12,9 @@ export default function PortfolioTeaser() {
         <FadeIn>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
             <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
-              Unsere Arbeit
+              Ausgewählte
               <br />
-              spricht für sich.
+              Projekte.
             </h2>
             <Link
               href="/portfolio"
@@ -32,69 +26,53 @@ export default function PortfolioTeaser() {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {featured.map((project, i) => {
-            const meta = projectMeta[project.slug] ?? { from: "#1e293b", to: "#1a3570", emoji: "🌐" }
-            return (
-              <FadeIn key={project.id} delay={i * 0.1}>
-                <Link
-                  href={`/portfolio/${project.slug}`}
-                  className="group block rounded-2xl overflow-hidden border border-white/[0.07] hover:border-white/20 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/60"
-                >
-                  {/* Image / preview area */}
-                  <div
-                    className="relative h-56 flex items-center justify-center overflow-hidden"
-                    style={{ background: `linear-gradient(135deg, ${meta.from}, ${meta.to})` }}
-                  >
-                    <span className="text-6xl select-none opacity-30 group-hover:opacity-50 group-hover:scale-110 transition-all duration-500">
-                      {meta.emoji}
-                    </span>
-
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-400 flex items-center justify-center">
-                      <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-3 group-hover:translate-y-0 text-center px-5">
-                        <div className="flex flex-wrap gap-1.5 justify-center">
-                          {project.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="text-[11px] px-2.5 py-1 rounded-full bg-white/20 text-white border border-white/20 backdrop-blur-sm"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {liveProjects.map((project, i) => (
+            <FadeIn key={project.id} delay={i * 0.1}>
+              <div className="group rounded-2xl overflow-hidden border border-white/[0.07] hover:border-white/20 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/60">
+                {/* Screenshot */}
+                <div className="relative h-56 overflow-hidden bg-[#0d2050]">
+                  {project.image_url ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={project.image_url}
+                      alt={project.title}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <span className="text-white/10 text-6xl font-black select-none">
+                        {project.client.slice(0, 2).toUpperCase()}
+                      </span>
                     </div>
+                  )}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-400" />
+                </div>
 
-                    {/* In-progress badge */}
-                    {!project.url && (
-                      <div className="absolute top-3 right-3 bg-amber-500/20 border border-amber-500/30 text-amber-400 text-[9px] font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm">
-                        In Bearbeitung
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Card body */}
-                  <div className="p-5 bg-[#1e293b] group-hover:bg-[#243044] transition-colors">
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="min-w-0">
-                        <div className="text-[11px] text-slate-500 mb-1 font-medium">{project.client}</div>
-                        <h3 className="text-white font-bold text-sm leading-snug group-hover:text-[#60a5fa] transition-colors line-clamp-2">
-                          {project.title}
-                        </h3>
-                      </div>
-                      {project.url ? (
-                        <ExternalLink size={14} className="text-slate-700 group-hover:text-[#60a5fa] transition-colors mt-0.5 flex-shrink-0" />
-                      ) : (
-                        <ArrowRight size={14} className="text-slate-700 group-hover:text-[#60a5fa] group-hover:translate-x-1 transition-all mt-0.5 flex-shrink-0" />
-                      )}
+                {/* Card body */}
+                <div className="p-5 bg-[#1e293b] group-hover:bg-[#243044] transition-colors">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <div className="text-[11px] text-slate-500 mb-1 font-medium">{project.client}</div>
+                      <h3 className="text-white font-bold text-sm leading-snug group-hover:text-[#60a5fa] transition-colors">
+                        {project.title}
+                      </h3>
                     </div>
-                    <p className="text-slate-500 text-xs mt-2 leading-relaxed line-clamp-2">{project.description}</p>
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-xs font-semibold text-[#60a5fa] hover:text-white transition-colors flex-shrink-0 mt-0.5"
+                    >
+                      <ExternalLink size={13} />
+                      ansehen
+                    </a>
                   </div>
-                </Link>
-              </FadeIn>
-            )
-          })}
+                  <p className="text-slate-500 text-xs mt-2 leading-relaxed line-clamp-2">{project.description}</p>
+                </div>
+              </div>
+            </FadeIn>
+          ))}
         </div>
 
         <FadeIn delay={0.2}>

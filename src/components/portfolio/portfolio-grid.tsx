@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react"
 import Link from "next/link"
-import { ExternalLink, X } from "lucide-react"
+import { ExternalLink, X, Clock } from "lucide-react"
 import { mockProjects } from "@/lib/mock-data"
 
 const ALL_TAG = "Alle"
@@ -38,6 +38,7 @@ export default function PortfolioGrid() {
           </button>
         ))}
       </div>
+
       {filtered.length === 0 && (
         <div className="py-24 text-center">
           <p className="text-[#6b7280] text-lg">Keine Projekte für diesen Filter.</p>
@@ -49,54 +50,88 @@ export default function PortfolioGrid() {
           </button>
         </div>
       )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filtered.map((project, i) => (
-          <div key={project.id} className={`group rounded-2xl overflow-hidden bg-white border border-gray-200 card-hover ${ i === 0 && activeTag === ALL_TAG ? "md:col-span-2" : "" }`}>
-            <Link href={`/portfolio/${project.slug}`} className="block">
-              <div className={`w-full bg-gradient-to-br from-[#2563eb]/10 to-[#0ea5e9]/10 flex items-center justify-center ${ i === 0 && activeTag === ALL_TAG ? "h-72" : "h-52" }`}>
-                <span className="text-5xl font-black text-[#2563eb]/20 select-none">{project.client.slice(0, 2).toUpperCase()}</span>
-              </div>
-            </Link>
-            <div className="p-6">
-              <div className="flex items-start justify-between gap-4 mb-2">
-                <Link href={`/portfolio/${project.slug}`}>
-                  <h2 className="text-[#111827] font-bold text-lg leading-snug group-hover:text-[#2563eb] transition-colors">{project.title}</h2>
-                  <p className="text-[#2563eb] text-xs mt-0.5">{project.client}</p>
-                </Link>
-                {project.url && (
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="Website ansehen"
-                    onClick={(e) => e.stopPropagation()}
-                    className="text-[#9ca3af] hover:text-[#2563eb] transition-colors flex-shrink-0 mt-1"
-                  >
-                    <ExternalLink size={16} />
-                  </a>
-                )}
-              </div>
-              <p className="text-[#6b7280] text-sm mb-4 leading-relaxed">{project.description}</p>
-              <div className="flex flex-wrap items-center gap-2">
-                {project.tags.map((tag) => (
-                  <button key={tag} onClick={() => setActiveTag(tag)} className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${ activeTag === tag ? "bg-[#f0f4ff] text-[#2563eb] border-[#2563eb]/30" : "bg-[#f9fafb] text-[#6b7280] border-gray-200 hover:border-[#2563eb]/30 hover:text-[#2563eb]" }`}>
-                    {tag}
-                  </button>
-                ))}
-                {project.url && (
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ml-auto text-xs font-semibold text-[#2563eb] hover:underline flex items-center gap-1"
-                  >
-                    Website ansehen <ExternalLink size={11} />
-                  </a>
-                )}
+        {filtered.map((project, i) => {
+          const isLive = Boolean(project.url)
+          const isWide = i === 0 && activeTag === ALL_TAG
+          return (
+            <div
+              key={project.id}
+              className={`group rounded-2xl overflow-hidden bg-white border border-gray-200 hover:border-gray-300 transition-all hover:shadow-lg hover:-translate-y-1 ${
+                isWide ? "md:col-span-2" : ""
+              }`}
+            >
+              {/* Screenshot */}
+              <Link href={`/portfolio/${project.slug}`} className="block">
+                <div className={`w-full overflow-hidden bg-[#f0f4ff] relative ${isWide ? "h-72" : "h-52"}`}>
+                  {project.image_url ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={project.image_url}
+                      alt={project.title}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center gap-2">
+                      <Clock size={22} className="text-[#9ca3af]" />
+                      <span className="text-[#9ca3af] text-sm font-medium">Demnächst verfügbar</span>
+                    </div>
+                  )}
+                </div>
+              </Link>
+
+              {/* Body */}
+              <div className="p-6">
+                <div className="flex items-start justify-between gap-4 mb-2">
+                  <Link href={`/portfolio/${project.slug}`}>
+                    <h2 className="text-[#111827] font-bold text-lg leading-snug group-hover:text-[#2563eb] transition-colors">
+                      {project.title}
+                    </h2>
+                    <p className="text-[#2563eb] text-xs mt-0.5">{project.client}</p>
+                  </Link>
+                </div>
+
+                <p className="text-[#6b7280] text-sm mb-4 leading-relaxed">{project.description}</p>
+
+                <div className="flex flex-wrap items-center gap-2">
+                  {project.tags.map((tag) => (
+                    <button
+                      key={tag}
+                      onClick={() => setActiveTag(tag)}
+                      className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
+                        activeTag === tag
+                          ? "bg-[#f0f4ff] text-[#2563eb] border-[#2563eb]/30"
+                          : "bg-[#f9fafb] text-[#6b7280] border-gray-200 hover:border-[#2563eb]/30 hover:text-[#2563eb]"
+                      }`}
+                    >
+                      {tag}
+                    </button>
+                  ))}
+
+                  <div className="ml-auto">
+                    {isLive ? (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-xs font-semibold text-[#2563eb] hover:underline flex items-center gap-1"
+                      >
+                        Website ansehen <ExternalLink size={11} />
+                      </a>
+                    ) : (
+                      <span className="text-xs text-[#9ca3af] flex items-center gap-1.5">
+                        <Clock size={11} />
+                        Demnächst verfügbar
+                      </span>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
 
       <p className="text-center text-[#9ca3af] text-sm mt-12">
