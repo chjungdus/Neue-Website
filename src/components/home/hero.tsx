@@ -7,24 +7,40 @@ import { motion, AnimatePresence } from "framer-motion"
 
 const sites = [
   {
-    url: "https://www.milonga-arg.de/",
-    display: "www.milonga-arg.de",
-    label: "Milonga ARG",
-    tag: "Restaurant & Food Truck",
+    url: "https://www.milonga-foodtruck.de/",
+    display: "milonga-foodtruck.de",
+    label: "Milonga Food Truck",
+    tag: "Food Truck",
   },
   {
-    // URL hier eintragen — z.B. "https://www.limpiezas-el-valle.es/"
-    url: "",
-    display: "www.limpiezas-el-valle.es",
+    url: "https://www.limpiezas-el-valle.es/",
+    display: "limpiezas-el-valle.es",
     label: "Limpiezas El Valle",
     tag: "Reinigungsservice",
   },
   {
-    // URL hier eintragen — z.B. "https://www.cafethiopia.de/"
-    url: "",
-    display: "www.cafethiopia.de",
-    label: "Caféthiopia",
-    tag: "Café & Rösterei",
+    url: "https://chjungdus.github.io/Antonioconstruccion/",
+    display: "antonioconstruccion.de",
+    label: "Antonio Construcción",
+    tag: "Bau & Handwerk",
+  },
+  {
+    url: "https://chjungdus.github.io/Peluqueria-loli/",
+    display: "peluqueria-loli.es",
+    label: "Peluquería Loli",
+    tag: "Friseursalon",
+  },
+  {
+    url: "https://chjungdus.github.io/Essah-Urfa-Lahmacun/",
+    display: "essah-urfa.de",
+    label: "Essah Urfa Lahmacun",
+    tag: "Restaurant",
+  },
+  {
+    url: "https://chjungdus.github.io/Lorenz-DJ/",
+    display: "lorenz-dj.de",
+    label: "Lorenz DJ",
+    tag: "DJ & Events",
   },
 ]
 
