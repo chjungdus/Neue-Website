@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, Monitor, Code2, ShoppingBag, TrendingUp } from "lucide-react"
+import { ArrowRight, Monitor, Code2, CreditCard, TrendingUp } from "lucide-react"
 import FadeIn from "@/components/ui/fade-in"
 
 const services = [
@@ -22,13 +22,13 @@ const services = [
     visual: "code",
   },
   {
-    icon: ShoppingBag,
+    icon: CreditCard,
     title: "E-Commerce",
-    description: "Checkout-Flows ohne Abbrüche.",
-    points: ["Stripe & PayPal integriert", "Produktseiten, die überzeugen", "Analytics statt Raten"],
+    description: "Bezahlprozesse, die funktionieren.",
+    points: ["Stripe & PayPal integriert", "Checkout ohne Abbrüche", "Produktseiten, die überzeugen"],
     accent: "#8b5cf6",
     bg: "rgba(139,92,246,0.08)",
-    visual: "shop",
+    visual: "payment",
   },
   {
     icon: TrendingUp,
@@ -72,15 +72,25 @@ function ServiceVisual({ type, accent }: { type: string; accent: string }) {
       </div>
     )
   }
-  if (type === "shop") {
+  if (type === "payment") {
     return (
-      <div className="w-full h-28 rounded-xl bg-[#0a0a0f] border border-white/[0.06] p-3 grid grid-cols-3 gap-1.5">
-        {[0, 1, 2].map((i) => (
-          <div key={i} className="rounded-md flex flex-col gap-1 p-1.5" style={{ backgroundColor: "rgba(255,255,255,0.04)" }}>
-            <div className="flex-1 rounded" style={{ backgroundColor: `${accent}25` }} />
-            <div className="h-1 w-3/4 rounded-full bg-white/[0.1]" />
+      <div className="w-full h-28 rounded-xl bg-[#0a0a0f] border border-white/[0.06] p-3 flex flex-col gap-2">
+        <div className="rounded-lg p-2 flex items-center gap-2" style={{ backgroundColor: `${accent}15` }}>
+          <div className="w-6 h-4 rounded" style={{ backgroundColor: `${accent}60` }} />
+          <div className="flex flex-col gap-1 flex-1">
+            <div className="h-1.5 w-1/2 rounded-full bg-white/[0.15]" />
+            <div className="h-1 w-1/3 rounded-full bg-white/[0.07]" />
           </div>
-        ))}
+          <div className="w-8 h-3 rounded-full" style={{ backgroundColor: `${accent}40` }} />
+        </div>
+        <div className="flex gap-1.5">
+          {["Stripe", "PayPal", "SEPA"].map((label) => (
+            <div key={label} className="flex-1 h-7 rounded flex items-center justify-center text-[7px] font-bold" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: `${accent}90` }}>
+              {label}
+            </div>
+          ))}
+        </div>
+        <div className="h-1.5 w-full rounded-full mt-auto" style={{ backgroundColor: `${accent}20` }} />
       </div>
     )
   }

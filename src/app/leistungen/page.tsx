@@ -22,7 +22,7 @@ const services = [
       "Starter-Projekte fertig in unter einer Woche",
     ],
     notIncludes: ["Texte & Fotos", "Laufende Wartung (optional buchbar)"],
-    price: "ab 300 €",
+    price: "ab 199 €",
     deliverable: "Fertige Website mit allen Zugängen bei Launch",
   },
   {
@@ -307,7 +307,7 @@ export default function LeistungenPage() {
               },
               {
                 q: "Was ist mit Pflege und Updates nach dem Launch?",
-                a: "Optional. Wir bieten Pflegepakete ab 30 €/Monat für regelmäßige Updates, Inhaltsänderungen und Backups an — Pflicht ist das nicht. Den Code haben Sie, und jeder Entwickler kann damit arbeiten.",
+                a: "Optional. Wir bieten Pflegepakete ab 19 €/Monat für regelmäßige Updates, Inhaltsänderungen und Backups an — Pflicht ist das nicht. Den Code haben Sie, und jeder Entwickler kann damit arbeiten.",
               },
               {
                 q: "Ich habe schon ein Design von woanders. Können Sie das umsetzen?",
@@ -315,7 +315,7 @@ export default function LeistungenPage() {
               },
               {
                 q: "Kann ich die Website später selbst bearbeiten?",
-                a: "Nein. Wir bauen keine selbst-editierbaren Systeme. Änderungen erledigen wir für Sie über unsere Pflegepakete ab 30 €/Monat. Das ist für die meisten Kunden günstiger und unkomplizierter als ein eigenes Verwaltungssystem.",
+                a: "Nein. Wir bauen keine selbst-editierbaren Systeme. Änderungen erledigen wir für Sie über unsere Pflegepakete ab 19 €/Monat. Das ist für die meisten Kunden günstiger und unkomplizierter als ein eigenes Verwaltungssystem.",
               },
             ].map((faq, i) => (
               <FadeIn key={i} delay={i * 0.06}>
@@ -337,8 +337,8 @@ export default function LeistungenPage() {
               Welche Leistung passt zu Ihnen?
             </h2>
             <p className="text-[#6b7280] text-base sm:text-lg mb-10 leading-relaxed">
-              Im Erstgespräch finden wir das heraus, kostenlos und ohne Verpflichtung.
-              Wenn wir nicht die Richtigen für Ihr Projekt sind, sagen wir das direkt.
+              Kostenlos anfragen, innerhalb von 24 Stunden antworten wir mit einem konkreten Angebot.
+              Kein Stundensatz, kein Überraschungsangebot.
             </p>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
               <Link

@@ -113,15 +113,15 @@ const paymentMethods = [
   },
   {
     icon: Smartphone,
-    name: "Vorkasse",
-    desc: "50 % bei Start, 50 % bei Launch",
+    name: "Auf Rechnung",
+    desc: "Nach Vorstellung der Probewebsite",
   },
 ]
 
 const priceFAQs = [
   {
     q: "Was ist im Preis enthalten?",
-    a: "Design, Umsetzung, Tests und Launch sind immer inklusive. Hosting (ab ca. 10 €/Monat beim Anbieter Ihrer Wahl) und optionale Pflegepakete werden separat vereinbart, transparent, schriftlich vor Projektstart.",
+    a: "Design, Umsetzung, Tests und Launch sind immer inklusive. Hosting auf Vercel (ab 19 €/Monat im Pflegepaket) und optionale Pflegepakete werden separat vereinbart, transparent, schriftlich vor Projektstart.",
   },
   {
     q: "Gibt es Nachzahlungen?",
@@ -129,7 +129,7 @@ const priceFAQs = [
   },
   {
     q: "Wie läuft die Zahlung ab?",
-    a: "50 % bei Auftragserteilung, 50 % bei Launch. Wir akzeptieren Banküberweisung, Kreditkarte, PayPal und Vorkasse. Für größere Projekte passen wir die Zahlungsstruktur auf Wunsch an.",
+    a: "Sie zahlen nach der Vorstellung der Probewebsite — nicht vorher. Wir zeigen Ihnen erst das fertige Ergebnis, dann entscheiden Sie. Wir akzeptieren Banküberweisung, Kreditkarte und PayPal.",
   },
   {
     q: "Wie bearbeite ich meine Website nach dem Launch?",
@@ -288,7 +288,7 @@ export default function PreisePage() {
             })}
           </div>
           <p className="text-[#9ca3af] text-xs mt-5">
-            Zahlungsstruktur: 50 % bei Auftragserteilung · 50 % bei Launch
+            Zahlung nach Vorstellung der Probewebsite · kein Vorauszahlung
           </p>
         </div>
       </section>

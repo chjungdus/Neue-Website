@@ -45,16 +45,16 @@ const forEveryone = [
 const team = [
   {
     name: "Mateo Sainz de la Maza",
-    role: "Gründer & Lead Developer",
+    role: "Mitgründer & Entwicklung",
     since: "Düsseldorf",
-    body: "Mehrere Jahre Erfahrung als Frontend-Entwickler. Gegründet, weil Overpromising und Underdelivering das Standardmodell war.",
+    body: "Entwickelt Websites mit einem klaren Ziel: dass Besucher zu Kunden werden. Gegründet, weil Overpromising und Underdelivering das Standardmodell war.",
     focus: ["Webentwicklung", "Performance", "Conversion"],
   },
   {
-    name: "Zhou Jun",
-    role: "Design & UX",
+    name: "Zhuo Jun Li",
+    role: "Mitgründer & Design",
     since: "Düsseldorf",
-    body: "UX-Design mit Fokus auf messbare Ergebnisse. Gestaltet keine schönen Seiten, sondern Seiten, die verkaufen.",
+    body: "Gestaltet keine schönen Seiten, sondern Seiten, die verkaufen. Fokus auf Nutzerführung und messbare Ergebnisse.",
     focus: ["Design", "Benutzerfreundlichkeit", "Analyse"],
   },
 ]
@@ -101,10 +101,10 @@ export default function UeberUnsPage() {
             <FadeIn delay={0.1}>
               <div className="space-y-5 text-[#6b7280] leading-relaxed">
                 <p>
-                  Mateo hat als Freelancer für eine andere Agentur gearbeitet. Vier Nachbesserungsrunden, zwei verpasste Deadlines, ein Kunde der bereits bezahlt hatte und trotzdem nichts in der Hand hatte.
+                  Zu viele Agenturen versprechen viel und liefern wenig. Vier Nachbesserungsrunden, zwei verpasste Deadlines, ein Kunde der bereits bezahlt hatte und trotzdem nichts in der Hand hatte.
                 </p>
                 <p className="text-[#374151] font-medium">
-                  Das Gegenteil wurde das Geschäftsmodell: weniger Projekte, jedes wirklich fertig, zum vereinbarten Preis.
+                  Das Gegenteil wurde das Modell: klare Absprachen, jedes Projekt wirklich fertig, zum vereinbarten Preis — und Zahlung erst, wenn der Kunde die Probewebsite gesehen hat.
                 </p>
               </div>
             </FadeIn>

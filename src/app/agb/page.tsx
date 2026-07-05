@@ -88,10 +88,9 @@ export default function AGBPage() {
             </p>
             <p>Es gilt folgende Zahlungsstruktur, sofern nicht anders vereinbart:</p>
             <ul className="list-disc list-inside space-y-1 pl-2">
-              <li>50 % bei Auftragserteilung (Anzahlung)</li>
-              <li>25 % nach Präsentation des Design-Entwurfs</li>
-              <li>25 % bei Abnahme / Go-Live</li>
+              <li>100 % nach Vorstellung der Probewebsite und Freigabe durch den Auftraggeber</li>
             </ul>
+            <p>Es ist keine Anzahlung erforderlich. Die Zahlung erfolgt erst nach Präsentation des fertigen Ergebnisses.</p>
             <p>
               Rechnungen sind innerhalb von 14 Tagen nach Rechnungsstellung ohne Abzug zu begleichen. Bei
               Zahlungsverzug sind Verzugszinsen in Höhe von 9 Prozentpunkten über dem Basiszinssatz fällig.

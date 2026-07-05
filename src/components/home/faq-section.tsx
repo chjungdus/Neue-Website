@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     question: "Was kostet eine Website bei Ihnen?",
-    answer: "Ab 300 € netto. Festpreis vor Projektstart, kein Stundensatz.",
+    answer: "Ab 199 € netto. Festpreis vor Projektstart, kein Stundensatz.",
   },
   {
     question: "Vier Wochen. Wirklich?",
@@ -23,11 +23,11 @@ const faqs = [
   },
   {
     question: "Was passiert nach dem Launch?",
-    answer: "Alle Zugänge: Domain, Hosting, Code. Pflegepakete ab 30 €/Monat optional.",
+    answer: "Alle Zugänge: Domain, Hosting, Code. Pflegepakete ab 19 €/Monat optional.",
   },
   {
     question: "Kann ich Inhalte selbst bearbeiten?",
-    answer: "Über Pflegepakete ab 30 €/Monat. Meist günstiger als ein eigenes CMS.",
+    answer: "Über Pflegepakete ab 19 €/Monat. Meist günstiger als ein eigenes CMS.",
   },
 ]
 
