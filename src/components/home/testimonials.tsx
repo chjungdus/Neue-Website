@@ -6,6 +6,14 @@ export default function Testimonials() {
     <section className="py-20 bg-[#1a3570]">
       <div className="max-w-3xl mx-auto px-6">
         <FadeIn>
+          <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-4">
+            Kundenstimmen
+          </p>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-10 leading-tight">
+            Was Kunden sagen.
+          </h2>
+        </FadeIn>
+        <FadeIn delay={0.1}>
           <div className="bg-white/[0.04] border border-white/[0.08] rounded-2xl p-8 sm:p-10 flex flex-col gap-6">
             <div className="flex items-start justify-between gap-4">
               <Quote size={32} className="text-white/10 shrink-0" strokeWidth={1.5} />

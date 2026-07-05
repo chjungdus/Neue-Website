@@ -37,30 +37,15 @@ export default function ImpressumPage() {
           <section>
             <h2 className="text-[#111827] font-bold text-base mb-3">Kontakt</h2>
             <p className="leading-relaxed text-sm">
-              Telefon: +49 (0) 211 123 456 7
-              <br />
               E-Mail:{" "}
-              <a href="mailto:hallo@nexuzo.de" className="text-[#2563eb] hover:underline">
-                hallo@nexuzo.de
+              <a href="mailto:nexuzo.kontakt@gmail.com" className="text-[#2563eb] hover:underline">
+                nexuzo.kontakt@gmail.com
               </a>
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-[#111827] font-bold text-base mb-3">Handelsregister</h2>
-            <p className="leading-relaxed text-sm">
-              Registergericht: Amtsgericht Düsseldorf
               <br />
-              Registernummer: HRB 98765
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-[#111827] font-bold text-base mb-3">Umsatzsteuer-ID</h2>
-            <p className="leading-relaxed text-sm">
-              Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:
-              <br />
-              DE 294 812 345
+              WhatsApp:{" "}
+              <a href="https://wa.me/4917680257270" className="text-[#2563eb] hover:underline">
+                +49 176 80257270
+              </a>
             </p>
           </section>
 
@@ -69,11 +54,9 @@ export default function ImpressumPage() {
               Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
             </h2>
             <p className="leading-relaxed text-sm">
-              Leon Bauer
+              Mateo Sainz de la Maza
               <br />
-              Königsallee 14
-              <br />
-              40212 Düsseldorf
+              Düsseldorf
             </p>
           </section>
 

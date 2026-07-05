@@ -13,18 +13,18 @@ export const metadata: Metadata = {
 const selectionPrincipien = [
   {
     no: "01",
-    title: "Wir nehmen kein Projekt an, bei dem wir keinen echten Mehrwert sehen.",
-    desc: "Nicht aus Altruismus. Sondern weil unzufriedene Kunden weder ihnen noch uns nützen.",
+    title: "Jedes Projekt hat ein klares Ziel.",
+    desc: "Mehr Anfragen, mehr Umsatz, mehr Sichtbarkeit bei Google. Eine schöne Website allein ist kein Ergebnis.",
   },
   {
     no: "02",
     title: "Jedes Projekt hier hat einen messbaren Effekt gehabt.",
-    desc: "Conversion-Rates, Anfragen, Umsatz. nicht Ästhetik allein. Schön ist kein Ziel, nur ein Mittel.",
+    desc: "Conversion-Rates, Anfragen, Umsatz. Schön ist kein Ziel, nur ein Mittel.",
   },
   {
     no: "03",
     title: "Wir zeigen Projekte, nicht Mockups.",
-    desc: "Alles hier war oder ist live. Kein konzept das nie umgesetzt wurde, kein Demo-Store der nichts verkauft.",
+    desc: "Alles hier war oder ist live. Kein Konzept, das nie umgesetzt wurde, kein Demo-Store, der nichts verkauft.",
   },
 ]
 
@@ -99,8 +99,8 @@ export default function PortfolioPage() {
               <div>
                 <p className="font-bold text-[#111827] mb-1 text-lg">Ihr Projekt könnte hier stehen.</p>
                 <p className="text-[#6b7280] text-sm max-w-md leading-relaxed">
-                  Wir nehmen nicht jedes Projekt an. aber wenn wir denken, dass wir einen echten
-                  Unterschied machen können, sagen wir das direkt.
+                  Schreiben Sie uns kurz, was Sie brauchen. Wir antworten innerhalb von 24 Stunden
+                  mit einem konkreten Angebot.
                 </p>
               </div>
               <Link
