@@ -6,29 +6,21 @@ const reasons = [
     icon: Sparkles,
     title: "Individuelles Design",
     body: "Kein Template. Jede Seite individuell für Ihr Unternehmen.",
-    accent: "#3b82f6",
-    bg: "rgba(59,130,246,0.1)",
   },
   {
     icon: Cpu,
     title: "Moderner Tech-Stack",
     body: "Next.js, TypeScript, Performance. Große Agentur-Werkzeuge ohne den Preis.",
-    accent: "#06b6d4",
-    bg: "rgba(6,182,212,0.1)",
   },
   {
     icon: Zap,
     title: "Festpreis",
     body: "Klares Angebot vor Projektstart. Keine versteckten Kosten.",
-    accent: "#f59e0b",
-    bg: "rgba(245,158,11,0.1)",
   },
   {
     icon: MessageCircle,
     title: "Persönlicher Kontakt",
     body: "Sie sprechen direkt mit der Person, die Ihre Website baut.",
-    accent: "#10b981",
-    bg: "rgba(16,185,129,0.1)",
   },
 ]
 
@@ -38,7 +30,7 @@ export default function WhyUs() {
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <div className="max-w-2xl mb-14">
-            <h2 className="text-3xl md:text-4xl font-black text-[#111827] leading-tight mb-4">
+            <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] leading-tight mb-4">
               Warum eine Website
               <br />
               bei uns?
@@ -51,15 +43,12 @@ export default function WhyUs() {
             const Icon = r.icon
             return (
               <FadeIn key={r.title} delay={i * 0.08}>
-                <div className="h-full bg-white/60 backdrop-blur-sm border border-gray-100 rounded-2xl p-7 shadow-[0_1px_2px_rgba(0,0,0,0.03)] hover:shadow-md hover:border-gray-200 transition-all">
-                  <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
-                    style={{ backgroundColor: r.bg }}
-                  >
-                    <Icon size={20} style={{ color: r.accent }} />
+                <div className="h-full bg-white border border-slate-200 rounded-2xl p-7 shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-md hover:border-slate-300 transition-all">
+                  <div className="w-12 h-12 rounded-xl bg-[#3B82F6]/10 flex items-center justify-center mb-5">
+                    <Icon size={22} className="text-[#3B82F6]" />
                   </div>
-                  <h3 className="text-lg font-bold text-[#111827] mb-2">{r.title}</h3>
-                  <p className="text-[#6b7280] text-sm leading-relaxed">{r.body}</p>
+                  <h3 className="text-lg font-bold text-[#0F172A] mb-2">{r.title}</h3>
+                  <p className="text-[#475569] text-sm leading-relaxed">{r.body}</p>
                 </div>
               </FadeIn>
             )

@@ -49,10 +49,10 @@ function FAQItem({
         className="w-full text-left py-6 flex items-start justify-between gap-6 group"
         aria-expanded={isOpen}
       >
-        <span className="text-[#111827] font-semibold text-[15px] group-hover:text-[#2563eb] transition-colors leading-snug">
+        <span className="text-[#111827] font-semibold text-[15px] group-hover:text-[#3B82F6] transition-colors leading-snug">
           {question}
         </span>
-        <span className="shrink-0 w-6 h-6 rounded-full border border-gray-200 flex items-center justify-center text-[#6b7280] mt-0.5 group-hover:border-[#2563eb] group-hover:text-[#2563eb] transition-colors">
+        <span className="shrink-0 w-6 h-6 rounded-full border border-gray-200 flex items-center justify-center text-[#6b7280] mt-0.5 group-hover:border-[#3B82F6] group-hover:text-[#3B82F6] transition-colors">
           {isOpen ? <Minus size={11} /> : <Plus size={11} />}
         </span>
       </button>

@@ -67,8 +67,8 @@ export default function Hero() {
           transition={{ duration: 0.4 }}
           className="flex items-center justify-center gap-2.5 mb-5"
         >
-          <span className="w-2 h-2 rounded-full bg-[#2563eb] animate-pulse" />
-          <p className="text-blue-300 text-sm font-semibold">Aktuell 2 Projektplätze frei</p>
+          <span className="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse" />
+          <p className="text-[#60A5FA] text-sm font-semibold">Aktuell 2 Projektplätze frei</p>
         </motion.div>
 
         <motion.h1
