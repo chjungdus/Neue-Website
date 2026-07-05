@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Geist } from "next/font/google"
+import { Geist, Space_Grotesk } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/layout/navbar"
 import Footer from "@/components/layout/footer"
@@ -7,6 +7,12 @@ import ScrollToTop from "@/components/ui/scroll-to-top"
 
 const geist = Geist({
   variable: "--font-geist",
+  subsets: ["latin"],
+  display: "swap",
+})
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
   display: "swap",
 })
@@ -32,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="de" className={geist.variable}>
+    <html lang="de" className={`${geist.variable} ${spaceGrotesk.variable}`}>
       <body className="min-h-screen flex flex-col antialiased">
         <Navbar />
         <main className="flex-1">{children}</main>

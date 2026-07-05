@@ -28,8 +28,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 font-bold text-lg text-white mb-4">
-              <div className="w-8 h-8 rounded-lg bg-[#3B82F6]/20 flex items-center justify-center">
-                <Zap size={16} className="text-[#3B82F6]" />
+              <div className="w-8 h-8 rounded-lg bg-[#60A5FA]/20 flex items-center justify-center">
+                <Zap size={16} className="text-[#60A5FA]" />
               </div>
               <span>Nexuzo</span>
             </Link>
@@ -63,10 +63,10 @@ export default function Footer() {
                 href="https://instagram.com/nexuzo.de"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/[0.06] hover:bg-[#3B82F6]/20 flex items-center justify-center transition-colors group"
+                className="w-9 h-9 rounded-lg bg-white/[0.06] hover:bg-[#60A5FA]/20 flex items-center justify-center transition-colors group"
                 aria-label="Instagram"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400 group-hover:text-[#3B82F6] transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400 group-hover:text-[#60A5FA] transition-colors">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
@@ -76,10 +76,10 @@ export default function Footer() {
                 href="https://tiktok.com/@nexuzo.de"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/[0.06] hover:bg-[#3B82F6]/20 flex items-center justify-center transition-colors group"
+                className="w-9 h-9 rounded-lg bg-white/[0.06] hover:bg-[#60A5FA]/20 flex items-center justify-center transition-colors group"
                 aria-label="TikTok"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-slate-400 group-hover:text-[#3B82F6] transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-slate-400 group-hover:text-[#60A5FA] transition-colors">
                   <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.56V6.8a4.85 4.85 0 01-1.07-.11z" />
                 </svg>
               </a>

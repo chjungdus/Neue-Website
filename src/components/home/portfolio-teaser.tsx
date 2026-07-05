@@ -64,15 +64,16 @@ export default function PortfolioTeaser() {
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0">
                       <div className="text-[11px] text-slate-500 mb-1 font-medium">{project.client}</div>
-                      <h3 className="text-white font-bold text-sm leading-snug group-hover:text-[#60A5FA] transition-colors">
+                      <h3 className="text-white font-bold text-sm leading-snug group-hover:text-[#93C5FD] transition-colors">
                         {project.title}
                       </h3>
+
                     </div>
                     <a
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-xs font-semibold text-[#60A5FA] border border-[#3B82F6]/30 hover:border-[#3B82F6]/70 hover:text-white transition-colors flex-shrink-0 mt-0.5 px-2.5 py-1 rounded-full"
+                      className="flex items-center gap-1.5 text-xs font-semibold text-[#93C5FD] border border-[#60A5FA]/30 hover:border-[#60A5FA]/70 hover:text-white transition-colors flex-shrink-0 mt-0.5 px-2.5 py-1 rounded-full"
                     >
                       <ExternalLink size={11} />
                       ansehen
