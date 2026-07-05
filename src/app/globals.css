@@ -3,6 +3,10 @@
 @theme {
   --color-primary: #2563eb;
   --color-primary-hover: #1d4ed8;
+  --color-navy-900: #0F1E3D;
+  --color-navy-800: #16264D;
+  --color-accent-500: #3B82F6;
+  --color-accent-400: #60A5FA;
   --font-sans: var(--font-geist);
 }
 
@@ -28,7 +32,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+  background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -8,9 +8,7 @@ const problems = [
     body: "Kein klarer Aufruf. Besucher gehen ohne Kontakt.",
     stat: "Ø 1,5%",
     statNote: "Conversion bei Standard-Seiten",
-    iconColor: "#ef4444",
-    iconBg: "rgba(239,68,68,0.1)",
-    statColor: "#ef4444",
+    statColor: "#f87171",
   },
   {
     icon: Search,
@@ -18,9 +16,7 @@ const problems = [
     body: "90% der Klicks gehen an die Top 3. Seite 2 existiert nicht.",
     stat: "90%",
     statNote: "klicken nur Top-3-Ergebnisse",
-    iconColor: "#f59e0b",
-    iconBg: "rgba(245,158,11,0.1)",
-    statColor: "#f59e0b",
+    statColor: "#fbbf24",
   },
   {
     icon: Smartphone,
@@ -28,22 +24,20 @@ const problems = [
     body: "63% kommen per Smartphone. Langsame Seiten verlieren sie sofort.",
     stat: "63%",
     statNote: "Web-Traffic kommt mobil",
-    iconColor: "#3b82f6",
-    iconBg: "rgba(59,130,246,0.1)",
-    statColor: "#3b82f6",
+    statColor: "#f87171",
   },
 ]
 
 export default function ProblemSection() {
   return (
-    <section className="py-28 bg-[#1a3570]">
+    <section className="py-28 bg-[#0F1E3D]">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <div className="max-w-2xl mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-white leading-tight mb-5">
               3 Zeichen, dass Ihre Website
               <br />
-              <span className="text-[#60a5fa]">täglich Geld kostet.</span>
+              <span className="text-[#60A5FA]">täglich Geld kostet.</span>
             </h2>
           </div>
         </FadeIn>
@@ -54,11 +48,8 @@ export default function ProblemSection() {
             return (
               <FadeIn key={p.title} delay={i * 0.1}>
                 <div className="bg-white/[0.03] border border-white/[0.07] rounded-2xl p-7 hover:bg-white/[0.06] transition-colors h-full flex flex-col">
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 shrink-0"
-                    style={{ backgroundColor: p.iconBg }}
-                  >
-                    <Icon size={22} style={{ color: p.iconColor }} />
+                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-5 shrink-0">
+                    <Icon size={22} className="text-[#60A5FA]" />
                   </div>
                   <h3 className="text-lg font-bold text-white mb-3">{p.title}</h3>
                   <p className="text-slate-400 text-sm leading-relaxed flex-1 mb-5">{p.body}</p>

@@ -1,13 +1,13 @@
 import Link from "next/link"
-import { ArrowRight, Clock, Mail, Phone } from "lucide-react"
+import { ArrowRight, Clock, Mail, MessageCircle } from "lucide-react"
 import FadeIn from "@/components/ui/fade-in"
 
 export default function CTA() {
   return (
     <section className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="bg-[#1a3570] rounded-3xl overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] divide-y lg:divide-y-0 lg:divide-x divide-slate-800">
+        <div className="bg-[#0F1E3D] rounded-3xl overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] divide-y lg:divide-y-0 lg:divide-x divide-white/[0.06]">
 
             {/* Left: main CTA */}
             <div className="p-10 md:p-14">
@@ -23,14 +23,14 @@ export default function CTA() {
                 <div className="flex flex-col sm:flex-row items-start gap-3">
                   <Link
                     href="/anfrage"
-                    className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center gap-2 text-[15px]"
+                    className="bg-[#3B82F6] hover:bg-[#2563eb] text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center gap-2 text-[15px]"
                   >
                     Jetzt Projekt anfragen
                     <ArrowRight size={17} />
                   </Link>
                   <Link
                     href="/kontakt"
-                    className="flex items-center gap-2 text-slate-400 font-semibold px-8 py-4 rounded-full border border-slate-700 hover:border-slate-500 hover:text-white transition-all text-[15px]"
+                    className="flex items-center gap-2 text-[#60A5FA] font-semibold px-8 py-4 rounded-full border border-[#3B82F6]/40 hover:border-[#3B82F6] hover:bg-[#3B82F6]/10 transition-all text-[15px]"
                   >
                     Erst mal schreiben
                   </Link>
@@ -48,8 +48,8 @@ export default function CTA() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-3.5 text-slate-400 hover:text-white transition-colors group"
                   >
-                    <span className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563eb] transition-colors">
-                      <Phone
+                    <span className="w-9 h-9 rounded-xl bg-white/[0.06] flex items-center justify-center flex-shrink-0 group-hover:bg-[#3B82F6] transition-colors">
+                      <MessageCircle
                         size={15}
                         className="text-slate-500 group-hover:text-white transition-colors"
                       />
@@ -60,7 +60,7 @@ export default function CTA() {
                     href="mailto:nexuzo.kontakt@gmail.com"
                     className="flex items-center gap-3.5 text-slate-400 hover:text-white transition-colors group"
                   >
-                    <span className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563eb] transition-colors">
+                    <span className="w-9 h-9 rounded-xl bg-white/[0.06] flex items-center justify-center flex-shrink-0 group-hover:bg-[#3B82F6] transition-colors">
                       <Mail
                         size={15}
                         className="text-slate-500 group-hover:text-white transition-colors"
@@ -69,7 +69,7 @@ export default function CTA() {
                     <span className="text-sm font-medium">nexuzo.kontakt@gmail.com</span>
                   </a>
                   <div className="flex items-center gap-3.5 text-slate-600">
-                    <span className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0">
+                    <span className="w-9 h-9 rounded-xl bg-white/[0.06] flex items-center justify-center flex-shrink-0">
                       <Clock size={15} />
                     </span>
                     <span className="text-sm">Mo bis Fr, 9 bis 18 Uhr</span>
