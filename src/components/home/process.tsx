@@ -1,8 +1,8 @@
 import FadeIn from "@/components/ui/fade-in"
 import { Search, Palette, Code2, Rocket } from "lucide-react"
 
-const ACCENT = "#60A5FA"
-const ACCENT_BG = "rgba(96,165,250,0.12)"
+const ACCENT = "#0066FF"
+const ACCENT_BG = "rgba(0, 102, 255,0.12)"
 
 const steps = [
   {
@@ -41,10 +41,10 @@ export default function Process() {
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-[#0F172A] mb-5 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-black text-[#0a0a0f] mb-5 leading-tight">
               In 4 Wochen live.
               <br />
-              <span className="text-slate-400 font-normal text-3xl md:text-4xl">Wirklich.</span>
+              <span className="text-[#0a0a0f]/45 font-normal text-3xl md:text-4xl">Wirklich.</span>
             </h2>
           </div>
         </FadeIn>
@@ -68,16 +68,16 @@ export default function Process() {
                       >
                         <Icon size={22} style={{ color: ACCENT }} />
                       </div>
-                      <div className="bg-[#F8FAFC] border border-gray-100 rounded-2xl p-6 w-full text-left">
+                      <div className="bg-[#0a0a0f]/[0.03] border border-[#0a0a0f]/5 rounded-2xl p-6 w-full text-left">
                         <span
                           className="text-[10px] font-bold uppercase tracking-wider mb-1 block"
                           style={{ color: ACCENT }}
                         >
                           {step.week}
                         </span>
-                        <h3 className="text-[#0F172A] font-black text-lg mb-2">{step.title}</h3>
-                        <p className="text-[#475569] text-sm leading-relaxed mb-4">{step.body}</p>
-                        <span className="text-xs font-medium text-[#374151] bg-white border border-gray-200 px-3 py-1.5 rounded-full inline-block">
+                        <h3 className="text-[#0a0a0f] font-black text-lg mb-2">{step.title}</h3>
+                        <p className="text-[#0a0a0f] text-sm leading-relaxed mb-4">{step.body}</p>
+                        <span className="text-xs font-medium text-[#0a0a0f] bg-white border border-[#0a0a0f]/10 px-3 py-1.5 rounded-full inline-block">
                           {step.deliverable}
                         </span>
                       </div>
@@ -104,16 +104,16 @@ export default function Process() {
                     >
                       <Icon size={20} style={{ color: ACCENT }} />
                     </div>
-                    <div className="bg-[#F8FAFC] border border-gray-100 rounded-2xl p-6">
+                    <div className="bg-[#0a0a0f]/[0.03] border border-[#0a0a0f]/5 rounded-2xl p-6">
                       <span
                         className="text-[10px] font-bold uppercase tracking-wider mb-0.5 block"
                         style={{ color: ACCENT }}
                       >
                         {step.week}
                       </span>
-                      <h3 className="text-[#0F172A] font-black text-lg mb-2">{step.title}</h3>
-                      <p className="text-[#475569] text-sm leading-relaxed mb-3">{step.body}</p>
-                      <span className="text-xs font-medium text-[#374151] bg-white border border-gray-200 px-3 py-1.5 rounded-full inline-block">
+                      <h3 className="text-[#0a0a0f] font-black text-lg mb-2">{step.title}</h3>
+                      <p className="text-[#0a0a0f] text-sm leading-relaxed mb-3">{step.body}</p>
+                      <span className="text-xs font-medium text-[#0a0a0f] bg-white border border-[#0a0a0f]/10 px-3 py-1.5 rounded-full inline-block">
                         {step.deliverable}
                       </span>
                     </div>

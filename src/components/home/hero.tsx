@@ -47,18 +47,18 @@ export default function Hero() {
   const current = sites[active]
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-10 bg-white md:bg-[#1a3570]">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-10 bg-[#0a0a0f]">
 
-      {/* Background decoration — desktop only */}
+      {/* Background decoration */}
       <div
-        className="hidden md:block absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
-      <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-[#1a3570] via-transparent to-[#0d2050]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-transparent to-[#0a0a0f]" />
 
       {/* Text */}
       <div className="relative z-10 text-center px-6 mb-10 max-w-2xl">
@@ -68,13 +68,13 @@ export default function Hero() {
           transition={{ duration: 0.4 }}
           className="flex items-center justify-center mb-5"
         >
-          {/* Glass pill badge — dark on mobile (white bg), light on desktop (navy bg) */}
+          {/* Glass pill badge */}
           <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 bg-black/5 md:bg-white/15 md:border-white/30"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 bg-white/15"
             style={{ backdropFilter: "blur(8px)" }}
           >
-            <span className="w-2 h-2 rounded-full bg-[#60A5FA] animate-pulse flex-shrink-0" />
-            <p className="text-[#0a0a0f] md:text-[#93C5FD] text-sm font-semibold whitespace-nowrap">
+            <span className="w-2 h-2 rounded-full bg-[#0066FF] animate-pulse flex-shrink-0" />
+            <p className="text-[#0066FF] text-sm font-semibold whitespace-nowrap">
               Aktuell 2 Projektplätze frei
             </p>
           </div>
@@ -84,7 +84,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
-          className="text-[32px] sm:text-[52px] md:text-[62px] font-black text-[#0a0a0f] md:text-white leading-[1.05] tracking-tight mb-6"
+          className="text-[32px] sm:text-[52px] md:text-[62px] font-black text-white leading-[1.05] tracking-tight mb-6"
         >
           Wir bauen Ihre
           <br />
@@ -101,13 +101,13 @@ export default function Hero() {
         >
           <Link
             href="/anfrage"
-            className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-7 py-3.5 rounded-full transition-colors flex items-center gap-2 text-[15px]"
+            className="bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-7 py-3.5 rounded-full transition-colors flex items-center gap-2 text-[15px]"
           >
             Kostenlos anfragen <ArrowRight size={16} />
           </Link>
           <Link
             href="/portfolio"
-            className="border border-black/20 md:border-white/25 hover:border-black/40 md:hover:border-white/50 text-[#0a0a0f]/70 md:text-white/70 hover:text-[#0a0a0f] md:hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all text-[15px] flex items-center gap-2 group"
+            className="border border-white/25 hover:border-white/50 text-white/70 hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all text-[15px] flex items-center gap-2 group"
           >
             Unsere Arbeit ansehen
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -155,15 +155,15 @@ export default function Hero() {
                   }}
                   className={`relative flex-shrink-0 rounded-2xl border bg-white overflow-hidden cursor-pointer transition-all duration-300 ease-out ${
                     isExpanded
-                      ? "w-[250px] h-[160px] border-[#2563eb]/30 shadow-xl"
+                      ? "w-[250px] h-[160px] border-[#0066FF]/30 shadow-xl"
                       : "w-[170px] h-[110px] border-black/10 shadow-sm"
                   }`}
                 >
                   {/* Browser chrome */}
-                  <div className="flex items-center gap-1.5 px-3 py-2 bg-[#f4f6fb] border-b border-black/5">
-                    <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
-                    <span className="w-2 h-2 rounded-full bg-[#ffbd2e]" />
-                    <span className="w-2 h-2 rounded-full bg-[#28c840]" />
+                  <div className="flex items-center gap-1.5 px-3 py-2 bg-[#0a0a0f]/[0.04] border-b border-black/5">
+                    <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
+                    <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
+                    <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
                   </div>
 
                   {/* Label */}
@@ -185,7 +185,7 @@ export default function Hero() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-[#1a3570]/95 text-white"
+                        className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-[#0a0a0f]/95 text-white"
                       >
                         <ExternalLink size={20} />
                         <span className="text-[13px] font-bold">Website besuchen</span>
@@ -220,13 +220,13 @@ export default function Hero() {
 
           {/* Laptop frame */}
           <div className="w-full mx-14">
-            <div className="bg-[#1a2540] rounded-t-xl p-[6px] shadow-[0_0_60px_rgba(37,99,235,0.2)]">
+            <div className="bg-[#0a0a0f] rounded-t-xl p-[6px] shadow-[0_0_60px_rgba(0,102,255,0.2)]">
               {/* Browser chrome */}
-              <div className="bg-[#232e45] rounded-t-lg px-4 py-2.5 flex items-center gap-2">
+              <div className="bg-white/5 rounded-t-lg px-4 py-2.5 flex items-center gap-2">
                 <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
                 </div>
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -235,7 +235,7 @@ export default function Hero() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="flex-1 mx-2 bg-[#151f33] rounded px-3 py-1 text-[11px] text-slate-400 font-mono truncate"
+                    className="flex-1 mx-2 bg-white/10 rounded px-3 py-1 text-[11px] text-white/55 font-mono truncate"
                   >
                     {current.display}
                   </motion.div>
@@ -245,7 +245,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Im neuen Tab öffnen"
-                  className="text-slate-500 hover:text-slate-300 transition-colors flex-shrink-0"
+                  className="text-white/45 hover:text-white/75 transition-colors flex-shrink-0"
                 >
                   <ExternalLink size={13} />
                 </a>
@@ -276,8 +276,8 @@ export default function Hero() {
             </div>
 
             {/* Hinge + base */}
-            <div className="h-[10px] bg-gradient-to-b from-[#1a2540] to-[#141d30] mx-6 rounded-b-sm" />
-            <div className="h-[6px] bg-[#0f1726] mx-0 rounded-b-xl shadow-[0_4px_20px_rgba(0,0,0,0.5)]" />
+            <div className="h-[10px] bg-white/5 mx-6 rounded-b-sm" />
+            <div className="h-[6px] bg-[#0a0a0f] mx-0 rounded-b-xl shadow-[0_4px_20px_rgba(0,0,0,0.5)]" />
           </div>
 
           {/* Arrow Right */}
@@ -313,7 +313,7 @@ export default function Hero() {
                 onClick={() => goTo(i)}
                 aria-label={`Website ${i + 1}`}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === active ? "w-6 bg-[#60A5FA]" : "w-1.5 bg-white/25 hover:bg-white/40"
+                  i === active ? "w-6 bg-[#0066FF]" : "w-1.5 bg-white/25 hover:bg-white/40"
                 }`}
               />
             ))}

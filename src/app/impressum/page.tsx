@@ -13,16 +13,16 @@ export default function ImpressumPage() {
       <div className="max-w-3xl mx-auto px-6 py-24">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-[#6b7280] hover:text-[#111827] transition-colors text-sm mb-12"
+          className="inline-flex items-center gap-2 text-[#0a0a0f]/55 hover:text-[#0a0a0f] transition-colors text-sm mb-12"
         >
           <ArrowLeft size={16} /> Zurück zur Startseite
         </Link>
 
-        <h1 className="text-4xl font-black text-[#111827] mb-12">Impressum</h1>
+        <h1 className="text-4xl font-black text-[#0a0a0f] mb-12">Impressum</h1>
 
-        <div className="space-y-10 text-[#6b7280]">
+        <div className="space-y-10 text-[#0a0a0f]/55">
           <section>
-            <h2 className="text-[#111827] font-bold text-base mb-3">Angaben gemäß § 5 TMG</h2>
+            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">Angaben gemäß § 5 TMG</h2>
             <p className="leading-relaxed text-sm">
               Nexuzo
               <br />
@@ -35,22 +35,22 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-[#111827] font-bold text-base mb-3">Kontakt</h2>
+            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">Kontakt</h2>
             <p className="leading-relaxed text-sm">
               E-Mail:{" "}
-              <a href="mailto:nexuzo.kontakt@gmail.com" className="text-[#2563eb] hover:underline">
+              <a href="mailto:nexuzo.kontakt@gmail.com" className="text-[#0066FF] hover:underline">
                 nexuzo.kontakt@gmail.com
               </a>
               <br />
               WhatsApp:{" "}
-              <a href="https://wa.me/4917680257270" className="text-[#2563eb] hover:underline">
+              <a href="https://wa.me/4917680257270" className="text-[#0066FF] hover:underline">
                 +49 176 80257270
               </a>
             </p>
           </section>
 
           <section>
-            <h2 className="text-[#111827] font-bold text-base mb-3">
+            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">
               Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
             </h2>
             <p className="leading-relaxed text-sm">
@@ -61,16 +61,16 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-[#111827] font-bold text-base mb-3">EU-Streitschlichtung</h2>
+            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">EU-Streitschlichtung</h2>
             <p className="leading-relaxed text-sm">
               Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
-              <span className="text-[#2563eb]">https://ec.europa.eu/consumers/odr</span>. Unsere E-Mail-Adresse finden
+              <span className="text-[#0066FF]">https://ec.europa.eu/consumers/odr</span>. Unsere E-Mail-Adresse finden
               Sie oben im Impressum.
             </p>
           </section>
 
           <section>
-            <h2 className="text-[#111827] font-bold text-base mb-3">
+            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">
               Verbraucherstreitbeilegung / Universalschlichtungsstelle
             </h2>
             <p className="leading-relaxed text-sm">
@@ -80,7 +80,7 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-[#111827] font-bold text-base mb-3">Haftung für Inhalte</h2>
+            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">Haftung für Inhalte</h2>
             <p className="leading-relaxed text-sm">
               Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den
               allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
@@ -96,7 +96,7 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-[#111827] font-bold text-base mb-3">Haftung für Links</h2>
+            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">Haftung für Links</h2>
             <p className="leading-relaxed text-sm">
               Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
               Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten
@@ -111,7 +111,7 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-[#111827] font-bold text-base mb-3">Urheberrecht</h2>
+            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">Urheberrecht</h2>
             <p className="leading-relaxed text-sm">
               Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen
               Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
@@ -125,11 +125,11 @@ export default function ImpressumPage() {
           </section>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-gray-200 flex flex-wrap gap-4 text-xs text-[#6b7280]">
-          <Link href="/datenschutz" className="hover:text-[#111827] transition-colors">
+        <div className="mt-16 pt-8 border-t border-[#0a0a0f]/10 flex flex-wrap gap-4 text-xs text-[#0a0a0f]/55">
+          <Link href="/datenschutz" className="hover:text-[#0a0a0f] transition-colors">
             Datenschutzerklärung
           </Link>
-          <Link href="/agb" className="hover:text-[#111827] transition-colors">
+          <Link href="/agb" className="hover:text-[#0a0a0f] transition-colors">
             AGB
           </Link>
         </div>

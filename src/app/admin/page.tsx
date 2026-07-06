@@ -25,10 +25,10 @@ export default async function AdminDashboard() {
   const stats = await getStats()
 
   const cards = [
-    { icon: Inbox, label: "Anfragen gesamt", value: stats.requests, color: "#6366f1" },
-    { icon: Clock, label: "Neue Anfragen", value: stats.newRequests, color: "#f59e0b" },
-    { icon: Image, label: "Portfolio-Einträge", value: stats.projects, color: "#10b981" },
-    { icon: TrendingUp, label: "Konversionsrate", value: "–", color: "#a855f7" },
+    { icon: Inbox, label: "Anfragen gesamt", value: stats.requests, color: "#0066FF" },
+    { icon: Clock, label: "Neue Anfragen", value: stats.newRequests, color: "#0066FF" },
+    { icon: Image, label: "Portfolio-Einträge", value: stats.projects, color: "#0066FF" },
+    { icon: TrendingUp, label: "Konversionsrate", value: "–", color: "#0066FF" },
   ]
 
   return (
@@ -38,9 +38,9 @@ export default async function AdminDashboard() {
         {cards.map((card) => {
           const Icon = card.icon
           return (
-            <div key={card.label} className="bg-[#0e0f1c] border border-white/6 rounded-xl p-5">
+            <div key={card.label} className="bg-white/[0.03] border border-white/10 rounded-xl p-5">
               <div className="flex items-center justify-between mb-4">
-                <p className="text-[#8b8da0] text-xs font-medium">{card.label}</p>
+                <p className="text-[#ffffff]/50 text-xs font-medium">{card.label}</p>
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${card.color}18` }}>
                   <Icon size={16} style={{ color: card.color }} />
                 </div>
@@ -50,9 +50,9 @@ export default async function AdminDashboard() {
           )
         })}
       </div>
-      <div className="bg-[#0e0f1c] border border-white/6 rounded-xl p-6">
+      <div className="bg-white/[0.03] border border-white/10 rounded-xl p-6">
         <h2 className="text-white font-bold mb-4">Schnellzugriff</h2>
-        <p className="text-[#8b8da0] text-sm">Navigieren Sie über die Seitenleiste zu Portfolio-Verwaltung und Anfragen.</p>
+        <p className="text-[#ffffff]/50 text-sm">Navigieren Sie über die Seitenleiste zu Portfolio-Verwaltung und Anfragen.</p>
       </div>
     </div>
   )

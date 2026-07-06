@@ -9,16 +9,16 @@ export default function KontaktPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-28 pb-14 bg-white border-b border-gray-100">
+      <section className="pt-28 pb-14 bg-white border-b border-[#0a0a0f]/5">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
-            <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
+            <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-6">
               Kontakt
             </p>
-            <h1 className="text-5xl md:text-6xl font-black text-[#111827] leading-[1.05] mb-6 max-w-2xl">
+            <h1 className="text-5xl md:text-6xl font-black text-[#0a0a0f] leading-[1.05] mb-6 max-w-2xl">
               Schreiben Sie uns.
             </h1>
-            <p className="text-[#6b7280] text-xl max-w-xl leading-relaxed">
+            <p className="text-[#0a0a0f]/55 text-xl max-w-xl leading-relaxed">
               Ob konkrete Projektidee oder noch eine offene Frage. Wir antworten innerhalb von 24 Stunden persönlich.
             </p>
           </FadeIn>
@@ -33,7 +33,7 @@ export default function KontaktPage() {
             {/* Left: direct contact */}
             <FadeIn>
               <div>
-                <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
+                <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-6">
                   Direkt schreiben
                 </p>
                 <div className="flex flex-col gap-3">
@@ -41,33 +41,33 @@ export default function KontaktPage() {
                     href="https://wa.me/4917680257270"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-[#374151] hover:text-[#25D366] transition-colors group"
+                    className="flex items-center gap-3 text-[#0a0a0f] hover:text-[#0066FF] transition-colors group"
                   >
-                    <span className="w-9 h-9 rounded-xl bg-[#f3f4f6] flex items-center justify-center group-hover:bg-[#f0fdf4] transition-colors">
-                      <MessageCircle size={15} className="text-[#6b7280] group-hover:text-[#25D366] transition-colors" />
+                    <span className="w-9 h-9 rounded-xl bg-[#0a0a0f]/[0.04] flex items-center justify-center group-hover:bg-[#0a0a0f]/[0.04] transition-colors">
+                      <MessageCircle size={15} className="text-[#0a0a0f]/55 group-hover:text-[#0066FF] transition-colors" />
                     </span>
                     <span className="text-sm font-medium">WhatsApp: +49 176 80257270</span>
                   </a>
                   <a
                     href="mailto:nexuzo.kontakt@gmail.com"
-                    className="flex items-center gap-3 text-[#374151] hover:text-[#2563eb] transition-colors group"
+                    className="flex items-center gap-3 text-[#0a0a0f] hover:text-[#0066FF] transition-colors group"
                   >
-                    <span className="w-9 h-9 rounded-xl bg-[#f3f4f6] flex items-center justify-center group-hover:bg-[#f0f4ff] transition-colors">
-                      <Mail size={15} className="text-[#6b7280] group-hover:text-[#2563eb] transition-colors" />
+                    <span className="w-9 h-9 rounded-xl bg-[#0a0a0f]/[0.04] flex items-center justify-center group-hover:bg-[#0a0a0f]/[0.04] transition-colors">
+                      <Mail size={15} className="text-[#0a0a0f]/55 group-hover:text-[#0066FF] transition-colors" />
                     </span>
                     <span className="text-sm font-medium">nexuzo.kontakt@gmail.com</span>
                   </a>
-                  <div className="flex items-center gap-3 text-[#9ca3af]">
-                    <span className="w-9 h-9 rounded-xl bg-[#f3f4f6] flex items-center justify-center">
+                  <div className="flex items-center gap-3 text-[#0a0a0f]/40">
+                    <span className="w-9 h-9 rounded-xl bg-[#0a0a0f]/[0.04] flex items-center justify-center">
                       <Clock size={15} />
                     </span>
                     <span className="text-sm">Mo bis Fr · 9 bis 18 Uhr</span>
                   </div>
                 </div>
 
-                <div className="mt-10 pt-8 border-t border-gray-100">
-                  <p className="text-[#111827] font-bold mb-1">Keine Verpflichtung.</p>
-                  <p className="text-[#6b7280] text-sm leading-relaxed max-w-sm">
+                <div className="mt-10 pt-8 border-t border-[#0a0a0f]/5">
+                  <p className="text-[#0a0a0f] font-bold mb-1">Keine Verpflichtung.</p>
+                  <p className="text-[#0a0a0f]/55 text-sm leading-relaxed max-w-sm">
                     Eine Nachricht ist eine Nachricht, kein Kaufvertrag. Wir antworten persönlich — keine automatischen Mails.
                   </p>
                 </div>
@@ -76,9 +76,9 @@ export default function KontaktPage() {
 
             {/* Right: Form */}
             <FadeIn delay={0.1} direction="right">
-              <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
-                <h2 className="text-[#111827] font-bold text-xl mb-2">Nachricht senden</h2>
-                <p className="text-[#9ca3af] text-sm mb-7">
+              <div className="bg-white border border-[#0a0a0f]/5 rounded-2xl p-8 shadow-sm">
+                <h2 className="text-[#0a0a0f] font-bold text-xl mb-2">Nachricht senden</h2>
+                <p className="text-[#0a0a0f]/40 text-sm mb-7">
                   Antwort innerhalb von 24 Stunden. Versprochen.
                 </p>
                 <ContactForm />
@@ -89,19 +89,19 @@ export default function KontaktPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-14 bg-[#f9fafb] border-t border-gray-100">
+      <section className="py-14 bg-[#0a0a0f]/[0.03] border-t border-[#0a0a0f]/5">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div>
-                <p className="font-bold text-[#111827] mb-1">Konkrete Projektidee?</p>
-                <p className="text-[#6b7280] text-sm">
+                <p className="font-bold text-[#0a0a0f] mb-1">Konkrete Projektidee?</p>
+                <p className="text-[#0a0a0f]/55 text-sm">
                   Mit dem Anfrage-Formular bekommen Sie innerhalb von 24h ein konkretes Angebot.
                 </p>
               </div>
               <Link
                 href="/anfrage"
-                className="inline-flex items-center gap-2 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-6 py-3 rounded-full transition-colors text-sm shrink-0"
+                className="inline-flex items-center gap-2 bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-6 py-3 rounded-full transition-colors text-sm shrink-0"
               >
                 Projekt anfragen
                 <ArrowRight size={15} />

@@ -88,22 +88,22 @@ export default function LeistungenPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-28 pb-20 bg-white border-b border-gray-100">
+      <section className="pt-28 pb-20 bg-white border-b border-[#0a0a0f]/5">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
-            <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
+            <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-6">
               Leistungen
             </p>
-            <h1 className="text-[26px] sm:text-5xl md:text-7xl font-black text-[#111827] leading-[1.05] mb-8 max-w-3xl">
+            <h1 className="text-[26px] sm:text-5xl md:text-7xl font-black text-[#0a0a0f] leading-[1.05] mb-8 max-w-3xl">
               Was kostet eine
               <br />
-              <span className="text-[#2563eb]">schlechte Website</span>
+              <span className="text-[#0066FF]">schlechte Website</span>
               <br />
               wirklich?
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <p className="text-[#6b7280] text-base sm:text-xl max-w-2xl leading-relaxed">
+            <p className="text-[#0a0a0f]/55 text-base sm:text-xl max-w-2xl leading-relaxed">
               Verpasste Kunden, die Sie nie zählen werden. Menschen, die auf Ihre Seite kommen,
               nicht finden was sie suchen, und zur Konkurrenz gehen. Kein Drama, keine Fehlermeldung.
               Nur stille Verluste, jeden Tag.
@@ -114,7 +114,7 @@ export default function LeistungenPage() {
               {trustedBy.map((industry) => (
                 <span
                   key={industry}
-                  className="text-xs bg-[#f3f4f6] text-[#374151] px-3 py-1.5 rounded-full"
+                  className="text-xs bg-[#0a0a0f]/[0.04] text-[#0a0a0f] px-3 py-1.5 rounded-full"
                 >
                   {industry}
                 </span>
@@ -127,14 +127,14 @@ export default function LeistungenPage() {
       {/* Services */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="space-y-0 divide-y divide-gray-100">
+          <div className="space-y-0 divide-y divide-[#0a0a0f]/5">
             {services.map((service, i) => (
               <FadeIn key={i} delay={i * 0.06}>
                 <div className="py-16 grid grid-cols-1 lg:grid-cols-[120px_1fr] gap-8">
                   <div className="shrink-0">
                     <span
                       className="text-7xl font-black leading-none select-none"
-                      style={{ color: "#2563eb18" }}
+                      style={{ color: "#0066FF18" }}
                     >
                       {service.number}
                     </span>
@@ -142,48 +142,48 @@ export default function LeistungenPage() {
 
                   <div>
                     <div className="mb-6">
-                      <h2 className="text-2xl md:text-3xl font-black text-[#111827] mb-2">
+                      <h2 className="text-2xl md:text-3xl font-black text-[#0a0a0f] mb-2">
                         {service.title}
                       </h2>
-                      <p className="text-[#6b7280] text-base">{service.tagline}</p>
+                      <p className="text-[#0a0a0f]/55 text-base">{service.tagline}</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                       <div>
-                        <p className="text-xs font-semibold text-[#9ca3af] uppercase tracking-widest mb-3">
+                        <p className="text-xs font-semibold text-[#0a0a0f]/40 uppercase tracking-widest mb-3">
                           Das Problem
                         </p>
-                        <p className="text-[#6b7280] text-sm leading-relaxed">{service.problem}</p>
+                        <p className="text-[#0a0a0f]/55 text-sm leading-relaxed">{service.problem}</p>
                       </div>
                       <div>
-                        <p className="text-xs font-semibold text-[#9ca3af] uppercase tracking-widest mb-3">
+                        <p className="text-xs font-semibold text-[#0a0a0f]/40 uppercase tracking-widest mb-3">
                           Unser Ansatz
                         </p>
-                        <p className="text-[#6b7280] text-sm leading-relaxed">{service.solution}</p>
+                        <p className="text-[#0a0a0f]/55 text-sm leading-relaxed">{service.solution}</p>
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                       <div>
-                        <p className="text-xs font-semibold text-[#9ca3af] uppercase tracking-widest mb-3">
+                        <p className="text-xs font-semibold text-[#0a0a0f]/40 uppercase tracking-widest mb-3">
                           Enthalten
                         </p>
                         <ul className="space-y-2">
                           {service.includes.map((item, j) => (
-                            <li key={j} className="flex items-start gap-2 text-sm text-[#374151]">
-                              <Check size={14} className="text-[#2563eb] mt-0.5 shrink-0" />
+                            <li key={j} className="flex items-start gap-2 text-sm text-[#0a0a0f]">
+                              <Check size={14} className="text-[#0066FF] mt-0.5 shrink-0" />
                               {item}
                             </li>
                           ))}
                         </ul>
                       </div>
                       <div>
-                        <p className="text-xs font-semibold text-[#9ca3af] uppercase tracking-widest mb-3">
+                        <p className="text-xs font-semibold text-[#0a0a0f]/40 uppercase tracking-widest mb-3">
                           Nicht enthalten
                         </p>
                         <ul className="space-y-2">
                           {service.notIncludes.map((item, j) => (
-                            <li key={j} className="flex items-start gap-2 text-sm text-[#9ca3af]">
+                            <li key={j} className="flex items-start gap-2 text-sm text-[#0a0a0f]/40">
                               <X size={14} className="mt-0.5 shrink-0" />
                               {item}
                             </li>
@@ -192,14 +192,14 @@ export default function LeistungenPage() {
                       </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-gray-100">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-[#0a0a0f]/5">
                       <div>
-                        <span className="text-2xl font-black text-[#111827]">{service.price}</span>
-                        <p className="text-xs text-[#9ca3af] mt-1">{service.deliverable}</p>
+                        <span className="text-2xl font-black text-[#0a0a0f]">{service.price}</span>
+                        <p className="text-xs text-[#0a0a0f]/40 mt-1">{service.deliverable}</p>
                       </div>
                       <Link
                         href="/anfrage"
-                        className="inline-flex items-center gap-2 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-6 py-3 rounded-full transition-colors text-sm"
+                        className="inline-flex items-center gap-2 bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-6 py-3 rounded-full transition-colors text-sm"
                       >
                         Anfrage stellen
                         <ArrowRight size={15} />
@@ -214,16 +214,16 @@ export default function LeistungenPage() {
       </section>
 
       {/* Process */}
-      <section className="py-24 bg-[#1a3570]">
+      <section className="py-24 bg-[#0a0a0f]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
-            <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-6">
+            <p className="text-white/35 text-xs font-semibold uppercase tracking-widest mb-6">
               So läuft es ab
             </p>
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
               Kein Überraschungsmoment.
             </h2>
-            <p className="text-slate-400 text-lg mb-16 max-w-lg leading-relaxed">
+            <p className="text-white/55 text-lg mb-16 max-w-lg leading-relaxed">
               Jeder Schritt hat eine klare Erwartung und ein klares Ergebnis.
             </p>
           </FadeIn>
@@ -231,12 +231,12 @@ export default function LeistungenPage() {
           <div className="space-y-0">
             {process.map((step, i) => (
               <FadeIn key={i} delay={i * 0.06}>
-                <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 py-8 border-b border-slate-800 last:border-b-0">
+                <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 py-8 border-b border-white/10 last:border-b-0">
                   <div>
                     <div className="text-white font-bold mb-1">{step.step}</div>
-                    <div className="text-slate-500 text-sm">{step.duration}</div>
+                    <div className="text-white/45 text-sm">{step.duration}</div>
                   </div>
-                  <p className="text-slate-400 text-sm leading-relaxed">{step.desc}</p>
+                  <p className="text-white/55 text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -245,29 +245,29 @@ export default function LeistungenPage() {
       </section>
 
       {/* Guarantee */}
-      <section className="py-20 bg-[#f0f4ff] border-b border-gray-100">
+      <section className="py-20 bg-[#0a0a0f]/[0.04] border-b border-[#0a0a0f]/5">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12 items-center">
               <div>
-                <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-4">
+                <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-4">
                   Unsere Garantie
                 </p>
-                <h2 className="text-3xl md:text-4xl font-black text-[#111827] mb-5 leading-tight">
+                <h2 className="text-3xl md:text-4xl font-black text-[#0a0a0f] mb-5 leading-tight">
                   Nicht zufrieden?
                   <br />
                   Wir überarbeiten kostenlos.
                 </h2>
-                <p className="text-[#6b7280] text-base leading-relaxed max-w-xl">
+                <p className="text-[#0a0a0f]/55 text-base leading-relaxed max-w-xl">
                   Nach dem ersten Design-Entwurf haben Sie das Recht auf beliebig viele
                   Überarbeitungen, ohne Diskussion und ohne Aufpreis, bis das Design dem entspricht,
                   was im Briefing vereinbart war. Das steht so im Vertrag.
                 </p>
-                <p className="text-[#9ca3af] text-sm mt-4">
+                <p className="text-[#0a0a0f]/40 text-sm mt-4">
                   Was nicht gilt: Neue Features nach Projektstart kosten extra. Das ist nur fair.
                 </p>
               </div>
-              <div className="bg-white border border-gray-100 rounded-2xl p-8">
+              <div className="bg-white border border-[#0a0a0f]/5 rounded-2xl p-8">
                 <div className="space-y-4">
                   {[
                     "Festpreis ohne Stundensatz",
@@ -277,10 +277,10 @@ export default function LeistungenPage() {
                     "30 Tage Support nach Launch",
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-[#2563eb]/10 flex items-center justify-center flex-shrink-0">
-                        <Check size={11} className="text-[#2563eb]" />
+                      <div className="w-5 h-5 rounded-full bg-[#0066FF]/10 flex items-center justify-center flex-shrink-0">
+                        <Check size={11} className="text-[#0066FF]" />
                       </div>
-                      <span className="text-[#374151] text-sm">{item}</span>
+                      <span className="text-[#0a0a0f] text-sm">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -294,7 +294,7 @@ export default function LeistungenPage() {
       <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-6">
           <FadeIn>
-            <h2 className="text-3xl font-black text-[#111827] mb-12 leading-tight">
+            <h2 className="text-3xl font-black text-[#0a0a0f] mb-12 leading-tight">
               Häufige Fragen zu unseren Leistungen
             </h2>
           </FadeIn>
@@ -319,9 +319,9 @@ export default function LeistungenPage() {
               },
             ].map((faq, i) => (
               <FadeIn key={i} delay={i * 0.06}>
-                <div className="border-b border-gray-100 pb-8">
-                  <h3 className="font-bold text-[#111827] mb-3">{faq.q}</h3>
-                  <p className="text-[#6b7280] text-sm leading-relaxed">{faq.a}</p>
+                <div className="border-b border-[#0a0a0f]/5 pb-8">
+                  <h3 className="font-bold text-[#0a0a0f] mb-3">{faq.q}</h3>
+                  <p className="text-[#0a0a0f]/55 text-sm leading-relaxed">{faq.a}</p>
                 </div>
               </FadeIn>
             ))}
@@ -330,27 +330,27 @@ export default function LeistungenPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-[#f0f4ff]">
+      <section className="py-24 bg-[#0a0a0f]/[0.04]">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#111827] mb-5 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0a0a0f] mb-5 leading-tight">
               Welche Leistung passt zu Ihnen?
             </h2>
-            <p className="text-[#6b7280] text-base sm:text-lg mb-10 leading-relaxed">
+            <p className="text-[#0a0a0f]/55 text-base sm:text-lg mb-10 leading-relaxed">
               Kostenlos anfragen, innerhalb von 24 Stunden antworten wir mit einem konkreten Angebot.
               Kein Stundensatz, kein Überraschungsangebot.
             </p>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
               <Link
                 href="/anfrage"
-                className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center justify-center gap-2 text-[15px]"
+                className="bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center justify-center gap-2 text-[15px]"
               >
                 Jetzt Projekt anfragen
                 <ArrowRight size={17} />
               </Link>
               <Link
                 href="/preise"
-                className="flex items-center justify-center gap-2 text-[#374151] font-semibold px-8 py-4 rounded-full border border-gray-200 hover:border-gray-400 transition-colors text-[15px]"
+                className="flex items-center justify-center gap-2 text-[#0a0a0f] font-semibold px-8 py-4 rounded-full border border-[#0a0a0f]/10 hover:border-[#0a0a0f]/30 transition-colors text-[15px]"
               >
                 Preise ansehen
               </Link>

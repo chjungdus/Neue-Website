@@ -3,10 +3,10 @@ import { Star } from "lucide-react"
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-[#0F1E3D]">
+    <section className="py-24 bg-[#0a0a0f]">
       <div className="max-w-3xl mx-auto px-6">
         <FadeIn>
-          <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-4">
+          <p className="text-white/35 text-xs font-semibold uppercase tracking-widest mb-4">
             Kundenstimmen
           </p>
           <h2 className="text-3xl md:text-4xl font-black text-white mb-12 leading-tight">
@@ -19,7 +19,7 @@ export default function Testimonials() {
             {/* Large decorative quote mark */}
             <div
               className="absolute -top-8 -left-4 text-[120px] font-black leading-none select-none"
-              style={{ color: "#60A5FA", opacity: 0.12 }}
+              style={{ color: "#0066FF", opacity: 0.12 }}
               aria-hidden="true"
             >
               &ldquo;
@@ -29,7 +29,7 @@ export default function Testimonials() {
               {/* Stars */}
               <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className="text-[#60A5FA] fill-[#60A5FA]" />
+                  <Star key={i} size={16} className="text-[#0066FF] fill-[#0066FF]" />
                 ))}
               </div>
 
@@ -40,10 +40,10 @@ export default function Testimonials() {
               <div className="flex items-center justify-between flex-wrap gap-4 pt-6 border-t border-white/[0.06]">
                 <div>
                   <div className="text-white font-semibold text-sm">Limpiezas El Valle</div>
-                  <div className="text-slate-500 text-xs mt-0.5">Reinigungsunternehmen · Düsseldorf</div>
+                  <div className="text-white/45 text-xs mt-0.5">Reinigungsunternehmen · Düsseldorf</div>
                 </div>
-                <span className="inline-flex items-center gap-2 text-xs font-bold bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/20 px-3 py-1.5 rounded-full">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
+                <span className="inline-flex items-center gap-2 text-xs font-bold bg-[#0066FF]/15 text-[#0066FF] border border-[#0066FF]/20 px-3 py-1.5 rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0066FF]" />
                   Bis September ausgebucht
                 </span>
               </div>

@@ -29,7 +29,7 @@ export default function WhyUs() {
     <section className="py-28 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] leading-tight mb-16">
+          <h2 className="text-3xl md:text-4xl font-black text-[#0a0a0f] leading-tight mb-16">
             Warum eine Website
             <br />
             bei uns?
@@ -45,10 +45,10 @@ export default function WhyUs() {
                   <Icon
                     size={30}
                     strokeWidth={1.5}
-                    className="text-[#60A5FA] mb-5"
+                    className="text-[#0066FF] mb-5"
                   />
-                  <h3 className="text-lg font-bold text-[#0F172A] mb-2">{r.title}</h3>
-                  <p className="text-[#475569] text-[15px] leading-relaxed">{r.body}</p>
+                  <h3 className="text-lg font-bold text-[#0a0a0f] mb-2">{r.title}</h3>
+                  <p className="text-[#0a0a0f] text-[15px] leading-relaxed">{r.body}</p>
                 </div>
               </FadeIn>
             )

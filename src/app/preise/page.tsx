@@ -141,27 +141,27 @@ export default function PreisePage() {
   return (
     <div className="pt-16">
       {/* Header */}
-      <section className="py-16 sm:py-20 bg-white border-b border-gray-100">
+      <section className="py-16 sm:py-20 bg-white border-b border-[#0a0a0f]/5">
         <div className="max-w-4xl mx-auto px-6">
-          <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-5">
+          <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-5">
             Preise
           </p>
-          <h1 className="text-[26px] sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#111827] mb-5 leading-tight">
+          <h1 className="text-[26px] sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#0a0a0f] mb-5 leading-tight">
             Kein Stundensatz.
             <br />
-            <span className="text-[#2563eb]">Kein Überraschungsangebot.</span>
+            <span className="text-[#0066FF]">Kein Überraschungsangebot.</span>
           </h1>
-          <p className="text-[#6b7280] text-base sm:text-xl leading-relaxed max-w-2xl">
+          <p className="text-[#0a0a0f]/55 text-base sm:text-xl leading-relaxed max-w-2xl">
             Festpreise ab 199 €. Weil Sie vor dem Auftrag wissen sollten, was er kostet.
           </p>
-          <p className="text-[#9ca3af] text-sm mt-4">Alle Preise netto zzgl. 19 % MwSt.</p>
+          <p className="text-[#0a0a0f]/40 text-sm mt-4">Alle Preise netto zzgl. 19 % MwSt.</p>
         </div>
       </section>
 
       {/* One-time packages */}
-      <section className="py-12 bg-[#f0f4ff]">
+      <section className="py-12 bg-[#0a0a0f]/[0.04]">
         <div className="max-w-6xl mx-auto px-6">
-          <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-8">
+          <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-8">
             Einmalige Website-Erstellung
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
@@ -170,13 +170,13 @@ export default function PreisePage() {
                 key={pkg.id}
                 className={`rounded-2xl p-7 sm:p-8 flex flex-col relative ${
                   pkg.highlight
-                    ? "bg-[#2563eb] shadow-xl shadow-blue-500/15"
-                    : "bg-white border border-gray-200"
+                    ? "bg-[#0066FF] shadow-xl shadow-[#0066FF]/15"
+                    : "bg-white border border-[#0a0a0f]/10"
                 }`}
               >
                 {pkg.badge && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                    <span className="bg-[#f59e0b] text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow-sm">
+                    <span className="bg-[#0a0a0f] text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow-sm">
                       {pkg.badge}
                     </span>
                   </div>
@@ -185,26 +185,26 @@ export default function PreisePage() {
                 <div className="mb-6">
                   <p
                     className={`text-xs font-semibold uppercase tracking-wider mb-1.5 ${
-                      pkg.highlight ? "text-blue-300" : "text-[#9ca3af]"
+                      pkg.highlight ? "text-white/80" : "text-[#0a0a0f]/40"
                     }`}
                   >
                     {pkg.tagline}
                   </p>
                   <h2
                     className={`font-black text-2xl mb-4 ${
-                      pkg.highlight ? "text-white" : "text-[#111827]"
+                      pkg.highlight ? "text-white" : "text-[#0a0a0f]"
                     }`}
                   >
                     {pkg.name}
                   </h2>
                   <div className="flex items-baseline gap-1.5 mb-4">
-                    <span className={`text-sm ${pkg.highlight ? "text-blue-300" : "text-[#9ca3af]"}`}>ab</span>
-                    <span className={`text-4xl font-black ${pkg.highlight ? "text-white" : "text-[#111827]"}`}>
+                    <span className={`text-sm ${pkg.highlight ? "text-white/80" : "text-[#0a0a0f]/40"}`}>ab</span>
+                    <span className={`text-4xl font-black ${pkg.highlight ? "text-white" : "text-[#0a0a0f]"}`}>
                       {pkg.price} €
                     </span>
-                    <span className={`text-sm ${pkg.highlight ? "text-blue-300" : "text-[#9ca3af]"}`}>netto</span>
+                    <span className={`text-sm ${pkg.highlight ? "text-white/80" : "text-[#0a0a0f]/40"}`}>netto</span>
                   </div>
-                  <p className={`text-sm leading-relaxed ${pkg.highlight ? "text-blue-100" : "text-[#6b7280]"}`}>
+                  <p className={`text-sm leading-relaxed ${pkg.highlight ? "text-white/70" : "text-[#0a0a0f]/55"}`}>
                     {pkg.desc}
                   </p>
                 </div>
@@ -213,12 +213,12 @@ export default function PreisePage() {
                     <li
                       key={f}
                       className={`flex items-start gap-3 text-sm ${
-                        pkg.highlight ? "text-white/90" : "text-[#374151]"
+                        pkg.highlight ? "text-white/90" : "text-[#0a0a0f]"
                       }`}
                     >
                       <Check
                         size={15}
-                        className={`mt-0.5 flex-shrink-0 ${pkg.highlight ? "text-blue-200" : "text-[#2563eb]"}`}
+                        className={`mt-0.5 flex-shrink-0 ${pkg.highlight ? "text-white/70" : "text-[#0066FF]"}`}
                         strokeWidth={2.5}
                       />
                       {f}
@@ -230,8 +230,8 @@ export default function PreisePage() {
                   href={`/anfrage?paket=${pkg.id}`}
                   className={`text-center font-bold px-6 py-3.5 rounded-full transition-all flex items-center justify-center gap-2 ${
                     pkg.highlight
-                      ? "bg-white text-[#2563eb] hover:bg-gray-50"
-                      : "bg-[#2563eb] text-white hover:bg-[#1d4ed8]"
+                      ? "bg-white text-[#0066FF] hover:bg-[#0a0a0f]/[0.03]"
+                      : "bg-[#0066FF] text-white hover:bg-[#0066FF]/85"
                   }`}
                 >
                   {pkg.name} anfragen <ArrowRight size={16} />
@@ -243,17 +243,17 @@ export default function PreisePage() {
       </section>
 
       {/* Guarantee */}
-      <section className="py-8 bg-[#f0f4ff]">
+      <section className="py-8 bg-[#0a0a0f]/[0.04]">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="bg-white border border-green-100 rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row items-start gap-5">
-            <div className="w-10 h-10 rounded-xl bg-[#f0fdf4] flex items-center justify-center flex-shrink-0">
-              <Shield size={20} className="text-[#10b981]" />
+          <div className="bg-white border border-[#0066FF]/15 rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row items-start gap-5">
+            <div className="w-10 h-10 rounded-xl bg-[#0a0a0f]/[0.04] flex items-center justify-center flex-shrink-0">
+              <Shield size={20} className="text-[#0066FF]" />
             </div>
             <div>
-              <h3 className="text-[#111827] font-black text-base sm:text-lg mb-1.5">
+              <h3 className="text-[#0a0a0f] font-black text-base sm:text-lg mb-1.5">
                 Nicht zufrieden mit dem ersten Entwurf?
               </h3>
-              <p className="text-[#6b7280] text-sm leading-relaxed max-w-xl">
+              <p className="text-[#0a0a0f]/55 text-sm leading-relaxed max-w-xl">
                 Wir überarbeiten kostenlos, ohne Diskussion, ohne Zeitdruck, so oft wie nötig.
                 Diese Aussage steht im Vertrag. Nicht im Marketing.
               </p>
@@ -263,49 +263,49 @@ export default function PreisePage() {
       </section>
 
       {/* Payment Methods */}
-      <section className="py-16 bg-white border-t border-gray-100">
+      <section className="py-16 bg-white border-t border-[#0a0a0f]/5">
         <div className="max-w-6xl mx-auto px-6">
-          <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
+          <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-6">
             Zahlungsmethoden
           </p>
-          <h2 className="text-xl sm:text-2xl font-black text-[#111827] mb-8 leading-tight">
+          <h2 className="text-xl sm:text-2xl font-black text-[#0a0a0f] mb-8 leading-tight">
             So können Sie zahlen.
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {paymentMethods.map((method) => {
               const Icon = method.icon
               return (
-                <div key={method.name} className="bg-[#f0f4ff] border border-gray-100 rounded-xl p-4 sm:p-5 flex flex-col items-center text-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center">
-                    <Icon size={18} className="text-[#2563eb]" />
+                <div key={method.name} className="bg-[#0a0a0f]/[0.04] border border-[#0a0a0f]/5 rounded-xl p-4 sm:p-5 flex flex-col items-center text-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-white border border-[#0a0a0f]/10 flex items-center justify-center">
+                    <Icon size={18} className="text-[#0066FF]" />
                   </div>
                   <div>
-                    <p className="font-semibold text-[#111827] text-sm">{method.name}</p>
-                    <p className="text-[#9ca3af] text-xs mt-0.5">{method.desc}</p>
+                    <p className="font-semibold text-[#0a0a0f] text-sm">{method.name}</p>
+                    <p className="text-[#0a0a0f]/40 text-xs mt-0.5">{method.desc}</p>
                   </div>
                 </div>
               )
             })}
           </div>
-          <p className="text-[#9ca3af] text-xs mt-5">
+          <p className="text-[#0a0a0f]/40 text-xs mt-5">
             Zahlung nach Vorstellung der Probewebsite · kein Vorauszahlung
           </p>
         </div>
       </section>
 
       {/* Monthly care packages */}
-      <section className="py-16 bg-[#f0f4ff] border-t border-gray-100">
+      <section className="py-16 bg-[#0a0a0f]/[0.04] border-t border-[#0a0a0f]/5">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <div>
-              <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-3">
+              <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-3">
                 Laufende Betreuung
               </p>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#111827] leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#0a0a0f] leading-tight">
                 Pflege &amp; Aktualisierung
               </h2>
             </div>
-            <p className="text-[#9ca3af] text-sm max-w-xs text-right hidden sm:block leading-relaxed">
+            <p className="text-[#0a0a0f]/40 text-sm max-w-xs text-right hidden sm:block leading-relaxed">
               Wir machen die Änderungen für Sie, schnell und unkompliziert.
             </p>
           </div>
@@ -316,57 +316,57 @@ export default function PreisePage() {
                 key={pkg.name}
                 className={`rounded-2xl p-6 sm:p-7 ${
                   pkg.highlight
-                    ? "bg-[#1a3570] text-white"
-                    : "bg-white border border-gray-100"
+                    ? "bg-[#0a0a0f] text-white"
+                    : "bg-white border border-[#0a0a0f]/5"
                 }`}
               >
                 <div className="flex items-center justify-between mb-5">
-                  <h3 className={`font-bold text-base ${pkg.highlight ? "text-white" : "text-[#111827]"}`}>
+                  <h3 className={`font-bold text-base ${pkg.highlight ? "text-white" : "text-[#0a0a0f]"}`}>
                     {pkg.name}
                   </h3>
                   {pkg.highlight && (
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-slate-500 bg-slate-800 px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] font-bold uppercase tracking-wide text-white/45 bg-white/10 px-2 py-0.5 rounded-full">
                       Beliebt
                     </span>
                   )}
                 </div>
                 <div className="flex items-baseline gap-1 mb-6">
-                  <span className={`text-3xl font-black ${pkg.highlight ? "text-white" : "text-[#111827]"}`}>
+                  <span className={`text-3xl font-black ${pkg.highlight ? "text-white" : "text-[#0a0a0f]"}`}>
                     {pkg.price} €
                   </span>
-                  <span className={`text-sm ${pkg.highlight ? "text-slate-400" : "text-[#9ca3af]"}`}>/Monat</span>
+                  <span className={`text-sm ${pkg.highlight ? "text-white/55" : "text-[#0a0a0f]/40"}`}>/Monat</span>
                 </div>
                 <ul className="flex flex-col gap-2.5">
                   {pkg.features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm">
                       <RefreshCw
                         size={13}
-                        className={`mt-0.5 flex-shrink-0 ${pkg.highlight ? "text-[#60a5fa]" : "text-[#2563eb]"}`}
+                        className={`mt-0.5 flex-shrink-0 ${pkg.highlight ? "text-[#0066FF]" : "text-[#0066FF]"}`}
                       />
-                      <span className={pkg.highlight ? "text-slate-300" : "text-[#374151]"}>{f}</span>
+                      <span className={pkg.highlight ? "text-white/75" : "text-[#0a0a0f]"}>{f}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
           </div>
-          <p className="text-[#9ca3af] text-xs mt-5 leading-relaxed max-w-xl">
+          <p className="text-[#0a0a0f]/40 text-xs mt-5 leading-relaxed max-w-xl">
             In jedem Paket enthalten: Hosting auf Vercel&apos;s globalem Edge-Network und automatische SSL-Verschlüsselung. Premium inkl. Supabase-Datenbank für dynamische Inhalte. Monatlich kündbar, keine Vertragsbindung. · Alle Preise netto zzgl. MwSt.
           </p>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-16 sm:py-20 bg-white border-t border-gray-100">
+      <section className="py-16 sm:py-20 bg-white border-t border-[#0a0a0f]/5">
         <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-2xl sm:text-3xl font-black text-[#111827] mb-10">
+          <h2 className="text-2xl sm:text-3xl font-black text-[#0a0a0f] mb-10">
             Fragen zu Preisen
           </h2>
           <div className="flex flex-col gap-4">
             {priceFAQs.map((faq) => (
-              <div key={faq.q} className="bg-[#f0f4ff] border border-gray-100 rounded-2xl p-6 sm:p-7">
-                <h3 className="text-[#111827] font-bold mb-3 text-base">{faq.q}</h3>
-                <p className="text-[#6b7280] text-sm leading-relaxed">{faq.a}</p>
+              <div key={faq.q} className="bg-[#0a0a0f]/[0.04] border border-[#0a0a0f]/5 rounded-2xl p-6 sm:p-7">
+                <h3 className="text-[#0a0a0f] font-bold mb-3 text-base">{faq.q}</h3>
+                <p className="text-[#0a0a0f]/55 text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -374,24 +374,24 @@ export default function PreisePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 sm:py-20 bg-[#f0f4ff] border-t border-gray-100">
+      <section className="py-16 sm:py-20 bg-[#0a0a0f]/[0.04] border-t border-[#0a0a0f]/5">
         <div className="max-w-2xl mx-auto px-6 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#111827] mb-4 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0a0a0f] mb-4 leading-tight">
             Bereit für ein konkretes Angebot?
           </h2>
-          <p className="text-[#6b7280] text-base sm:text-lg mb-10 leading-relaxed">
+          <p className="text-[#0a0a0f]/55 text-base sm:text-lg mb-10 leading-relaxed">
             Kostenlos anfragen. Wir melden uns innerhalb von 24 Stunden mit einem persönlichen Angebot.
           </p>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
             <Link
               href="/anfrage"
-              className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full inline-flex items-center justify-center gap-2 transition-colors"
+              className="bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-8 py-4 rounded-full inline-flex items-center justify-center gap-2 transition-colors"
             >
               Kostenlos anfragen <ArrowRight size={18} />
             </Link>
             <Link
               href="/kontakt"
-              className="text-[#374151] font-semibold px-8 py-4 rounded-full border border-gray-200 hover:border-gray-300 transition-all text-center"
+              className="text-[#0a0a0f] font-semibold px-8 py-4 rounded-full border border-[#0a0a0f]/10 hover:border-[#0a0a0f]/20 transition-all text-center"
             >
               Erst mal fragen
             </Link>
@@ -399,11 +399,11 @@ export default function PreisePage() {
         </div>
       </section>
 
-      <div className="bg-[#f0f4ff] border-t border-gray-200 py-6">
-        <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-[#9ca3af]">
-          <Link href="/impressum" className="hover:text-[#374151] transition-colors">Impressum</Link>
-          <Link href="/datenschutz" className="hover:text-[#374151] transition-colors">Datenschutz</Link>
-          <Link href="/agb" className="hover:text-[#374151] transition-colors">AGB</Link>
+      <div className="bg-[#0a0a0f]/[0.04] border-t border-[#0a0a0f]/10 py-6">
+        <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-[#0a0a0f]/40">
+          <Link href="/impressum" className="hover:text-[#0a0a0f] transition-colors">Impressum</Link>
+          <Link href="/datenschutz" className="hover:text-[#0a0a0f] transition-colors">Datenschutz</Link>
+          <Link href="/agb" className="hover:text-[#0a0a0f] transition-colors">AGB</Link>
         </div>
       </div>
     </div>

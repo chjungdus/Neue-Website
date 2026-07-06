@@ -16,6 +16,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
+  const onDarkHero = pathname === "/" && !scrolled
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -37,9 +38,9 @@ export default function Navbar() {
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="flex items-center gap-2 font-bold text-lg text-[#0a0a0f] group"
+          className={`flex items-center gap-2 font-bold text-lg group transition-colors ${onDarkHero ? "text-white" : "text-[#0a0a0f]"}`}
         >
-          <div className="w-8 h-8 rounded-lg bg-[#2563eb] flex items-center justify-center group-hover:bg-[#1d4ed8] transition-colors">
+          <div className="w-8 h-8 rounded-lg bg-[#0066FF] flex items-center justify-center group-hover:bg-[#0066FF]/85 transition-colors">
             <Zap size={16} className="text-white" />
           </div>
           <span>Nexuzo</span>
@@ -51,9 +52,9 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={`text-sm font-medium transition-colors ${
-                pathname === link.href
-                  ? "text-[#0a0a0f]"
-                  : "text-[#0a0a0f]/60 hover:text-[#0a0a0f]"
+                onDarkHero
+                  ? pathname === link.href ? "text-white" : "text-white/60 hover:text-white"
+                  : pathname === link.href ? "text-[#0a0a0f]" : "text-[#0a0a0f]/60 hover:text-[#0a0a0f]"
               }`}
             >
               {link.label}
@@ -64,13 +65,13 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <Link
             href="/kontakt"
-            className="text-sm font-medium text-[#0a0a0f]/60 hover:text-[#0a0a0f] transition-colors"
+            className={`text-sm font-medium transition-colors ${onDarkHero ? "text-white/60 hover:text-white" : "text-[#0a0a0f]/60 hover:text-[#0a0a0f]"}`}
           >
             Kontakt
           </Link>
           <Link
             href="/anfrage"
-            className="border border-[#2563eb] text-[#2563eb] hover:bg-[#2563eb] hover:text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
+            className="border border-[#0066FF] text-[#0066FF] hover:bg-[#0066FF]/85 hover:text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
           >
             Kostenlos anfragen
           </Link>
@@ -78,7 +79,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-[#0a0a0f] p-2"
+          className={`md:hidden p-2 transition-colors ${onDarkHero ? "text-white" : "text-[#0a0a0f]"}`}
           aria-label="Menü öffnen"
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -117,7 +118,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/anfrage"
-              className="border border-[#2563eb] text-[#2563eb] text-sm font-semibold px-5 py-3 rounded-full text-center mt-3 hover:bg-[#2563eb] hover:text-white transition-colors"
+              className="border border-[#0066FF] text-[#0066FF] text-sm font-semibold px-5 py-3 rounded-full text-center mt-3 hover:bg-[#0066FF]/85 hover:text-white transition-colors"
             >
               Kostenlos anfragen
             </Link>

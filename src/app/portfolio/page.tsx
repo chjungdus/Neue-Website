@@ -33,18 +33,18 @@ export default function PortfolioPage() {
     <div className="pt-16">
 
       {/* Hero */}
-      <section className="pt-16 pb-14 bg-white border-b border-gray-100">
+      <section className="pt-16 pb-14 bg-white border-b border-[#0a0a0f]/5">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
-            <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
+            <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-6">
               Portfolio
             </p>
-            <h1 className="text-5xl md:text-6xl font-black text-[#111827] leading-[1.05] mb-5 max-w-2xl">
+            <h1 className="text-5xl md:text-6xl font-black text-[#0a0a0f] leading-[1.05] mb-5 max-w-2xl">
               Echte Projekte.
               <br />
-              <span className="text-[#2563eb]">0 Templates.</span>
+              <span className="text-[#0066FF]">0 Templates.</span>
             </h1>
-            <p className="text-[#6b7280] text-xl max-w-xl leading-relaxed">
+            <p className="text-[#0a0a0f]/55 text-xl max-w-xl leading-relaxed">
               Jedes davon handgebaut. weil jedes Unternehmen andere Ziele hat und ein
               Copy-Paste-Design das nicht abbildet.
             </p>
@@ -53,25 +53,25 @@ export default function PortfolioPage() {
       </section>
 
       {/* How we choose projects. dark section */}
-      <section className="py-16 bg-[#1a3570]">
+      <section className="py-16 bg-[#0a0a0f]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
-            <p className="text-slate-600 text-xs font-semibold uppercase tracking-widest mb-8">
+            <p className="text-white/35 text-xs font-semibold uppercase tracking-widest mb-8">
               Wie wir Projekte auswählen
             </p>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-800 rounded-2xl overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden">
             {selectionPrincipien.map((p, i) => (
               <FadeIn key={i} delay={i * 0.08}>
-                <div className="bg-[#1a3570] p-8">
+                <div className="bg-[#0a0a0f] p-8">
                   <span
                     className="text-5xl font-black leading-none block mb-5"
-                    style={{ color: "#2563eb18" }}
+                    style={{ color: "#0066FF18" }}
                   >
                     {p.no}
                   </span>
                   <p className="text-white font-bold text-base mb-3 leading-snug">{p.title}</p>
-                  <p className="text-slate-500 text-sm leading-relaxed">{p.desc}</p>
+                  <p className="text-white/45 text-sm leading-relaxed">{p.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -80,10 +80,10 @@ export default function PortfolioPage() {
       </section>
 
       {/* Grid */}
-      <section className="py-16 bg-[#f0f4ff]">
+      <section className="py-16 bg-[#0a0a0f]/[0.04]">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
-            <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-8">
+            <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-8">
               Alle Projekte
             </p>
           </FadeIn>
@@ -92,20 +92,20 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA strip */}
-      <section className="py-14 bg-white border-t border-gray-100">
+      <section className="py-14 bg-white border-t border-[#0a0a0f]/5">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div>
-                <p className="font-bold text-[#111827] mb-1 text-lg">Ihr Projekt könnte hier stehen.</p>
-                <p className="text-[#6b7280] text-sm max-w-md leading-relaxed">
+                <p className="font-bold text-[#0a0a0f] mb-1 text-lg">Ihr Projekt könnte hier stehen.</p>
+                <p className="text-[#0a0a0f]/55 text-sm max-w-md leading-relaxed">
                   Schreiben Sie uns kurz, was Sie brauchen. Wir antworten innerhalb von 24 Stunden
                   mit einem konkreten Angebot.
                 </p>
               </div>
               <Link
                 href="/anfrage"
-                className="inline-flex items-center gap-2 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-6 py-3.5 rounded-full transition-colors text-sm shrink-0"
+                className="inline-flex items-center gap-2 bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-6 py-3.5 rounded-full transition-colors text-sm shrink-0"
               >
                 Projekt anfragen
                 <ArrowRight size={15} />
