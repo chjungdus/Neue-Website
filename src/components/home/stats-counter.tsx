@@ -37,7 +37,7 @@ function AnimatedNumber({ target, suffix, decimal }: StatData) {
   }, [target])
   const display = decimal ? current.toFixed(1) : Math.round(current).toString()
   return (
-    <div ref={containerRef} className="text-5xl md:text-6xl font-black text-[#111827] tabular-nums leading-none">
+    <div ref={containerRef} className="text-5xl md:text-6xl font-black text-[#0a0a0f] tabular-nums leading-none">
       {display}{suffix}
     </div>
   )
@@ -45,15 +45,15 @@ function AnimatedNumber({ target, suffix, decimal }: StatData) {
 
 export default function StatsCounter() {
   return (
-    <section className="py-24 bg-[#f9fafb] border-y border-gray-100">
+    <section className="py-24 bg-[#0a0a0f]/[0.03] border-y border-[#0a0a0f]/5">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
           {stats.map((stat, i) => (
             <FadeIn key={stat.label} delay={i * 0.08} direction="up">
               <div className="text-center">
                 <AnimatedNumber {...stat} />
-                <div className="text-[#111827] font-semibold text-sm mt-3 mb-1">{stat.label}</div>
-                <div className="text-[#9ca3af] text-xs leading-relaxed">{stat.note}</div>
+                <div className="text-[#0a0a0f] font-semibold text-sm mt-3 mb-1">{stat.label}</div>
+                <div className="text-[#0a0a0f]/40 text-xs leading-relaxed">{stat.note}</div>
               </div>
             </FadeIn>
           ))}

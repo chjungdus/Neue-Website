@@ -96,18 +96,18 @@ export default function FaqPage() {
   return (
     <div className="pt-16">
       {/* Hero */}
-      <section className="pt-20 pb-14 bg-white border-b border-gray-100">
+      <section className="pt-20 pb-14 bg-white border-b border-[#0a0a0f]/5">
         <div className="max-w-4xl mx-auto px-6">
           <FadeIn>
-            <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-5">
+            <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-5">
               FAQ
             </p>
-            <h1 className="text-5xl md:text-6xl font-black text-[#111827] leading-[1.05] mb-5 max-w-2xl">
+            <h1 className="text-5xl md:text-6xl font-black text-[#0a0a0f] leading-[1.05] mb-5 max-w-2xl">
               Ihre Fragen.
               <br />
-              <span className="text-[#2563eb]">Klare Antworten.</span>
+              <span className="text-[#0066FF]">Klare Antworten.</span>
             </h1>
-            <p className="text-[#6b7280] text-xl max-w-xl leading-relaxed">
+            <p className="text-[#0a0a0f]/55 text-xl max-w-xl leading-relaxed">
               Die häufigsten Fragen zu Preisen, Prozessen und was nach dem Launch passiert.
               Keine Standardfloskeln. echte Antworten.
             </p>
@@ -116,21 +116,21 @@ export default function FaqPage() {
       </section>
 
       {/* FAQ sections */}
-      <section className="py-16 bg-[#f9fafb]">
+      <section className="py-16 bg-[#0a0a0f]/[0.03]">
         <div className="max-w-4xl mx-auto px-6 space-y-16">
           {faqs.map((section, si) => (
             <FadeIn key={si} delay={si * 0.06}>
               <div>
-                <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-widest mb-6">
+                <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-6">
                   {section.category}
                 </p>
                 <div className="flex flex-col gap-4">
                   {section.items.map((faq, i) => (
-                    <div key={i} className="bg-white border border-gray-100 rounded-2xl p-7">
-                      <h2 className="text-[#111827] font-bold mb-3 text-base leading-snug">
+                    <div key={i} className="bg-white border border-[#0a0a0f]/5 rounded-2xl p-7">
+                      <h2 className="text-[#0a0a0f] font-bold mb-3 text-base leading-snug">
                         {faq.q}
                       </h2>
-                      <p className="text-[#6b7280] text-sm leading-relaxed">{faq.a}</p>
+                      <p className="text-[#0a0a0f]/55 text-sm leading-relaxed">{faq.a}</p>
                     </div>
                   ))}
                 </div>
@@ -141,26 +141,26 @@ export default function FaqPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-white border-t border-gray-100">
+      <section className="py-20 bg-white border-t border-[#0a0a0f]/5">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="text-3xl font-black text-[#111827] mb-4 leading-tight">
+            <h2 className="text-3xl font-black text-[#0a0a0f] mb-4 leading-tight">
               Noch eine Frage?
             </h2>
-            <p className="text-[#6b7280] text-lg mb-10 leading-relaxed">
+            <p className="text-[#0a0a0f]/55 text-lg mb-10 leading-relaxed">
               Schreiben Sie uns einfach. Wir antworten innerhalb von 24 Stunden. ehrlich,
               auch wenn die ehrliche Antwort &quot;wir sind nicht die Richtigen für Sie&quot; ist.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/kontakt"
-                className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded-full inline-flex items-center gap-2 transition-colors"
+                className="bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-8 py-4 rounded-full inline-flex items-center gap-2 transition-colors"
               >
                 Frage stellen <ArrowRight size={17} />
               </Link>
               <Link
                 href="/anfrage"
-                className="text-[#374151] font-semibold px-8 py-4 rounded-full border border-gray-200 hover:border-gray-300 transition-all"
+                className="text-[#0a0a0f] font-semibold px-8 py-4 rounded-full border border-[#0a0a0f]/10 hover:border-[#0a0a0f]/20 transition-all"
               >
                 Direkt anfragen
               </Link>

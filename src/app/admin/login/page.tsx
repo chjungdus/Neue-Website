@@ -31,7 +31,7 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#06070f] px-6">
+    <div className="min-h-screen flex items-center justify-center bg-[#0a0a0f] px-6">
       <div className="w-full max-w-sm">
         <div className="flex items-center gap-2 font-bold text-white mb-10 justify-center">
           <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center">
@@ -40,8 +40,8 @@ export default function AdminLoginPage() {
           <span className="text-xl">Admin-Bereich</span>
         </div>
 
-        <div className="bg-[#0e0f1c] border border-white/6 rounded-2xl p-8">
-          <div className="flex items-center gap-2 text-[#8b8da0] text-sm mb-6">
+        <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-8">
+          <div className="flex items-center gap-2 text-[#ffffff]/50 text-sm mb-6">
             <Lock size={14} />
             Passwort eingeben, um fortzufahren
           </div>
@@ -52,10 +52,10 @@ export default function AdminLoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Admin-Passwort"
-              className="w-full bg-[#181929] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-[#4a4b60] focus:outline-none focus:border-[#6366f1]/60 transition-colors"
+              className="w-full bg-[#0a0a0f] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-[#ffffff]/30 focus:outline-none focus:border-[#0066FF]/60 transition-colors"
             />
             {error && (
-              <p className="text-red-400 text-sm">Falsches Passwort.</p>
+              <p className="text-[#0066FF] text-sm">Falsches Passwort.</p>
             )}
             <button
               type="submit"

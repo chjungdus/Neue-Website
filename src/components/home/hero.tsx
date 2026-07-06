@@ -19,6 +19,7 @@ export default function Hero() {
   const [active, setActive] = useState(0)
   const [direction, setDirection] = useState(1)
   const [userInteracted, setUserInteracted] = useState(false)
+  const [expandedCard, setExpandedCard] = useState<number | null>(null)
 
   const prev = useCallback(() => {
     setUserInteracted(true)
@@ -46,44 +47,26 @@ export default function Hero() {
   const current = sites[active]
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-10 bg-white md:bg-[#1a3570]">
+    <section className="relative flex flex-col items-center justify-center overflow-hidden pt-28 pb-12 md:pt-32 md:pb-16 bg-[#0a0a0f]">
 
-      {/* Background decoration — desktop only */}
+      {/* Background decoration */}
       <div
-        className="hidden md:block absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
-      <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-[#1a3570] via-transparent to-[#0d2050]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-transparent to-[#0a0a0f]" />
 
       {/* Text */}
-      <div className="relative z-10 text-center px-6 mb-10 max-w-2xl">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="flex items-center justify-center mb-5"
-        >
-          {/* Glass pill badge — dark on mobile (white bg), light on desktop (navy bg) */}
-          <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 bg-black/5 md:bg-white/15 md:border-white/30"
-            style={{ backdropFilter: "blur(8px)" }}
-          >
-            <span className="w-2 h-2 rounded-full bg-[#60A5FA] animate-pulse flex-shrink-0" />
-            <p className="text-[#0a0a0f] md:text-[#93C5FD] text-sm font-semibold whitespace-nowrap">
-              Aktuell 2 Projektplätze frei
-            </p>
-          </div>
-        </motion.div>
-
+      <div className="relative z-10 text-center px-6 mb-8 max-w-2xl">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
-          className="text-[32px] sm:text-[52px] md:text-[62px] font-black text-[#0a0a0f] md:text-white leading-[1.05] tracking-tight mb-6"
+          className="text-[32px] sm:text-[52px] md:text-[62px] font-black text-white leading-[1.05] tracking-tight mb-6"
         >
           Wir bauen Ihre
           <br />
@@ -100,121 +83,110 @@ export default function Hero() {
         >
           <Link
             href="/anfrage"
-            className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-7 py-3.5 rounded-full transition-colors flex items-center gap-2 text-[15px]"
+            className="bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-7 py-3.5 rounded-full transition-colors flex items-center gap-2 text-[15px]"
           >
             Kostenlos anfragen <ArrowRight size={16} />
           </Link>
           <Link
             href="/portfolio"
-            className="border border-black/20 md:border-white/25 hover:border-black/40 md:hover:border-white/50 text-[#0a0a0f]/70 md:text-white/70 hover:text-[#0a0a0f] md:hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all text-[15px] flex items-center gap-2 group"
+            className="border border-white/25 hover:border-white/50 text-white/70 hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all text-[15px] flex items-center gap-2 group"
           >
-            Unsere Arbeit ansehen
+            Referenzen ansehen
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.35 }}
+          className="mt-6 text-white/40 text-sm"
+        >
+          Festpreis vor Projektstart&nbsp;&nbsp;·&nbsp;&nbsp;Live in 4 Wochen&nbsp;&nbsp;·&nbsp;&nbsp;Bezahlt wird erst nach Freigabe
+        </motion.p>
       </div>
 
-      {/* ── MOBILE: Smartphone Mockup (floating) ── */}
+      {/* ── MOBILE: Auto-scrolling Website Card Marquee ── */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.3 }}
-        className="relative z-10 md:hidden w-full flex flex-col items-center gap-5"
+        className="relative z-10 md:hidden w-full"
+        onClick={(e) => {
+          if (e.target === e.currentTarget) setExpandedCard(null)
+        }}
       >
-        <div className="relative flex items-center justify-center w-full px-4">
-          {/* Arrow Left */}
-          <button
-            onClick={prev}
-            aria-label="Vorherige Website"
-            className="absolute left-2 z-20 w-9 h-9 rounded-full bg-black/5 hover:bg-black/10 border border-black/10 flex items-center justify-center transition-all"
+        <div
+          className="w-full overflow-hidden"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          }}
+        >
+          <div
+            className="flex gap-4 w-max py-2"
+            style={{
+              animation: "marquee 34s linear infinite",
+              animationPlayState: expandedCard !== null ? "paused" : "running",
+            }}
           >
-            <ChevronLeft size={18} className="text-[#0a0a0f]" />
-          </button>
+            {[...sites, ...sites].map((site, i) => {
+              const isExpanded = expandedCard === i
+              return (
+                <div
+                  key={i}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`${site.label} – zum Vergrößern klicken`}
+                  onClick={() => {
+                    if (!isExpanded) setExpandedCard(i)
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && !isExpanded) setExpandedCard(i)
+                  }}
+                  className={`relative flex-shrink-0 rounded-2xl border bg-white overflow-hidden cursor-pointer transition-all duration-300 ease-out ${
+                    isExpanded
+                      ? "w-[250px] h-[160px] border-[#0066FF]/30 shadow-xl"
+                      : "w-[170px] h-[110px] border-black/10 shadow-sm"
+                  }`}
+                >
+                  {/* Browser chrome */}
+                  <div className="flex items-center gap-1.5 px-3 py-2 bg-[#0a0a0f]/[0.04] border-b border-black/5">
+                    <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
+                    <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
+                    <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
+                  </div>
 
-          {/* Floating phone frame */}
-          <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <div
-              className="bg-[#18181b] rounded-[2.75rem] p-3 relative"
-              style={{
-                width: "260px",
-                boxShadow: "0 40px 80px rgba(0,0,0,0.2)",
-              }}
-            >
-              {/* Dynamic Island */}
-              <div className="flex justify-center pb-2.5">
-                <div className="w-24 h-[22px] bg-black rounded-full" />
-              </div>
+                  {/* Label */}
+                  <div className="flex flex-col items-center justify-center h-[calc(100%-32px)] px-3 text-center gap-1">
+                    <p className="text-[13px] font-bold text-[#0a0a0f] truncate max-w-full">
+                      {site.label}
+                    </p>
+                    <p className="text-[11px] text-[#0a0a0f]/40 font-medium">{site.tag}</p>
+                  </div>
 
-              {/* Screen */}
-              <div className="rounded-[2rem] overflow-hidden relative bg-white" style={{ height: "440px" }}>
-                <AnimatePresence mode="wait" custom={direction}>
-                  <motion.div
-                    key={active}
-                    custom={direction}
-                    initial={{ opacity: 0, x: direction * 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: direction * -30 }}
-                    transition={{ duration: 0.35, ease: "easeInOut" }}
-                    className="absolute inset-0"
-                  >
-                    <iframe
-                      src={current.url}
-                      title={current.label}
-                      className="w-full h-full border-0"
-                      loading="lazy"
-                      sandbox="allow-scripts allow-same-origin allow-forms"
-                    />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              {/* Home indicator */}
-              <div className="flex justify-center pt-2.5">
-                <div className="w-24 h-[5px] bg-white/20 rounded-full" />
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Arrow Right */}
-          <button
-            onClick={() => { setUserInteracted(true); next() }}
-            aria-label="Nächste Website"
-            className="absolute right-2 z-20 w-9 h-9 rounded-full bg-black/5 hover:bg-black/10 border border-black/10 flex items-center justify-center transition-all"
-          >
-            <ChevronRight size={18} className="text-[#0a0a0f]" />
-          </button>
-        </div>
-
-        {/* Label + Dots — mobile */}
-        <div className="flex flex-col items-center gap-3">
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={active}
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.25 }}
-              className="text-[#0a0a0f]/50 text-sm font-medium"
-            >
-              {current.label}
-              <span className="ml-2 text-[#0a0a0f]/30 text-xs">{current.tag}</span>
-            </motion.p>
-          </AnimatePresence>
-
-          <div className="flex gap-2">
-            {sites.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                aria-label={`Website ${i + 1}`}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === active ? "w-6 bg-[#60A5FA]" : "w-1.5 bg-black/20 hover:bg-black/30"
-                }`}
-              />
-            ))}
+                  {/* Overlay — appears on first click, real link navigates on second click */}
+                  <AnimatePresence>
+                    {isExpanded && (
+                      <motion.a
+                        href={site.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-[#0a0a0f]/95 text-white"
+                      >
+                        <ExternalLink size={20} />
+                        <span className="text-[13px] font-bold">Website besuchen</span>
+                        <span className="text-[11px] text-white/60">{site.display}</span>
+                      </motion.a>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )
+            })}
           </div>
         </div>
       </motion.div>
@@ -239,13 +211,13 @@ export default function Hero() {
 
           {/* Laptop frame */}
           <div className="w-full mx-14">
-            <div className="bg-[#1a2540] rounded-t-xl p-[6px] shadow-[0_0_60px_rgba(37,99,235,0.2)]">
+            <div className="bg-[#0a0a0f] rounded-t-xl p-[6px] shadow-[0_0_60px_rgba(0,102,255,0.2)]">
               {/* Browser chrome */}
-              <div className="bg-[#232e45] rounded-t-lg px-4 py-2.5 flex items-center gap-2">
+              <div className="bg-white/5 rounded-t-lg px-4 py-2.5 flex items-center gap-2">
                 <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
                 </div>
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -254,7 +226,7 @@ export default function Hero() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="flex-1 mx-2 bg-[#151f33] rounded px-3 py-1 text-[11px] text-slate-400 font-mono truncate"
+                    className="flex-1 mx-2 bg-white/10 rounded px-3 py-1 text-[11px] text-white/55 font-mono truncate"
                   >
                     {current.display}
                   </motion.div>
@@ -264,7 +236,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Im neuen Tab öffnen"
-                  className="text-slate-500 hover:text-slate-300 transition-colors flex-shrink-0"
+                  className="text-white/45 hover:text-white/75 transition-colors flex-shrink-0"
                 >
                   <ExternalLink size={13} />
                 </a>
@@ -295,8 +267,8 @@ export default function Hero() {
             </div>
 
             {/* Hinge + base */}
-            <div className="h-[10px] bg-gradient-to-b from-[#1a2540] to-[#141d30] mx-6 rounded-b-sm" />
-            <div className="h-[6px] bg-[#0f1726] mx-0 rounded-b-xl shadow-[0_4px_20px_rgba(0,0,0,0.5)]" />
+            <div className="h-[10px] bg-white/5 mx-6 rounded-b-sm" />
+            <div className="h-[6px] bg-[#0a0a0f] mx-0 rounded-b-xl shadow-[0_4px_20px_rgba(0,0,0,0.5)]" />
           </div>
 
           {/* Arrow Right */}
@@ -332,7 +304,7 @@ export default function Hero() {
                 onClick={() => goTo(i)}
                 aria-label={`Website ${i + 1}`}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === active ? "w-6 bg-[#60A5FA]" : "w-1.5 bg-white/25 hover:bg-white/40"
+                  i === active ? "w-6 bg-[#0066FF]" : "w-1.5 bg-white/25 hover:bg-white/40"
                 }`}
               />
             ))}

@@ -86,7 +86,7 @@ export default function AdminPortfolioPage() {
       </div>
 
       {showForm && (
-        <form onSubmit={handleSubmit} className="bg-[#0e0f1c] border border-[#6366f1]/30 rounded-xl p-6 mb-6 flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="bg-[#0a0a0f] border border-[#0066FF]/30 rounded-xl p-6 mb-6 flex flex-col gap-4">
           <h2 className="text-white font-bold">Neues Projekt</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
@@ -96,24 +96,24 @@ export default function AdminPortfolioPage() {
               { name: "tags", label: "Tags (kommagetrennt)", placeholder: "Next.js, Tailwind, Supabase" },
             ].map((field) => (
               <div key={field.name}>
-                <label className="text-[#c4c5d6] text-xs font-medium block mb-1.5">{field.label}</label>
+                <label className="text-[#ffffff]/70 text-xs font-medium block mb-1.5">{field.label}</label>
                 <input
                   value={form[field.name as keyof typeof form]}
                   onChange={(e) => setForm((f) => ({ ...f, [field.name]: e.target.value }))}
                   placeholder={field.placeholder}
-                  className="w-full bg-[#181929] border border-white/10 rounded-lg px-3 py-2 text-white placeholder:text-[#4a4b60] focus:outline-none focus:border-[#6366f1]/60 transition-colors text-sm"
+                  className="w-full bg-[#0a0a0f] border border-white/10 rounded-lg px-3 py-2 text-white placeholder:text-[#ffffff]/30 focus:outline-none focus:border-[#0066FF]/60 transition-colors text-sm"
                 />
               </div>
             ))}
           </div>
           <div>
-            <label className="text-[#c4c5d6] text-xs font-medium block mb-1.5">Beschreibung *</label>
+            <label className="text-[#ffffff]/70 text-xs font-medium block mb-1.5">Beschreibung *</label>
             <textarea
               value={form.description}
               onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))}
               rows={3}
               placeholder="Kurze Projektbeschreibung..."
-              className="w-full bg-[#181929] border border-white/10 rounded-lg px-3 py-2 text-white placeholder:text-[#4a4b60] focus:outline-none focus:border-[#6366f1]/60 transition-colors text-sm resize-none"
+              className="w-full bg-[#0a0a0f] border border-white/10 rounded-lg px-3 py-2 text-white placeholder:text-[#ffffff]/30 focus:outline-none focus:border-[#0066FF]/60 transition-colors text-sm resize-none"
             />
           </div>
           <div className="flex items-center gap-3">
@@ -124,7 +124,7 @@ export default function AdminPortfolioPage() {
             >
               {saving ? "Speichern..." : "Speichern"}
             </button>
-            <button type="button" onClick={() => setShowForm(false)} className="text-[#8b8da0] text-sm hover:text-white transition-colors">
+            <button type="button" onClick={() => setShowForm(false)} className="text-[#ffffff]/50 text-sm hover:text-white transition-colors">
               Abbrechen
             </button>
           </div>
@@ -132,20 +132,20 @@ export default function AdminPortfolioPage() {
       )}
 
       {loading ? (
-        <p className="text-[#8b8da0]">Lädt...</p>
+        <p className="text-[#ffffff]/50">Lädt...</p>
       ) : (
         <div className="flex flex-col gap-3">
           {projects.map((project) => (
-            <div key={project.id} className="bg-[#0e0f1c] border border-white/6 rounded-xl p-5 flex items-center gap-4">
+            <div key={project.id} className="bg-white/[0.03] border border-white/10 rounded-xl p-5 flex items-center gap-4">
               <div className="w-12 h-12 rounded-lg gradient-bg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
                 {project.client?.slice(0, 2).toUpperCase() ?? "??"}
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="text-white font-medium text-sm truncate">{project.title}</h3>
-                <p className="text-[#8b8da0] text-xs truncate">{project.client}</p>
+                <p className="text-[#ffffff]/50 text-xs truncate">{project.client}</p>
                 <div className="flex flex-wrap gap-1.5 mt-1.5">
                   {project.tags?.slice(0, 3).map((tag) => (
-                    <span key={tag} className="text-xs px-1.5 py-0.5 rounded bg-white/5 text-[#8b8da0]">
+                    <span key={tag} className="text-xs px-1.5 py-0.5 rounded bg-white/5 text-[#ffffff]/50">
                       {tag}
                     </span>
                   ))}
@@ -153,16 +153,16 @@ export default function AdminPortfolioPage() {
               </div>
               <div className="flex items-center gap-2 flex-shrink-0">
                 {project.url && (
-                  <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-[#8b8da0] hover:text-white transition-colors p-1.5">
+                  <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-[#ffffff]/50 hover:text-white transition-colors p-1.5">
                     <ExternalLink size={15} />
                   </a>
                 )}
-                <button className="text-[#8b8da0] hover:text-white transition-colors p-1.5">
+                <button className="text-[#ffffff]/50 hover:text-white transition-colors p-1.5">
                   <Edit2 size={15} />
                 </button>
                 <button
                   onClick={() => handleDelete(project.id)}
-                  className="text-[#8b8da0] hover:text-red-400 transition-colors p-1.5"
+                  className="text-[#ffffff]/50 hover:text-[#0066FF] transition-colors p-1.5"
                 >
                   <Trash2 size={15} />
                 </button>

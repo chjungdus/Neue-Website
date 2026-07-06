@@ -22,7 +22,7 @@ export default function ScrollToTop() {
     <button
       onClick={scrollUp}
       aria-label="Nach oben scrollen"
-      className="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-[#2563eb] hover:bg-[#1d4ed8] text-white shadow-lg shadow-blue-500/25 flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+      className="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-[#0066FF] hover:bg-[#0066FF]/85 text-white shadow-lg shadow-[#0066FF]/25 flex items-center justify-center transition-all hover:scale-110 active:scale-95"
     >
       <ArrowUp size={18} />
     </button>

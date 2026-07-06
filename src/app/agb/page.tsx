@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 function Section({ num, title, children }: { num: string; title: string; children: React.ReactNode }) {
   return (
     <section>
-      <h2 className="text-[#111827] font-bold text-base mb-3">
+      <h2 className="text-[#0a0a0f] font-bold text-base mb-3">
         § {num} {title}
       </h2>
-      <div className="space-y-3 text-[#6b7280] text-sm leading-relaxed">{children}</div>
+      <div className="space-y-3 text-[#0a0a0f]/55 text-sm leading-relaxed">{children}</div>
     </section>
   )
 }
@@ -24,13 +24,13 @@ export default function AGBPage() {
       <div className="max-w-3xl mx-auto px-6 py-24">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-[#6b7280] hover:text-[#111827] transition-colors text-sm mb-12"
+          className="inline-flex items-center gap-2 text-[#0a0a0f]/55 hover:text-[#0a0a0f] transition-colors text-sm mb-12"
         >
           <ArrowLeft size={16} /> Zurück zur Startseite
         </Link>
 
-        <h1 className="text-4xl font-black text-[#111827] mb-4">Allgemeine Geschäftsbedingungen</h1>
-        <p className="text-[#6b7280] text-sm mb-12">
+        <h1 className="text-4xl font-black text-[#0a0a0f] mb-4">Allgemeine Geschäftsbedingungen</h1>
+        <p className="text-[#0a0a0f]/55 text-sm mb-12">
           von Nexuzo, Königsallee 14, 40212 Düsseldorf — Stand: Juni 2026
         </p>
 
@@ -179,11 +179,11 @@ export default function AGBPage() {
           </Section>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-gray-200 flex flex-wrap gap-4 text-xs text-[#6b7280]">
-          <Link href="/impressum" className="hover:text-[#111827] transition-colors">
+        <div className="mt-16 pt-8 border-t border-[#0a0a0f]/10 flex flex-wrap gap-4 text-xs text-[#0a0a0f]/55">
+          <Link href="/impressum" className="hover:text-[#0a0a0f] transition-colors">
             Impressum
           </Link>
-          <Link href="/datenschutz" className="hover:text-[#111827] transition-colors">
+          <Link href="/datenschutz" className="hover:text-[#0a0a0f] transition-colors">
             Datenschutzerklärung
           </Link>
         </div>

@@ -3,9 +3,9 @@ import type { ProjectRequest } from "@/lib/supabase"
 import { Clock, CheckCircle2, Loader2 } from "lucide-react"
 
 const statusConfig = {
-  new: { label: "Neu", color: "#f59e0b", icon: Clock },
-  in_progress: { label: "In Bearbeitung", color: "#6366f1", icon: Loader2 },
-  done: { label: "Erledigt", color: "#10b981", icon: CheckCircle2 },
+  new: { label: "Neu", color: "#0066FF", icon: Clock },
+  in_progress: { label: "In Bearbeitung", color: "#0066FF", icon: Loader2 },
+  done: { label: "Erledigt", color: "#0066FF", icon: CheckCircle2 },
 }
 
 const projectTypeLabels: Record<string, string> = {
@@ -37,14 +37,14 @@ export default async function AnfragenPage() {
     <div>
       <div className="flex items-center justify-between mb-8">
         <h1 className="text-2xl font-bold text-white">Anfragen</h1>
-        <span className="bg-[#f59e0b]/10 text-[#f59e0b] border border-[#f59e0b]/20 text-xs font-medium px-3 py-1 rounded-full">
+        <span className="bg-[#0066FF]/10 text-[#0066FF] border border-[#0066FF]/20 text-xs font-medium px-3 py-1 rounded-full">
           {requests.filter((r) => r.status === "new").length} neu
         </span>
       </div>
 
       {requests.length === 0 ? (
-        <div className="bg-[#0e0f1c] border border-white/6 rounded-xl p-12 text-center">
-          <p className="text-[#8b8da0]">
+        <div className="bg-white/[0.03] border border-white/10 rounded-xl p-12 text-center">
+          <p className="text-[#ffffff]/50">
             {process.env.NEXT_PUBLIC_SUPABASE_URL
               ? "Noch keine Anfragen eingegangen."
               : "Supabase nicht konfiguriert. Anfragen werden nur per E-Mail empfangen."}
@@ -56,22 +56,22 @@ export default async function AnfragenPage() {
             const status = statusConfig[req.status] ?? statusConfig.new
             const StatusIcon = status.icon
             return (
-              <div key={req.id} className="bg-[#0e0f1c] border border-white/6 rounded-xl p-6">
+              <div key={req.id} className="bg-white/[0.03] border border-white/10 rounded-xl p-6">
                 <div className="flex items-start justify-between gap-4 mb-4">
                   <div>
                     <h2 className="text-white font-bold">{req.name}</h2>
-                    <a href={`mailto:${req.email}`} className="text-[#6366f1] text-sm hover:underline">{req.email}</a>
+                    <a href={`mailto:${req.email}`} className="text-[#0066FF] text-sm hover:underline">{req.email}</a>
                   </div>
                   <span className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border flex-shrink-0" style={{ color: status.color, backgroundColor: `${status.color}10`, borderColor: `${status.color}20` }}>
                     <StatusIcon size={12} />{status.label}
                   </span>
                 </div>
                 <div className="flex flex-wrap gap-3 mb-4">
-                  {req.project_type && <span className="text-xs px-2.5 py-1 rounded-full bg-[#6366f1]/10 text-[#8b8db8] border border-[#6366f1]/15">{projectTypeLabels[req.project_type] ?? req.project_type}</span>}
-                  {req.budget && <span className="text-xs px-2.5 py-1 rounded-full bg-white/5 text-[#8b8da0] border border-white/10">{budgetLabels[req.budget] ?? req.budget}</span>}
+                  {req.project_type && <span className="text-xs px-2.5 py-1 rounded-full bg-[#0066FF]/10 text-[#ffffff]/55 border border-[#0066FF]/15">{projectTypeLabels[req.project_type] ?? req.project_type}</span>}
+                  {req.budget && <span className="text-xs px-2.5 py-1 rounded-full bg-white/5 text-[#ffffff]/50 border border-white/10">{budgetLabels[req.budget] ?? req.budget}</span>}
                 </div>
-                {req.description && <p className="text-[#8b8da0] text-sm leading-relaxed border-t border-white/5 pt-4">{req.description}</p>}
-                <p className="text-[#4a4b60] text-xs mt-3">{new Date(req.created_at).toLocaleString("de-DE")}</p>
+                {req.description && <p className="text-[#ffffff]/50 text-sm leading-relaxed border-t border-white/5 pt-4">{req.description}</p>}
+                <p className="text-[#ffffff]/30 text-xs mt-3">{new Date(req.created_at).toLocaleString("de-DE")}</p>
               </div>
             )
           })}

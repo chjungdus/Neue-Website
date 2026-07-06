@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section>
-      <h2 className="text-[#111827] font-bold text-base mb-3">{title}</h2>
-      <div className="space-y-3 text-[#6b7280] text-sm leading-relaxed">{children}</div>
+      <h2 className="text-[#0a0a0f] font-bold text-base mb-3">{title}</h2>
+      <div className="space-y-3 text-[#0a0a0f]/55 text-sm leading-relaxed">{children}</div>
     </section>
   )
 }
@@ -22,13 +22,13 @@ export default function DatenschutzPage() {
       <div className="max-w-3xl mx-auto px-6 py-24">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-[#6b7280] hover:text-[#111827] transition-colors text-sm mb-12"
+          className="inline-flex items-center gap-2 text-[#0a0a0f]/55 hover:text-[#0a0a0f] transition-colors text-sm mb-12"
         >
           <ArrowLeft size={16} /> Zurück zur Startseite
         </Link>
 
-        <h1 className="text-4xl font-black text-[#111827] mb-4">Datenschutzerklärung</h1>
-        <p className="text-[#6b7280] text-sm mb-12">Stand: Juni 2026</p>
+        <h1 className="text-4xl font-black text-[#0a0a0f] mb-4">Datenschutzerklärung</h1>
+        <p className="text-[#0a0a0f]/55 text-sm mb-12">Stand: Juni 2026</p>
 
         <div className="space-y-10">
           <Section title="1. Datenschutz auf einen Blick">
@@ -53,14 +53,14 @@ export default function DatenschutzPage() {
               Telefon: +49 (0) 211 123 456 7
               <br />
               E-Mail:{" "}
-              <a href="mailto:datenschutz@nexuzo.de" className="text-[#2563eb] hover:underline">
+              <a href="mailto:datenschutz@nexuzo.de" className="text-[#0066FF] hover:underline">
                 datenschutz@nexuzo.de
               </a>
             </p>
           </Section>
 
           <Section title="3. Datenerfassung auf dieser Website">
-            <h3 className="text-[#111827] font-semibold text-sm mb-2">Cookies</h3>
+            <h3 className="text-[#0a0a0f] font-semibold text-sm mb-2">Cookies</h3>
             <p>
               Unsere Internetseiten verwenden sogenannte „Cookies". Cookies sind kleine Datenpakete und richten auf
               Ihrem Endgerät keinen Schaden an. Sie werden entweder vorübergehend für die Dauer einer Sitzung
@@ -72,7 +72,7 @@ export default function DatenschutzPage() {
               eingesetzt.
             </p>
 
-            <h3 className="text-[#111827] font-semibold text-sm mt-4 mb-2">Server-Log-Dateien</h3>
+            <h3 className="text-[#0a0a0f] font-semibold text-sm mt-4 mb-2">Server-Log-Dateien</h3>
             <p>
               Der Provider dieser Website erhebt und speichert automatisch Informationen in sogenannten
               Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:
@@ -151,32 +151,32 @@ export default function DatenschutzPage() {
             <p>Sie haben jederzeit das Recht:</p>
             <ul className="list-disc list-inside space-y-1 pl-2">
               <li>
-                <strong className="text-[#374151]">Auskunft</strong> über Ihre bei uns gespeicherten personenbezogenen
+                <strong className="text-[#0a0a0f]">Auskunft</strong> über Ihre bei uns gespeicherten personenbezogenen
                 Daten zu erhalten (Art. 15 DSGVO)
               </li>
               <li>
-                <strong className="text-[#374151]">Berichtigung</strong> unrichtiger Daten zu verlangen (Art. 16 DSGVO)
+                <strong className="text-[#0a0a0f]">Berichtigung</strong> unrichtiger Daten zu verlangen (Art. 16 DSGVO)
               </li>
               <li>
-                <strong className="text-[#374151]">Löschung</strong> Ihrer bei uns gespeicherten Daten zu verlangen
+                <strong className="text-[#0a0a0f]">Löschung</strong> Ihrer bei uns gespeicherten Daten zu verlangen
                 (Art. 17 DSGVO)
               </li>
               <li>
-                <strong className="text-[#374151]">Einschränkung</strong> der Datenverarbeitung zu verlangen (Art. 18
+                <strong className="text-[#0a0a0f]">Einschränkung</strong> der Datenverarbeitung zu verlangen (Art. 18
                 DSGVO)
               </li>
               <li>
-                <strong className="text-[#374151]">Datenübertragbarkeit</strong> in einem gängigen Format zu erhalten
+                <strong className="text-[#0a0a0f]">Datenübertragbarkeit</strong> in einem gängigen Format zu erhalten
                 (Art. 20 DSGVO)
               </li>
               <li>
-                <strong className="text-[#374151]">Widerspruch</strong> gegen die Verarbeitung einzulegen (Art. 21
+                <strong className="text-[#0a0a0f]">Widerspruch</strong> gegen die Verarbeitung einzulegen (Art. 21
                 DSGVO)
               </li>
             </ul>
             <p>
               Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:{" "}
-              <a href="mailto:datenschutz@nexuzo.de" className="text-[#2563eb] hover:underline">
+              <a href="mailto:datenschutz@nexuzo.de" className="text-[#0066FF] hover:underline">
                 datenschutz@nexuzo.de
               </a>
             </p>
@@ -203,11 +203,11 @@ export default function DatenschutzPage() {
           </Section>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-gray-200 flex flex-wrap gap-4 text-xs text-[#6b7280]">
-          <Link href="/impressum" className="hover:text-[#111827] transition-colors">
+        <div className="mt-16 pt-8 border-t border-[#0a0a0f]/10 flex flex-wrap gap-4 text-xs text-[#0a0a0f]/55">
+          <Link href="/impressum" className="hover:text-[#0a0a0f] transition-colors">
             Impressum
           </Link>
-          <Link href="/agb" className="hover:text-[#111827] transition-colors">
+          <Link href="/agb" className="hover:text-[#0a0a0f] transition-colors">
             AGB
           </Link>
         </div>

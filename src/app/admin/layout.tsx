@@ -13,8 +13,8 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   if (!isAuth) redirect("/admin/login")
 
   return (
-    <div className="min-h-screen flex bg-[#06070f]">
-      <aside className="w-60 bg-[#0e0f1c] border-r border-white/5 flex flex-col p-6">
+    <div className="min-h-screen flex bg-[#0a0a0f]">
+      <aside className="w-60 bg-[#0a0a0f] border-r border-white/5 flex flex-col p-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-white mb-10">
           <div className="w-7 h-7 rounded-md gradient-bg flex items-center justify-center">
             <Zap size={13} className="text-white" />
@@ -33,7 +33,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#8b8da0] hover:text-white hover:bg-white/5 transition-all text-sm font-medium"
+                className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#ffffff]/50 hover:text-white hover:bg-white/5 transition-all text-sm font-medium"
               >
                 <Icon size={16} />
                 {item.label}
@@ -45,7 +45,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <form action="/api/admin/logout" method="POST">
           <button
             type="submit"
-            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#8b8da0] hover:text-white hover:bg-white/5 transition-all text-sm font-medium w-full"
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#ffffff]/50 hover:text-white hover:bg-white/5 transition-all text-sm font-medium w-full"
           >
             <LogOut size={16} />
             Abmelden
