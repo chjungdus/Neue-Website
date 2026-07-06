@@ -46,18 +46,18 @@ export default function Hero() {
   const current = sites[active]
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center bg-[#1a3570] overflow-hidden pt-20 pb-10">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-10 bg-white md:bg-[#1a3570]">
 
-      {/* Background grid */}
+      {/* Background decoration — desktop only */}
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="hidden md:block absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1a3570] via-transparent to-[#0d2050]" />
+      <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-[#1a3570] via-transparent to-[#0d2050]" />
 
       {/* Text */}
       <div className="relative z-10 text-center px-6 mb-10 max-w-2xl">
@@ -65,17 +65,25 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="flex items-center justify-center gap-2.5 mb-5"
+          className="flex items-center justify-center mb-5"
         >
-          <span className="w-2 h-2 rounded-full bg-[#60A5FA] animate-pulse" />
-          <p className="text-[#93C5FD] text-sm font-semibold">Aktuell 2 Projektplätze frei</p>
+          {/* Glass pill badge — dark on mobile (white bg), light on desktop (navy bg) */}
+          <div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 bg-black/5 md:bg-white/15 md:border-white/30"
+            style={{ backdropFilter: "blur(8px)" }}
+          >
+            <span className="w-2 h-2 rounded-full bg-[#60A5FA] animate-pulse flex-shrink-0" />
+            <p className="text-[#0a0a0f] md:text-[#93C5FD] text-sm font-semibold whitespace-nowrap">
+              Aktuell 2 Projektplätze frei
+            </p>
+          </div>
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
-          className="text-[32px] sm:text-[52px] md:text-[62px] font-black text-white leading-[1.05] tracking-tight mb-6"
+          className="text-[32px] sm:text-[52px] md:text-[62px] font-black text-[#0a0a0f] md:text-white leading-[1.05] tracking-tight mb-6"
         >
           Wir bauen Ihre
           <br />
@@ -98,7 +106,7 @@ export default function Hero() {
           </Link>
           <Link
             href="/portfolio"
-            className="border border-white/25 hover:border-white/50 text-white/70 hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all text-[15px] flex items-center gap-2 group backdrop-blur-sm"
+            className="border border-black/20 md:border-white/25 hover:border-black/40 md:hover:border-white/50 text-[#0a0a0f]/70 md:text-white/70 hover:text-[#0a0a0f] md:hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all text-[15px] flex items-center gap-2 group"
           >
             Unsere Arbeit ansehen
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -106,12 +114,117 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Laptop Carousel */}
+      {/* ── MOBILE: Smartphone Mockup (floating) ── */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.3 }}
-        className="relative z-10 w-full max-w-6xl px-4"
+        className="relative z-10 md:hidden w-full flex flex-col items-center gap-5"
+      >
+        <div className="relative flex items-center justify-center w-full px-4">
+          {/* Arrow Left */}
+          <button
+            onClick={prev}
+            aria-label="Vorherige Website"
+            className="absolute left-2 z-20 w-9 h-9 rounded-full bg-black/5 hover:bg-black/10 border border-black/10 flex items-center justify-center transition-all"
+          >
+            <ChevronLeft size={18} className="text-[#0a0a0f]" />
+          </button>
+
+          {/* Floating phone frame */}
+          <motion.div
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <div
+              className="bg-[#18181b] rounded-[2.75rem] p-3 relative"
+              style={{
+                width: "260px",
+                boxShadow: "0 40px 80px rgba(0,0,0,0.2)",
+              }}
+            >
+              {/* Dynamic Island */}
+              <div className="flex justify-center pb-2.5">
+                <div className="w-24 h-[22px] bg-black rounded-full" />
+              </div>
+
+              {/* Screen */}
+              <div className="rounded-[2rem] overflow-hidden relative bg-white" style={{ height: "440px" }}>
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.div
+                    key={active}
+                    custom={direction}
+                    initial={{ opacity: 0, x: direction * 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: direction * -30 }}
+                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                    className="absolute inset-0"
+                  >
+                    <iframe
+                      src={current.url}
+                      title={current.label}
+                      className="w-full h-full border-0"
+                      loading="lazy"
+                      sandbox="allow-scripts allow-same-origin allow-forms"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Home indicator */}
+              <div className="flex justify-center pt-2.5">
+                <div className="w-24 h-[5px] bg-white/20 rounded-full" />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Arrow Right */}
+          <button
+            onClick={() => { setUserInteracted(true); next() }}
+            aria-label="Nächste Website"
+            className="absolute right-2 z-20 w-9 h-9 rounded-full bg-black/5 hover:bg-black/10 border border-black/10 flex items-center justify-center transition-all"
+          >
+            <ChevronRight size={18} className="text-[#0a0a0f]" />
+          </button>
+        </div>
+
+        {/* Label + Dots — mobile */}
+        <div className="flex flex-col items-center gap-3">
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={active}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.25 }}
+              className="text-[#0a0a0f]/50 text-sm font-medium"
+            >
+              {current.label}
+              <span className="ml-2 text-[#0a0a0f]/30 text-xs">{current.tag}</span>
+            </motion.p>
+          </AnimatePresence>
+
+          <div className="flex gap-2">
+            {sites.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`Website ${i + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === active ? "w-6 bg-[#60A5FA]" : "w-1.5 bg-black/20 hover:bg-black/30"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
+      {/* ── DESKTOP: Laptop Carousel (unverändert) ── */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.3 }}
+        className="relative z-10 hidden md:block w-full max-w-6xl px-4"
       >
         <div className="relative flex items-center">
 
@@ -119,13 +232,13 @@ export default function Hero() {
           <button
             onClick={prev}
             aria-label="Vorherige Website"
-            className="absolute -left-2 sm:left-2 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm flex items-center justify-center transition-all"
+            className="absolute left-2 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm flex items-center justify-center transition-all"
           >
             <ChevronLeft size={20} className="text-white" />
           </button>
 
           {/* Laptop frame */}
-          <div className="w-full mx-8 sm:mx-14">
+          <div className="w-full mx-14">
             <div className="bg-[#1a2540] rounded-t-xl p-[6px] shadow-[0_0_60px_rgba(37,99,235,0.2)]">
               {/* Browser chrome */}
               <div className="bg-[#232e45] rounded-t-lg px-4 py-2.5 flex items-center gap-2">
@@ -157,7 +270,7 @@ export default function Hero() {
                 </a>
               </div>
 
-              {/* Iframe — height responsive so it stays landscape on mobile */}
+              {/* Iframe */}
               <div className="relative bg-white overflow-hidden" style={{ height: "clamp(200px, 42vw, 420px)" }}>
                 <AnimatePresence mode="wait" custom={direction}>
                   <motion.div
@@ -190,13 +303,13 @@ export default function Hero() {
           <button
             onClick={() => { setUserInteracted(true); next() }}
             aria-label="Nächste Website"
-            className="absolute -right-2 sm:right-2 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm flex items-center justify-center transition-all"
+            className="absolute right-2 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm flex items-center justify-center transition-all"
           >
             <ChevronRight size={20} className="text-white" />
           </button>
         </div>
 
-        {/* Label + Dots */}
+        {/* Label + Dots — desktop */}
         <div className="flex flex-col items-center gap-3 mt-5">
           <AnimatePresence mode="wait">
             <motion.p
