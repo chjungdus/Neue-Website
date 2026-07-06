@@ -19,6 +19,7 @@ export default function Hero() {
   const [active, setActive] = useState(0)
   const [direction, setDirection] = useState(1)
   const [userInteracted, setUserInteracted] = useState(false)
+  const [expandedCard, setExpandedCard] = useState<number | null>(null)
 
   const prev = useCallback(() => {
     setUserInteracted(true)
@@ -114,107 +115,87 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* ── MOBILE: Smartphone Mockup (floating) ── */}
+      {/* ── MOBILE: Auto-scrolling Website Card Marquee ── */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.3 }}
-        className="relative z-10 md:hidden w-full flex flex-col items-center gap-5"
+        className="relative z-10 md:hidden w-full"
+        onClick={(e) => {
+          if (e.target === e.currentTarget) setExpandedCard(null)
+        }}
       >
-        <div className="relative flex items-center justify-center w-full px-4">
-          {/* Arrow Left */}
-          <button
-            onClick={prev}
-            aria-label="Vorherige Website"
-            className="absolute left-2 z-20 w-9 h-9 rounded-full bg-black/5 hover:bg-black/10 border border-black/10 flex items-center justify-center transition-all"
+        <div
+          className="w-full overflow-hidden"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          }}
+        >
+          <div
+            className="flex gap-4 w-max py-2"
+            style={{
+              animation: "marquee 34s linear infinite",
+              animationPlayState: expandedCard !== null ? "paused" : "running",
+            }}
           >
-            <ChevronLeft size={18} className="text-[#0a0a0f]" />
-          </button>
+            {[...sites, ...sites].map((site, i) => {
+              const isExpanded = expandedCard === i
+              return (
+                <div
+                  key={i}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`${site.label} – zum Vergrößern klicken`}
+                  onClick={() => {
+                    if (!isExpanded) setExpandedCard(i)
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && !isExpanded) setExpandedCard(i)
+                  }}
+                  className={`relative flex-shrink-0 rounded-2xl border bg-white overflow-hidden cursor-pointer transition-all duration-300 ease-out ${
+                    isExpanded
+                      ? "w-[250px] h-[160px] border-[#2563eb]/30 shadow-xl"
+                      : "w-[170px] h-[110px] border-black/10 shadow-sm"
+                  }`}
+                >
+                  {/* Browser chrome */}
+                  <div className="flex items-center gap-1.5 px-3 py-2 bg-[#f4f6fb] border-b border-black/5">
+                    <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
+                    <span className="w-2 h-2 rounded-full bg-[#ffbd2e]" />
+                    <span className="w-2 h-2 rounded-full bg-[#28c840]" />
+                  </div>
 
-          {/* Floating phone frame */}
-          <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <div
-              className="bg-[#18181b] rounded-[2.75rem] p-3 relative"
-              style={{
-                width: "260px",
-                boxShadow: "0 40px 80px rgba(0,0,0,0.2)",
-              }}
-            >
-              {/* Dynamic Island */}
-              <div className="flex justify-center pb-2.5">
-                <div className="w-24 h-[22px] bg-black rounded-full" />
-              </div>
+                  {/* Label */}
+                  <div className="flex flex-col items-center justify-center h-[calc(100%-32px)] px-3 text-center gap-1">
+                    <p className="text-[13px] font-bold text-[#0a0a0f] truncate max-w-full">
+                      {site.label}
+                    </p>
+                    <p className="text-[11px] text-[#0a0a0f]/40 font-medium">{site.tag}</p>
+                  </div>
 
-              {/* Screen */}
-              <div className="rounded-[2rem] overflow-hidden relative bg-white" style={{ height: "440px" }}>
-                <AnimatePresence mode="wait" custom={direction}>
-                  <motion.div
-                    key={active}
-                    custom={direction}
-                    initial={{ opacity: 0, x: direction * 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: direction * -30 }}
-                    transition={{ duration: 0.35, ease: "easeInOut" }}
-                    className="absolute inset-0"
-                  >
-                    <iframe
-                      src={current.url}
-                      title={current.label}
-                      className="w-full h-full border-0"
-                      loading="lazy"
-                      sandbox="allow-scripts allow-same-origin allow-forms"
-                    />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              {/* Home indicator */}
-              <div className="flex justify-center pt-2.5">
-                <div className="w-24 h-[5px] bg-white/20 rounded-full" />
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Arrow Right */}
-          <button
-            onClick={() => { setUserInteracted(true); next() }}
-            aria-label="Nächste Website"
-            className="absolute right-2 z-20 w-9 h-9 rounded-full bg-black/5 hover:bg-black/10 border border-black/10 flex items-center justify-center transition-all"
-          >
-            <ChevronRight size={18} className="text-[#0a0a0f]" />
-          </button>
-        </div>
-
-        {/* Label + Dots — mobile */}
-        <div className="flex flex-col items-center gap-3">
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={active}
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.25 }}
-              className="text-[#0a0a0f]/50 text-sm font-medium"
-            >
-              {current.label}
-              <span className="ml-2 text-[#0a0a0f]/30 text-xs">{current.tag}</span>
-            </motion.p>
-          </AnimatePresence>
-
-          <div className="flex gap-2">
-            {sites.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                aria-label={`Website ${i + 1}`}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === active ? "w-6 bg-[#60A5FA]" : "w-1.5 bg-black/20 hover:bg-black/30"
-                }`}
-              />
-            ))}
+                  {/* Overlay — appears on first click, real link navigates on second click */}
+                  <AnimatePresence>
+                    {isExpanded && (
+                      <motion.a
+                        href={site.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-[#1a3570]/95 text-white"
+                      >
+                        <ExternalLink size={20} />
+                        <span className="text-[13px] font-bold">Website besuchen</span>
+                        <span className="text-[11px] text-white/60">{site.display}</span>
+                      </motion.a>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )
+            })}
           </div>
         </div>
       </motion.div>
