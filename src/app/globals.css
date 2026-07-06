@@ -5,9 +5,10 @@
   --color-primary-hover: #1d4ed8;
   --color-navy-900: #0F1E3D;
   --color-navy-800: #16264D;
-  --color-accent-500: #3B82F6;
-  --color-accent-400: #60A5FA;
+  --color-accent-500: #60A5FA;
+  --color-accent-400: #93C5FD;
   --font-sans: var(--font-geist);
+  --font-heading: var(--font-space-grotesk);
 }
 
 :root {
@@ -31,8 +32,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4 {
+  font-family: var(--font-space-grotesk), var(--font-geist), system-ui, sans-serif;
+}
+
 .gradient-text {
-  background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+  background: linear-gradient(135deg, #60A5FA 0%, #93C5FD 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

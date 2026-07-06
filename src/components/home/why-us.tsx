@@ -26,29 +26,29 @@ const reasons = [
 
 export default function WhyUs() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-28 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <div className="max-w-2xl mb-14">
-            <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] leading-tight mb-4">
-              Warum eine Website
-              <br />
-              bei uns?
-            </h2>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] leading-tight mb-16">
+            Warum eine Website
+            <br />
+            bei uns?
+          </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-20 gap-y-14">
           {reasons.map((r, i) => {
             const Icon = r.icon
             return (
               <FadeIn key={r.title} delay={i * 0.08}>
-                <div className="h-full bg-white border border-slate-200 rounded-2xl p-7 shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-md hover:border-slate-300 transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-[#3B82F6]/10 flex items-center justify-center mb-5">
-                    <Icon size={22} className="text-[#3B82F6]" />
-                  </div>
+                <div>
+                  <Icon
+                    size={30}
+                    strokeWidth={1.5}
+                    className="text-[#60A5FA] mb-5"
+                  />
                   <h3 className="text-lg font-bold text-[#0F172A] mb-2">{r.title}</h3>
-                  <p className="text-[#475569] text-sm leading-relaxed">{r.body}</p>
+                  <p className="text-[#475569] text-[15px] leading-relaxed">{r.body}</p>
                 </div>
               </FadeIn>
             )

@@ -1,8 +1,8 @@
 import FadeIn from "@/components/ui/fade-in"
 import { Search, Palette, Code2, Rocket } from "lucide-react"
 
-const ACCENT = "#3B82F6"
-const ACCENT_BG = "rgba(59,130,246,0.12)"
+const ACCENT = "#60A5FA"
+const ACCENT_BG = "rgba(96,165,250,0.12)"
 
 const steps = [
   {

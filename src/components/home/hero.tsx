@@ -67,8 +67,8 @@ export default function Hero() {
           transition={{ duration: 0.4 }}
           className="flex items-center justify-center gap-2.5 mb-5"
         >
-          <span className="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse" />
-          <p className="text-[#60A5FA] text-sm font-semibold">Aktuell 2 Projektplätze frei</p>
+          <span className="w-2 h-2 rounded-full bg-[#60A5FA] animate-pulse" />
+          <p className="text-[#93C5FD] text-sm font-semibold">Aktuell 2 Projektplätze frei</p>
         </motion.div>
 
         <motion.h1
@@ -157,8 +157,8 @@ export default function Hero() {
                 </a>
               </div>
 
-              {/* Iframe */}
-              <div className="relative bg-white overflow-hidden" style={{ height: "420px" }}>
+              {/* Iframe — height responsive so it stays landscape on mobile */}
+              <div className="relative bg-white overflow-hidden" style={{ height: "clamp(200px, 42vw, 420px)" }}>
                 <AnimatePresence mode="wait" custom={direction}>
                   <motion.div
                     key={active}
@@ -219,7 +219,7 @@ export default function Hero() {
                 onClick={() => goTo(i)}
                 aria-label={`Website ${i + 1}`}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === active ? "w-6 bg-[#2563eb]" : "w-1.5 bg-white/25 hover:bg-white/40"
+                  i === active ? "w-6 bg-[#60A5FA]" : "w-1.5 bg-white/25 hover:bg-white/40"
                 }`}
               />
             ))}

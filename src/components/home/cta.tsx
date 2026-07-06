@@ -30,7 +30,7 @@ export default function CTA() {
                   </Link>
                   <Link
                     href="/kontakt"
-                    className="flex items-center gap-2 text-[#60A5FA] font-semibold px-8 py-4 rounded-full border border-[#3B82F6]/40 hover:border-[#3B82F6] hover:bg-[#3B82F6]/10 transition-all text-[15px]"
+                    className="flex items-center gap-2 text-[#93C5FD] font-semibold px-8 py-4 rounded-full border border-[#60A5FA]/40 hover:border-[#60A5FA] hover:bg-[#60A5FA]/10 transition-all text-[15px]"
                   >
                     Erst mal schreiben
                   </Link>
@@ -48,7 +48,7 @@ export default function CTA() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-3.5 text-slate-400 hover:text-white transition-colors group"
                   >
-                    <span className="w-9 h-9 rounded-xl bg-white/[0.06] flex items-center justify-center flex-shrink-0 group-hover:bg-[#3B82F6] transition-colors">
+                    <span className="w-9 h-9 rounded-xl bg-white/[0.06] flex items-center justify-center flex-shrink-0 group-hover:bg-[#60A5FA] transition-colors">
                       <MessageCircle
                         size={15}
                         className="text-slate-500 group-hover:text-white transition-colors"
@@ -60,7 +60,7 @@ export default function CTA() {
                     href="mailto:nexuzo.kontakt@gmail.com"
                     className="flex items-center gap-3.5 text-slate-400 hover:text-white transition-colors group"
                   >
-                    <span className="w-9 h-9 rounded-xl bg-white/[0.06] flex items-center justify-center flex-shrink-0 group-hover:bg-[#3B82F6] transition-colors">
+                    <span className="w-9 h-9 rounded-xl bg-white/[0.06] flex items-center justify-center flex-shrink-0 group-hover:bg-[#60A5FA] transition-colors">
                       <Mail
                         size={15}
                         className="text-slate-500 group-hover:text-white transition-colors"

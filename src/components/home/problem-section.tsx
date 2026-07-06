@@ -37,7 +37,7 @@ export default function ProblemSection() {
             <h2 className="text-4xl md:text-5xl font-black text-white leading-tight mb-5">
               3 Zeichen, dass Ihre Website
               <br />
-              <span className="text-[#60A5FA]">täglich Geld kostet.</span>
+              <span className="text-[#93C5FD]">täglich Geld kostet.</span>
             </h2>
           </div>
         </FadeIn>
@@ -49,7 +49,7 @@ export default function ProblemSection() {
               <FadeIn key={p.title} delay={i * 0.1}>
                 <div className="bg-white/[0.03] border border-white/[0.07] rounded-2xl p-7 hover:bg-white/[0.06] transition-colors h-full flex flex-col">
                   <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-5 shrink-0">
-                    <Icon size={22} className="text-[#60A5FA]" />
+                    <Icon size={22} className="text-[#93C5FD]" />
                   </div>
                   <h3 className="text-lg font-bold text-white mb-3">{p.title}</h3>
                   <p className="text-slate-400 text-sm leading-relaxed flex-1 mb-5">{p.body}</p>

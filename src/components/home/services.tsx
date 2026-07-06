@@ -2,27 +2,46 @@ import Link from "next/link"
 import { ArrowRight, Monitor, Code2, CreditCard, TrendingUp } from "lucide-react"
 import FadeIn from "@/components/ui/fade-in"
 
-const ACCENT = "#3B82F6"
-const ACCENT_LIGHT = "#60A5FA"
+const ACCENT = "#60A5FA"
+const ACCENT_LIGHT = "#93C5FD"
 
 function DesignVisual() {
   return (
-    <div className="w-full rounded-xl bg-[#0a0a0f] border border-white/[0.06] overflow-hidden" style={{ height: "160px" }}>
-      <div className="h-7 bg-white/[0.04] border-b border-white/[0.04] flex items-center gap-2 px-3">
+    <div className="w-full rounded-xl overflow-hidden border border-white/[0.08]" style={{ height: "160px" }}>
+      {/* Mac browser chrome */}
+      <div className="h-8 bg-[#1a2540] flex items-center gap-1.5 px-3 border-b border-white/[0.05]">
         <div className="flex gap-1.5">
-          <div className="w-2 h-2 rounded-full bg-[#ff5f57]/60" />
-          <div className="w-2 h-2 rounded-full bg-[#ffbd2e]/60" />
-          <div className="w-2 h-2 rounded-full bg-[#28c840]/60" />
+          <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+          <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+          <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
         </div>
-        <div className="flex-1 mx-2 h-4 bg-white/[0.04] rounded text-[9px] text-white/15 flex items-center px-2 font-mono">nexuzo.de</div>
+        <div className="flex-1 mx-2 h-4 bg-white/[0.06] rounded text-[9px] text-white/20 flex items-center px-2 font-mono">
+          milonga-foodtruck.de
+        </div>
       </div>
-      <div className="p-4">
-        <div className="h-2.5 w-2/5 rounded-full mb-2.5" style={{ backgroundColor: `${ACCENT}80` }} />
-        <div className="h-1.5 w-3/5 rounded-full mb-1.5 bg-white/[0.08]" />
-        <div className="h-1.5 w-2/5 rounded-full mb-4 bg-white/[0.05]" />
-        <div className="flex gap-2">
-          <div className="h-6 w-20 rounded-full" style={{ backgroundColor: ACCENT }} />
-          <div className="h-6 w-16 rounded-full border border-white/15" />
+      {/* Mini site — Milonga-style content */}
+      <div className="bg-[#1c1008] h-[128px] relative overflow-hidden">
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #2d1a05 0%, #1c1008 60%, #0d0804 100%)" }} />
+        {/* Fake navbar */}
+        <div className="relative flex items-center justify-between px-4 py-2 border-b border-white/[0.06]">
+          <div className="flex items-center gap-1.5">
+            <div className="w-3 h-3 rounded-full bg-[#f97316]/50" />
+            <div className="h-1.5 w-10 rounded-full bg-white/20" />
+          </div>
+          <div className="flex gap-3">
+            {[0, 1, 2].map((i) => (
+              <div key={i} className="h-1 w-6 rounded-full bg-white/10" />
+            ))}
+          </div>
+        </div>
+        {/* Fake hero content */}
+        <div className="relative px-4 pt-3">
+          <div className="text-[8px] font-black text-white/50 mb-1.5 tracking-[0.2em] uppercase">MILONGA ARG</div>
+          <div className="h-2.5 w-3/5 rounded-full mb-2" style={{ background: "linear-gradient(90deg, #f97316, #ef4444)" }} />
+          <div className="h-1.5 w-2/5 rounded-full mb-4 bg-white/10" />
+          <div className="h-6 w-20 rounded-full flex items-center justify-center text-[7px] font-bold text-white" style={{ backgroundColor: "#f97316cc" }}>
+            Menü ansehen
+          </div>
         </div>
       </div>
     </div>
@@ -33,14 +52,17 @@ function CodeVisual() {
   return (
     <div className="w-full rounded-xl bg-[#0a0a0f] border border-white/[0.06] p-4 font-mono text-[11px] leading-6" style={{ height: "148px" }}>
       <div>
-        <span style={{ color: ACCENT_LIGHT }}>const</span>
+        <span style={{ color: ACCENT }}>const</span>
         {" "}
         <span className="text-white/80">site</span>
         {" = "}
         <span className="text-[#4ade80]">build</span>
         <span className="text-white/40">(config)</span>
       </div>
-      <div className="text-white/30 ml-4">.optimize() <span className="text-white/15">{"// 95+"}</span></div>
+      <div className="text-white/30 ml-4">
+        .optimize(){" "}
+        <span className="text-white/15">{"// Lighthouse 95+"}</span>
+      </div>
       <div className="text-white/30 ml-4">.deploy()</div>
       <div className="mt-4 flex items-center gap-2">
         <div className="w-2 h-2 rounded-full bg-[#4ade80]" />
@@ -52,26 +74,38 @@ function CodeVisual() {
 
 function PaymentVisual() {
   return (
-    <div className="w-full rounded-xl bg-[#0a0a0f] border border-white/[0.06] p-4 flex flex-col gap-3" style={{ height: "148px" }}>
-      <div className="rounded-xl p-3 flex items-center gap-3" style={{ backgroundColor: `${ACCENT}15` }}>
-        <div className="w-8 h-5 rounded" style={{ backgroundColor: `${ACCENT}60` }} />
-        <div className="flex flex-col gap-1 flex-1">
-          <div className="h-2 w-1/2 rounded-full bg-white/[0.15]" />
-          <div className="h-1.5 w-1/3 rounded-full bg-white/[0.07]" />
-        </div>
+    <div className="w-full rounded-xl bg-[#0a0a0f] border border-white/[0.06] p-3.5 flex flex-col gap-3" style={{ height: "148px" }}>
+      {/* Product card */}
+      <div className="flex gap-3 flex-1">
         <div
-          className="w-14 h-5 rounded-full text-[8px] font-bold flex items-center justify-center"
-          style={{ backgroundColor: `${ACCENT}40`, color: ACCENT_LIGHT }}
+          className="w-16 rounded-lg flex-shrink-0 flex items-center justify-center"
+          style={{ background: "linear-gradient(135deg, rgba(96,165,250,0.2), rgba(96,165,250,0.05))" }}
         >
-          Zahlen
+          <span className="text-[9px] font-black" style={{ color: `${ACCENT}60` }}>IMG</span>
+        </div>
+        <div className="flex-1 flex flex-col justify-between py-0.5">
+          <div>
+            <div className="h-1.5 w-4/5 rounded-full bg-white/20 mb-1.5" />
+            <div className="h-1 w-3/5 rounded-full bg-white/10" />
+          </div>
+          <div className="flex items-center justify-between gap-2">
+            <div className="text-[12px] font-black text-white/80">€ 29,99</div>
+            <div
+              className="h-5 px-2 rounded text-[7px] font-bold flex items-center flex-shrink-0"
+              style={{ backgroundColor: `${ACCENT}20`, color: ACCENT }}
+            >
+              In den Warenkorb
+            </div>
+          </div>
         </div>
       </div>
-      <div className="flex gap-2">
+      {/* Payment badges */}
+      <div className="flex gap-1.5 pt-2 border-t border-white/[0.05]">
         {["Stripe", "PayPal", "SEPA"].map((label) => (
           <div
             key={label}
-            className="flex-1 h-9 rounded-lg flex items-center justify-center text-[8px] font-bold"
-            style={{ backgroundColor: "rgba(255,255,255,0.04)", color: `${ACCENT_LIGHT}90` }}
+            className="flex-1 h-5 rounded flex items-center justify-center text-[7px] font-bold"
+            style={{ backgroundColor: "rgba(255,255,255,0.04)", color: `${ACCENT_LIGHT}70` }}
           >
             {label}
           </div>
@@ -89,10 +123,7 @@ function SeoVisual() {
           <div
             key={i}
             className="flex-1 rounded-t"
-            style={{
-              height: `${h}%`,
-              backgroundColor: i >= 5 ? ACCENT : `${ACCENT}22`,
-            }}
+            style={{ height: `${h}%`, backgroundColor: i >= 5 ? ACCENT : `${ACCENT}22` }}
           />
         ))}
       </div>
@@ -119,17 +150,16 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-          {/* 01 — Webdesign: full-width, horizontal split */}
+          {/* 01 — Webdesign: full-width banner, text left · visual right */}
           <FadeIn delay={0} className="md:col-span-2">
-            <div className="relative bg-white/[0.04] border border-white/[0.08] rounded-2xl p-8 md:p-10 hover:bg-white/[0.06] hover:border-white/[0.14] transition-all duration-300 overflow-hidden">
-              <span className="absolute top-6 right-8 text-[110px] font-black leading-none select-none pointer-events-none text-white/[0.03]">01</span>
+            <div className="bg-white/[0.04] border border-white/[0.08] rounded-2xl p-8 md:p-10 hover:bg-white/[0.06] hover:border-white/[0.14] transition-all duration-300">
               <div className="flex flex-col md:flex-row gap-10 items-start">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-xl bg-[#3B82F6]/10 flex items-center justify-center flex-shrink-0">
-                      <Monitor size={18} className="text-[#3B82F6]" />
+                    <div className="w-10 h-10 rounded-xl bg-[#60A5FA]/10 flex items-center justify-center flex-shrink-0">
+                      <Monitor size={18} className="text-[#60A5FA]" />
                     </div>
-                    <span className="text-[#60A5FA] text-xs font-bold uppercase tracking-[0.15em]">Webdesign</span>
+                    <span className="text-[#93C5FD] text-xs font-bold uppercase tracking-[0.15em]">Webdesign</span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-black text-white mb-3 leading-tight">
                     Kein Template.<br />Gebaut für Sie.
@@ -140,7 +170,7 @@ export default function Services() {
                   <ul className="space-y-3">
                     {["Mobile-first", "Design schafft Vertrauen", "Einmalig. Kein Copy-Paste"].map((p) => (
                       <li key={p} className="flex items-center gap-3 text-sm text-slate-400">
-                        <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#3B82F6]" />
+                        <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#60A5FA]" />
                         {p}
                       </li>
                     ))}
@@ -155,11 +185,11 @@ export default function Services() {
 
           {/* 02 — Entwicklung: number top-left, icon top-right */}
           <FadeIn delay={0.08}>
-            <div className="relative bg-white/[0.02] border border-white/[0.07] rounded-2xl p-8 hover:bg-white/[0.05] hover:border-white/[0.12] transition-all duration-300 h-full flex flex-col">
+            <div className="bg-white/[0.02] border border-white/[0.07] rounded-2xl p-8 hover:bg-white/[0.05] hover:border-white/[0.12] transition-all duration-300 h-full flex flex-col">
               <div className="flex items-start justify-between mb-7">
                 <span className="text-[#60A5FA]/25 text-5xl font-black leading-none">02</span>
-                <div className="w-10 h-10 rounded-xl bg-[#3B82F6]/10 flex items-center justify-center">
-                  <Code2 size={18} className="text-[#3B82F6]" />
+                <div className="w-10 h-10 rounded-xl bg-[#60A5FA]/10 flex items-center justify-center">
+                  <Code2 size={18} className="text-[#60A5FA]" />
                 </div>
               </div>
               <h3 className="text-xl font-black text-white mb-2">Entwicklung</h3>
@@ -169,7 +199,7 @@ export default function Services() {
               <ul className="space-y-2.5 mb-6">
                 {["Lighthouse 90+ als Standard", "Kein teures CMS", "Auf jedem Gerät fehlerfrei"].map((p) => (
                   <li key={p} className="flex items-center gap-2.5 text-sm text-slate-500">
-                    <span className="w-1 h-1 rounded-full flex-shrink-0 bg-[#3B82F6]" />
+                    <span className="w-1 h-1 rounded-full flex-shrink-0 bg-[#60A5FA]" />
                     {p}
                   </li>
                 ))}
@@ -182,10 +212,10 @@ export default function Services() {
 
           {/* 03 — E-Commerce: icon top-left, number top-right, accent tint */}
           <FadeIn delay={0.12}>
-            <div className="relative bg-[#3B82F6]/[0.04] border border-[#3B82F6]/[0.12] rounded-2xl p-8 hover:bg-[#3B82F6]/[0.07] hover:border-[#3B82F6]/[0.22] transition-all duration-300 h-full flex flex-col">
+            <div className="bg-[#60A5FA]/[0.04] border border-[#60A5FA]/[0.12] rounded-2xl p-8 hover:bg-[#60A5FA]/[0.07] hover:border-[#60A5FA]/[0.22] transition-all duration-300 h-full flex flex-col">
               <div className="flex items-start justify-between mb-7">
-                <div className="w-10 h-10 rounded-xl bg-[#3B82F6]/15 flex items-center justify-center">
-                  <CreditCard size={18} className="text-[#3B82F6]" />
+                <div className="w-10 h-10 rounded-xl bg-[#60A5FA]/15 flex items-center justify-center">
+                  <CreditCard size={18} className="text-[#60A5FA]" />
                 </div>
                 <span className="text-[#60A5FA]/25 text-5xl font-black leading-none">03</span>
               </div>
@@ -197,7 +227,7 @@ export default function Services() {
               <ul className="space-y-2.5 mb-6">
                 {["Stripe & PayPal integriert", "Checkout ohne Abbrüche", "Produktseiten, die überzeugen"].map((p) => (
                   <li key={p} className="flex items-center gap-2.5 text-sm text-slate-500">
-                    <span className="w-1 h-1 rounded-full flex-shrink-0 bg-[#3B82F6]" />
+                    <span className="w-1 h-1 rounded-full flex-shrink-0 bg-[#60A5FA]" />
                     {p}
                   </li>
                 ))}
@@ -208,17 +238,16 @@ export default function Services() {
             </div>
           </FadeIn>
 
-          {/* 04 — SEO: full-width, horizontal split reversed */}
+          {/* 04 — SEO: full-width banner reversed, visual left · text right */}
           <FadeIn delay={0.16} className="md:col-span-2">
-            <div className="relative bg-white/[0.03] border border-white/[0.07] rounded-2xl p-8 md:p-10 hover:bg-white/[0.06] hover:border-white/[0.14] transition-all duration-300 overflow-hidden">
-              <span className="absolute bottom-6 left-8 text-[110px] font-black leading-none select-none pointer-events-none text-white/[0.03]">04</span>
+            <div className="bg-white/[0.03] border border-white/[0.07] rounded-2xl p-8 md:p-10 hover:bg-white/[0.06] hover:border-white/[0.14] transition-all duration-300">
               <div className="flex flex-col md:flex-row-reverse gap-10 items-start">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-xl bg-[#3B82F6]/10 flex items-center justify-center flex-shrink-0">
-                      <TrendingUp size={18} className="text-[#3B82F6]" />
+                    <div className="w-10 h-10 rounded-xl bg-[#60A5FA]/10 flex items-center justify-center flex-shrink-0">
+                      <TrendingUp size={18} className="text-[#60A5FA]" />
                     </div>
-                    <span className="text-[#60A5FA] text-xs font-bold uppercase tracking-[0.15em]">SEO & Performance</span>
+                    <span className="text-[#93C5FD] text-xs font-bold uppercase tracking-[0.15em]">SEO & Performance</span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-black text-white mb-3 leading-tight">
                     Gefunden werden<br />von Kunden, die kaufen.
@@ -229,7 +258,7 @@ export default function Services() {
                   <ul className="space-y-3">
                     {["Technisches SEO inklusive", "Core Web Vitals optimiert", "Kaufbereite Kunden erreichen"].map((p) => (
                       <li key={p} className="flex items-center gap-3 text-sm text-slate-400">
-                        <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#3B82F6]" />
+                        <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#60A5FA]" />
                         {p}
                       </li>
                     ))}

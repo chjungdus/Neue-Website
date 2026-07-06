@@ -19,7 +19,7 @@ export default function Testimonials() {
             {/* Large decorative quote mark */}
             <div
               className="absolute -top-8 -left-4 text-[120px] font-black leading-none select-none"
-              style={{ color: "#3B82F6", opacity: 0.12 }}
+              style={{ color: "#60A5FA", opacity: 0.12 }}
               aria-hidden="true"
             >
               &ldquo;
@@ -29,7 +29,7 @@ export default function Testimonials() {
               {/* Stars */}
               <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className="text-[#3B82F6] fill-[#3B82F6]" />
+                  <Star key={i} size={16} className="text-[#60A5FA] fill-[#60A5FA]" />
                 ))}
               </div>
 
