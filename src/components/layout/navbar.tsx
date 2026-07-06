@@ -3,20 +3,21 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X, Zap, Home } from "lucide-react"
 
 const navLinks = [
+  { href: "/", label: "Start" },
   { href: "/leistungen", label: "Leistungen" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/ueber-uns", label: "Über uns" },
+  { href: "/portfolio", label: "Referenzen" },
+  { href: "/#ablauf", label: "Ablauf" },
   { href: "/preise", label: "Preise" },
+  { href: "/kontakt", label: "Kontakt" },
 ]
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
-  const onDarkHero = pathname === "/" && !scrolled
+  const onDarkHero = pathname === "/" && !scrolled && !mobileOpen
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -26,28 +27,34 @@ export default function Navbar() {
 
   useEffect(() => { setMobileOpen(false) }, [pathname])
 
+  // Lock body scroll while the mobile panel is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : ""
+    return () => { document.body.style.overflow = "" }
+  }, [mobileOpen])
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-white/20 shadow-sm"
-          : "bg-transparent"
+        scrolled ? "border-b border-white/20 shadow-sm" : "bg-transparent"
       }`}
       style={scrolled ? { backdropFilter: "blur(12px)", background: "rgba(255,255,255,0.7)" } : undefined}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link
-          href="/"
-          className={`flex items-center gap-2 font-bold text-lg group transition-colors ${onDarkHero ? "text-white" : "text-[#0a0a0f]"}`}
-        >
-          <div className="w-8 h-8 rounded-lg bg-[#0066FF] flex items-center justify-center group-hover:bg-[#0066FF]/85 transition-colors">
-            <Zap size={16} className="text-white" />
-          </div>
-          <span>Nexuzo</span>
+        <Link href="/" aria-label="Nexuzo — Startseite" className="flex items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={onDarkHero ? "/logo/logo-placeholder-white.svg" : "/logo/logo-placeholder.svg"}
+            alt="Nexuzo Logo"
+            width={140}
+            height={32}
+            className="h-8 w-auto"
+          />
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+        {/* Desktop navigation */}
+        <div className="hidden md:flex items-center gap-7">
+          {navLinks.slice(0, 5).map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -71,60 +78,74 @@ export default function Navbar() {
           </Link>
           <Link
             href="/anfrage"
-            className="border border-[#0066FF] text-[#0066FF] hover:bg-[#0066FF]/85 hover:text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
+            className="bg-[#0066FF] hover:bg-[#0066FF]/85 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
           >
-            Kostenlos anfragen
+            Projekt anfragen
           </Link>
         </div>
 
+        {/* Burger: two bars that rotate into an X */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className={`md:hidden p-2 transition-colors ${onDarkHero ? "text-white" : "text-[#0a0a0f]"}`}
-          aria-label="Menü öffnen"
+          className="md:hidden relative z-[60] w-10 h-10 flex flex-col items-center justify-center gap-[7px]"
+          aria-label={mobileOpen ? "Menü schließen" : "Menü öffnen"}
+          aria-expanded={mobileOpen}
         >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          <span
+            className={`block w-6 h-[2px] rounded-full transition-all duration-300 ease-in-out ${
+              mobileOpen ? "rotate-45 translate-y-[4.5px] bg-[#0a0a0f]" : onDarkHero ? "bg-white" : "bg-[#0a0a0f]"
+            }`}
+          />
+          <span
+            className={`block w-6 h-[2px] rounded-full transition-all duration-300 ease-in-out ${
+              mobileOpen ? "-rotate-45 -translate-y-[4.5px] bg-[#0a0a0f]" : onDarkHero ? "bg-white" : "bg-[#0a0a0f]"
+            }`}
+          />
         </button>
       </nav>
 
-      {mobileOpen && (
-        <div className="md:hidden border-b border-black/10 shadow-lg" style={{ backdropFilter: "blur(12px)", background: "rgba(255,255,255,0.92)" }}>
-          <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-1">
-            <Link
-              href="/"
-              className={`flex items-center gap-2 text-sm font-medium py-2.5 px-3 rounded-lg transition-colors ${
-                pathname === "/" ? "text-[#0a0a0f] bg-black/5" : "text-[#0a0a0f]/60 hover:text-[#0a0a0f] hover:bg-black/5"
-              }`}
-            >
-              <Home size={15} />
-              Startseite
-            </Link>
-            <div className="border-t border-black/5 my-1" />
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium py-2.5 px-3 rounded-lg transition-colors ${
-                  pathname === link.href ? "text-[#0a0a0f] bg-black/5" : "text-[#0a0a0f]/60 hover:text-[#0a0a0f] hover:bg-black/5"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/kontakt"
-              className="text-sm font-medium text-[#0a0a0f]/60 py-2.5 px-3 rounded-lg hover:text-[#0a0a0f] hover:bg-black/5"
-            >
-              Kontakt
-            </Link>
-            <Link
-              href="/anfrage"
-              className="border border-[#0066FF] text-[#0066FF] text-sm font-semibold px-5 py-3 rounded-full text-center mt-3 hover:bg-[#0066FF]/85 hover:text-white transition-colors"
-            >
-              Kostenlos anfragen
-            </Link>
-          </div>
+      {/* Mobile panel: slides in from the right */}
+      <div
+        className={`md:hidden fixed inset-0 z-40 transition-opacity duration-300 ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        style={{ background: "rgba(10,10,15,0.35)" }}
+        onClick={() => setMobileOpen(false)}
+      />
+      <div
+        className={`md:hidden fixed top-0 right-0 bottom-0 z-50 w-[82%] max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-out flex flex-col ${
+          mobileOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="h-16 flex items-center px-6 border-b border-[#0a0a0f]/5">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo/logo-placeholder.svg" alt="Nexuzo Logo" width={140} height={32} className="h-7 w-auto" />
         </div>
-      )}
+        <nav className="flex-1 flex flex-col px-6 py-6 gap-1 overflow-y-auto">
+          {navLinks.map((link, i) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMobileOpen(false)}
+              className={`text-lg font-semibold py-3 border-b border-[#0a0a0f]/5 transition-all duration-300 ${
+                pathname === link.href ? "text-[#0066FF]" : "text-[#0a0a0f] hover:text-[#0066FF]"
+              } ${mobileOpen ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0"}`}
+              style={{ transitionDelay: mobileOpen ? `${80 + i * 40}ms` : "0ms" }}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <div className="px-6 pb-8">
+          <Link
+            href="/anfrage"
+            onClick={() => setMobileOpen(false)}
+            className="block bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-5 py-3.5 rounded-full text-center transition-colors"
+          >
+            Projekt anfragen
+          </Link>
+        </div>
+      </div>
     </header>
   )
 }

@@ -9,8 +9,8 @@ const steps = [
     week: "Woche 1",
     icon: Search,
     title: "Discovery",
-    body: "Wir lernen Ihr Unternehmen kennen. Festpreis als Ergebnis.",
-    deliverable: "Sitemap · Festpreis",
+    body: "Wir lernen Ihr Unternehmen kennen. Am Ende steht ein verbindliches Angebot.",
+    deliverable: "Sitemap · Fixes Angebot",
   },
   {
     week: "Woche 2",
@@ -37,10 +37,10 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="py-28 bg-white">
+    <section id="ablauf" className="py-14 md:py-16 bg-white scroll-mt-16">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <div className="mb-16">
+          <div className="mb-10">
             <h2 className="text-4xl md:text-5xl font-black text-[#0a0a0f] mb-5 leading-tight">
               In 4 Wochen live.
               <br />

@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: "Ich hatte schlechte Erfahrungen mit anderen Agenturen.",
-    answer: "Festpreis-Vertrag, wöchentliche Updates mit Staging-Link, eine Ansprechperson.",
+    answer: "Verstehen wir. Deshalb steht der Preis bei uns im Vertrag — dazu wöchentliche Updates mit Staging-Link und eine feste Ansprechperson.",
   },
   {
     question: "Was passiert nach dem Launch?",
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: "Kann ich Inhalte selbst bearbeiten?",
-    answer: "Über Pflegepakete ab 19 €/Monat. Meist günstiger als ein eigenes CMS.",
+    answer: "Kleine Änderungen übernehmen wir im Pflegepaket — meist günstiger und schneller als ein eigenes CMS.",
   },
 ]
 
@@ -69,10 +69,10 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section className="py-28 bg-[#0a0a0f]/[0.04]">
+    <section className="py-14 md:py-16 bg-[#0a0a0f]/[0.04]">
       <div className="max-w-3xl mx-auto px-6">
         <FadeIn>
-          <h2 className="text-4xl md:text-5xl font-black text-[#0a0a0f] mb-14 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-[#0a0a0f] mb-10 leading-tight">
             Ehrliche Antworten.
           </h2>
         </FadeIn>

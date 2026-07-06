@@ -47,7 +47,7 @@ export default function Hero() {
   const current = sites[active]
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-10 bg-[#0a0a0f]">
+    <section className="relative flex flex-col items-center justify-center overflow-hidden pt-28 pb-12 md:pt-32 md:pb-16 bg-[#0a0a0f]">
 
       {/* Background decoration */}
       <div
@@ -61,25 +61,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-transparent to-[#0a0a0f]" />
 
       {/* Text */}
-      <div className="relative z-10 text-center px-6 mb-10 max-w-2xl">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="flex items-center justify-center mb-5"
-        >
-          {/* Glass pill badge */}
-          <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 bg-white/15"
-            style={{ backdropFilter: "blur(8px)" }}
-          >
-            <span className="w-2 h-2 rounded-full bg-[#0066FF] animate-pulse flex-shrink-0" />
-            <p className="text-[#0066FF] text-sm font-semibold whitespace-nowrap">
-              Aktuell 2 Projektplätze frei
-            </p>
-          </div>
-        </motion.div>
-
+      <div className="relative z-10 text-center px-6 mb-8 max-w-2xl">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -109,10 +91,19 @@ export default function Hero() {
             href="/portfolio"
             className="border border-white/25 hover:border-white/50 text-white/70 hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all text-[15px] flex items-center gap-2 group"
           >
-            Unsere Arbeit ansehen
+            Referenzen ansehen
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.35 }}
+          className="mt-6 text-white/40 text-sm"
+        >
+          Festpreis vor Projektstart&nbsp;&nbsp;·&nbsp;&nbsp;Live in 4 Wochen&nbsp;&nbsp;·&nbsp;&nbsp;Bezahlt wird erst nach Freigabe
+        </motion.p>
       </div>
 
       {/* ── MOBILE: Auto-scrolling Website Card Marquee ── */}

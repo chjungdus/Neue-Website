@@ -16,10 +16,10 @@ function DesignVisual() {
           <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
         </div>
         <div className="flex-1 mx-2 h-4 bg-white/[0.06] rounded text-[9px] text-white/20 flex items-center px-2 font-mono">
-          milonga-foodtruck.de
+          ihre-website.de
         </div>
       </div>
-      {/* Mini site — Milonga-style content */}
+      {/* Mini site mockup */}
       <div className="bg-[#0a0a0f] h-[128px] relative overflow-hidden">
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(0,102,255,0.12) 0%, transparent 55%)" }} />
         {/* Fake navbar */}
@@ -36,11 +36,11 @@ function DesignVisual() {
         </div>
         {/* Fake hero content */}
         <div className="relative px-4 pt-3">
-          <div className="text-[8px] font-black text-white/50 mb-1.5 tracking-[0.2em] uppercase">MILONGA ARG</div>
+          <div className="text-[8px] font-black text-white/50 mb-1.5 tracking-[0.2em] uppercase">IHRE MARKE</div>
           <div className="h-2.5 w-3/5 rounded-full mb-2" style={{ background: "linear-gradient(90deg, #0066FF, #0066FF)" }} />
           <div className="h-1.5 w-2/5 rounded-full mb-4 bg-white/10" />
           <div className="h-6 w-20 rounded-full flex items-center justify-center text-[7px] font-bold text-white" style={{ backgroundColor: "#0066FFcc" }}>
-            Menü ansehen
+            Jetzt anfragen
           </div>
         </div>
       </div>
@@ -137,10 +137,10 @@ function SeoVisual() {
 
 export default function Services() {
   return (
-    <section className="py-28 bg-[#0a0a0f]">
+    <section className="py-14 md:py-16 bg-[#0a0a0f]">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <div className="mb-16">
+          <div className="mb-10">
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
               Vier Dinge.{" "}
               <span className="text-white/55 font-light">Richtig gemacht.</span>

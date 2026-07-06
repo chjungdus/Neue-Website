@@ -1,21 +1,20 @@
 const items = [
   "Webdesign",
-  "Von Grund auf gebaut",
+  "Von Grund auf entwickelt",
   "SEO & Sichtbarkeit",
-  "Mehr Anfragen",
+  "Mehr Anfragen, messbar",
   "Landing Pages",
-  "Festpreis",
-  "4 Wochen bis Launch",
+  "Fester Preis, fester Termin",
+  "Live in 4 Wochen",
   "Keine Templates",
-  "Mobil optimiert",
-  "Schnelle Ladezeiten",
-  "Düsseldorf",
-  "Entwicklung",
+  "Mobil zuerst gedacht",
+  "Ladezeiten unter einer Sekunde",
+  "Aus Düsseldorf",
 ]
 
 export default function Marquee() {
   return (
-    <div className="border-y border-[#0a0a0f]/10 bg-[#0a0a0f]/[0.04] overflow-hidden py-4">
+    <div className="border-y border-[#0a0a0f]/10 bg-[#0a0a0f]/[0.04] overflow-hidden py-3">
       <div className="flex gap-0 animate-marquee">
         {[...items, ...items].map((item, i) => (
           <span

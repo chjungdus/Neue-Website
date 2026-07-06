@@ -30,10 +30,10 @@ const problems = [
 
 export default function ProblemSection() {
   return (
-    <section className="py-28 bg-[#0a0a0f]">
+    <section className="py-14 md:py-16 bg-[#0a0a0f]">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <div className="max-w-2xl mb-16">
+          <div className="max-w-2xl mb-10">
             <h2 className="text-4xl md:text-5xl font-black text-white leading-tight mb-5">
               3 Zeichen, dass Ihre Website
               <br />
@@ -46,7 +46,7 @@ export default function ProblemSection() {
           {problems.map((p, i) => {
             const Icon = p.icon
             return (
-              <FadeIn key={p.title} delay={i * 0.1}>
+              <FadeIn key={p.title} delay={i * 0.1} className={i === 1 ? "md:mt-8" : ""}>
                 <div className="bg-white/[0.03] border border-white/[0.07] rounded-2xl p-7 hover:bg-white/[0.06] transition-colors h-full flex flex-col">
                   <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-5 shrink-0">
                     <Icon size={22} className="text-[#0066FF]" />

@@ -7,10 +7,10 @@ export default function PortfolioTeaser() {
   const liveProjects = mockProjects.filter((p) => p.url && p.featured)
 
   return (
-    <section className="py-28 bg-[#0a0a0f]">
+    <section className="py-14 md:py-16 bg-[#0a0a0f]">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
             <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
               Ausgewählte
               <br />

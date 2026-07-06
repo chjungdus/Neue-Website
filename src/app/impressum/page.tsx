@@ -26,6 +26,8 @@ export default function ImpressumPage() {
             <p className="leading-relaxed text-sm">
               Nexuzo
               <br />
+              Inhaber: Mateo Sainz de la Maza
+              <br />
               Königsallee 14
               <br />
               40212 Düsseldorf
@@ -56,7 +58,9 @@ export default function ImpressumPage() {
             <p className="leading-relaxed text-sm">
               Mateo Sainz de la Maza
               <br />
-              Düsseldorf
+              Königsallee 14
+              <br />
+              40212 Düsseldorf
             </p>
           </section>
 

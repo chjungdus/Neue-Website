@@ -43,17 +43,4 @@ export const mockProjects: PortfolioProject[] = [
     featured: true,
     created_at: "2025-05-20",
   },
-  {
-    id: "4",
-    title: "Projekt in Bearbeitung",
-    slug: "projekt-4",
-    description: "Neues Projekt — demnächst verfügbar.",
-    long_description: "Dieses Projekt wird bald veröffentlicht.",
-    tags: ["Webdesign"],
-    client: "",
-    url: "",
-    image_url: "",
-    featured: false,
-    created_at: "2025-07-01",
-  },
 ]

@@ -4,7 +4,7 @@ import FadeIn from "@/components/ui/fade-in"
 
 export default function CTA() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-14 md:py-16 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <div className="bg-[#0a0a0f] rounded-3xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] divide-y lg:divide-y-0 lg:divide-x divide-white/[0.06]">

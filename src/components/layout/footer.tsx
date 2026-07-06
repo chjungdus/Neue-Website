@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Zap, MapPin, Mail, MessageCircle } from "lucide-react"
+import { MapPin, Mail, MessageCircle } from "lucide-react"
 
 const footerLinks = {
   Leistungen: [
@@ -27,11 +27,9 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 font-bold text-lg text-white mb-4">
-              <div className="w-8 h-8 rounded-lg bg-[#0066FF]/20 flex items-center justify-center">
-                <Zap size={16} className="text-[#0066FF]" />
-              </div>
-              <span>Nexuzo</span>
+            <Link href="/" aria-label="Nexuzo — Startseite" className="inline-flex mb-4">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo/logo-placeholder-white.svg" alt="Nexuzo Logo" width={140} height={32} className="h-8 w-auto" />
             </Link>
             <p className="text-white/55 text-sm leading-relaxed max-w-xs">
               Wir bauen Websites, die nicht nur schön aussehen, sondern messbar mehr Kunden bringen.
