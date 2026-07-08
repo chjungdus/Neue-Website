@@ -29,7 +29,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" aria-label="Nexuzo — Startseite" className="inline-flex mb-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo/logo-placeholder-white.svg" alt="Nexuzo Logo" width={140} height={32} className="h-8 w-auto" />
+              <img src="/logo/nexuzo-white.png" alt="Nexuzo" width={176} height={32} className="h-8 w-auto" />
             </Link>
             <p className="text-white/55 text-sm leading-relaxed max-w-xs">
               Wir bauen Websites, die nicht nur schön aussehen, sondern messbar mehr Kunden bringen.

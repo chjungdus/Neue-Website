@@ -46,11 +46,11 @@ export default function Navbar() {
           <Link href="/" aria-label="Nexuzo — Startseite" className="flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={onDarkHero ? "/logo/logo-placeholder-white.svg" : "/logo/logo-placeholder.svg"}
-              alt="Nexuzo Logo"
-              width={140}
+              src={onDarkHero ? "/logo/nexuzo-white.png" : "/logo/nexuzo.png"}
+              alt="Nexuzo"
+              width={176}
               height={32}
-              className="h-8 w-auto"
+              className="h-7 w-auto"
             />
           </Link>
 
