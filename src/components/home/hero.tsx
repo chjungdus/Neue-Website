@@ -15,6 +15,9 @@ const sites = [
   { url: "https://chjungdus.github.io/No-ra/", display: "no-ra.de", label: "No-ra", tag: "Beauty & Nails" },
 ]
 
+// Live screenshot of each reference site (rendered + cached by thum.io)
+const shot = (url: string) => `https://image.thum.io/get/width/1200/crop/900/${url}`
+
 export default function Hero() {
   const [active, setActive] = useState(0)
   const [direction, setDirection] = useState(1)
@@ -66,7 +69,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
-          className="text-[32px] sm:text-[52px] md:text-[62px] font-black text-white leading-[1.05] tracking-tight mb-6"
+          className="text-[34px] sm:text-[54px] md:text-[66px] font-extrabold text-white leading-[1.03] tracking-tight mb-6"
         >
           Wir bauen Ihre
           <br />
@@ -106,7 +109,7 @@ export default function Hero() {
         </motion.p>
       </div>
 
-      {/* ── MOBILE: Auto-scrolling Website Card Marquee ── */}
+      {/* ── MOBILE: Auto-scrolling website screenshots ── */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -146,8 +149,8 @@ export default function Hero() {
                   }}
                   className={`relative flex-shrink-0 rounded-2xl border bg-white overflow-hidden cursor-pointer transition-all duration-300 ease-out ${
                     isExpanded
-                      ? "w-[250px] h-[160px] border-[#0066FF]/30 shadow-xl"
-                      : "w-[170px] h-[110px] border-black/10 shadow-sm"
+                      ? "w-[260px] h-[180px] border-[#0066FF]/40 shadow-xl"
+                      : "w-[190px] h-[130px] border-black/10 shadow-sm"
                   }`}
                 >
                   {/* Browser chrome */}
@@ -157,15 +160,22 @@ export default function Hero() {
                     <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
                   </div>
 
-                  {/* Label */}
-                  <div className="flex flex-col items-center justify-center h-[calc(100%-32px)] px-3 text-center gap-1">
-                    <p className="text-[13px] font-bold text-[#0a0a0f] truncate max-w-full">
-                      {site.label}
-                    </p>
-                    <p className="text-[11px] text-[#0a0a0f]/40 font-medium">{site.tag}</p>
+                  {/* Live screenshot */}
+                  <div className="relative h-[calc(100%-30px)] bg-[#0a0a0f]/[0.04]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={shot(site.url)}
+                      alt={`Website ${site.label}`}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-top"
+                    />
+                    {/* Label overlay */}
+                    <div className="absolute inset-x-0 bottom-0 px-3 py-1.5 bg-gradient-to-t from-black/70 to-transparent">
+                      <p className="text-[11px] font-bold text-white truncate">{site.label}</p>
+                    </div>
                   </div>
 
-                  {/* Overlay — appears on first click, real link navigates on second click */}
+                  {/* Expand overlay — first tap enlarges, this link is the second tap */}
                   <AnimatePresence>
                     {isExpanded && (
                       <motion.a
@@ -176,7 +186,7 @@ export default function Hero() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-[#0a0a0f]/95 text-white"
+                        className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-[#0a0a0f]/85 text-white"
                       >
                         <ExternalLink size={20} />
                         <span className="text-[13px] font-bold">Website besuchen</span>
@@ -191,7 +201,7 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      {/* ── DESKTOP: Laptop Carousel (unverändert) ── */}
+      {/* ── DESKTOP: Laptop carousel with live screenshots ── */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -242,26 +252,34 @@ export default function Hero() {
                 </a>
               </div>
 
-              {/* Iframe */}
-              <div className="relative bg-white overflow-hidden" style={{ height: "clamp(200px, 42vw, 420px)" }}>
+              {/* Screenshot */}
+              <div className="relative bg-white overflow-hidden" style={{ height: "clamp(220px, 42vw, 440px)" }}>
                 <AnimatePresence mode="wait" custom={direction}>
-                  <motion.div
+                  <motion.a
                     key={active}
+                    href={current.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     custom={direction}
                     initial={{ opacity: 0, x: direction * 40 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: direction * -40 }}
                     transition={{ duration: 0.35, ease: "easeInOut" }}
-                    className="absolute inset-0"
+                    className="absolute inset-0 block group"
                   >
-                    <iframe
-                      src={current.url}
-                      title={current.label}
-                      className="w-full h-full border-0"
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={shot(current.url)}
+                      alt={`Website ${current.label}`}
                       loading="lazy"
-                      sandbox="allow-scripts allow-same-origin allow-forms"
+                      className="w-full h-full object-cover object-top"
                     />
-                  </motion.div>
+                    <div className="absolute inset-0 bg-[#0a0a0f]/0 group-hover:bg-[#0a0a0f]/30 transition-colors flex items-center justify-center">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity inline-flex items-center gap-2 bg-white text-[#0a0a0f] text-sm font-bold px-5 py-2.5 rounded-full">
+                        Website besuchen <ExternalLink size={14} />
+                      </span>
+                    </div>
+                  </motion.a>
                 </AnimatePresence>
               </div>
             </div>

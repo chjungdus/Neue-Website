@@ -1,18 +1,20 @@
 import type { Metadata } from "next"
-import { Geist, Space_Grotesk } from "next/font/google"
+import { Inter, Bricolage_Grotesque } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/layout/navbar"
 import Footer from "@/components/layout/footer"
 import ScrollToTop from "@/components/ui/scroll-to-top"
 
-const geist = Geist({
-  variable: "--font-geist",
+// Body: Inter — clean, high legibility.
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 })
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+// Headings: Bricolage Grotesque — characterful display grotesque used by modern studios.
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
   display: "swap",
 })
@@ -38,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="de" className={`${geist.variable} ${spaceGrotesk.variable}`}>
+    <html lang="de" className={`${inter.variable} ${bricolage.variable}`}>
       <body className="min-h-screen flex flex-col antialiased">
         <Navbar />
         <main className="flex-1">{children}</main>

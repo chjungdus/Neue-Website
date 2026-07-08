@@ -7,9 +7,9 @@ const ACCENT_LIGHT = "#0066FF"
 
 function DesignVisual() {
   return (
-    <div className="w-full rounded-xl overflow-hidden border border-white/[0.08]" style={{ height: "160px" }}>
+    <div className="w-full rounded-xl overflow-hidden border border-[#0a0a0f]/10 bg-[#0a0a0f] shadow-sm" style={{ height: "160px" }}>
       {/* Mac browser chrome */}
-      <div className="h-8 bg-white/[0.05] flex items-center gap-1.5 px-3 border-b border-white/[0.05]">
+      <div className="h-8 bg-white/[0.05] flex items-center gap-1.5 px-3 border-b border-white/[0.06]">
         <div className="flex gap-1.5">
           <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
           <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
@@ -50,7 +50,7 @@ function DesignVisual() {
 
 function CodeVisual() {
   return (
-    <div className="w-full rounded-xl bg-white/[0.03] border border-white/[0.08] p-4 font-mono text-[11px] leading-6" style={{ height: "148px" }}>
+    <div className="w-full rounded-xl bg-[#0a0a0f] border border-[#0a0a0f]/10 p-4 font-mono text-[11px] leading-6 shadow-sm" style={{ height: "148px" }}>
       <div>
         <span style={{ color: ACCENT }}>const</span>
         {" "}
@@ -74,7 +74,7 @@ function CodeVisual() {
 
 function PaymentVisual() {
   return (
-    <div className="w-full rounded-xl bg-white/[0.03] border border-white/[0.08] p-3.5 flex flex-col gap-3" style={{ height: "148px" }}>
+    <div className="w-full rounded-xl bg-[#0a0a0f] border border-[#0a0a0f]/10 p-3.5 flex flex-col gap-3 shadow-sm" style={{ height: "148px" }}>
       {/* Product card */}
       <div className="flex gap-3 flex-1">
         <div
@@ -117,7 +117,7 @@ function PaymentVisual() {
 
 function SeoVisual() {
   return (
-    <div className="w-full rounded-xl bg-white/[0.03] border border-white/[0.08] p-4 flex flex-col" style={{ height: "160px" }}>
+    <div className="w-full rounded-xl bg-[#0a0a0f] border border-[#0a0a0f]/10 p-4 flex flex-col shadow-sm" style={{ height: "160px" }}>
       <div className="flex items-end gap-1.5 flex-1 pb-2">
         {[32, 44, 38, 58, 50, 74, 92].map((h, i) => (
           <div
@@ -137,13 +137,13 @@ function SeoVisual() {
 
 export default function Services() {
   return (
-    <section className="py-14 md:py-16 bg-[#0a0a0f]">
+    <section className="py-14 md:py-16 bg-[#0a0a0f]/[0.03]">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <div className="mb-10">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-[#0a0a0f] mb-4 leading-tight">
               Vier Dinge.{" "}
-              <span className="text-white/55 font-light">Richtig gemacht.</span>
+              <span className="text-[#0a0a0f]/45 font-light">Richtig gemacht.</span>
             </h2>
           </div>
         </FadeIn>
@@ -152,7 +152,7 @@ export default function Services() {
 
           {/* 01 — Webdesign: full-width banner, text left · visual right */}
           <FadeIn delay={0} className="md:col-span-2">
-            <div className="bg-white/[0.04] border border-white/[0.08] rounded-2xl p-8 md:p-10 hover:bg-white/[0.06] hover:border-white/[0.14] transition-all duration-300">
+            <div className="bg-white border border-[#0a0a0f]/[0.08] rounded-2xl p-8 md:p-10 hover:border-[#0066FF]/30 hover:shadow-lg hover:shadow-[#0a0a0f]/5 transition-all duration-300">
               <div className="flex flex-col md:flex-row gap-10 items-start">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-3 mb-6">
@@ -161,15 +161,15 @@ export default function Services() {
                     </div>
                     <span className="text-[#0066FF] text-xs font-bold uppercase tracking-[0.15em]">Webdesign</span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-black text-white mb-3 leading-tight">
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-[#0a0a0f] mb-3 leading-tight">
                     Kein Template.<br />Gebaut für Sie.
                   </h3>
-                  <p className="text-white/55 text-[15px] leading-relaxed mb-7 max-w-sm">
+                  <p className="text-[#0a0a0f]/60 text-[15px] leading-relaxed mb-7 max-w-sm">
                     Design ist nicht Dekoration — es ist das erste Verkaufsgespräch.
                   </p>
                   <ul className="space-y-3">
                     {["Mobile-first", "Design schafft Vertrauen", "Einmalig. Kein Copy-Paste"].map((p) => (
-                      <li key={p} className="flex items-center gap-3 text-sm text-white/55">
+                      <li key={p} className="flex items-center gap-3 text-sm text-[#0a0a0f]/60">
                         <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#0066FF]" />
                         {p}
                       </li>
@@ -185,20 +185,20 @@ export default function Services() {
 
           {/* 02 — Entwicklung: number top-left, icon top-right */}
           <FadeIn delay={0.08}>
-            <div className="bg-white/[0.02] border border-white/[0.07] rounded-2xl p-8 hover:bg-white/[0.05] hover:border-white/[0.12] transition-all duration-300 h-full flex flex-col">
+            <div className="bg-white border border-[#0a0a0f]/[0.08] rounded-2xl p-8 hover:border-[#0066FF]/30 hover:shadow-lg hover:shadow-[#0a0a0f]/5 transition-all duration-300 h-full flex flex-col">
               <div className="flex items-start justify-between mb-7">
                 <span className="text-[#0066FF]/25 text-5xl font-black leading-none">02</span>
                 <div className="w-10 h-10 rounded-xl bg-[#0066FF]/10 flex items-center justify-center">
                   <Code2 size={18} className="text-[#0066FF]" />
                 </div>
               </div>
-              <h3 className="text-xl font-black text-white mb-2">Entwicklung</h3>
-              <p className="text-white/55 text-sm leading-relaxed mb-5 italic">
+              <h3 className="text-xl font-extrabold text-[#0a0a0f] mb-2">Entwicklung</h3>
+              <p className="text-[#0a0a0f]/60 text-sm leading-relaxed mb-5 italic">
                 Schnell, sicher, ohne Lock-in.
               </p>
               <ul className="space-y-2.5 mb-6">
                 {["Lighthouse 90+ als Standard", "Kein teures CMS", "Auf jedem Gerät fehlerfrei"].map((p) => (
-                  <li key={p} className="flex items-center gap-2.5 text-sm text-white/45">
+                  <li key={p} className="flex items-center gap-2.5 text-sm text-[#0a0a0f]/55">
                     <span className="w-1 h-1 rounded-full flex-shrink-0 bg-[#0066FF]" />
                     {p}
                   </li>
@@ -212,21 +212,21 @@ export default function Services() {
 
           {/* 03 — E-Commerce: icon top-left, number top-right, accent tint */}
           <FadeIn delay={0.12}>
-            <div className="bg-[#0066FF]/[0.04] border border-[#0066FF]/[0.12] rounded-2xl p-8 hover:bg-[#0066FF]/[0.07] hover:border-[#0066FF]/[0.22] transition-all duration-300 h-full flex flex-col">
+            <div className="bg-[#0066FF]/[0.05] border border-[#0066FF]/20 rounded-2xl p-8 hover:bg-[#0066FF]/[0.08] hover:border-[#0066FF]/30 transition-all duration-300 h-full flex flex-col">
               <div className="flex items-start justify-between mb-7">
                 <div className="w-10 h-10 rounded-xl bg-[#0066FF]/15 flex items-center justify-center">
                   <CreditCard size={18} className="text-[#0066FF]" />
                 </div>
                 <span className="text-[#0066FF]/25 text-5xl font-black leading-none">03</span>
               </div>
-              <h3 className="text-xl font-black text-white mb-2">E-Commerce</h3>
-              <p className="text-white/55 text-sm leading-relaxed mb-5">
+              <h3 className="text-xl font-extrabold text-[#0a0a0f] mb-2">E-Commerce</h3>
+              <p className="text-[#0a0a0f]/60 text-sm leading-relaxed mb-5">
                 Bezahlprozesse,{" "}
-                <span className="font-semibold text-white/60">die funktionieren.</span>
+                <span className="font-semibold text-[#0a0a0f]/70">die funktionieren.</span>
               </p>
               <ul className="space-y-2.5 mb-6">
                 {["Stripe & PayPal integriert", "Checkout ohne Abbrüche", "Produktseiten, die überzeugen"].map((p) => (
-                  <li key={p} className="flex items-center gap-2.5 text-sm text-white/45">
+                  <li key={p} className="flex items-center gap-2.5 text-sm text-[#0a0a0f]/55">
                     <span className="w-1 h-1 rounded-full flex-shrink-0 bg-[#0066FF]" />
                     {p}
                   </li>
@@ -240,7 +240,7 @@ export default function Services() {
 
           {/* 04 — SEO: full-width banner reversed, visual left · text right */}
           <FadeIn delay={0.16} className="md:col-span-2">
-            <div className="bg-white/[0.03] border border-white/[0.07] rounded-2xl p-8 md:p-10 hover:bg-white/[0.06] hover:border-white/[0.14] transition-all duration-300">
+            <div className="bg-white border border-[#0a0a0f]/[0.08] rounded-2xl p-8 md:p-10 hover:border-[#0066FF]/30 hover:shadow-lg hover:shadow-[#0a0a0f]/5 transition-all duration-300">
               <div className="flex flex-col md:flex-row-reverse gap-10 items-start">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-3 mb-6">
@@ -249,15 +249,15 @@ export default function Services() {
                     </div>
                     <span className="text-[#0066FF] text-xs font-bold uppercase tracking-[0.15em]">SEO & Performance</span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-black text-white mb-3 leading-tight">
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-[#0a0a0f] mb-3 leading-tight">
                     Gefunden werden<br />von Kunden, die kaufen.
                   </h3>
-                  <p className="text-white/55 text-[15px] leading-relaxed mb-7 max-w-sm">
+                  <p className="text-[#0a0a0f]/60 text-[15px] leading-relaxed mb-7 max-w-sm">
                     Nicht irgendwelche Besucher — die, die Ihr Angebot tatsächlich brauchen.
                   </p>
                   <ul className="space-y-3">
                     {["Technisches SEO inklusive", "Core Web Vitals optimiert", "Kaufbereite Kunden erreichen"].map((p) => (
-                      <li key={p} className="flex items-center gap-3 text-sm text-white/55">
+                      <li key={p} className="flex items-center gap-3 text-sm text-[#0a0a0f]/60">
                         <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#0066FF]" />
                         {p}
                       </li>
@@ -274,10 +274,10 @@ export default function Services() {
         </div>
 
         <FadeIn>
-          <div className="mt-10 pt-10 border-t border-white/5 flex items-center justify-end">
+          <div className="mt-10 pt-10 border-t border-[#0a0a0f]/10 flex items-center justify-end">
             <Link
               href="/leistungen"
-              className="text-white/55 text-sm font-semibold hover:text-white transition-colors flex items-center gap-2 group"
+              className="text-[#0a0a0f]/60 text-sm font-semibold hover:text-[#0a0a0f] transition-colors flex items-center gap-2 group"
             >
               Alle Leistungen
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
