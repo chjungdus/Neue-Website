@@ -20,6 +20,7 @@ const bricolage = Bricolage_Grotesque({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nexuzo.de"),
   title: {
     default: "Nexuzo – Webdesign Agentur Düsseldorf",
     template: "%s | Nexuzo",
