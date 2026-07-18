@@ -33,20 +33,27 @@ export default function Hero() {
   const downXRef = useRef(0)
   const movedRef = useRef(false)
   const posRef = useRef(0) // float scroll accumulator (scrollLeft rounds to int)
+  const initedRef = useRef(false)
 
+  // The track holds 3 identical copies of the list. We keep the viewport inside
+  // the middle copy and silently jump by one copy-width whenever it drifts out,
+  // so both the auto-scroll AND manual swiping loop forever with no seam.
   useEffect(() => {
     const el = scrollerRef.current
     if (!el) return
     let raf = 0
     const tick = () => {
-      if (el.scrollWidth > el.clientWidth) {
-        if (!pausedRef.current && expandedCard === null) {
-          const half = el.scrollWidth / 2
+      const copy = el.scrollWidth / 3
+      if (copy > 0) {
+        if (!initedRef.current) {
+          el.scrollLeft = copy
+          posRef.current = copy
+          initedRef.current = true
+        } else if (!pausedRef.current && expandedCard === null) {
           posRef.current += 0.55
-          if (half > 0 && posRef.current >= half) posRef.current -= half
+          if (posRef.current >= 2 * copy) posRef.current -= copy
           el.scrollLeft = posRef.current
         } else {
-          // stay in sync while the user swipes so auto-scroll resumes smoothly
           posRef.current = el.scrollLeft
         }
       }
@@ -54,6 +61,17 @@ export default function Hero() {
     }
     raf = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(raf)
+  }, [expandedCard])
+
+  // Keep manual scrolling inside the middle copy (seamless infinite loop).
+  const handleScroll = useCallback(() => {
+    const el = scrollerRef.current
+    if (!el) return
+    if (expandedCard !== null) setExpandedCard(null)
+    const copy = el.scrollWidth / 3
+    if (copy <= 0) return
+    if (el.scrollLeft >= 2 * copy) { el.scrollLeft -= copy; posRef.current = el.scrollLeft }
+    else if (el.scrollLeft < copy * 0.5) { el.scrollLeft += copy; posRef.current = el.scrollLeft }
   }, [expandedCard])
 
   // Pause auto-scroll while the user is touching/swiping, resume shortly after.
@@ -169,9 +187,9 @@ export default function Hero() {
           onPointerMove={(e) => { if (Math.abs(e.clientX - downXRef.current) > 8) movedRef.current = true }}
           onPointerUp={resumeAuto}
           onPointerCancel={resumeAuto}
-          onScroll={() => { if (expandedCard !== null) setExpandedCard(null) }}
+          onScroll={handleScroll}
         >
-          {[...sites, ...sites].map((site, i) => {
+          {[...sites, ...sites, ...sites].map((site, i) => {
             const isExpanded = expandedCard === i
             return (
               <div
