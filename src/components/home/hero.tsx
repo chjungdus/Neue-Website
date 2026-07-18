@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback, useEffect } from "react"
+import { useState, useCallback, useEffect, useRef } from "react"
 import Link from "next/link"
 import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -23,6 +23,48 @@ export default function Hero() {
   const [direction, setDirection] = useState(1)
   const [userInteracted, setUserInteracted] = useState(false)
   const [expandedCard, setExpandedCard] = useState<number | null>(null)
+
+  // Mobile strip: a real horizontally-scrollable track that also auto-advances
+  // when idle. This keeps it swipeable by finger at any time (the old CSS marquee
+  // could not be scrolled after tapping).
+  const scrollerRef = useRef<HTMLDivElement>(null)
+  const pausedRef = useRef(false)
+  const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const downXRef = useRef(0)
+  const movedRef = useRef(false)
+  const posRef = useRef(0) // float scroll accumulator (scrollLeft rounds to int)
+
+  useEffect(() => {
+    const el = scrollerRef.current
+    if (!el) return
+    let raf = 0
+    const tick = () => {
+      if (el.scrollWidth > el.clientWidth) {
+        if (!pausedRef.current && expandedCard === null) {
+          const half = el.scrollWidth / 2
+          posRef.current += 0.55
+          if (half > 0 && posRef.current >= half) posRef.current -= half
+          el.scrollLeft = posRef.current
+        } else {
+          // stay in sync while the user swipes so auto-scroll resumes smoothly
+          posRef.current = el.scrollLeft
+        }
+      }
+      raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [expandedCard])
+
+  // Pause auto-scroll while the user is touching/swiping, resume shortly after.
+  const pauseAuto = useCallback(() => {
+    pausedRef.current = true
+    if (resumeTimer.current) clearTimeout(resumeTimer.current)
+  }, [])
+  const resumeAuto = useCallback(() => {
+    if (resumeTimer.current) clearTimeout(resumeTimer.current)
+    resumeTimer.current = setTimeout(() => { pausedRef.current = false }, 1600)
+  }, [])
 
   const prev = useCallback(() => {
     setUserInteracted(true)
@@ -109,96 +151,94 @@ export default function Hero() {
         </motion.p>
       </div>
 
-      {/* ── MOBILE: Auto-scrolling website screenshots ── */}
+      {/* ── MOBILE: swipeable + auto-scrolling website screenshots ── */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.3 }}
         className="relative z-10 md:hidden w-full"
-        onClick={(e) => {
-          if (e.target === e.currentTarget) setExpandedCard(null)
-        }}
       >
         <div
-          className="w-full overflow-hidden"
+          ref={scrollerRef}
+          className="w-full flex gap-4 px-6 py-2 overflow-x-auto overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
           style={{
-            maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-            WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            maskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
           }}
+          onPointerDown={(e) => { pauseAuto(); downXRef.current = e.clientX; movedRef.current = false }}
+          onPointerMove={(e) => { if (Math.abs(e.clientX - downXRef.current) > 8) movedRef.current = true }}
+          onPointerUp={resumeAuto}
+          onPointerCancel={resumeAuto}
+          onScroll={() => { if (expandedCard !== null) setExpandedCard(null) }}
         >
-          <div
-            className="flex gap-4 w-max py-2"
-            style={{
-              animation: "marquee 34s linear infinite",
-              animationPlayState: expandedCard !== null ? "paused" : "running",
-            }}
-          >
-            {[...sites, ...sites].map((site, i) => {
-              const isExpanded = expandedCard === i
-              return (
-                <div
-                  key={i}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`${site.label} – zum Vergrößern klicken`}
-                  onClick={() => {
-                    if (!isExpanded) setExpandedCard(i)
-                  }}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" && !isExpanded) setExpandedCard(i)
-                  }}
-                  className={`relative flex-shrink-0 rounded-2xl border bg-white overflow-hidden cursor-pointer transition-all duration-300 ease-out ${
-                    isExpanded
-                      ? "w-[260px] h-[180px] border-[#0066FF]/40 shadow-xl"
-                      : "w-[190px] h-[130px] border-black/10 shadow-sm"
-                  }`}
-                >
-                  {/* Browser chrome */}
-                  <div className="flex items-center gap-1.5 px-3 py-2 bg-[#0a0a0f]/[0.04] border-b border-black/5">
-                    <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
-                    <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
-                    <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
-                  </div>
-
-                  {/* Live screenshot */}
-                  <div className="relative h-[calc(100%-30px)] bg-[#0a0a0f]/[0.04]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={shot(site.url)}
-                      alt={`Website ${site.label}`}
-                      loading="lazy"
-                      className="w-full h-full object-cover object-top"
-                    />
-                    {/* Label overlay */}
-                    <div className="absolute inset-x-0 bottom-0 px-3 py-1.5 bg-gradient-to-t from-black/70 to-transparent">
-                      <p className="text-[11px] font-bold text-white truncate">{site.label}</p>
-                    </div>
-                  </div>
-
-                  {/* Expand overlay — first tap enlarges, this link is the second tap */}
-                  <AnimatePresence>
-                    {isExpanded && (
-                      <motion.a
-                        href={site.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-[#0a0a0f]/85 text-white"
-                      >
-                        <ExternalLink size={20} />
-                        <span className="text-[13px] font-bold">Website besuchen</span>
-                        <span className="text-[11px] text-white/60">{site.display}</span>
-                      </motion.a>
-                    )}
-                  </AnimatePresence>
+          {[...sites, ...sites].map((site, i) => {
+            const isExpanded = expandedCard === i
+            return (
+              <div
+                key={i}
+                role="button"
+                tabIndex={0}
+                aria-label={`${site.label} – zum Vergrößern tippen`}
+                onClick={() => {
+                  if (movedRef.current) return       // was a swipe, not a tap
+                  if (!isExpanded) setExpandedCard(i)
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !isExpanded) setExpandedCard(i)
+                }}
+                className={`relative flex-shrink-0 rounded-2xl border bg-white overflow-hidden cursor-pointer transition-all duration-300 ease-out ${
+                  isExpanded
+                    ? "w-[260px] h-[180px] border-[#0066FF]/40 shadow-xl"
+                    : "w-[190px] h-[130px] border-black/10 shadow-sm"
+                }`}
+              >
+                {/* Browser chrome */}
+                <div className="flex items-center gap-1.5 px-3 py-2 bg-[#0a0a0f]/[0.04] border-b border-black/5">
+                  <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
+                  <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
+                  <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
                 </div>
-              )
-            })}
-          </div>
+
+                {/* Live screenshot */}
+                <div className="relative h-[calc(100%-30px)] bg-[#0a0a0f]/[0.04]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={shot(site.url)}
+                    alt={`Website ${site.label}`}
+                    loading="lazy"
+                    draggable={false}
+                    className="w-full h-full object-cover object-top pointer-events-none select-none"
+                  />
+                  {/* Label overlay */}
+                  <div className="absolute inset-x-0 bottom-0 px-3 py-1.5 bg-gradient-to-t from-black/70 to-transparent">
+                    <p className="text-[11px] font-bold text-white truncate">{site.label}</p>
+                  </div>
+                </div>
+
+                {/* Expand overlay — first tap enlarges, this link is the second tap */}
+                <AnimatePresence>
+                  {isExpanded && (
+                    <motion.a
+                      href={site.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-[#0a0a0f]/85 text-white"
+                    >
+                      <ExternalLink size={20} />
+                      <span className="text-[13px] font-bold">Website besuchen</span>
+                      <span className="text-[11px] text-white/60">{site.display}</span>
+                    </motion.a>
+                  )}
+                </AnimatePresence>
+              </div>
+            )
+          })}
         </div>
+        <p className="text-center text-white/30 text-xs mt-3">Wischen zum Blättern · Tippen zum Öffnen</p>
       </motion.div>
 
       {/* ── DESKTOP: Laptop carousel with live screenshots ── */}
