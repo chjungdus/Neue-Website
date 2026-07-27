@@ -1,13 +1,15 @@
 import Link from "next/link"
 import { ArrowRight, Clock, Mail, MessageCircle } from "lucide-react"
 import FadeIn from "@/components/ui/fade-in"
+import FloatingShapes from "@/components/ui/floating-shapes"
 
 export default function CTA() {
   return (
     <section className="py-14 md:py-16 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="bg-[#0066FF] rounded-3xl overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] divide-y lg:divide-y-0 lg:divide-x divide-white/20">
+        <div className="relative bg-[#0066FF] rounded-3xl overflow-hidden">
+          <FloatingShapes tone="blue" />
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_280px] divide-y lg:divide-y-0 lg:divide-x divide-white/20">
 
             {/* Left: main CTA */}
             <div className="p-10 md:p-14">

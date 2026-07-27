@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect, useRef } from "react"
 import Link from "next/link"
 import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import FloatingShapes from "@/components/ui/floating-shapes"
 
 const sites = [
   { url: "https://www.milonga-foodtruck.de/", display: "milonga-foodtruck.de", label: "Milonga Food Truck", tag: "Food Truck" },
@@ -122,6 +123,9 @@ export default function Hero() {
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-transparent to-[#0a0a0f]" />
+
+      {/* Floating decorative shapes */}
+      <FloatingShapes tone="dark" />
 
       {/* Text */}
       <div className="relative z-10 text-center px-6 mb-8 max-w-2xl">
