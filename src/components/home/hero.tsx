@@ -5,6 +5,7 @@ import Link from "next/link"
 import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import FloatingShapes from "@/components/ui/floating-shapes"
+import Magnetic from "@/components/ui/magnetic"
 
 const sites = [
   { url: "https://www.milonga-foodtruck.de/", display: "milonga-foodtruck.de", label: "Milonga Food Truck", tag: "Food Truck" },
@@ -124,8 +125,8 @@ export default function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-transparent to-[#0a0a0f]" />
 
-      {/* Floating decorative shapes */}
-      <FloatingShapes tone="dark" />
+      {/* Floating decorative shapes (react to the cursor) */}
+      <FloatingShapes tone="dark" interactive />
 
       {/* Text */}
       <div className="relative z-10 text-center px-6 mb-8 max-w-2xl">
@@ -148,19 +149,23 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-3"
         >
-          <Link
-            href="/anfrage"
-            className="bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-7 py-3.5 rounded-full transition-colors flex items-center gap-2 text-[15px]"
-          >
-            Kostenlos anfragen <ArrowRight size={16} />
-          </Link>
-          <Link
-            href="/portfolio"
-            className="border border-white/25 hover:border-white/50 text-white/70 hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all text-[15px] flex items-center gap-2 group"
-          >
-            Referenzen ansehen
-            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <Magnetic>
+            <Link
+              href="/anfrage"
+              className="bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-7 py-3.5 rounded-full transition-colors flex items-center gap-2 text-[15px]"
+            >
+              Kostenlos anfragen <ArrowRight size={16} />
+            </Link>
+          </Magnetic>
+          <Magnetic>
+            <Link
+              href="/portfolio"
+              className="border border-white/25 hover:border-white/50 text-white/70 hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all text-[15px] flex items-center gap-2 group"
+            >
+              Referenzen ansehen
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </Magnetic>
         </motion.div>
 
         <motion.p
@@ -390,6 +395,27 @@ export default function Hero() {
             ))}
           </div>
         </div>
+      </motion.div>
+
+      {/* Bouncing scroll cue */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8 }}
+        className="relative z-10 mt-10 hidden md:flex flex-col items-center gap-2"
+      >
+        <span className="text-white/30 text-[11px] uppercase tracking-[0.2em]">Scrollen</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+          className="w-6 h-9 rounded-full border border-white/25 flex items-start justify-center p-1.5"
+        >
+          <motion.span
+            animate={{ y: [0, 8, 0], opacity: [1, 0.2, 1] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+            className="w-1 h-1.5 rounded-full bg-[#0066FF]"
+          />
+        </motion.div>
       </motion.div>
 
     </section>
