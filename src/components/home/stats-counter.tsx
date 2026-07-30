@@ -5,9 +5,10 @@ import FadeIn from "@/components/ui/fade-in"
 interface StatData { target: number; suffix: string; label: string; note: string; decimal?: boolean }
 
 const stats: StatData[] = [
-  { target: 4, suffix: "", label: "Projekte abgeschlossen", note: "jedes pünktlich geliefert" },
-  { target: 4.8, suffix: "/5", label: "Ø Kundenbewertung", note: "über alle Projekte", decimal: true },
-  { target: 0, suffix: "", label: "Templates verwendet", note: "alles von Grund auf" },
+  { target: 7, suffix: "", label: "Live-Websites", note: "handgebaut für reale Kunden" },
+  { target: 4, suffix: " Wo.", label: "bis zum Launch", note: "fester Termin, fester Preis" },
+  { target: 24, suffix: "h", label: "Antwortzeit", note: "auf jede Anfrage" },
+  { target: 0, suffix: "", label: "Templates", note: "alles von Grund auf" },
 ]
 
 function AnimatedNumber({ target, suffix, decimal }: StatData) {
@@ -37,7 +38,7 @@ function AnimatedNumber({ target, suffix, decimal }: StatData) {
   }, [target])
   const display = decimal ? current.toFixed(1) : Math.round(current).toString()
   return (
-    <div ref={containerRef} className="text-5xl md:text-6xl font-black text-[#0a0a0f] tabular-nums leading-none">
+    <div ref={containerRef} className="text-5xl md:text-6xl font-extrabold text-[#0066FF] tabular-nums leading-none">
       {display}{suffix}
     </div>
   )
@@ -45,9 +46,9 @@ function AnimatedNumber({ target, suffix, decimal }: StatData) {
 
 export default function StatsCounter() {
   return (
-    <section className="py-24 bg-[#0a0a0f]/[0.03] border-y border-[#0a0a0f]/5">
+    <section className="py-16 md:py-20 bg-[#0a0a0f]/[0.03] border-y border-[#0a0a0f]/5">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8">
           {stats.map((stat, i) => (
             <FadeIn key={stat.label} delay={i * 0.08} direction="up">
               <div className="text-center">

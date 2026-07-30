@@ -6,19 +6,7 @@ import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-reac
 import { motion, AnimatePresence } from "framer-motion"
 import FloatingShapes from "@/components/ui/floating-shapes"
 import Magnetic from "@/components/ui/magnetic"
-
-const sites = [
-  { url: "https://www.milonga-foodtruck.de/", display: "milonga-foodtruck.de", label: "Milonga Food Truck", tag: "Food Truck" },
-  { url: "https://www.limpiezas-el-valle.es/", display: "limpiezas-el-valle.es", label: "Limpiezas El Valle", tag: "Reinigungsservice" },
-  { url: "https://chjungdus.github.io/Antonioconstruccion/", display: "antonioconstruccion.de", label: "Antonio Construcción", tag: "Bau & Handwerk" },
-  { url: "https://chjungdus.github.io/Peluqueria-loli/", display: "peluqueria-loli.es", label: "Peluquería Loli", tag: "Friseursalon" },
-  { url: "https://chjungdus.github.io/Essah-Urfa-Lahmacun/", display: "essah-urfa.de", label: "Essah Urfa Lahmacun", tag: "Restaurant" },
-  { url: "https://chjungdus.github.io/Lorenz-DJ/", display: "lorenz-dj.de", label: "Lorenz DJ", tag: "DJ & Events" },
-  { url: "https://chjungdus.github.io/No-ra/", display: "no-ra.de", label: "No-ra", tag: "Beauty & Nails" },
-]
-
-// Live screenshot of each reference site (rendered + cached by thum.io)
-const shot = (url: string) => `https://image.thum.io/get/width/1200/crop/900/${url}`
+import { references as sites, shot } from "@/lib/references"
 
 export default function Hero() {
   const [active, setActive] = useState(0)
@@ -131,16 +119,36 @@ export default function Hero() {
       {/* Text */}
       <div className="relative z-10 text-center px-6 mb-8 max-w-2xl">
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55 }}
+          variants={{ show: { transition: { staggerChildren: 0.06, delayChildren: 0.05 } } }}
+          initial="hidden"
+          animate="show"
           className="text-[34px] sm:text-[54px] md:text-[66px] font-extrabold text-white leading-[1.03] tracking-tight mb-6"
         >
-          Wir bauen Ihre
-          <br />
-          Website. Sie entscheiden
-          <br />
-          <span className="gradient-text">danach, ob Sie zahlen.</span>
+          {[
+            ["Wir", "bauen", "Ihre"],
+            ["Website.", "Sie", "entscheiden"],
+          ].map((line, li) => (
+            <span key={li} className="block">
+              {line.map((word, wi) => (
+                <motion.span
+                  key={wi}
+                  variants={{ hidden: { opacity: 0, y: 24, filter: "blur(6px)" }, show: { opacity: 1, y: 0, filter: "blur(0px)" } }}
+                  transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+                  className="inline-block mr-[0.25em]"
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </span>
+          ))}
+          {/* Gradient line stays a single element so background-clip:text works */}
+          <motion.span
+            variants={{ hidden: { opacity: 0, y: 24, filter: "blur(6px)" }, show: { opacity: 1, y: 0, filter: "blur(0px)" } }}
+            transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="block gradient-text"
+          >
+            danach, ob Sie zahlen.
+          </motion.span>
         </motion.h1>
 
         <motion.div

@@ -17,7 +17,9 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
-  const onDarkHero = pathname === "/" && !scrolled && !mobileOpen
+  // Pages whose hero is dark — navbar uses its light (white) variant on top.
+  const darkHeroRoutes = ["/", "/portfolio"]
+  const onDarkHero = darkHeroRoutes.includes(pathname) && !scrolled && !mobileOpen
   const solidHeader = scrolled || mobileOpen
 
   useEffect(() => {
