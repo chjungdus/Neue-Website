@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import ReferencesGallery from "@/components/portfolio/references-gallery"
-import FloatingShapes from "@/components/ui/floating-shapes"
+import ShaderBackground from "@/components/ui/shader-background"
 import FadeIn from "@/components/ui/fade-in"
 import { references } from "@/lib/references"
 
@@ -17,7 +17,7 @@ export default function PortfolioPage() {
     <div>
       {/* Hero — dark, with floating shapes */}
       <section className="relative overflow-hidden pt-32 pb-16 md:pt-36 md:pb-20 bg-[#0a0a0f]">
-        <FloatingShapes tone="dark" interactive />
+        <ShaderBackground />
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-[#0066FF] text-xs font-semibold uppercase tracking-[0.2em] mb-5">

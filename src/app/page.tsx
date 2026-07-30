@@ -4,7 +4,7 @@ import WhyUs from "@/components/home/why-us"
 import StatsCounter from "@/components/home/stats-counter"
 import ProblemSection from "@/components/home/problem-section"
 import Services from "@/components/home/services"
-import PortfolioTeaser from "@/components/home/portfolio-teaser"
+import HorizontalReferences from "@/components/home/horizontal-references"
 import Testimonials from "@/components/home/testimonials"
 import MidCTA from "@/components/home/mid-cta"
 import Process from "@/components/home/process"
@@ -22,7 +22,7 @@ export default function HomePage() {
       <StatsCounter />
       <ProblemSection />
       <Services />
-      <PortfolioTeaser />
+      <HorizontalReferences />
       <Testimonials />
       <MidCTA />
       <Process />

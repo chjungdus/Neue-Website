@@ -4,7 +4,7 @@ import { useState, useCallback, useEffect, useRef } from "react"
 import Link from "next/link"
 import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import FloatingShapes from "@/components/ui/floating-shapes"
+import ShaderBackground from "@/components/ui/shader-background"
 import Magnetic from "@/components/ui/magnetic"
 import { references as sites, shot } from "@/lib/references"
 
@@ -102,19 +102,9 @@ export default function Hero() {
   return (
     <section className="relative flex flex-col items-center justify-center overflow-hidden pt-28 pb-12 md:pt-32 md:pb-16 bg-[#0a0a0f]">
 
-      {/* Background decoration */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-transparent to-[#0a0a0f]" />
-
-      {/* Floating decorative shapes (react to the cursor) */}
-      <FloatingShapes tone="dark" interactive />
+      {/* Animated WebGL aurora background */}
+      <ShaderBackground />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f]/60 via-[#0a0a0f]/10 to-[#0a0a0f]" />
 
       {/* Text */}
       <div className="relative z-10 text-center px-6 mb-8 max-w-2xl">

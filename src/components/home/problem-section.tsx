@@ -1,5 +1,4 @@
 import FadeIn from "@/components/ui/fade-in"
-import FloatingShapes from "@/components/ui/floating-shapes"
 import { TrendingDown, Search, Smartphone } from "lucide-react"
 
 const problems = [
@@ -28,9 +27,8 @@ const problems = [
 
 export default function ProblemSection() {
   return (
-    <section className="relative overflow-hidden py-14 md:py-16 bg-white">
-      <FloatingShapes tone="light" />
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
+    <section className="py-14 md:py-16 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <div className="max-w-2xl mb-10">
             <h2 className="text-4xl md:text-5xl font-extrabold text-[#0a0a0f] leading-tight mb-5">
