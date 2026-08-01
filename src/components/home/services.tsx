@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ArrowRight, Monitor, Code2, CreditCard, TrendingUp } from "lucide-react"
 import FadeIn from "@/components/ui/fade-in"
+import ParallaxY from "@/components/ui/parallax-y"
 
 const ACCENT = "#0066FF"
 
@@ -168,9 +169,9 @@ export default function Services() {
                     ))}
                   </ul>
                 </div>
-                <div className="w-full md:w-80 flex-shrink-0">
+                <ParallaxY range={14} className="w-full md:w-80 flex-shrink-0">
                   <DesignVisual />
-                </div>
+                </ParallaxY>
               </div>
             </div>
           </FadeIn>
@@ -196,9 +197,9 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-auto">
+              <ParallaxY range={10} className="mt-auto">
                 <ReliabilityVisual />
-              </div>
+              </ParallaxY>
             </div>
           </FadeIn>
 
@@ -224,9 +225,9 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-auto">
+              <ParallaxY range={10} className="mt-auto">
                 <PaymentVisual />
-              </div>
+              </ParallaxY>
             </div>
           </FadeIn>
 
@@ -257,9 +258,9 @@ export default function Services() {
                     ))}
                   </ul>
                 </div>
-                <div className="w-full md:w-80 flex-shrink-0">
+                <ParallaxY range={14} className="w-full md:w-80 flex-shrink-0">
                   <SeoVisual />
-                </div>
+                </ParallaxY>
               </div>
             </div>
           </FadeIn>
