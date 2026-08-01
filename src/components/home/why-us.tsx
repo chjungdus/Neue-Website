@@ -1,6 +1,5 @@
 import { Sparkles, Cpu, Zap, MessageCircle } from "lucide-react"
 import FadeIn from "@/components/ui/fade-in"
-import FloatingShapes from "@/components/ui/floating-shapes"
 
 const reasons = [
   {
@@ -10,8 +9,8 @@ const reasons = [
   },
   {
     icon: Cpu,
-    title: "Moderner Tech-Stack",
-    body: "Next.js, TypeScript, Top-Performance — die Werkzeuge großer Agenturen, ohne deren Preis.",
+    title: "Schnell & zuverlässig",
+    body: "Ihre Website lädt schnell, sieht auf jedem Handy gut aus und läuft ohne Probleme — dafür sorgen wir im Hintergrund.",
   },
   {
     icon: Zap,
@@ -27,9 +26,8 @@ const reasons = [
 
 export default function WhyUs() {
   return (
-    <section className="relative overflow-hidden py-14 md:py-16 bg-white">
-      <FloatingShapes tone="light" />
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
+    <section className="py-14 md:py-16 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <h2 className="text-3xl md:text-5xl font-extrabold text-[#0a0a0f] leading-tight mb-12">
             Warum eine Website

@@ -1,5 +1,4 @@
 import FadeIn from "@/components/ui/fade-in"
-import FloatingShapes from "@/components/ui/floating-shapes"
 import { Search, Palette, Code2, Rocket } from "lucide-react"
 
 const ACCENT = "#0066FF"
@@ -38,9 +37,8 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="ablauf" className="relative overflow-hidden py-14 md:py-16 bg-white scroll-mt-16">
-      <FloatingShapes tone="light" />
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
+    <section id="ablauf" className="py-14 md:py-16 bg-white scroll-mt-16">
+      <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <div className="mb-10">
             <h2 className="text-4xl md:text-5xl font-black text-[#0a0a0f] mb-5 leading-tight">
