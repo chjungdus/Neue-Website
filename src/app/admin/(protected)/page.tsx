@@ -1,9 +1,9 @@
-import { getSupabase } from "@/lib/supabase"
+import { getSupabaseAdmin } from "@/lib/supabase"
 import { mockProjects } from "@/lib/mock-data"
 import { Inbox, Image, TrendingUp, Clock } from "lucide-react"
 
 async function getStats() {
-  const supabase = getSupabase()
+  const supabase = getSupabaseAdmin()
   if (!supabase) {
     return { requests: 0, projects: mockProjects.length, newRequests: 0 }
   }

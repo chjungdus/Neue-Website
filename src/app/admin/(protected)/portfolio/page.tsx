@@ -14,18 +14,14 @@ export default function AdminPortfolioPage() {
 
   useEffect(() => {
     async function load() {
-      const { getSupabase } = await import("@/lib/supabase")
-      const supabase = getSupabase()
-      if (!supabase) {
+      const res = await fetch("/api/admin/portfolio")
+      if (!res.ok) {
         setProjects(mockProjects)
         setLoading(false)
         return
       }
-      const { data } = await supabase
-        .from("portfolio_projects")
-        .select("*")
-        .order("created_at", { ascending: false })
-      setProjects((data as PortfolioProject[]) ?? mockProjects)
+      const { projects: data } = await res.json()
+      setProjects(data?.length ? (data as PortfolioProject[]) : mockProjects)
       setLoading(false)
     }
     load()
@@ -35,24 +31,26 @@ export default function AdminPortfolioPage() {
     e.preventDefault()
     setSaving(true)
 
-    const newProject: Partial<PortfolioProject> = {
+    const newProject = {
       title: form.title,
       slug: form.slug || form.title.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, ""),
       description: form.description,
-      long_description: form.description,
       client: form.client,
       url: form.url,
       tags: form.tags.split(",").map((t) => t.trim()).filter(Boolean),
-      featured: false,
     }
 
-    const { getSupabase } = await import("@/lib/supabase")
-    const supabase = getSupabase()
-    if (supabase) {
-      const { data } = await supabase.from("portfolio_projects").insert(newProject).select().single()
-      if (data) setProjects((prev) => [data as PortfolioProject, ...prev])
+    const res = await fetch("/api/admin/portfolio", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newProject),
+    })
+
+    if (res.ok) {
+      const { project } = await res.json()
+      if (project) setProjects((prev) => [project as PortfolioProject, ...prev])
     } else {
-      const mockNew = { ...newProject, id: Date.now().toString(), image_url: "", featured: false, created_at: new Date().toISOString() } as PortfolioProject
+      const mockNew = { ...newProject, long_description: form.description, id: Date.now().toString(), image_url: "", featured: false, created_at: new Date().toISOString() } as PortfolioProject
       setProjects((prev) => [mockNew, ...prev])
     }
 
@@ -64,11 +62,7 @@ export default function AdminPortfolioPage() {
   const handleDelete = async (id: string) => {
     if (!confirm("Projekt wirklich löschen?")) return
 
-    const { getSupabase } = await import("@/lib/supabase")
-    const supabase = getSupabase()
-    if (supabase) {
-      await supabase.from("portfolio_projects").delete().eq("id", id)
-    }
+    await fetch(`/api/admin/portfolio/${id}`, { method: "DELETE" })
     setProjects((prev) => prev.filter((p) => p.id !== id))
   }
 
