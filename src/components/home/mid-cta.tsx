@@ -13,7 +13,7 @@ export default function MidCTA() {
                 Klingt nach dem, was Ihnen fehlt?
               </p>
               <p className="text-white/70 text-sm mt-1">
-                Beschreiben Sie kurz Ihr Vorhaben — das Angebot kommt innerhalb von 24 Stunden.
+                Beschreiben Sie kurz Ihr Vorhaben, das Angebot kommt innerhalb von 24 Stunden.
               </p>
             </div>
             <Link

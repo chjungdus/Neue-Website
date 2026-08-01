@@ -27,7 +27,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">
-            <Link href="/" aria-label="Nexuzo — Startseite" className="inline-flex mb-4">
+            <Link href="/" aria-label="Nexuzo Startseite" className="inline-flex mb-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/logo/nexuzo-white.png" alt="Nexuzo" width={176} height={32} className="h-8 w-auto" />
             </Link>

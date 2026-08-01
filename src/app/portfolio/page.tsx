@@ -9,7 +9,7 @@ import { references } from "@/lib/references"
 export const metadata: Metadata = {
   title: "Referenzen. Nexuzo",
   description:
-    "Live-Websites, die wir gebaut haben — handgebaut für reale Kunden, kein Template, keine Demo.",
+    "Live-Websites, die wir gebaut haben: handgebaut für reale Kunden, kein Template, keine Demo.",
 }
 
 export default function PortfolioPage() {
@@ -29,7 +29,7 @@ export default function PortfolioPage() {
               <span className="gradient-text">Echte Ergebnisse.</span>
             </h1>
             <p className="text-white/55 text-lg md:text-xl max-w-xl leading-relaxed">
-              Jede hier ist live. Klicken Sie sich durch — jedes Projekt ist
+              Jede hier ist live. Klicken Sie sich durch: jedes Projekt ist
               handgebaut für ein reales Unternehmen, kein Template, keine Demo.
             </p>
             <div className="mt-8 flex items-center gap-6 text-white/45 text-sm">

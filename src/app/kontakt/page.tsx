@@ -68,7 +68,7 @@ export default function KontaktPage() {
                 <div className="mt-10 pt-8 border-t border-[#0a0a0f]/5">
                   <p className="text-[#0a0a0f] font-bold mb-1">Keine Verpflichtung.</p>
                   <p className="text-[#0a0a0f]/55 text-sm leading-relaxed max-w-sm">
-                    Eine Nachricht ist eine Nachricht, kein Kaufvertrag. Wir antworten persönlich — keine automatischen Mails.
+                    Eine Nachricht ist eine Nachricht, kein Kaufvertrag. Wir antworten persönlich, keine automatischen Mails.
                   </p>
                 </div>
               </div>

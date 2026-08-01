@@ -96,7 +96,7 @@ export default function Marquee() {
         maskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
         WebkitMaskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
       }}
-      aria-label="Leistungen — zum Blättern wischen oder ziehen"
+      aria-label="Leistungen, zum Blättern wischen oder ziehen"
     >
       <div className="flex gap-0 w-max">
         {[...items, ...items, ...items].map((item, i) => (

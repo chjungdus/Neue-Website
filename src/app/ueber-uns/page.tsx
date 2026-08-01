@@ -104,7 +104,7 @@ export default function UeberUnsPage() {
                   Zu viele Agenturen versprechen viel und liefern wenig. Vier Nachbesserungsrunden, zwei verpasste Deadlines, ein Kunde der bereits bezahlt hatte und trotzdem nichts in der Hand hatte.
                 </p>
                 <p className="text-[#0a0a0f] font-medium">
-                  Das Gegenteil wurde das Modell: klare Absprachen, jedes Projekt wirklich fertig, zum vereinbarten Preis — und Zahlung erst, wenn der Kunde die Probewebsite gesehen hat.
+                  Das Gegenteil wurde das Modell: klare Absprachen, jedes Projekt wirklich fertig, zum vereinbarten Preis, und Zahlung erst, wenn der Kunde die Probewebsite gesehen hat.
                 </p>
               </div>
             </FadeIn>

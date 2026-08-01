@@ -129,7 +129,7 @@ const priceFAQs = [
   },
   {
     q: "Wie läuft die Zahlung ab?",
-    a: "Sie zahlen nach der Vorstellung der Probewebsite — nicht vorher. Wir zeigen Ihnen erst das fertige Ergebnis, dann entscheiden Sie. Wir akzeptieren Banküberweisung, Kreditkarte und PayPal.",
+    a: "Sie zahlen nach der Vorstellung der Probewebsite, nicht vorher. Wir zeigen Ihnen erst das fertige Ergebnis, dann entscheiden Sie. Wir akzeptieren Banküberweisung, Kreditkarte und PayPal.",
   },
   {
     q: "Wie bearbeite ich meine Website nach dem Launch?",

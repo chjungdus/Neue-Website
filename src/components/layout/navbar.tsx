@@ -45,7 +45,7 @@ export default function Navbar() {
         style={solidHeader ? { backdropFilter: "blur(12px)", background: "rgba(255,255,255,0.85)" } : undefined}
       >
         <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" aria-label="Nexuzo — Startseite" className="flex items-center">
+          <Link href="/" aria-label="Nexuzo Startseite" className="flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={onDarkHero ? "/logo/nexuzo-white.png" : "/logo/nexuzo.png"}

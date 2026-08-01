@@ -17,7 +17,7 @@ export const references: Reference[] = [
     display: "milonga-foodtruck.de",
     label: "Milonga Food Truck",
     tag: "Food Truck",
-    note: "Speisekarte, Standort & Auftritt — Gäste finden alles selbst.",
+    note: "Speisekarte, Standort und Auftritt: Gäste finden alles selbst.",
     featured: true,
   },
   {
