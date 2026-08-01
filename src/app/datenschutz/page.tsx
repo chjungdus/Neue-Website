@@ -123,15 +123,14 @@ export default function DatenschutzPage() {
             </p>
           </Section>
 
-          <Section title="6. E-Mail-Versand über Resend">
+          <Section title="6. E-Mail-Versand über Google (Gmail)">
             <p>
-              Für den Versand von E-Mails (Kontaktformular-Bestätigungen, Anfrage-Benachrichtigungen) nutzen wir den
-              Dienst Resend (Resend Inc., 2261 Market Street #5157, San Francisco, CA 94114, USA).
+              Für den Versand von E-Mails (Kontaktformular- und Anfrage-Benachrichtigungen an uns) nutzen wir ein
+              Gmail-Konto von Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
             </p>
             <p>
-              Resend verarbeitet Ihre E-Mail-Adresse und den Nachrichteninhalt zum Zweck des E-Mail-Versands. Es wurde
-              ein Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO abgeschlossen. Die Datenübertragung in die USA
-              erfolgt auf Basis der EU-Standardvertragsklauseln.
+              Google verarbeitet dabei Ihre E-Mail-Adresse und den Nachrichteninhalt zum Zweck des E-Mail-Versands. Es
+              gelten die Auftragsverarbeitungsbedingungen von Google.
             </p>
           </Section>
 

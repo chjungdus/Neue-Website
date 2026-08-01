@@ -56,27 +56,28 @@ export async function POST(req: NextRequest) {
       console.log("Neue Anfrage (kein Supabase konfiguriert):", data)
     }
 
-    if (process.env.RESEND_API_KEY) {
-      const { Resend } = await import("resend")
-      const resend = new Resend(process.env.RESEND_API_KEY)
+    const { isMailerConfigured, sendMail } = await import("@/lib/mailer")
+    if (isMailerConfigured()) {
       const projectTypeLabel = projectTypeLabels[data.project_type] ?? data.project_type
       const budgetLabel = budgetLabels[data.budget] ?? data.budget
       const timelineLabel = timelineLabels[data.timeline] ?? data.timeline
 
-      await resend.emails.send({
-        from: "Nexuzo <noreply@nexuzo.de>",
-        to: [process.env.CONTACT_EMAIL ?? "hallo@nexuzo.de"],
+      await sendMail({
         replyTo: data.email,
         subject: `Neue Projektanfrage: ${projectTypeLabel} von ${data.name}`,
-        html: `<h2>Neue Projektanfrage</h2><p>${data.name} (${data.email})</p><p>${projectTypeLabel} | ${budgetLabel} | ${timelineLabel}</p><p>${data.description}</p>`,
+        html: `
+          <h2>Neue Projektanfrage</h2>
+          <p><strong>Name:</strong> ${data.name}</p>
+          <p><strong>E-Mail:</strong> ${data.email}</p>
+          ${data.phone ? `<p><strong>Telefon:</strong> ${data.phone}</p>` : ""}
+          <p><strong>Projektart:</strong> ${projectTypeLabel}</p>
+          <p><strong>Budget:</strong> ${budgetLabel}</p>
+          <p><strong>Zeitrahmen:</strong> ${timelineLabel}</p>
+          <p><strong>Beschreibung:</strong><br>${data.description}</p>
+        `,
       })
-
-      await resend.emails.send({
-        from: "Nexuzo <noreply@nexuzo.de>",
-        to: [data.email],
-        subject: "Ihre Projektanfrage bei Nexuzo",
-        html: `<h2>Hallo ${data.name},</h2><p>vielen Dank! Wir melden uns innerhalb von 24 Stunden.</p>`,
-      })
+    } else {
+      console.log("Neue Anfrage (kein E-Mail-Versand konfiguriert):", data)
     }
 
     return NextResponse.json({ ok: true })

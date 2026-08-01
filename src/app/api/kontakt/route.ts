@@ -13,17 +13,13 @@ export async function POST(req: NextRequest) {
     const body = await req.json()
     const data = schema.parse(body)
 
-    if (!process.env.RESEND_API_KEY) {
-      console.log("Kontaktformular (kein RESEND_API_KEY):", data)
+    const { isMailerConfigured, sendMail } = await import("@/lib/mailer")
+    if (!isMailerConfigured()) {
+      console.log("Kontaktformular (kein E-Mail-Versand konfiguriert):", data)
       return NextResponse.json({ ok: true })
     }
 
-    const { Resend } = await import("resend")
-    const resend = new Resend(process.env.RESEND_API_KEY)
-
-    await resend.emails.send({
-      from: "Nexuzo <noreply@nexuzo.de>",
-      to: [process.env.CONTACT_EMAIL ?? "hallo@nexuzo.de"],
+    await sendMail({
       replyTo: data.email,
       subject: `Kontaktanfrage: ${data.subject}`,
       html: `
@@ -32,18 +28,6 @@ export async function POST(req: NextRequest) {
         <p><strong>Betreff:</strong> ${data.subject}</p>
         <hr />
         <p>${data.message.replace(/\n/g, "<br>")}</p>
-      `,
-    })
-
-    await resend.emails.send({
-      from: "Nexuzo <noreply@nexuzo.de>",
-      to: [data.email],
-      subject: "Wir haben Ihre Nachricht erhalten",
-      html: `
-        <h2>Hallo ${data.name},</h2>
-        <p>vielen Dank für Ihre Nachricht! Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.</p>
-        <br />
-        <p>Mit freundlichen Grüßen,<br />Das Nexuzo Team</p>
       `,
     })
 
