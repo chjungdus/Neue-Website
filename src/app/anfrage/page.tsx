@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import { MessageCircle } from "lucide-react"
-import ContactForm from "@/components/forms/contact-form"
+import InquiryWizard from "@/components/forms/inquiry-wizard"
 import FadeIn from "@/components/ui/fade-in"
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export default function AnfragePage() {
   return (
     <div className="pt-20 min-h-screen bg-white">
       <section className="py-16">
-        <div className="max-w-lg mx-auto px-6">
+        <div className="max-w-2xl mx-auto px-6">
           <FadeIn>
             <h1 className="text-4xl sm:text-5xl font-black text-[#0a0a0f] leading-tight mb-4">
               Projekt anfragen
@@ -23,7 +24,9 @@ export default function AnfragePage() {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <ContactForm />
+            <Suspense fallback={null}>
+              <InquiryWizard />
+            </Suspense>
           </FadeIn>
 
           <FadeIn delay={0.2}>
