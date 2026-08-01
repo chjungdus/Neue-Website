@@ -157,7 +157,7 @@ export default function Services() {
                     Kein Template.<br />Gebaut für Sie.
                   </h3>
                   <p className="text-[#0a0a0f]/60 text-[15px] leading-relaxed mb-7 max-w-sm">
-                    Design ist nicht Dekoration — es ist das erste Verkaufsgespräch.
+                    Design ist nicht Dekoration, es ist das erste Verkaufsgespräch.
                   </p>
                   <ul className="space-y-3">
                     {["Mobile-first", "Design schafft Vertrauen", "Einmalig. Kein Copy-Paste"].map((p) => (
@@ -246,7 +246,7 @@ export default function Services() {
                     Gefunden werden<br />von Kunden, die kaufen.
                   </h3>
                   <p className="text-[#0a0a0f]/60 text-[15px] leading-relaxed mb-7 max-w-sm">
-                    Nicht irgendwelche Besucher — die, die Ihr Angebot tatsächlich brauchen.
+                    Nicht irgendwelche Besucher, sondern die, die Ihr Angebot tatsächlich brauchen.
                   </p>
                   <ul className="space-y-3">
                     {["Technisches SEO inklusive", "Core Web Vitals optimiert", "Kaufbereite Kunden erreichen"].map((p) => (

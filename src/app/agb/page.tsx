@@ -31,7 +31,7 @@ export default function AGBPage() {
 
         <h1 className="text-4xl font-black text-[#0a0a0f] mb-4">Allgemeine Geschäftsbedingungen</h1>
         <p className="text-[#0a0a0f]/55 text-sm mb-12">
-          von Nexuzo, Königsallee 14, 40212 Düsseldorf — Stand: Juni 2026
+          von Nexuzo, Königsallee 14, 40212 Düsseldorf. Stand: Juni 2026
         </p>
 
         <div className="space-y-10">

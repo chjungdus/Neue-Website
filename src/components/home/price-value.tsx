@@ -3,9 +3,9 @@ import { ArrowRight, Check } from "lucide-react"
 import FadeIn from "@/components/ui/fade-in"
 
 const packages = [
-  { name: "Starter", price: "199", desc: "Für den Einstieg — eine klare Seite, die zeigt, was Sie anbieten." },
-  { name: "Pro", price: "399", desc: "Für alle, die online wachsen wollen — mehr Seiten, besser bei Google.", highlight: true },
-  { name: "Premium", price: "699", desc: "Für größere Vorhaben — mit eigenen Extras nach Ihren Wünschen." },
+  { name: "Starter", price: "199", desc: "Für den Einstieg: eine klare Seite, die zeigt, was Sie anbieten." },
+  { name: "Pro", price: "399", desc: "Für alle, die online wachsen wollen: mehr Seiten, besser bei Google.", highlight: true },
+  { name: "Premium", price: "699", desc: "Für größere Vorhaben, mit eigenen Extras nach Ihren Wünschen." },
 ]
 
 const points = [

@@ -307,7 +307,7 @@ export default function LeistungenPage() {
               },
               {
                 q: "Was ist mit Pflege und Updates nach dem Launch?",
-                a: "Optional. Wir bieten Pflegepakete ab 19 €/Monat für regelmäßige Updates, Inhaltsänderungen und Backups an — Pflicht ist das nicht. Den Code haben Sie, und jeder Entwickler kann damit arbeiten.",
+                a: "Optional. Wir bieten Pflegepakete ab 19 €/Monat für regelmäßige Updates, Inhaltsänderungen und Backups an. Pflicht ist das nicht. Den Code haben Sie, und jeder Entwickler kann damit arbeiten.",
               },
               {
                 q: "Ich habe schon ein Design von woanders. Können Sie das umsetzen?",

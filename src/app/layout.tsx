@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Nexuzo",
   },
   description:
-    "Webdesign Agentur in Düsseldorf. Websites ab 300 € — fertig in unter einer Woche. Festpreis, keine Überraschungen.",
+    "Webdesign Agentur in Düsseldorf. Websites ab 300 €, fertig in unter einer Woche. Festpreis, keine Überraschungen.",
   keywords: ["Webdesign", "Web-Entwicklung", "Online-Shop", "SEO", "Agentur", "Düsseldorf"],
   openGraph: {
     type: "website",

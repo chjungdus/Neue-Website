@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: "Ich hatte schlechte Erfahrungen mit anderen Agenturen.",
-    answer: "Verstehen wir. Deshalb steht der Preis bei uns im Vertrag — dazu wöchentliche Updates mit Staging-Link und eine feste Ansprechperson.",
+    answer: "Verstehen wir. Deshalb steht der Preis bei uns im Vertrag, dazu wöchentliche Updates mit Staging-Link und eine feste Ansprechperson.",
   },
   {
     question: "Was passiert nach dem Launch?",
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: "Kann ich Inhalte selbst bearbeiten?",
-    answer: "Kleine Änderungen übernehmen wir im Pflegepaket — meist günstiger und schneller als ein eigenes CMS.",
+    answer: "Kleine Änderungen übernehmen wir im Pflegepaket, meist günstiger und schneller als ein eigenes CMS.",
   },
 ]
 

@@ -10,7 +10,7 @@ const reasons = [
   {
     icon: Cpu,
     title: "Schnell & zuverlässig",
-    body: "Ihre Website lädt schnell, sieht auf jedem Handy gut aus und läuft ohne Probleme — dafür sorgen wir im Hintergrund.",
+    body: "Ihre Website lädt schnell, sieht auf jedem Handy gut aus und läuft ohne Probleme. Dafür sorgen wir im Hintergrund.",
   },
   {
     icon: Zap,
@@ -20,7 +20,7 @@ const reasons = [
   {
     icon: MessageCircle,
     title: "Persönlicher Kontakt",
-    body: "Sie sprechen direkt mit der Person, die Ihre Website baut — nicht mit einem Callcenter.",
+    body: "Sie sprechen direkt mit der Person, die Ihre Website baut, nicht mit einem Callcenter.",
   },
 ]
 
