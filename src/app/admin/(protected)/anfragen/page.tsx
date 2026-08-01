@@ -1,12 +1,6 @@
-import { getSupabase } from "@/lib/supabase"
+import { getSupabaseAdmin } from "@/lib/supabase"
 import type { ProjectRequest } from "@/lib/supabase"
-import { Clock, CheckCircle2, Loader2 } from "lucide-react"
-
-const statusConfig = {
-  new: { label: "Neu", color: "#0066FF", icon: Clock },
-  in_progress: { label: "In Bearbeitung", color: "#0066FF", icon: Loader2 },
-  done: { label: "Erledigt", color: "#0066FF", icon: CheckCircle2 },
-}
+import RequestStatusControl from "@/components/admin/request-status-control"
 
 const projectTypeLabels: Record<string, string> = {
   landing_page: "Landing Page",
@@ -24,7 +18,7 @@ const budgetLabels: Record<string, string> = {
 }
 
 async function getRequests(): Promise<ProjectRequest[]> {
-  const supabase = getSupabase()
+  const supabase = getSupabaseAdmin()
   if (!supabase) return []
   const { data } = await supabase.from("project_requests").select("*").order("created_at", { ascending: false })
   return (data as ProjectRequest[]) ?? []
@@ -53,8 +47,6 @@ export default async function AnfragenPage() {
       ) : (
         <div className="flex flex-col gap-4">
           {requests.map((req) => {
-            const status = statusConfig[req.status] ?? statusConfig.new
-            const StatusIcon = status.icon
             return (
               <div key={req.id} className="bg-white/[0.03] border border-white/10 rounded-xl p-6">
                 <div className="flex items-start justify-between gap-4 mb-4">
@@ -62,9 +54,7 @@ export default async function AnfragenPage() {
                     <h2 className="text-white font-bold">{req.name}</h2>
                     <a href={`mailto:${req.email}`} className="text-[#0066FF] text-sm hover:underline">{req.email}</a>
                   </div>
-                  <span className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border flex-shrink-0" style={{ color: status.color, backgroundColor: `${status.color}10`, borderColor: `${status.color}20` }}>
-                    <StatusIcon size={12} />{status.label}
-                  </span>
+                  <RequestStatusControl id={req.id} status={req.status} />
                 </div>
                 <div className="flex flex-wrap gap-3 mb-4">
                   {req.project_type && <span className="text-xs px-2.5 py-1 rounded-full bg-[#0066FF]/10 text-[#ffffff]/55 border border-[#0066FF]/15">{projectTypeLabels[req.project_type] ?? req.project_type}</span>}

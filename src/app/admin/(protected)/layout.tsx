@@ -1,15 +1,10 @@
 import { redirect } from "next/navigation"
 import Link from "next/link"
 import { LayoutDashboard, Image, Inbox, LogOut, Zap } from "lucide-react"
-import { cookies } from "next/headers"
-
-async function checkAuth() {
-  const cookieStore = await cookies()
-  return cookieStore.get("admin_auth")?.value === process.env.ADMIN_SECRET
-}
+import { isAdminAuthed } from "@/lib/admin-auth"
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
-  const isAuth = await checkAuth()
+  const isAuth = await isAdminAuthed()
   if (!isAuth) redirect("/admin/login")
 
   return (
