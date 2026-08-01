@@ -104,7 +104,7 @@ export default function Hero() {
 
       {/* Animated WebGL aurora background */}
       <ShaderBackground />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f]/60 via-[#0a0a0f]/10 to-[#0a0a0f]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f]/70 via-[#0a0a0f]/25 to-[#0a0a0f]" />
 
       {/* Text */}
       <div className="relative z-10 text-center px-6 mb-8 max-w-2xl">

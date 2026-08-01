@@ -4,24 +4,24 @@ import { TrendingDown, Search, Smartphone } from "lucide-react"
 const problems = [
   {
     icon: TrendingDown,
-    title: "Kaum Anfragen trotz Besucher",
-    body: "Kein klarer Aufruf. Besucher gehen ohne Kontakt.",
-    stat: "Ø 1,5%",
-    statNote: "Conversion bei Standard-Seiten",
+    title: "Besucher, aber keine Anfragen",
+    body: "Ohne klare Handlungsaufforderung verlassen Besucher die Seite, ohne sich zu melden.",
+    stat: "1,5%",
+    statNote: "von 100 Besuchern schreiben im Schnitt eine Nachricht",
   },
   {
     icon: Search,
-    title: "Google findet Sie nicht",
-    body: "90% der Klicks gehen an die Top 3. Seite 2 existiert nicht.",
+    title: "Bei Google nicht zu finden",
+    body: "Fast niemand klickt sich bis auf die zweite Google-Seite durch.",
     stat: "90%",
-    statNote: "klicken nur Top-3-Ergebnisse",
+    statNote: "aller Klicks gehen an die obersten 3 Treffer",
   },
   {
     icon: Smartphone,
-    title: "Mobile-Nutzer springen ab",
-    body: "63% kommen per Smartphone. Langsame Seiten verlieren sie sofort.",
+    title: "Handy-Nutzer springen sofort ab",
+    body: "Die meisten schauen über das Handy vorbei. Lädt die Seite langsam, sind sie sofort wieder weg.",
     stat: "63%",
-    statNote: "Web-Traffic kommt mobil",
+    statNote: "aller Besucher kommen übers Smartphone",
   },
 ]
 

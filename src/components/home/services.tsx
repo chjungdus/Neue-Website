@@ -47,26 +47,18 @@ function DesignVisual() {
   )
 }
 
-function CodeVisual() {
+function ReliabilityVisual() {
+  const checks = ["Lädt in unter 1 Sekunde", "Funktioniert auf jedem Handy", "Keine Fehler, kein Absturz"]
   return (
-    <div className="w-full rounded-xl bg-white border border-[#0a0a0f]/10 p-4 font-mono text-[11px] leading-6 shadow-sm" style={{ height: "148px" }}>
-      <div>
-        <span style={{ color: ACCENT }}>const</span>
-        {" "}
-        <span className="text-[#0a0a0f]/80">site</span>
-        {" = "}
-        <span className="text-[#0066FF]">build</span>
-        <span className="text-[#0a0a0f]/40">(config)</span>
-      </div>
-      <div className="text-[#0a0a0f]/40 ml-4">
-        .optimize(){" "}
-        <span className="text-[#0a0a0f]/25">{"// Lighthouse 95+"}</span>
-      </div>
-      <div className="text-[#0a0a0f]/40 ml-4">.deploy()</div>
-      <div className="mt-4 flex items-center gap-2">
-        <div className="w-2 h-2 rounded-full bg-[#0066FF]" />
-        <span className="text-[#0066FF] text-[10px]">Build successful · 847ms</span>
-      </div>
+    <div className="w-full rounded-xl bg-white border border-[#0a0a0f]/10 p-4 shadow-sm flex flex-col justify-center gap-3" style={{ height: "148px" }}>
+      {checks.map((c) => (
+        <div key={c} className="flex items-center gap-2.5">
+          <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${ACCENT}18` }}>
+            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: ACCENT }} />
+          </div>
+          <span className="text-[#0a0a0f]/70 text-[12px]">{c}</span>
+        </div>
+      ))}
     </div>
   )
 }
@@ -128,7 +120,7 @@ function SeoVisual() {
       </div>
       <div className="flex items-center gap-2 border-t border-[#0a0a0f]/[0.06] pt-2.5">
         <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: ACCENT }} />
-        <span className="text-[9px] text-[#0a0a0f]/40">Organische Sichtbarkeit · +64% nach 3 Monaten</span>
+        <span className="text-[9px] text-[#0a0a0f]/40">Mehr Besucher über Google · +64% nach 3 Monaten</span>
       </div>
     </div>
   )
@@ -192,12 +184,12 @@ export default function Services() {
                   <Code2 size={18} className="text-[#0066FF]" />
                 </div>
               </div>
-              <h3 className="text-xl font-extrabold text-[#0a0a0f] mb-2">Entwicklung</h3>
+              <h3 className="text-xl font-extrabold text-[#0a0a0f] mb-2">Funktioniert einfach</h3>
               <p className="text-[#0a0a0f]/60 text-sm leading-relaxed mb-5 italic">
-                Schnell, sicher, ohne Lock-in.
+                Schnell und zuverlässig, ohne dass Sie sich um Technik kümmern müssen.
               </p>
               <ul className="space-y-2.5 mb-6">
-                {["Lighthouse 90+ als Standard", "Kein teures CMS", "Auf jedem Gerät fehlerfrei"].map((p) => (
+                {["Lädt in Sekundenbruchteilen", "Keine versteckten Zusatzkosten", "Auf jedem Gerät fehlerfrei"].map((p) => (
                   <li key={p} className="flex items-center gap-2.5 text-sm text-[#0a0a0f]/55">
                     <span className="w-1 h-1 rounded-full flex-shrink-0 bg-[#0066FF]" />
                     {p}
@@ -205,7 +197,7 @@ export default function Services() {
                 ))}
               </ul>
               <div className="mt-auto">
-                <CodeVisual />
+                <ReliabilityVisual />
               </div>
             </div>
           </FadeIn>

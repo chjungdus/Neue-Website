@@ -9,8 +9,8 @@ const reasons = [
   },
   {
     icon: Cpu,
-    title: "Moderner Tech-Stack",
-    body: "Next.js, TypeScript, Top-Performance — die Werkzeuge großer Agenturen, ohne deren Preis.",
+    title: "Schnell & zuverlässig",
+    body: "Ihre Website lädt schnell, sieht auf jedem Handy gut aus und läuft ohne Probleme — dafür sorgen wir im Hintergrund.",
   },
   {
     icon: Zap,

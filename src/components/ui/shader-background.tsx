@@ -40,11 +40,11 @@ void main(){
   float n = fbm(p * 1.6 + 1.4 * q + vec2(t * 0.6, -t * 0.4));
   n = smoothstep(-0.1, 0.95, n);
   float d = distance(uv, u_mouse);
-  float glow = smoothstep(0.45, 0.0, d) * 0.22;
+  float glow = smoothstep(0.45, 0.0, d) * 0.12;
   vec3 base = vec3(0.039, 0.039, 0.06);
   vec3 blue = vec3(0.0, 0.4, 1.0);
-  vec3 col = mix(base, blue, n * 0.42 + glow);
-  col *= 1.0 - 0.4 * distance(uv, vec2(0.5));
+  vec3 col = mix(base, blue, n * 0.26 + glow);
+  col *= 1.0 - 0.32 * distance(uv, vec2(0.5));
   gl_FragColor = vec4(col, 1.0);
 }
 `
