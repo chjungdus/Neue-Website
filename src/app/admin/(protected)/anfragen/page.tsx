@@ -1,21 +1,8 @@
+import { ExternalLink } from "lucide-react"
 import { getSupabaseAdmin } from "@/lib/supabase"
 import type { ProjectRequest } from "@/lib/supabase"
 import RequestStatusControl from "@/components/admin/request-status-control"
-
-const projectTypeLabels: Record<string, string> = {
-  landing_page: "Landing Page",
-  website: "Website",
-  ecommerce: "Online-Shop",
-  webapp: "Web-App",
-  sonstiges: "Sonstiges",
-}
-
-const budgetLabels: Record<string, string> = {
-  unter_2000: "< 2.000 €",
-  "2000_5000": "2k – 5k €",
-  "5000_10000": "5k – 10k €",
-  ueber_10000: "> 10.000 €",
-}
+import { projectTypeLabels, budgetLabels, packageLabels } from "@/lib/anfrage-options"
 
 async function getRequests(): Promise<ProjectRequest[]> {
   const supabase = getSupabaseAdmin()
@@ -53,13 +40,30 @@ export default async function AnfragenPage() {
                   <div>
                     <h2 className="text-white font-bold">{req.name}</h2>
                     <a href={`mailto:${req.email}`} className="text-[#0066FF] text-sm hover:underline">{req.email}</a>
+                    {req.phone && <span className="text-[#ffffff]/40 text-sm ml-2">· {req.phone}</span>}
                   </div>
                   <RequestStatusControl id={req.id} status={req.status} />
                 </div>
                 <div className="flex flex-wrap gap-3 mb-4">
+                  {req.package && (
+                    <span className="text-xs px-2.5 py-1 rounded-full bg-[#0066FF]/15 text-[#0066FF] border border-[#0066FF]/25 font-medium">
+                      Paket: {packageLabels[req.package] ?? req.package}
+                    </span>
+                  )}
                   {req.project_type && <span className="text-xs px-2.5 py-1 rounded-full bg-[#0066FF]/10 text-[#ffffff]/55 border border-[#0066FF]/15">{projectTypeLabels[req.project_type] ?? req.project_type}</span>}
                   {req.budget && <span className="text-xs px-2.5 py-1 rounded-full bg-white/5 text-[#ffffff]/50 border border-white/10">{budgetLabels[req.budget] ?? req.budget}</span>}
                 </div>
+                {req.business_link && (
+                  <a
+                    href={req.business_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[#0066FF] text-sm hover:underline mb-3"
+                  >
+                    <ExternalLink size={13} />
+                    {req.business_link}
+                  </a>
+                )}
                 {req.description && <p className="text-[#ffffff]/50 text-sm leading-relaxed border-t border-white/5 pt-4">{req.description}</p>}
                 <p className="text-[#ffffff]/30 text-xs mt-3">{new Date(req.created_at).toLocaleString("de-DE")}</p>
               </div>

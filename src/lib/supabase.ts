@@ -49,6 +49,8 @@ export type ProjectRequest = {
   budget: string
   timeline: string
   description: string
+  business_link: string | null
+  package: string | null
   name: string
   email: string
   phone: string
