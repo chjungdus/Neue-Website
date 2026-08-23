@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useEffect, useCallback } from "react"
+import { useRef, useEffect } from "react"
 
 const items = [
   "Webdesign",
@@ -16,90 +16,79 @@ const items = [
   "Aus Düsseldorf",
 ]
 
+// Transform-based marquee. Native scrollLeft rounds to whole pixels on
+// mobile browsers, which makes a slow per-frame auto-scroll visibly step
+// frame by frame. `transform: translate3d` is GPU-composited and glides
+// smoothly at any speed. Manual drag/swipe writes to the same offset via
+// pointer events, so both motions share one continuous state.
 export default function Marquee() {
-  const ref = useRef<HTMLDivElement>(null)
-  const pos = useRef(0)
-  const inited = useRef(false)
-  const paused = useRef(false)
-  const drag = useRef({ active: false, startX: 0, startLeft: 0 })
-  const resume = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
+  const offsetRef = useRef(0)      // px, kept within [-copyWidth, 0]
+  const copyWidthRef = useRef(0)   // width of ONE copy of the items list
+  const draggingRef = useRef(false)
+  const lastPointerXRef = useRef(0)
 
-  // Auto-advance + seamless infinite loop (3 copies, kept inside the middle one).
   useEffect(() => {
-    const el = ref.current
-    if (!el) return
+    const track = trackRef.current
+    if (!track) return
+
+    const measure = () => {
+      // Track holds two copies of the items list, so one copy is half the total width.
+      copyWidthRef.current = track.scrollWidth / 2
+    }
+    measure()
+    const ro = new ResizeObserver(measure)
+    ro.observe(track)
+
     let raf = 0
     const tick = () => {
-      const copy = el.scrollWidth / 3
-      if (copy > 0) {
-        if (!inited.current) {
-          el.scrollLeft = copy
-          pos.current = copy
-          inited.current = true
-        } else if (!paused.current) {
-          pos.current += 0.4
-          if (pos.current >= 2 * copy) pos.current -= copy
-          el.scrollLeft = pos.current
-        } else {
-          pos.current = el.scrollLeft
+      const cw = copyWidthRef.current
+      if (cw > 0) {
+        if (!draggingRef.current) {
+          offsetRef.current -= 0.8 // ~48 px/s at 60 fps, subtle but visible
         }
+        if (offsetRef.current <= -cw) offsetRef.current += cw
+        else if (offsetRef.current > 0) offsetRef.current -= cw
+        track.style.transform = `translate3d(${offsetRef.current}px, 0, 0)`
       }
       raf = requestAnimationFrame(tick)
     }
     raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
-  }, [])
 
-  const onScroll = useCallback(() => {
-    const el = ref.current
-    if (!el) return
-    const copy = el.scrollWidth / 3
-    if (copy <= 0) return
-    if (el.scrollLeft >= 2 * copy) { el.scrollLeft -= copy; pos.current = el.scrollLeft }
-    else if (el.scrollLeft < copy * 0.5) { el.scrollLeft += copy; pos.current = el.scrollLeft }
+    return () => {
+      cancelAnimationFrame(raf)
+      ro.disconnect()
+    }
   }, [])
-
-  const pause = () => {
-    paused.current = true
-    if (resume.current) clearTimeout(resume.current)
-  }
-  const scheduleResume = () => {
-    if (resume.current) clearTimeout(resume.current)
-    resume.current = setTimeout(() => { paused.current = false }, 1200)
-  }
 
   return (
     <div
-      ref={ref}
-      onScroll={onScroll}
-      onPointerDown={(e) => {
-        pause()
-        // Mouse needs manual drag-to-scroll; touch uses native scrolling.
-        if (e.pointerType === "mouse" && ref.current) {
-          drag.current = { active: true, startX: e.clientX, startLeft: ref.current.scrollLeft }
-          ref.current.setPointerCapture(e.pointerId)
-        }
-      }}
-      onPointerMove={(e) => {
-        if (drag.current.active && ref.current) {
-          ref.current.scrollLeft = drag.current.startLeft - (e.clientX - drag.current.startX)
-        }
-      }}
-      onPointerUp={(e) => {
-        drag.current.active = false
-        try { ref.current?.releasePointerCapture(e.pointerId) } catch {}
-        scheduleResume()
-      }}
-      onPointerCancel={() => { drag.current.active = false; scheduleResume() }}
-      className="border-y border-[#0a0a0f]/10 bg-[#0a0a0f]/[0.04] overflow-x-auto overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden cursor-grab active:cursor-grabbing select-none py-3"
+      className="border-y border-[#0a0a0f]/10 bg-[#0a0a0f]/[0.04] overflow-hidden select-none py-3 cursor-grab active:cursor-grabbing"
       style={{
         maskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
         WebkitMaskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
       }}
+      onPointerDown={(e) => {
+        draggingRef.current = true
+        lastPointerXRef.current = e.clientX
+        ;(e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId)
+      }}
+      onPointerMove={(e) => {
+        if (!draggingRef.current) return
+        const dx = e.clientX - lastPointerXRef.current
+        lastPointerXRef.current = e.clientX
+        offsetRef.current += dx
+      }}
+      onPointerUp={() => { draggingRef.current = false }}
+      onPointerCancel={() => { draggingRef.current = false }}
       aria-label="Leistungen, zum Blättern wischen oder ziehen"
     >
-      <div className="flex gap-0 w-max">
-        {[...items, ...items, ...items].map((item, i) => (
+      <div
+        ref={trackRef}
+        className="flex gap-0 w-max will-change-transform"
+        style={{ touchAction: "pan-y" }}
+      >
+        {[...items, ...items].map((item, i) => (
           <span
             key={i}
             className="text-[13px] font-semibold text-[#0a0a0f]/40 whitespace-nowrap flex items-center gap-0"
