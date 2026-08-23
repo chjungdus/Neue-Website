@@ -40,6 +40,9 @@ const steps = [
 ]
 
 // A step's icon circle lights up as the scroll-drawn line reaches it.
+// The white base layer is what actually masks the timeline line where it
+// passes behind the icon — the coloured overlay is translucent, so without
+// a solid base underneath the line would show straight through the circle.
 function StepIcon({
   Icon,
   progress,
@@ -62,10 +65,14 @@ function StepIcon({
 
   return (
     <motion.div
-      style={{ backgroundColor, scale, width: dim, height: dim }}
-      className={`rounded-full flex items-center justify-center z-10 relative ring-4 ring-white ${className}`}
+      style={{ scale, width: dim, height: dim }}
+      className={`relative z-20 rounded-full bg-white ring-4 ring-white flex items-center justify-center ${className}`}
     >
-      <motion.div style={{ color }} className="flex items-center justify-center">
+      <motion.div
+        style={{ backgroundColor }}
+        className="absolute inset-0 rounded-full"
+      />
+      <motion.div style={{ color }} className="relative flex items-center justify-center">
         <Icon size={size} />
       </motion.div>
     </motion.div>

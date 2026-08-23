@@ -14,65 +14,53 @@ export default function Hero() {
   const [userInteracted, setUserInteracted] = useState(false)
   const [expandedCard, setExpandedCard] = useState<number | null>(null)
 
-  // Mobile strip: a real horizontally-scrollable track that also auto-advances
-  // when idle. This keeps it swipeable by finger at any time (the old CSS marquee
-  // could not be scrolled after tapping).
-  const scrollerRef = useRef<HTMLDivElement>(null)
-  const pausedRef = useRef(false)
-  const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  // Mobile strip: transform-based marquee. We deliberately do NOT use native
+  // scroll here because `scrollLeft` snaps to integer pixels on many mobile
+  // browsers, which makes a sub-pixel per-frame auto-scroll visibly stutter
+  // ("frame-by-frame" look). `translate3d` is GPU-composited and interpolates
+  // smoothly at any speed. Manual swipes are handled via pointer events on the
+  // same offset, so both motions share one continuous state.
+  const trackRef = useRef<HTMLDivElement>(null)
+  const offsetRef = useRef(0)      // px, always <= 0 within [-copyWidth, 0]
+  const copyWidthRef = useRef(0)   // width of ONE copy of the site list
+  const draggingRef = useRef(false)
+  const lastPointerXRef = useRef(0)
   const downXRef = useRef(0)
   const movedRef = useRef(false)
-  const posRef = useRef(0) // float scroll accumulator (scrollLeft rounds to int)
-  const initedRef = useRef(false)
 
-  // The track holds 3 identical copies of the list. We keep the viewport inside
-  // the middle copy and silently jump by one copy-width whenever it drifts out,
-  // so both the auto-scroll AND manual swiping loop forever with no seam.
   useEffect(() => {
-    const el = scrollerRef.current
-    if (!el) return
+    const track = trackRef.current
+    if (!track) return
+
+    const measure = () => {
+      // Track holds two copies of the site list, so one copy is half the total width.
+      copyWidthRef.current = track.scrollWidth / 2
+    }
+    measure()
+    const ro = new ResizeObserver(measure)
+    ro.observe(track)
+
     let raf = 0
     const tick = () => {
-      const copy = el.scrollWidth / 3
-      if (copy > 0) {
-        if (!initedRef.current) {
-          el.scrollLeft = copy
-          posRef.current = copy
-          initedRef.current = true
-        } else if (!pausedRef.current && expandedCard === null) {
-          posRef.current += 0.55
-          if (posRef.current >= 2 * copy) posRef.current -= copy
-          el.scrollLeft = posRef.current
-        } else {
-          posRef.current = el.scrollLeft
+      const cw = copyWidthRef.current
+      if (cw > 0) {
+        if (!draggingRef.current && expandedCard === null) {
+          offsetRef.current -= 0.5 // ~30 px/s at 60 fps
         }
+        // Wrap into [-cw, 0] so the second copy takes over seamlessly.
+        if (offsetRef.current <= -cw) offsetRef.current += cw
+        else if (offsetRef.current > 0) offsetRef.current -= cw
+        track.style.transform = `translate3d(${offsetRef.current}px, 0, 0)`
       }
       raf = requestAnimationFrame(tick)
     }
     raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
-  }, [expandedCard])
 
-  // Keep manual scrolling inside the middle copy (seamless infinite loop).
-  const handleScroll = useCallback(() => {
-    const el = scrollerRef.current
-    if (!el) return
-    if (expandedCard !== null) setExpandedCard(null)
-    const copy = el.scrollWidth / 3
-    if (copy <= 0) return
-    if (el.scrollLeft >= 2 * copy) { el.scrollLeft -= copy; posRef.current = el.scrollLeft }
-    else if (el.scrollLeft < copy * 0.5) { el.scrollLeft += copy; posRef.current = el.scrollLeft }
+    return () => {
+      cancelAnimationFrame(raf)
+      ro.disconnect()
+    }
   }, [expandedCard])
-
-  // Pause auto-scroll while the user is touching/swiping, resume shortly after.
-  const pauseAuto = useCallback(() => {
-    pausedRef.current = true
-    if (resumeTimer.current) clearTimeout(resumeTimer.current)
-  }, [])
-  const resumeAuto = useCallback(() => {
-    if (resumeTimer.current) clearTimeout(resumeTimer.current)
-    resumeTimer.current = setTimeout(() => { pausedRef.current = false }, 1600)
-  }, [])
 
   const prev = useCallback(() => {
     setUserInteracted(true)
@@ -184,84 +172,100 @@ export default function Hero() {
         className="relative z-10 md:hidden w-full"
       >
         <div
-          ref={scrollerRef}
-          className="w-full flex gap-4 px-6 py-2 overflow-x-auto overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          className="w-full overflow-hidden"
           style={{
             maskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
             WebkitMaskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
           }}
-          onPointerDown={(e) => { pauseAuto(); downXRef.current = e.clientX; movedRef.current = false }}
-          onPointerMove={(e) => { if (Math.abs(e.clientX - downXRef.current) > 8) movedRef.current = true }}
-          onPointerUp={resumeAuto}
-          onPointerCancel={resumeAuto}
-          onScroll={handleScroll}
+          onPointerDown={(e) => {
+            draggingRef.current = true
+            lastPointerXRef.current = e.clientX
+            downXRef.current = e.clientX
+            movedRef.current = false
+            ;(e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId)
+          }}
+          onPointerMove={(e) => {
+            if (!draggingRef.current) return
+            const dx = e.clientX - lastPointerXRef.current
+            lastPointerXRef.current = e.clientX
+            offsetRef.current += dx
+            if (Math.abs(e.clientX - downXRef.current) > 8) movedRef.current = true
+          }}
+          onPointerUp={() => { draggingRef.current = false }}
+          onPointerCancel={() => { draggingRef.current = false }}
         >
-          {[...sites, ...sites, ...sites].map((site, i) => {
-            const isExpanded = expandedCard === i
-            return (
-              <div
-                key={i}
-                role="button"
-                tabIndex={0}
-                aria-label={`${site.label} – zum Vergrößern tippen`}
-                onClick={() => {
-                  if (movedRef.current) return       // was a swipe, not a tap
-                  if (!isExpanded) setExpandedCard(i)
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" && !isExpanded) setExpandedCard(i)
-                }}
-                className={`relative flex-shrink-0 rounded-2xl border bg-white overflow-hidden cursor-pointer transition-all duration-300 ease-out ${
-                  isExpanded
-                    ? "w-[260px] h-[180px] border-[#0066FF]/40 shadow-xl"
-                    : "w-[190px] h-[130px] border-black/10 shadow-sm"
-                }`}
-              >
-                {/* Browser chrome */}
-                <div className="flex items-center gap-1.5 px-3 py-2 bg-[#0a0a0f]/[0.04] border-b border-black/5">
-                  <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
-                  <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
-                  <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
-                </div>
-
-                {/* Live screenshot */}
-                <div className="relative h-[calc(100%-30px)] bg-[#0a0a0f]/[0.04]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={shot(site.url)}
-                    alt={`Website ${site.label}`}
-                    loading="lazy"
-                    draggable={false}
-                    className="w-full h-full object-cover object-top pointer-events-none select-none"
-                  />
-                  {/* Label overlay */}
-                  <div className="absolute inset-x-0 bottom-0 px-3 py-1.5 bg-gradient-to-t from-black/70 to-transparent">
-                    <p className="text-[11px] font-bold text-white truncate">{site.label}</p>
+          <div
+            ref={trackRef}
+            className="flex gap-4 py-2 w-max will-change-transform"
+            style={{ touchAction: "pan-y" }}
+          >
+            {[...sites, ...sites].map((site, i) => {
+              const isExpanded = expandedCard === i
+              return (
+                <div
+                  key={i}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`${site.label} – zum Vergrößern tippen`}
+                  onClick={() => {
+                    if (movedRef.current) return       // was a swipe, not a tap
+                    if (!isExpanded) setExpandedCard(i)
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && !isExpanded) setExpandedCard(i)
+                  }}
+                  className={`relative flex-shrink-0 rounded-2xl border bg-white overflow-hidden cursor-pointer transition-all duration-300 ease-out ${
+                    isExpanded
+                      ? "w-[260px] h-[180px] border-[#0066FF]/40 shadow-xl"
+                      : "w-[190px] h-[130px] border-black/10 shadow-sm"
+                  }`}
+                >
+                  {/* Browser chrome */}
+                  <div className="flex items-center gap-1.5 px-3 py-2 bg-[#0a0a0f]/[0.04] border-b border-black/5">
+                    <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
+                    <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
+                    <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
                   </div>
-                </div>
 
-                {/* Expand overlay — first tap enlarges, this link is the second tap */}
-                <AnimatePresence>
-                  {isExpanded && (
-                    <motion.a
-                      href={site.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-[#0a0a0f]/85 text-white"
-                    >
-                      <ExternalLink size={20} />
-                      <span className="text-[13px] font-bold">Website besuchen</span>
-                      <span className="text-[11px] text-white/60">{site.display}</span>
-                    </motion.a>
-                  )}
-                </AnimatePresence>
-              </div>
-            )
-          })}
+                  {/* Live screenshot */}
+                  <div className="relative h-[calc(100%-30px)] bg-[#0a0a0f]/[0.04]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={shot(site.url)}
+                      alt={`Website ${site.label}`}
+                      loading="lazy"
+                      draggable={false}
+                      className="w-full h-full object-cover object-top pointer-events-none select-none"
+                    />
+                    {/* Label overlay */}
+                    <div className="absolute inset-x-0 bottom-0 px-3 py-1.5 bg-gradient-to-t from-black/70 to-transparent">
+                      <p className="text-[11px] font-bold text-white truncate">{site.label}</p>
+                    </div>
+                  </div>
+
+                  {/* Expand overlay — first tap enlarges, this link is the second tap */}
+                  <AnimatePresence>
+                    {isExpanded && (
+                      <motion.a
+                        href={site.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-[#0a0a0f]/85 text-white"
+                      >
+                        <ExternalLink size={20} />
+                        <span className="text-[13px] font-bold">Website besuchen</span>
+                        <span className="text-[11px] text-white/60">{site.display}</span>
+                      </motion.a>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )
+            })}
+          </div>
         </div>
         <p className="text-center text-white/30 text-xs mt-3">Wischen zum Blättern · Tippen zum Öffnen</p>
       </motion.div>

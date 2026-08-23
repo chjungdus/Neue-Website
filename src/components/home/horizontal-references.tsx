@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react"
 import Link from "next/link"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion, useScroll, useSpring, useTransform } from "framer-motion"
 import { ArrowRight, ExternalLink, MousePointer2 } from "lucide-react"
 import { references, shot } from "@/lib/references"
 
@@ -28,7 +28,11 @@ export default function HorizontalReferences() {
     target: sectionRef,
     offset: ["start start", "end end"],
   })
-  const x = useTransform(scrollYProgress, [0, 1], [0, -distance])
+  // Smooth the raw scroll progress with a spring so the horizontal slide
+  // interpolates between scroll events instead of snapping frame-by-frame —
+  // that's what makes native scroll-linked animations look "steppy" otherwise.
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.35 })
+  const x = useTransform(smoothProgress, [0, 1], [0, -distance])
 
   return (
     <section
