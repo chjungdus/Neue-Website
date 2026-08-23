@@ -45,7 +45,7 @@ export default function Hero() {
       const cw = copyWidthRef.current
       if (cw > 0) {
         if (!draggingRef.current && expandedCard === null) {
-          offsetRef.current -= 0.5 // ~30 px/s at 60 fps
+          offsetRef.current -= 0.9 // ~54 px/s at 60 fps
         }
         // Wrap into [-cw, 0] so the second copy takes over seamlessly.
         if (offsetRef.current <= -cw) offsetRef.current += cw
