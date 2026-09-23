@@ -28,9 +28,9 @@ export default function ImpressumPage() {
               <br />
               Inhaber: Mateo Sainz de la Maza
               <br />
-              Königsallee 14
+              Nägelestr. 19
               <br />
-              40212 Düsseldorf
+              40225 Düsseldorf
               <br />
               Deutschland
             </p>
@@ -58,9 +58,9 @@ export default function ImpressumPage() {
             <p className="leading-relaxed text-sm">
               Mateo Sainz de la Maza
               <br />
-              Königsallee 14
+              Nägelestr. 19
               <br />
-              40212 Düsseldorf
+              40225 Düsseldorf
             </p>
           </section>
 
