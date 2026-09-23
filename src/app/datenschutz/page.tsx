@@ -46,15 +46,15 @@ export default function DatenschutzPage() {
             <p>
               Nexuzo
               <br />
-              Königsallee 14
+              Nägelestr. 19
               <br />
-              40212 Düsseldorf
+              40225 Düsseldorf
               <br />
-              Telefon: +49 (0) 211 123 456 7
+              Telefon: +49 176 80257270
               <br />
               E-Mail:{" "}
-              <a href="mailto:datenschutz@nexuzo.de" className="text-[#0066FF] hover:underline">
-                datenschutz@nexuzo.de
+              <a href="mailto:nexuzo.kontakt@gmail.com" className="text-[#0066FF] hover:underline">
+                nexuzo.kontakt@gmail.com
               </a>
             </p>
           </Section>
@@ -175,13 +175,14 @@ export default function DatenschutzPage() {
             </ul>
             <p>
               Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:{" "}
-              <a href="mailto:datenschutz@nexuzo.de" className="text-[#0066FF] hover:underline">
-                datenschutz@nexuzo.de
+              <a href="mailto:nexuzo.kontakt@gmail.com" className="text-[#0066FF] hover:underline">
+                nexuzo.kontakt@gmail.com
               </a>
             </p>
             <p>
               Außerdem haben Sie das Recht, sich bei der zuständigen Datenschutz-Aufsichtsbehörde zu beschweren.
-              Zuständig ist das Bayerische Landesamt für Datenschutzaufsicht (BayLDA), Promenade 18, 91522 Ansbach.
+              Zuständig ist die Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen
+              (LDI NRW), Kavalleriestr. 2–4, 40213 Düsseldorf.
             </p>
           </Section>
 
