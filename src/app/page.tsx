@@ -1,5 +1,4 @@
 import Hero from "@/components/home/hero"
-import Marquee from "@/components/home/marquee"
 import ProblemSection from "@/components/home/problem-section"
 import WhyUs from "@/components/home/why-us"
 import PriceValue from "@/components/home/price-value"
@@ -21,7 +20,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Marquee />
       <ProblemSection />
       <WhyUs />
       <PriceValue />

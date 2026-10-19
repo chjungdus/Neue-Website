@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { WhatsAppIcon } from "@/components/home/hero"
 
 const navLinks = [
   { href: "/", label: "Start" },
@@ -18,7 +19,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
   // Pages whose hero is dark — navbar uses its light (white) variant on top.
-  const darkHeroRoutes = ["/", "/portfolio"]
+  const darkHeroRoutes = ["/portfolio"]
   const onDarkHero = darkHeroRoutes.includes(pathname) && !scrolled && !mobileOpen
   const solidHeader = scrolled || mobileOpen
 
@@ -74,12 +75,15 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <Link
-              href="/kontakt"
-              className={`text-sm font-medium transition-colors ${onDarkHero ? "text-white/60 hover:text-white" : "text-[#0a0a0f]/60 hover:text-[#0a0a0f]"}`}
+            <a
+              href="https://wa.me/4917680257270"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-2 text-sm font-semibold transition-colors ${onDarkHero ? "text-white/80 hover:text-white" : "text-[#0a0a0f]/80 hover:text-[#0a0a0f]"}`}
             >
-              Kontakt
-            </Link>
+              <WhatsAppIcon size={18} />
+              WhatsApp
+            </a>
             <Link
               href="/anfrage"
               className="bg-[#0066FF] hover:bg-[#0066FF]/85 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"

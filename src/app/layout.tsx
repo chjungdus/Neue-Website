@@ -1,21 +1,14 @@
 import type { Metadata } from "next"
-import { Inter, Bricolage_Grotesque } from "next/font/google"
+import { Plus_Jakarta_Sans } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/layout/navbar"
 import Footer from "@/components/layout/footer"
 import ScrollToTop from "@/components/ui/scroll-to-top"
 import ScrollProgress from "@/components/ui/scroll-progress"
 
-// Body: Inter — clean, high legibility.
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-})
-
-// Headings: Bricolage Grotesque — characterful display grotesque used by modern studios.
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
+// One family for everything: Plus Jakarta Sans, a modern geometric grotesk.
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
   display: "swap",
 })
@@ -42,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="de" className={`${inter.variable} ${bricolage.variable}`}>
+    <html lang="de" className={jakarta.variable}>
       <body className="min-h-screen flex flex-col antialiased">
         <ScrollProgress />
         <Navbar />

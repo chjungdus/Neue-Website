@@ -1,425 +1,176 @@
 "use client"
 
-import { useState, useCallback, useEffect, useRef } from "react"
 import Link from "next/link"
-import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
-import ShaderBackground from "@/components/ui/shader-background"
-import Magnetic from "@/components/ui/magnetic"
-import { references as sites, shot } from "@/lib/references"
+import { ArrowRight, Check } from "lucide-react"
+import { motion } from "framer-motion"
+
+const WA_TEXT = encodeURIComponent("Hallo Nexuzo, ich interessiere mich für eine Website.")
+const WA_LINK = `https://wa.me/4917680257270?text=${WA_TEXT}`
+
+const points = [
+  "Festpreis, bevor es losgeht",
+  "Live in vier Wochen",
+  "Individuelles Design",
+  "Bezahlt wird erst nach Freigabe",
+]
+
+// Real client sites, front to back. Screenshots live in /public/referenzen.
+const shots = [
+  { src: "/referenzen/milonga-640.webp", label: "milonga-foodtruck.de" },
+  { src: "/referenzen/essah-640.webp", label: "essah-urfa.de" },
+  { src: "/referenzen/limpiezas-640.webp", label: "limpiezas-el-valle.es" },
+]
+
+const facts = [
+  { value: "ab 199 €", label: "Festpreis, netto" },
+  { value: "4 Wochen", label: "bis Ihre Seite live ist" },
+  { value: "24 h", label: "bis Sie ein Angebot haben" },
+  { value: "2", label: "Gründer, keine Weitergabe" },
+]
+
+const rise = {
+  hidden: { opacity: 0, y: 18 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
+}
+
+export function WhatsAppIcon({ size = 18, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 0 1 2.76 6.67c0 5.2-4.24 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.04.72C5.79.72.7 5.8.7 12.06c0 2 .52 3.95 1.52 5.67L.6 23.28l5.69-1.49a11.3 11.3 0 0 0 5.75 1.47h.01c6.25 0 11.34-5.09 11.34-11.34 0-3.03-1.18-5.88-3.32-8.02z" />
+    </svg>
+  )
+}
 
 export default function Hero() {
-  const [active, setActive] = useState(0)
-  const [direction, setDirection] = useState(1)
-  const [userInteracted, setUserInteracted] = useState(false)
-  const [expandedCard, setExpandedCard] = useState<number | null>(null)
-
-  // Mobile strip: transform-based marquee. We deliberately do NOT use native
-  // scroll here because `scrollLeft` snaps to integer pixels on many mobile
-  // browsers, which makes a sub-pixel per-frame auto-scroll visibly stutter
-  // ("frame-by-frame" look). `translate3d` is GPU-composited and interpolates
-  // smoothly at any speed. Manual swipes are handled via pointer events on the
-  // same offset, so both motions share one continuous state.
-  const trackRef = useRef<HTMLDivElement>(null)
-  const offsetRef = useRef(0)      // px, always <= 0 within [-copyWidth, 0]
-  const copyWidthRef = useRef(0)   // width of ONE copy of the site list
-  const draggingRef = useRef(false)
-  const lastPointerXRef = useRef(0)
-  const downXRef = useRef(0)
-  const movedRef = useRef(false)
-
-  useEffect(() => {
-    const track = trackRef.current
-    if (!track) return
-
-    const measure = () => {
-      // Track holds two copies of the site list, so one copy is half the total width.
-      copyWidthRef.current = track.scrollWidth / 2
-    }
-    measure()
-    const ro = new ResizeObserver(measure)
-    ro.observe(track)
-
-    let raf = 0
-    const tick = () => {
-      const cw = copyWidthRef.current
-      if (cw > 0) {
-        if (!draggingRef.current && expandedCard === null) {
-          offsetRef.current -= 0.9 // ~54 px/s at 60 fps
-        }
-        // Wrap into [-cw, 0] so the second copy takes over seamlessly.
-        if (offsetRef.current <= -cw) offsetRef.current += cw
-        else if (offsetRef.current > 0) offsetRef.current -= cw
-        track.style.transform = `translate3d(${offsetRef.current}px, 0, 0)`
-      }
-      raf = requestAnimationFrame(tick)
-    }
-    raf = requestAnimationFrame(tick)
-
-    return () => {
-      cancelAnimationFrame(raf)
-      ro.disconnect()
-    }
-  }, [expandedCard])
-
-  const prev = useCallback(() => {
-    setUserInteracted(true)
-    setDirection(-1)
-    setActive((i) => (i - 1 + sites.length) % sites.length)
-  }, [])
-
-  const next = useCallback(() => {
-    setDirection(1)
-    setActive((i) => (i + 1) % sites.length)
-  }, [])
-
-  const goTo = useCallback((i: number) => {
-    setUserInteracted(true)
-    setDirection(i > active ? 1 : -1)
-    setActive(i)
-  }, [active])
-
-  useEffect(() => {
-    if (userInteracted) return
-    const t = setTimeout(next, 6000)
-    return () => clearTimeout(t)
-  }, [active, next, userInteracted])
-
-  const current = sites[active]
-
   return (
-    <section className="relative flex flex-col items-center justify-center overflow-hidden pt-28 pb-12 md:pt-32 md:pb-16 bg-[#0a0a0f]">
+    <section className="relative overflow-hidden bg-[#F6F5F1] pt-28 md:pt-36">
+      {/* One soft blue light behind the screenshots, nothing else */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-40 top-10 h-[640px] w-[640px] rounded-full bg-[#0066FF]/[0.07] blur-3xl"
+      />
 
-      {/* Animated WebGL aurora background */}
-      <ShaderBackground />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f]/70 via-[#0a0a0f]/25 to-[#0a0a0f]" />
-
-      {/* Text */}
-      <div className="relative z-10 text-center px-6 mb-8 max-w-2xl">
-        <motion.h1
-          variants={{ show: { transition: { staggerChildren: 0.06, delayChildren: 0.05 } } }}
+      <div className="relative mx-auto grid max-w-6xl gap-14 px-6 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
+        <motion.div
           initial="hidden"
           animate="show"
-          className="text-[34px] sm:text-[54px] md:text-[66px] font-extrabold text-white leading-[1.03] tracking-tight mb-6"
+          variants={{ show: { transition: { staggerChildren: 0.08 } } }}
+          className="flex flex-col justify-center"
         >
-          {[
-            ["Wir", "bauen", "Ihre"],
-            ["Website.", "Sie", "entscheiden"],
-          ].map((line, li) => (
-            <span key={li} className="block">
-              {line.map((word, wi) => (
-                <motion.span
-                  key={wi}
-                  variants={{ hidden: { opacity: 0, y: 24, filter: "blur(6px)" }, show: { opacity: 1, y: 0, filter: "blur(0px)" } }}
-                  transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
-                  className="inline-block mr-[0.25em]"
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </span>
-          ))}
-          {/* Gradient line stays a single element so background-clip:text works */}
-          <motion.span
-            variants={{ hidden: { opacity: 0, y: 24, filter: "blur(6px)" }, show: { opacity: 1, y: 0, filter: "blur(0px)" } }}
-            transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="block gradient-text"
-          >
-            danach, ob Sie zahlen.
-          </motion.span>
-        </motion.h1>
+          <motion.p variants={rise} className="text-[15px] font-semibold text-[#0a0a0f]/60">
+            Webdesign aus Düsseldorf · 3 Kundenseiten live
+          </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3"
-        >
-          <Magnetic>
-            <Link
-              href="/anfrage"
-              className="bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-7 py-3.5 rounded-full transition-colors flex items-center gap-2 text-[15px]"
+          <motion.h1
+            variants={rise}
+            className="mt-5 text-[38px] font-extrabold leading-[1.06] tracking-[-0.025em] text-[#0a0a0f] sm:text-[52px] lg:text-[58px]"
+          >
+            Ihre neue Website. Bezahlt wird erst, wenn sie Ihnen gefällt.
+          </motion.h1>
+
+          <motion.p variants={rise} className="mt-6 max-w-[34rem] text-[18px] leading-relaxed text-[#0a0a0f]/70">
+            Wir sind Mateo und Zhuo Jun. Wir bauen Ihre Website zum Festpreis ab{" "}
+            <strong className="font-bold text-[#0a0a0f]">199 €</strong>, zeigen Ihnen das fertige Ergebnis, und erst
+            dann stellen wir eine Rechnung.
+          </motion.p>
+
+          <motion.ul variants={rise} className="mt-7 grid gap-x-6 gap-y-3 sm:grid-cols-2">
+            {points.map((p) => (
+              <li key={p} className="flex items-start gap-3 text-[15.5px] font-semibold text-[#0a0a0f]">
+                <span className="mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full bg-[#0066FF] text-white">
+                  <Check size={12} strokeWidth={3} />
+                </span>
+                {p}
+              </li>
+            ))}
+          </motion.ul>
+
+          <motion.div variants={rise} className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#0066FF] px-6 py-4 text-[16px] font-bold text-white shadow-[0_8px_24px_-8px_rgba(0,102,255,0.6)] transition hover:bg-[#0057d9] active:translate-y-px"
             >
-              Kostenlos anfragen <ArrowRight size={16} />
-            </Link>
-          </Magnetic>
-          <Magnetic>
+              <WhatsAppIcon size={20} />
+              Per WhatsApp anfragen
+            </a>
             <Link
-              href="/portfolio"
-              className="border border-white/25 hover:border-white/50 text-white/70 hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all text-[15px] flex items-center gap-2 group"
+              href="/preise"
+              className="group inline-flex items-center justify-center gap-2 rounded-xl border border-[#0a0a0f]/15 bg-white px-6 py-4 text-[16px] font-bold text-[#0a0a0f] transition hover:border-[#0a0a0f]/35"
             >
-              Referenzen ansehen
-              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              Preise ansehen
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
-          </Magnetic>
+          </motion.div>
+
+          <motion.p variants={rise} className="mt-4 text-[14px] text-[#0a0a0f]/55">
+            Kostenlos und unverbindlich · Festpreis-Angebot in 24 Stunden
+          </motion.p>
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.35 }}
-          className="mt-6 text-white/40 text-sm"
+        {/* Real client sites, fanned like printed proofs on a desk */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mx-auto h-[330px] w-full max-w-[520px] sm:h-[420px] lg:h-[500px]"
         >
-          Festpreis vor Projektstart&nbsp;&nbsp;·&nbsp;&nbsp;Live in 4 Wochen&nbsp;&nbsp;·&nbsp;&nbsp;Bezahlt wird erst nach Freigabe
-        </motion.p>
-      </div>
-
-      {/* ── MOBILE: swipeable + auto-scrolling website screenshots ── */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.3 }}
-        className="relative z-10 md:hidden w-full"
-      >
-        <div
-          className="w-full overflow-hidden"
-          style={{
-            maskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
-            WebkitMaskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
-          }}
-          onPointerDown={(e) => {
-            draggingRef.current = true
-            lastPointerXRef.current = e.clientX
-            downXRef.current = e.clientX
-            movedRef.current = false
-            ;(e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId)
-          }}
-          onPointerMove={(e) => {
-            if (!draggingRef.current) return
-            const dx = e.clientX - lastPointerXRef.current
-            lastPointerXRef.current = e.clientX
-            offsetRef.current += dx
-            if (Math.abs(e.clientX - downXRef.current) > 8) movedRef.current = true
-          }}
-          onPointerUp={() => { draggingRef.current = false }}
-          onPointerCancel={() => { draggingRef.current = false }}
-        >
-          <div
-            ref={trackRef}
-            className="flex gap-4 py-2 w-max will-change-transform"
-            style={{ touchAction: "pan-y" }}
-          >
-            {[...sites, ...sites].map((site, i) => {
-              const isExpanded = expandedCard === i
+          {shots
+            .slice()
+            .reverse()
+            .map((s, i) => {
+              const pos = [
+                "left-[14%] top-0 w-[78%] rotate-[5deg]",
+                "left-0 top-[9%] w-[80%] -rotate-[4deg]",
+                "left-[8%] top-[20%] w-[86%] rotate-0",
+              ][i]
               return (
-                <div
-                  key={i}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`${site.label} – zum Vergrößern tippen`}
-                  onClick={() => {
-                    if (movedRef.current) return       // was a swipe, not a tap
-                    if (!isExpanded) setExpandedCard(i)
-                  }}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" && !isExpanded) setExpandedCard(i)
-                  }}
-                  className={`relative flex-shrink-0 rounded-2xl border bg-white overflow-hidden cursor-pointer transition-all duration-300 ease-out ${
-                    isExpanded
-                      ? "w-[260px] h-[180px] border-[#0066FF]/40 shadow-xl"
-                      : "w-[190px] h-[130px] border-black/10 shadow-sm"
-                  }`}
+                <figure
+                  key={s.src}
+                  className={`absolute ${pos} overflow-hidden rounded-xl border border-black/10 bg-white shadow-[0_30px_60px_-20px_rgba(10,10,15,0.35)]`}
                 >
-                  {/* Browser chrome */}
-                  <div className="flex items-center gap-1.5 px-3 py-2 bg-[#0a0a0f]/[0.04] border-b border-black/5">
-                    <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
-                    <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
-                    <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/20" />
+                  <div className="flex items-center gap-1.5 border-b border-black/5 bg-[#f2f2f0] px-3 py-2">
+                    <span className="h-2 w-2 rounded-full bg-black/15" />
+                    <span className="h-2 w-2 rounded-full bg-black/15" />
+                    <span className="h-2 w-2 rounded-full bg-black/15" />
+                    <span className="ml-2 truncate text-[11px] font-medium text-black/45">{s.label}</span>
                   </div>
-
-                  {/* Live screenshot */}
-                  <div className="relative h-[calc(100%-30px)] bg-[#0a0a0f]/[0.04]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={shot(site.url)}
-                      alt={`Website ${site.label}`}
-                      loading="lazy"
-                      draggable={false}
-                      className="w-full h-full object-cover object-top pointer-events-none select-none"
-                    />
-                    {/* Label overlay */}
-                    <div className="absolute inset-x-0 bottom-0 px-3 py-1.5 bg-gradient-to-t from-black/70 to-transparent">
-                      <p className="text-[11px] font-bold text-white truncate">{site.label}</p>
-                    </div>
-                  </div>
-
-                  {/* Expand overlay — first tap enlarges, this link is the second tap */}
-                  <AnimatePresence>
-                    {isExpanded && (
-                      <motion.a
-                        href={site.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-[#0a0a0f]/85 text-white"
-                      >
-                        <ExternalLink size={20} />
-                        <span className="text-[13px] font-bold">Website besuchen</span>
-                        <span className="text-[11px] text-white/60">{site.display}</span>
-                      </motion.a>
-                    )}
-                  </AnimatePresence>
-                </div>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={s.src}
+                    alt={i === 2 ? `Startseite von ${s.label}, von Nexuzo gebaut` : ""}
+                    width={640}
+                    height={400}
+                    className="block aspect-[16/10] w-full object-cover object-top"
+                  />
+                </figure>
               )
             })}
+
+          <div className="absolute -left-2 bottom-6 rounded-xl bg-white px-4 py-3 shadow-[0_16px_40px_-12px_rgba(10,10,15,0.3)] sm:-left-6 sm:bottom-10">
+            <p className="text-[15px] font-extrabold text-[#0a0a0f]">Zahlung nach Freigabe</p>
+            <p className="text-[13px] text-[#0a0a0f]/55">Erst sehen, dann bezahlen</p>
           </div>
-        </div>
-        <p className="text-center text-white/30 text-xs mt-3">Wischen zum Blättern · Tippen zum Öffnen</p>
-      </motion.div>
-
-      {/* ── DESKTOP: Laptop carousel with live screenshots ── */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.3 }}
-        className="relative z-10 hidden md:block w-full max-w-6xl px-4"
-      >
-        <div className="relative flex items-center">
-
-          {/* Arrow Left */}
-          <button
-            onClick={prev}
-            aria-label="Vorherige Website"
-            className="absolute left-2 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm flex items-center justify-center transition-all"
-          >
-            <ChevronLeft size={20} className="text-white" />
-          </button>
-
-          {/* Laptop frame */}
-          <div className="w-full mx-14">
-            <div className="bg-[#0a0a0f] rounded-t-xl p-[6px] shadow-[0_0_60px_rgba(0,102,255,0.2)]">
-              {/* Browser chrome */}
-              <div className="bg-white/5 rounded-t-lg px-4 py-2.5 flex items-center gap-2">
-                <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                </div>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={active}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="flex-1 mx-2 bg-white/10 rounded px-3 py-1 text-[11px] text-white/55 font-mono truncate"
-                  >
-                    {current.display}
-                  </motion.div>
-                </AnimatePresence>
-                <a
-                  href={current.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Im neuen Tab öffnen"
-                  className="text-white/45 hover:text-white/75 transition-colors flex-shrink-0"
-                >
-                  <ExternalLink size={13} />
-                </a>
-              </div>
-
-              {/* Screenshot */}
-              <div className="relative bg-white overflow-hidden" style={{ height: "clamp(220px, 42vw, 440px)" }}>
-                <AnimatePresence mode="wait" custom={direction}>
-                  <motion.a
-                    key={active}
-                    href={current.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    custom={direction}
-                    initial={{ opacity: 0, x: direction * 40 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: direction * -40 }}
-                    transition={{ duration: 0.35, ease: "easeInOut" }}
-                    className="absolute inset-0 block group"
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={shot(current.url)}
-                      alt={`Website ${current.label}`}
-                      loading="lazy"
-                      className="w-full h-full object-cover object-top"
-                    />
-                    <div className="absolute inset-0 bg-[#0a0a0f]/0 group-hover:bg-[#0a0a0f]/30 transition-colors flex items-center justify-center">
-                      <span className="opacity-0 group-hover:opacity-100 transition-opacity inline-flex items-center gap-2 bg-white text-[#0a0a0f] text-sm font-bold px-5 py-2.5 rounded-full">
-                        Website besuchen <ExternalLink size={14} />
-                      </span>
-                    </div>
-                  </motion.a>
-                </AnimatePresence>
-              </div>
-            </div>
-
-            {/* Hinge + base */}
-            <div className="h-[10px] bg-white/5 mx-6 rounded-b-sm" />
-            <div className="h-[6px] bg-[#0a0a0f] mx-0 rounded-b-xl shadow-[0_4px_20px_rgba(0,0,0,0.5)]" />
+          <div className="absolute -right-1 top-[46%] hidden rounded-xl bg-white px-4 py-3 shadow-[0_16px_40px_-12px_rgba(10,10,15,0.3)] sm:block">
+            <p className="text-[15px] font-extrabold text-[#0066FF]">Echte Kundenseiten</p>
+            <p className="text-[13px] text-[#0a0a0f]/55">Gebaut in Düsseldorf</p>
           </div>
-
-          {/* Arrow Right */}
-          <button
-            onClick={() => { setUserInteracted(true); next() }}
-            aria-label="Nächste Website"
-            className="absolute right-2 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm flex items-center justify-center transition-all"
-          >
-            <ChevronRight size={20} className="text-white" />
-          </button>
-        </div>
-
-        {/* Label + Dots — desktop */}
-        <div className="flex flex-col items-center gap-3 mt-5">
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={active}
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.25 }}
-              className="text-white/60 text-sm font-medium"
-            >
-              {current.label}
-              <span className="ml-2 text-white/30 text-xs">{current.tag}</span>
-            </motion.p>
-          </AnimatePresence>
-
-          <div className="flex gap-2">
-            {sites.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                aria-label={`Website ${i + 1}`}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === active ? "w-6 bg-[#0066FF]" : "w-1.5 bg-white/25 hover:bg-white/40"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Bouncing scroll cue */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-        className="relative z-10 mt-10 hidden md:flex flex-col items-center gap-2"
-      >
-        <span className="text-white/30 text-[11px] uppercase tracking-[0.2em]">Scrollen</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-          className="w-6 h-9 rounded-full border border-white/25 flex items-start justify-center p-1.5"
-        >
-          <motion.span
-            animate={{ y: [0, 8, 0], opacity: [1, 0.2, 1] }}
-            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1 h-1.5 rounded-full bg-[#0066FF]"
-          />
         </motion.div>
-      </motion.div>
+      </div>
 
+      {/* Facts strip */}
+      <div className="relative mt-16 border-t border-[#0a0a0f]/10 bg-white md:mt-24">
+        <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-y-6 px-6 py-8 md:grid-cols-4">
+          {facts.map((f) => (
+            <div key={f.label} className="border-l-2 border-[#0066FF] pl-4">
+              <dt className="sr-only">{f.label}</dt>
+              <dd className="text-[26px] font-extrabold tracking-[-0.03em] text-[#0a0a0f] md:text-[30px]">{f.value}</dd>
+              <dd className="text-[14px] text-[#0a0a0f]/60">{f.label}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
     </section>
   )
 }
