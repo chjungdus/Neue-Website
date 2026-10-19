@@ -121,7 +121,7 @@ function SeoVisual() {
       </div>
       <div className="flex items-center gap-2 border-t border-[#0a0a0f]/[0.06] pt-2.5">
         <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: ACCENT }} />
-        <span className="text-[9px] text-[#0a0a0f]/40">Mehr Besucher über Google · +64% nach 3 Monaten</span>
+        <span className="text-[9px] text-[#0a0a0f]/40">Mehr Besucher über Google</span>
       </div>
     </div>
   )

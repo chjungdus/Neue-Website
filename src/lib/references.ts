@@ -9,6 +9,8 @@ export type Reference = {
   /** short result/impact line shown on the references page */
   note?: string
   featured?: boolean
+  /** concept site without its own domain yet; shown as demo, not as a live client site */
+  demo?: boolean
 }
 
 export const references: Reference[] = [
@@ -30,20 +32,22 @@ export const references: Reference[] = [
   },
   {
     url: "https://chjungdus.github.io/Antonioconstruccion/",
-    display: "antonioconstruccion.de",
+    display: "Demo-Entwurf",
+    demo: true,
     label: "Antonio Construcción",
     tag: "Bau & Handwerk",
     note: "Leistungen & Referenzen klar präsentiert.",
   },
   {
     url: "https://chjungdus.github.io/Peluqueria-loli/",
-    display: "peluqueria-loli.es",
+    display: "Demo-Entwurf",
+    demo: true,
     label: "Peluquería Loli",
     tag: "Beauty",
     note: "Termine & Services für einen Friseursalon.",
   },
   {
-    url: "https://chjungdus.github.io/Essah-Urfa-Lahmacun/",
+    url: "https://essah-urfa.de/",
     display: "essah-urfa.de",
     label: "Essah Urfa Lahmacun",
     tag: "Restaurant",
@@ -51,14 +55,16 @@ export const references: Reference[] = [
   },
   {
     url: "https://chjungdus.github.io/Lorenz-DJ/",
-    display: "lorenz-dj.de",
+    display: "Demo-Entwurf",
+    demo: true,
     label: "Lorenz DJ",
     tag: "Events",
     note: "Buchungen für DJ & Events auf einen Blick.",
   },
   {
     url: "https://chjungdus.github.io/No-ra/",
-    display: "no-ra.de",
+    display: "Demo-Entwurf",
+    demo: true,
     label: "No-ra",
     tag: "Beauty",
     note: "Beauty & Nails mit klarem Kontakt-Fokus.",

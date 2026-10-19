@@ -56,11 +56,10 @@ function FAQItem({
           {isOpen ? <Minus size={11} /> : <Plus size={11} />}
         </span>
       </button>
-      {isOpen && (
-        <div className="pb-6 pr-10">
-          <p className="text-[#0a0a0f]/55 leading-relaxed text-sm">{answer}</p>
-        </div>
-      )}
+      {/* Always in the HTML so search engines see every answer; hidden while closed */}
+      <div className="pb-6 pr-10" hidden={!isOpen}>
+        <p className="text-[#0a0a0f]/55 leading-relaxed text-sm">{answer}</p>
+      </div>
     </div>
   )
 }
