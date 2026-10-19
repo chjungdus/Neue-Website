@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Impressum",
-  description: "Impressum und Anbieterkennzeichnung gemäß § 5 TMG.",
+  description: "Impressum und Anbieterkennzeichnung gemäß § 5 DDG.",
 }
 
 export default function ImpressumPage() {
@@ -22,7 +22,7 @@ export default function ImpressumPage() {
 
         <div className="space-y-10 text-[#0a0a0f]/55">
           <section>
-            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">Angaben gemäß § 5 TMG</h2>
+            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">Angaben gemäß § 5 DDG</h2>
             <p className="leading-relaxed text-sm">
               Nexuzo
               <br />
@@ -53,7 +53,7 @@ export default function ImpressumPage() {
 
           <section>
             <h2 className="text-[#0a0a0f] font-bold text-base mb-3">
-              Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
+              Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
             </h2>
             <p className="leading-relaxed text-sm">
               Mateo Sainz de la Maza
@@ -86,8 +86,8 @@ export default function ImpressumPage() {
           <section>
             <h2 className="text-[#0a0a0f] font-bold text-base mb-3">Haftung für Inhalte</h2>
             <p className="leading-relaxed text-sm">
-              Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den
-              allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
+              Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den
+              allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht
               verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu
               forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
             </p>

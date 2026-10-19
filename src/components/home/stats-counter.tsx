@@ -5,19 +5,22 @@ import FadeIn from "@/components/ui/fade-in"
 interface StatData { target: number; suffix: string; label: string; note: string; decimal?: boolean }
 
 const stats: StatData[] = [
-  { target: 7, suffix: "", label: "Live-Websites", note: "handgebaut für reale Kunden" },
+  { target: 7, suffix: "", label: "Websites gebaut", note: "alle zum Anklicken" },
   { target: 4, suffix: " Wo.", label: "bis zum Launch", note: "fester Termin, fester Preis" },
   { target: 24, suffix: "h", label: "Antwortzeit", note: "auf jede Anfrage" },
   { target: 0, suffix: "", label: "Templates", note: "alles von Grund auf" },
 ]
 
 function AnimatedNumber({ target, suffix, decimal, delay = 0 }: StatData & { delay?: number }) {
-  const [current, setCurrent] = useState(0)
+  // Server HTML carries the final value (for Google and link previews); the client resets to 0 and counts up.
+  const [current, setCurrent] = useState(target)
   const containerRef = useRef<HTMLDivElement>(null)
   const startedRef = useRef(false)
   useEffect(() => {
     const el = containerRef.current
     if (!el) return
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return
+    setCurrent(0)
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting && !startedRef.current) {
         startedRef.current = true
