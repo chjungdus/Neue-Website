@@ -1,117 +1,99 @@
-"use client"
-
-import { useRef, useState, useEffect } from "react"
 import Link from "next/link"
-import { motion, useScroll, useSpring, useTransform } from "framer-motion"
-import { ArrowRight, ExternalLink, MousePointer2 } from "lucide-react"
-import { references, shot } from "@/lib/references"
+import { ArrowRight, ArrowUpRight } from "lucide-react"
+import FadeIn from "@/components/ui/fade-in"
+import SectionHead from "@/components/home/section-head"
+import { references, type Reference } from "@/lib/references"
 
-// Pinned section: as the user scrolls vertically, the reference cards slide
-// horizontally across the screen. A scroll-as-storytelling showcase.
+function RefCard({ r, small = false }: { r: Reference; small?: boolean }) {
+  return (
+    <a
+      href={r.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block h-full"
+      aria-label={`${r.label} öffnen (neuer Tab)`}
+    >
+      <div className="overflow-hidden rounded-xl border border-[#0a0a0f]/10 bg-white shadow-[0_18px_40px_-24px_rgba(10,10,15,0.35)] transition-transform duration-300 group-hover:-translate-y-1">
+        <div className="flex items-center gap-1.5 border-b border-black/5 bg-[#f2f2f0] px-3 py-2">
+          <span className="h-2 w-2 rounded-full bg-black/15" />
+          <span className="h-2 w-2 rounded-full bg-black/15" />
+          <span className="h-2 w-2 rounded-full bg-black/15" />
+          <span className="ml-2 truncate text-[11px] font-medium text-black/45">{r.display}</span>
+        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={`/referenzen/${r.image}-640.webp`}
+          srcSet={`/referenzen/${r.image}-640.webp 640w, /referenzen/${r.image}.webp 1280w`}
+          sizes={small ? "(min-width: 1024px) 270px, (min-width: 640px) 45vw, 90vw" : "(min-width: 1024px) 370px, (min-width: 640px) 45vw, 90vw"}
+          alt={`Startseite von ${r.label}`}
+          width={640}
+          height={400}
+          loading="lazy"
+          className="block aspect-[16/10] w-full object-cover object-top"
+        />
+      </div>
+      <div className="mt-4 flex items-start justify-between gap-3">
+        <div>
+          <p className={`${small ? "text-[16px]" : "text-[18px]"} font-extrabold text-[#0a0a0f]`}>{r.label}</p>
+          <p className="text-[14px] text-[#0a0a0f]/55">{r.tag}</p>
+        </div>
+        <ArrowUpRight
+          size={18}
+          className="mt-1 flex-none text-[#0a0a0f]/40 transition-colors group-hover:text-[#0066FF]"
+        />
+      </div>
+      {!small && r.note && <p className="mt-2 text-[15px] leading-relaxed text-[#0a0a0f]/65">{r.note}</p>}
+    </a>
+  )
+}
+
 export default function HorizontalReferences() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const trackRef = useRef<HTMLDivElement>(null)
-  const [distance, setDistance] = useState(0)
-
-  useEffect(() => {
-    const calc = () => {
-      if (trackRef.current) {
-        setDistance(Math.max(0, trackRef.current.scrollWidth - window.innerWidth))
-      }
-    }
-    calc()
-    window.addEventListener("resize", calc)
-    return () => window.removeEventListener("resize", calc)
-  }, [])
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
-  })
-  // Smooth the raw scroll progress with a spring so the horizontal slide
-  // interpolates between scroll events instead of snapping frame-by-frame —
-  // that's what makes native scroll-linked animations look "steppy" otherwise.
-  const smoothProgress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.35 })
-  const x = useTransform(smoothProgress, [0, 1], [0, -distance])
+  const live = references.filter((r) => !r.demo)
+  const demos = references.filter((r) => r.demo)
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-[#0a0a0f]"
-      style={{ height: `calc(100vh + ${distance}px)` }}
-    >
-      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
-        {/* Heading */}
-        <div className="max-w-6xl mx-auto w-full px-6 mb-8 md:mb-10 flex items-end justify-between gap-6">
-          <div>
-            <p className="text-[#0066FF] text-xs font-semibold uppercase tracking-[0.2em] mb-3">Referenzen</p>
-            <h2 className="text-4xl md:text-6xl font-extrabold text-white leading-[1.02]">
-              Live gebaut.<span className="text-white/40"> Zum Anklicken.</span>
-            </h2>
-          </div>
-          <Link
-            href="/portfolio"
-            className="hidden sm:inline-flex items-center gap-2 text-white/50 hover:text-white transition-colors font-semibold text-sm shrink-0 group"
-          >
-            Alle ansehen
-            <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+    <section id="referenzen" className="scroll-mt-16 bg-white py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <SectionHead
+            title="Echte Websites, die wir gebaut haben."
+            lead="Jede davon handgebaut, kein Template. Klicken Sie rein und probieren Sie sie selbst aus."
+          />
+          <FadeIn>
+            <Link
+              href="/portfolio"
+              className="group inline-flex flex-none items-center gap-2 text-[15px] font-bold text-[#0a0a0f]"
+            >
+              <span className="border-b-2 border-[#0066FF] pb-0.5">Alle Referenzen</span>
+              <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          </FadeIn>
         </div>
 
-        {/* Horizontal track */}
-        <motion.div ref={trackRef} style={{ x }} className="flex gap-6 px-6 md:px-[8vw] w-max">
-          {references.map((r, i) => (
-            <a
-              key={r.url}
-              href={r.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative w-[80vw] sm:w-[56vw] lg:w-[40vw] shrink-0 rounded-2xl overflow-hidden border border-white/10 bg-white/[0.02] hover:border-[#0066FF]/50 transition-colors"
-            >
-              {/* index */}
-              <span className="absolute top-4 right-5 z-10 text-white/15 text-4xl font-black">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              {/* Browser chrome */}
-              <div className="flex items-center gap-1.5 px-4 py-2.5 bg-white/[0.04] border-b border-white/5">
-                <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                <div className="flex-1 mx-3 h-5 rounded bg-white/[0.06] text-[10px] text-white/30 font-mono flex items-center px-2 truncate">
-                  {r.display}
-                </div>
-              </div>
-              {/* Screenshot */}
-              <div className="relative h-[42vh] max-h-[440px] overflow-hidden bg-[#0a0a0f]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={shot(r.url, 1400, 900)}
-                  alt={`Website ${r.label}`}
-                  loading="lazy"
-                  draggable={false}
-                  className="w-full h-full object-cover object-top transition-transform duration-[900ms] ease-out group-hover:scale-[1.04] select-none"
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-[#0a0a0f]/0 group-hover:bg-[#0a0a0f]/40 transition-colors">
-                  <span className="translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all inline-flex items-center gap-2 bg-white text-[#0a0a0f] text-sm font-bold px-5 py-2.5 rounded-full">
-                    Website besuchen <ExternalLink size={15} />
-                  </span>
-                </div>
-              </div>
-              {/* Footer */}
-              <div className="p-5 flex items-center justify-between gap-4">
-                <div>
-                  <div className="text-[#0066FF] text-[11px] font-semibold mb-0.5">{r.tag}</div>
-                  <h3 className="text-white font-bold text-lg">{r.label}</h3>
-                </div>
-              </div>
-            </a>
+        <ul className="mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          {live.map((r, i) => (
+            <li key={r.url} className="h-full">
+              <FadeIn delay={i * 0.08} className="h-full">
+                <RefCard r={r} />
+              </FadeIn>
+            </li>
           ))}
-        </motion.div>
+        </ul>
 
-        {/* Scroll hint */}
-        <div className="max-w-6xl mx-auto w-full px-6 mt-8 flex items-center gap-2 text-white/30 text-xs">
-          <MousePointer2 size={13} />
-          Scrollen, um durch die Projekte zu blättern
+        <div className="mt-16 border-t border-[#0a0a0f]/10 pt-10">
+          <h3 className="text-[19px] font-extrabold text-[#0a0a0f]">Entwürfe zum Ansehen</h3>
+          <p className="mt-1 text-[15px] text-[#0a0a0f]/60">
+            Konzeptseiten für Betriebe aus unserem Umfeld, online ohne eigene Domain.
+          </p>
+          <ul className="mt-8 grid grid-cols-2 gap-x-5 gap-y-8 lg:grid-cols-4">
+            {demos.map((r, i) => (
+              <li key={r.url} className="h-full">
+                <FadeIn delay={i * 0.06} className="h-full">
+                  <RefCard r={r} small />
+                </FadeIn>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

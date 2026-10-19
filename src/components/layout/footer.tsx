@@ -32,7 +32,7 @@ export default function Footer() {
               <img src="/logo/nexuzo-white.png" alt="Nexuzo" width={176} height={32} className="h-8 w-auto" />
             </Link>
             <p className="text-white/55 text-sm leading-relaxed max-w-xs">
-              Wir bauen Websites, die nicht nur schön aussehen, sondern messbar mehr Kunden bringen.
+              Websites zum Festpreis aus Düsseldorf. Bezahlt wird erst, wenn Ihnen das Ergebnis gefällt.
             </p>
             <div className="mt-6 flex flex-col gap-2.5">
               <span className="flex items-center gap-2 text-sm text-white/45">

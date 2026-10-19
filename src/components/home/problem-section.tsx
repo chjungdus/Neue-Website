@@ -1,64 +1,49 @@
 import FadeIn from "@/components/ui/fade-in"
-import { TrendingDown, Search, Smartphone } from "lucide-react"
+import SectionHead from "@/components/home/section-head"
 
 const problems = [
   {
-    icon: TrendingDown,
     title: "Besucher, aber keine Anfragen",
-    body: "Ohne klare Handlungsaufforderung verlassen Besucher die Seite, ohne sich zu melden.",
-    stat: "1,5%",
-    statNote: "von 100 Besuchern schreiben im Schnitt eine Nachricht",
+    body: "Ohne klaren nächsten Schritt schauen sich Besucher um und gehen wieder, ohne sich zu melden.",
+    fix: "Bei uns: ein deutlicher Weg zu Anruf, WhatsApp oder Formular auf jeder Seite.",
   },
   {
-    icon: Search,
     title: "Bei Google nicht zu finden",
-    body: "Fast niemand klickt sich bis auf die zweite Google-Seite durch.",
-    stat: "90%",
-    statNote: "aller Klicks gehen an die obersten 3 Treffer",
+    body: "Fast niemand klickt sich bis auf die zweite Seite der Suchergebnisse durch.",
+    fix: "Bei uns: saubere Technik und Texte, die Google versteht, schon im Starter-Paket.",
   },
   {
-    icon: Smartphone,
-    title: "Handy-Nutzer springen sofort ab",
-    body: "Die meisten schauen über das Handy vorbei. Lädt die Seite langsam, sind sie sofort wieder weg.",
-    stat: "63%",
-    statNote: "aller Besucher kommen übers Smartphone",
+    title: "Auf dem Handy springen sie ab",
+    body: "Die meisten kommen übers Smartphone. Lädt die Seite langsam oder ist sie dort unbequem, sind sie weg.",
+    fix: "Bei uns: zuerst fürs Handy gestaltet und auf echten Geräten getestet.",
   },
 ]
 
 export default function ProblemSection() {
   return (
-    <section className="py-14 md:py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <FadeIn>
-          <div className="max-w-2xl mb-10">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#0a0a0f] leading-tight mb-5">
-              3 Zeichen, dass Ihre Website
-              <br />
-              <span className="text-[#0066FF]">täglich Geld kostet.</span>
-            </h2>
-          </div>
-        </FadeIn>
+    <section className="bg-white py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-6">
+        <SectionHead
+          title="Drei Gründe, warum eine Website keine Kunden bringt."
+          lead="Eine schöne Seite allein reicht nicht. Diese drei Dinge kosten kleine Betriebe die meisten Anfragen."
+        />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {problems.map((p, i) => {
-            const Icon = p.icon
-            return (
-              <FadeIn key={p.title} delay={i * 0.1} className={i === 1 ? "md:mt-8" : ""}>
-                <div className="bg-[#0a0a0f]/[0.02] border border-[#0a0a0f]/[0.08] rounded-2xl p-7 hover:border-[#0066FF]/30 hover:shadow-lg hover:shadow-[#0a0a0f]/5 transition-all h-full flex flex-col">
-                  <div className="w-12 h-12 rounded-xl bg-[#0066FF]/10 flex items-center justify-center mb-5 shrink-0">
-                    <Icon size={22} className="text-[#0066FF]" />
-                  </div>
-                  <h3 className="text-lg font-bold text-[#0a0a0f] mb-3">{p.title}</h3>
-                  <p className="text-[#0a0a0f]/60 text-sm leading-relaxed flex-1 mb-5">{p.body}</p>
-                  <div className="pt-4 border-t border-[#0a0a0f]/5">
-                    <div className="text-2xl font-extrabold mb-0.5 text-[#0066FF]">{p.stat}</div>
-                    <div className="text-[#0a0a0f]/40 text-xs">{p.statNote}</div>
-                  </div>
-                </div>
+        <ol className="mt-12 grid gap-5 md:grid-cols-3">
+          {problems.map((p, i) => (
+            <li key={p.title} className="h-full">
+              <FadeIn delay={i * 0.08} className="flex h-full flex-col rounded-2xl border border-[#0a0a0f]/10 bg-white p-7">
+                <span className="text-[15px] font-extrabold text-[#0066FF]">0{i + 1}</span>
+                <h3 className="mt-3 text-[21px] font-extrabold leading-snug tracking-[-0.015em] text-[#0a0a0f]">
+                  {p.title}
+                </h3>
+                <p className="mt-3 flex-1 text-[16px] leading-relaxed text-[#0a0a0f]/65">{p.body}</p>
+                <p className="mt-6 border-t border-[#0a0a0f]/10 pt-5 text-[15px] font-semibold leading-relaxed text-[#0a0a0f]">
+                  {p.fix}
+                </p>
               </FadeIn>
-            )
-          })}
-        </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   )

@@ -11,11 +11,14 @@ export type Reference = {
   featured?: boolean
   /** concept site without its own domain yet; shown as demo, not as a live client site */
   demo?: boolean
+  /** file stem of the screenshots in /public/referenzen */
+  image: string
 }
 
 export const references: Reference[] = [
   {
     url: "https://www.milonga-foodtruck.de/",
+    image: "milonga",
     display: "milonga-foodtruck.de",
     label: "Milonga Food Truck",
     tag: "Food Truck",
@@ -24,14 +27,16 @@ export const references: Reference[] = [
   },
   {
     url: "https://www.limpiezas-el-valle.es/",
+    image: "limpiezas",
     display: "limpiezas-el-valle.es",
     label: "Limpiezas El Valle",
     tag: "Reinigung",
-    note: "Lokales SEO: Top-Ranking in der Region Burgos.",
+    note: "Website mit lokalem SEO für die Region Burgos.",
     featured: true,
   },
   {
     url: "https://chjungdus.github.io/Antonioconstruccion/",
+    image: "antonio",
     display: "Demo-Entwurf",
     demo: true,
     label: "Antonio Construcción",
@@ -40,6 +45,7 @@ export const references: Reference[] = [
   },
   {
     url: "https://chjungdus.github.io/Peluqueria-loli/",
+    image: "loli",
     display: "Demo-Entwurf",
     demo: true,
     label: "Peluquería Loli",
@@ -48,6 +54,7 @@ export const references: Reference[] = [
   },
   {
     url: "https://essah-urfa.de/",
+    image: "essah",
     display: "essah-urfa.de",
     label: "Essah Urfa Lahmacun",
     tag: "Restaurant",
@@ -55,6 +62,7 @@ export const references: Reference[] = [
   },
   {
     url: "https://chjungdus.github.io/Lorenz-DJ/",
+    image: "lorenz",
     display: "Demo-Entwurf",
     demo: true,
     label: "Lorenz DJ",
@@ -63,6 +71,7 @@ export const references: Reference[] = [
   },
   {
     url: "https://chjungdus.github.io/No-ra/",
+    image: "nora",
     display: "Demo-Entwurf",
     demo: true,
     label: "No-ra",
