@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import Card from "@/components/stack/card"
+import { ArrowLeft } from "@/components/stack/icons"
 
 export const metadata: Metadata = {
   title: "AGB",
@@ -10,27 +11,27 @@ export const metadata: Metadata = {
 function Section({ num, title, children }: { num: string; title: string; children: React.ReactNode }) {
   return (
     <section>
-      <h2 className="text-[#0a0a0f] font-bold text-base mb-3">
+      <h2 className="mb-3 text-[1.35rem] leading-tight">
         § {num} {title}
       </h2>
-      <div className="space-y-3 text-[#0a0a0f]/55 text-sm leading-relaxed">{children}</div>
+      <div className="space-y-3 leading-relaxed">{children}</div>
     </section>
   )
 }
 
 export default function AGBPage() {
   return (
-    <div className="pt-16">
-      <div className="max-w-3xl mx-auto px-6 py-24">
+    <Card title="AGB" reveal={false} className="!mt-6 md:!mt-10">
+      <div className="measure">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-[#0a0a0f]/55 hover:text-[#0a0a0f] transition-colors text-sm mb-12"
+          className="link mb-10 inline-flex items-center gap-2"
         >
-          <ArrowLeft size={16} /> Zurück zur Startseite
+          <ArrowLeft size={14} /> Zurück zur Startseite
         </Link>
 
-        <h1 className="text-4xl font-black text-[#0a0a0f] mb-4">Allgemeine Geschäftsbedingungen</h1>
-        <p className="text-[#0a0a0f]/55 text-sm mb-12">
+        <h1 className="headline mb-4">Allgemeine Geschäftsbedingungen</h1>
+        <p className="mb-10 text-base">
           von Nexuzo, Nägelestr. 19, 40225 Düsseldorf. Stand: Juni 2026
         </p>
 
@@ -179,15 +180,15 @@ export default function AGBPage() {
           </Section>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-[#0a0a0f]/10 flex flex-wrap gap-4 text-xs text-[#0a0a0f]/55">
-          <Link href="/impressum" className="hover:text-[#0a0a0f] transition-colors">
+        <div className="mt-14 flex flex-wrap gap-5 border-t-2 border-ink pt-6">
+          <Link href="/impressum" className="link">
             Impressum
           </Link>
-          <Link href="/datenschutz" className="hover:text-[#0a0a0f] transition-colors">
+          <Link href="/datenschutz" className="link">
             Datenschutzerklärung
           </Link>
         </div>
       </div>
-    </div>
+    </Card>
   )
 }

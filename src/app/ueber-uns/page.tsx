@@ -1,59 +1,47 @@
-"use client"
-
+import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import FadeIn from "@/components/ui/fade-in"
+import Card from "@/components/stack/card"
+import { ArrowRight, WhatsApp } from "@/components/stack/icons"
+import { waLink } from "@/lib/site"
+
+export const metadata: Metadata = {
+  title: "Über uns",
+  description:
+    "Nexuzo sind zwei Gründer aus Düsseldorf, die jede Website selbst bauen. Höchstens vier Projekte gleichzeitig, Zahlung erst nach Freigabe.",
+}
 
 const values = [
   {
     title: "Ehrlichkeit über Höflichkeit",
     body: "Wenn Ihr Projekt nicht passt, sagen wir das. Ein unangenehmes Gespräch heute ist besser als ein teures Ergebnis in drei Monaten.",
   },
-  {
-    title: "Ergebnisse über Ästhetik",
-    body: "Eine schöne Website, die keine Kunden bringt, ist ein teures Kunstwerk.",
-  },
+  { title: "Ergebnisse über Ästhetik", body: "Eine schöne Website, die keine Kunden bringt, ist ein teures Kunstwerk." },
   {
     title: "Prozess über Improvisation",
-    body: "Briefing, Konzept, Design, Entwicklung, Launch. Status-Updates mit Live-Link. Keine bösen Überraschungen.",
+    body: "Briefing, Konzept, Design, Entwicklung, Launch. Status-Updates mit Testlink. Keine bösen Überraschungen.",
   },
-  {
-    title: "Weniger Kunden, bessere Arbeit",
-    body: "Maximal 4 Projekte gleichzeitig. Jedes bekommt volle Aufmerksamkeit.",
-  },
+  { title: "Weniger Kunden, bessere Arbeit", body: "Höchstens vier Projekte gleichzeitig. Jedes bekommt volle Aufmerksamkeit." },
 ]
 
 const forEveryone = [
-  {
-    type: "Handwerk & Gewerbe",
-    desc: "Elektriker, Schreiner, Sanitär. Mehr lokale Kunden über Google.",
-  },
-  {
-    type: "Gastronomie & Hotellerie",
-    desc: "Restaurants, Cafés, Hotels. Ihre Website als erste Visitenkarte.",
-  },
-  {
-    type: "Freiberufler & Berater",
-    desc: "Coaches, Anwälte, Therapeuten. Vertrauen schaffen, bevor jemand anruft.",
-  },
-  {
-    type: "Online-Shops",
-    desc: "Checkout-Flows ohne Abbrüche.",
-  },
+  { type: "Handwerk und Gewerbe", desc: "Elektriker, Schreiner, Sanitär. Mehr lokale Kunden über Google." },
+  { type: "Gastronomie und Hotellerie", desc: "Restaurants, Cafés, Hotels. Ihre Website als erste Visitenkarte." },
+  { type: "Freiberufler und Berater", desc: "Coaches, Anwälte, Therapeuten. Vertrauen schaffen, bevor jemand anruft." },
+  { type: "Online-Shops", desc: "Ein Bezahlvorgang ohne Abbrüche." },
 ]
 
 const team = [
   {
     name: "Mateo Sainz de la Maza",
-    role: "Mitgründer & Entwicklung",
-    since: "Düsseldorf",
-    body: "Entwickelt Websites mit einem klaren Ziel: dass Besucher zu Kunden werden. Gegründet, weil Overpromising und Underdelivering das Standardmodell war.",
+    initials: "MS",
+    role: "Mitgründer, Entwicklung",
+    body: "Entwickelt Websites mit einem klaren Ziel: dass Besucher zu Kunden werden. Gegründet, weil zu viel versprechen und zu wenig liefern das Standardmodell war.",
     focus: ["Webentwicklung", "Performance", "Conversion"],
   },
   {
     name: "Zhuo Jun Li",
-    role: "Mitgründer & Design",
-    since: "Düsseldorf",
+    initials: "ZL",
+    role: "Mitgründer, Design",
     body: "Gestaltet keine schönen Seiten, sondern Seiten, die verkaufen. Fokus auf Nutzerführung und messbare Ergebnisse.",
     focus: ["Design", "Benutzerfreundlichkeit", "Analyse"],
   },
@@ -62,230 +50,112 @@ const team = [
 export default function UeberUnsPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="pt-24 pb-14 bg-white border-b border-[#0a0a0f]/5">
-        <div className="max-w-6xl mx-auto px-6">
-          <FadeIn>
-            <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-6">
-              Über uns
-            </p>
-            <h1 className="text-[26px] sm:text-5xl md:text-7xl font-black text-[#0a0a0f] leading-[1.05] mb-8 max-w-3xl">
-              Wir freuen uns
-              <br />
-              <span className="text-[#0066FF]">auf Ihre Anfrage.</span>
+      <Card title="Über uns" reveal={false} labelledBy="ueber-titel" className="!mt-6 md:!mt-10">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+          <div>
+            <h1 id="ueber-titel" className="display max-w-[13ch]">
+              Eine kaputte Website, vier Nachbesserungen, ein Beschluss.
             </h1>
-            <p className="text-[#0a0a0f]/55 text-base sm:text-xl max-w-xl leading-relaxed">
-              Wir hören zu und liefern eine Website, die für Ihr Unternehmen arbeitet.
+          </div>
+          <div className="flex flex-col justify-end gap-5">
+            <p>
+              Zu viele Agenturen versprechen viel und liefern wenig. Vier Nachbesserungsrunden, zwei verpasste Deadlines, ein Kunde,
+              der bereits bezahlt hatte und trotzdem nichts in der Hand hielt.
             </p>
-          </FadeIn>
+            <p className="text-[1.25rem] font-extrabold leading-snug text-ink">
+              Das Gegenteil wurde das Modell: klare Absprachen, jedes Projekt wirklich fertig, zum vereinbarten Preis, und Zahlung
+              erst, wenn der Kunde die Probewebsite gesehen hat.
+            </p>
+          </div>
         </div>
-      </section>
+      </Card>
 
-      {/* Origin Story */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <FadeIn>
-              <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-6">
-                Wie es begann
-              </p>
-              <h2 className="text-3xl md:text-4xl font-black text-[#0a0a0f] mb-6 leading-tight">
-                Eine kaputte Website,
-                <br />
-                vier Nachbesserungen,
-                <br />
-                ein Beschluss.
-              </h2>
-            </FadeIn>
-
-            <FadeIn delay={0.1}>
-              <div className="space-y-5 text-[#0a0a0f]/55 leading-relaxed">
-                <p>
-                  Zu viele Agenturen versprechen viel und liefern wenig. Vier Nachbesserungsrunden, zwei verpasste Deadlines, ein Kunde der bereits bezahlt hatte und trotzdem nichts in der Hand hatte.
-                </p>
-                <p className="text-[#0a0a0f] font-medium">
-                  Das Gegenteil wurde das Modell: klare Absprachen, jedes Projekt wirklich fertig, zum vereinbarten Preis, und Zahlung erst, wenn der Kunde die Probewebsite gesehen hat.
-                </p>
+      <Card id="team" title="Das Team" labelledBy="team-titel">
+        <h2 id="team-titel" className="headline">
+          Wir machen alles selbst.
+        </h2>
+        <ul className="mt-10 grid gap-6 md:grid-cols-2">
+          {team.map((m) => (
+            <li key={m.name} className="field-box grid grid-cols-[88px_1fr] gap-5 p-5 sm:grid-cols-[120px_1fr]">
+              <span
+                aria-hidden="true"
+                className="dither-25 grid aspect-square place-items-center border-2 border-ink"
+              >
+                <span className="pixel bg-paper px-1.5 text-[26px] leading-none text-ink sm:text-[34px]">{m.initials}</span>
+              </span>
+              <div>
+                <h3 className="text-[1.4rem] leading-tight">{m.name}</h3>
+                <p className="pixel mt-1 text-[12px] text-ink">{m.role}</p>
+                <p className="mt-3">{m.body}</p>
+                <p className="mt-3 text-base font-bold">{m.focus.join(" · ")}</p>
               </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-8 measure border-t-2 border-ink pt-6">
+          <strong className="text-ink">Was das für Sie bedeutet:</strong> Wenn Sie mit uns sprechen, sprechen Sie mit der Person,
+          die Ihr Projekt auch umsetzt. Keine Weitergabe, kein Wechsel des Ansprechpartners. Jede Deadline bisher eingehalten.
+        </p>
+      </Card>
 
-      {/* For everyone */}
-      <section className="py-16 bg-[#0a0a0f]">
-        <div className="max-w-6xl mx-auto px-6">
-          <FadeIn>
-            <p className="text-white/35 text-xs font-semibold uppercase tracking-widest mb-6">
-              Für wen wir arbeiten
-            </p>
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
-              Für jeden, der online
-              <br />mehr erreichen will.
-            </h2>
-            <p className="text-white/55 text-lg mb-14 max-w-lg leading-relaxed">
-              Egal welche Branche, welche Größe, welches Budget.
-            </p>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {forEveryone.map((item, i) => (
-              <FadeIn key={i} delay={i * 0.07}>
-                <div className="border border-white/10 rounded-xl p-6 flex gap-4">
-                  <div className="w-6 h-6 rounded-full bg-[#0066FF]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <ArrowRight size={12} className="text-[#0066FF]" />
-                  </div>
-                  <div>
-                    <div className="text-white font-semibold mb-1">{item.type}</div>
-                    <div className="text-white/45 text-sm leading-relaxed">{item.desc}</div>
-                  </div>
-                </div>
-              </FadeIn>
+      <Card id="werte" title="Wie wir arbeiten" labelledBy="werte-titel">
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.4fr] lg:gap-14">
+          <h2 id="werte-titel" className="headline">
+            Was uns antreibt.
+          </h2>
+          <dl className="border-2 border-ink">
+            {values.map((v, i) => (
+              <div key={v.title} className={`grid gap-2 p-5 sm:grid-cols-[15rem_1fr] sm:gap-6 ${i > 0 ? "border-t-2 border-ink" : ""}`}>
+                <dt className="text-[1.25rem] font-extrabold leading-tight text-ink">{v.title}</dt>
+                <dd>{v.body}</dd>
+              </div>
             ))}
-          </div>
-
-          <FadeIn delay={0.3}>
-            <div className="mt-10 border-t border-white/10 pt-8">
-              <p className="text-white/45 text-sm leading-relaxed max-w-xl">
-                Nicht sicher?{" "}
-                <Link href="/anfrage" className="text-[#0066FF] hover:underline">
-                  Schreiben Sie uns, wir melden uns innerhalb von 24h.
-                </Link>
-              </p>
-            </div>
-          </FadeIn>
+          </dl>
         </div>
-      </section>
+      </Card>
 
-      {/* Values */}
-      <section className="py-16 bg-[#0a0a0f]/[0.04]">
-        <div className="max-w-6xl mx-auto px-6">
-          <FadeIn>
-            <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-6">
-              Wie wir arbeiten
-            </p>
-            <h2 className="text-3xl md:text-4xl font-black text-[#0a0a0f] mb-14 leading-tight">
-              Was uns antreibt
-            </h2>
-          </FadeIn>
-
-          <div className="divide-y divide-[#0a0a0f]/10">
-            {values.map((value, i) => (
-              <FadeIn key={i} delay={i * 0.08}>
-                <div className="py-8 grid grid-cols-1 md:grid-cols-[280px_1fr] gap-6 group">
-                  <div className="flex items-start gap-4">
-                    <span className="text-[#0066FF] font-bold text-sm mt-0.5 w-6 shrink-0">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="text-[#0a0a0f] font-bold text-[15px] leading-snug group-hover:text-[#0066FF] transition-colors">
-                      {value.title}
-                    </h3>
-                  </div>
-                  <p className="text-[#0a0a0f]/55 text-sm leading-relaxed pl-10 md:pl-0">
-                    {value.body}
-                  </p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
+      <Card id="fuer-wen" title="Für wen" labelledBy="wen-titel">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <h2 id="wen-titel" className="headline max-w-[18ch]">
+            Für jeden, der online mehr erreichen will.
+          </h2>
+          <p className="max-w-sm">Egal welche Branche, welche Größe, welches Budget.</p>
         </div>
-      </section>
+        <ul className="mt-10 grid border-2 border-ink sm:grid-cols-2">
+          {forEveryone.map((f, i) => (
+            <li
+              key={f.type}
+              className={`p-5 ${i > 0 ? "border-t-2 border-ink" : ""} ${i === 1 ? "sm:border-t-0 sm:border-l-2" : ""} ${i === 3 ? "sm:border-l-2" : ""}`}
+            >
+              <h3 className="text-[1.3rem] leading-tight">{f.type}</h3>
+              <p className="mt-2">{f.desc}</p>
+            </li>
+          ))}
+        </ul>
+      </Card>
 
-      {/* Team */}
-      <section className="py-16 bg-white border-b border-[#0a0a0f]/5">
-        <div className="max-w-6xl mx-auto px-6">
-          <FadeIn>
-            <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-6">
-              Das Team
-            </p>
-            <h2 className="text-3xl md:text-4xl font-black text-[#0a0a0f] mb-14 leading-tight">
-              Wir machen alles selbst
-            </h2>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {team.map((member, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
-                <div className="border border-[#0a0a0f]/5 rounded-2xl p-8">
-                  <div className="w-14 h-14 rounded-xl bg-[#0a0a0f]/[0.04] flex items-center justify-center mb-6">
-                    <span className="text-xl font-black text-[#0a0a0f]">
-                      {member.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")
-                        .slice(0, 2)}
-                    </span>
-                  </div>
-
-                  <div className="flex items-start justify-between mb-1">
-                    <h3 className="font-bold text-[#0a0a0f] text-lg">{member.name}</h3>
-                    <span className="text-[#0a0a0f]/40 text-xs">{member.since}</span>
-                  </div>
-                  <p className="text-[#0066FF] text-sm font-medium mb-4">{member.role}</p>
-                  <p className="text-[#0a0a0f]/55 text-sm leading-relaxed mb-6">{member.body}</p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {member.focus.map((f, j) => (
-                      <span
-                        key={j}
-                        className="text-xs bg-[#0a0a0f]/[0.04] text-[#0a0a0f] px-3 py-1 rounded-full"
-                      >
-                        {f}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-
-          <FadeIn delay={0.25}>
-            <div className="mt-8 border border-[#0a0a0f]/5 rounded-2xl p-8 bg-[#0a0a0f]/[0.04]">
-              <p className="text-[#0a0a0f]/55 text-sm leading-relaxed">
-                <strong className="text-[#0a0a0f]">Was das für Sie bedeutet:</strong> Wenn Sie mit
-                uns sprechen, sprechen Sie mit der Person, die Ihr Projekt auch umsetzt. Keine
-                Weitergabe, kein Wechsel des Ansprechpartners.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-10 bg-white border-b border-[#0a0a0f]/5">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <p className="text-[#0a0a0f] font-semibold text-lg">Jede Deadline bisher eingehalten.</p>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <FadeIn>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0a0a0f] mb-5 leading-tight">
+      <Card title="Anfragen" labelledBy="cta-titel">
+        <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+          <div>
+            <h2 id="cta-titel" className="headline">
               Bereit für Ihre neue Website?
             </h2>
-            <p className="text-[#0a0a0f]/55 text-base sm:text-lg mb-10 leading-relaxed">
+            <p className="lede mt-4">
               Schreiben Sie uns kurz, was Sie brauchen. Wir antworten innerhalb von 24 Stunden mit einem konkreten Angebot.
             </p>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
-              <Link
-                href="/anfrage"
-                className="bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center justify-center gap-2 text-[15px]"
-              >
-                Jetzt anfragen
-                <ArrowRight size={17} />
-              </Link>
-              <Link
-                href="/kontakt"
-                className="flex items-center justify-center gap-2 text-[#0a0a0f] font-semibold px-8 py-4 rounded-full border border-[#0a0a0f]/10 hover:border-[#0a0a0f]/30 transition-colors text-[15px]"
-              >
-                Erst eine Frage stellen
-              </Link>
-            </div>
-          </FadeIn>
+          </div>
+          <div className="flex flex-wrap items-center gap-4 lg:justify-end">
+            <a href={waLink("Hallo Mateo, hallo Zhuo, ich hätte gern eine neue Website.")} target="_blank" rel="noopener noreferrer" className="btn btn-default">
+              <WhatsApp size={20} />
+              Per WhatsApp schreiben
+            </a>
+            <Link href="/anfrage" className="btn">
+              Jetzt anfragen
+              <ArrowRight size={14} />
+            </Link>
+          </div>
         </div>
-      </section>
+      </Card>
     </>
   )
 }

@@ -1,17 +1,18 @@
 import Link from "next/link"
-import { MapPin, Mail, MessageCircle } from "lucide-react"
+import { Mail, Pin, WhatsApp, Instagram, TikTok } from "@/components/stack/icons"
+import { ADDRESS, EMAIL, HOURS, INSTAGRAM, PHONE_DISPLAY, TIKTOK, waLink } from "@/lib/site"
 
 const footerLinks = {
   Leistungen: [
     { href: "/leistungen#webdesign", label: "Webdesign" },
-    { href: "/leistungen#entwicklung", label: "Entwicklung" },
-    { href: "/leistungen#seo", label: "SEO & Sichtbarkeit" },
+    { href: "/leistungen#relaunch", label: "Relaunch" },
+    { href: "/leistungen#ablauf", label: "Ablauf" },
   ],
-  Unternehmen: [
-    { href: "/portfolio", label: "Portfolio" },
+  Studio: [
+    { href: "/portfolio", label: "Referenzen" },
     { href: "/ueber-uns", label: "Über uns" },
     { href: "/preise", label: "Preise" },
-    { href: "/faq", label: "FAQ" },
+    { href: "/faq", label: "Fragen" },
     { href: "/kontakt", label: "Kontakt" },
   ],
   Rechtliches: [
@@ -21,78 +22,65 @@ const footerLinks = {
   ],
 }
 
+/** The last card in every stack: address, links, legal. */
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0a0f] mt-auto">
-      <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-          <div className="lg:col-span-2">
-            <Link href="/" aria-label="Nexuzo Startseite" className="inline-flex mb-4">
+    <footer className="card-slot mt-auto pb-10">
+      <div className="win">
+        <div className="win-bar">
+          <span className="win-close" aria-hidden="true" />
+          <span className="win-title pixel">Ablage</span>
+          <span className="w-4 flex-none" aria-hidden="true" />
+        </div>
+        <div className="win-body grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+          <div>
+            <Link href="/" aria-label="Nexuzo Startseite" className="inline-flex">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo/nexuzo-white.png" alt="Nexuzo" width={176} height={32} className="h-8 w-auto" />
+              <img src="/logo/nexuzo.png" alt="Nexuzo" width={176} height={32} className="h-8 w-auto" />
             </Link>
-            <p className="text-white/55 text-sm leading-relaxed max-w-xs">
-              Wir bauen Websites, die nicht nur schön aussehen, sondern messbar mehr Kunden bringen.
+            <p className="mt-4 max-w-xs text-base">
+              Webdesign aus Düsseldorf. Zwei Gründer, die Ihre Website selbst bauen.
             </p>
-            <div className="mt-6 flex flex-col gap-2.5">
-              <span className="flex items-center gap-2 text-sm text-white/45">
-                <MapPin size={14} />
-                Düsseldorf, Deutschland
-              </span>
-              <a
-                href="mailto:nexuzo.kontakt@gmail.com"
-                className="flex items-center gap-2 text-sm text-white/55 hover:text-white transition-colors"
-              >
-                <Mail size={14} />
-                nexuzo.kontakt@gmail.com
+            <ul className="mt-6 flex flex-col gap-3 text-base">
+              <li className="flex items-start gap-3">
+                <Pin size={16} className="mt-1 flex-none text-ink" />
+                <span>
+                  {ADDRESS[0]}
+                  <br />
+                  {ADDRESS[1]}
+                </span>
+              </li>
+              <li>
+                <a href={waLink()} target="_blank" rel="noopener noreferrer" className="link inline-flex items-center gap-3">
+                  <WhatsApp size={16} />
+                  {PHONE_DISPLAY}
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${EMAIL}`} className="link inline-flex items-center gap-3 break-all">
+                  <Mail size={16} />
+                  {EMAIL}
+                </a>
+              </li>
+              <li className="pl-7 text-base">{HOURS}</li>
+            </ul>
+            <div className="mt-6 flex gap-2">
+              <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="btn btn-sm w-11 px-0">
+                <Instagram size={18} />
               </a>
-              <a
-                href="https://wa.me/4917680257270"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-white/55 hover:text-white transition-colors"
-              >
-                <MessageCircle size={14} />
-                WhatsApp: +49 176 8025 7270
-              </a>
-            </div>
-            <div className="mt-6 flex items-center gap-3">
-              <a
-                href="https://instagram.com/nexuzo.de"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/[0.06] hover:bg-[#0066FF]/20 flex items-center justify-center transition-colors group"
-                aria-label="Instagram"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/55 group-hover:text-[#0066FF] transition-colors">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
-              </a>
-              <a
-                href="https://tiktok.com/@nexuzo.de"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/[0.06] hover:bg-[#0066FF]/20 flex items-center justify-center transition-colors group"
-                aria-label="TikTok"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white/55 group-hover:text-[#0066FF] transition-colors">
-                  <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.56V6.8a4.85 4.85 0 01-1.07-.11z" />
-                </svg>
+              <a href={TIKTOK} target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="btn btn-sm w-11 px-0">
+                <TikTok size={18} />
               </a>
             </div>
           </div>
+
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="text-white font-semibold text-sm mb-4">{category}</h3>
-              <ul className="flex flex-col gap-2">
+              <h2 className="pixel mb-4 text-[13px] text-ink">{category}</h2>
+              <ul className="flex flex-col gap-2.5">
                 {links.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-white/55 hover:text-white transition-colors"
-                    >
+                    <Link href={link.href} className="link font-bold">
                       {link.label}
                     </Link>
                   </li>
@@ -101,14 +89,9 @@ export default function Footer() {
             </div>
           ))}
         </div>
-
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/45">
-            © {new Date().getFullYear()} Nexuzo. Alle Rechte vorbehalten.
-          </p>
-          <div className="text-xs text-white/35">
-            Gemacht mit Next.js &amp; Tailwind
-          </div>
+        <div className="flex flex-col gap-2 border-t-2 border-ink px-[clamp(20px,1rem+2.6vw,56px)] py-4 text-sm sm:flex-row sm:justify-between">
+          <p>© {new Date().getFullYear()} Nexuzo · Inhaber Mateo Sainz de la Maza</p>
+          <p>Gebaut in Düsseldorf</p>
         </div>
       </div>
     </footer>

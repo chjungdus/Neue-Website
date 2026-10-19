@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import Card from "@/components/stack/card"
+import { ArrowLeft } from "@/components/stack/icons"
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung",
@@ -10,25 +11,25 @@ export const metadata: Metadata = {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section>
-      <h2 className="text-[#0a0a0f] font-bold text-base mb-3">{title}</h2>
-      <div className="space-y-3 text-[#0a0a0f]/55 text-sm leading-relaxed">{children}</div>
+      <h2 className="mb-3 text-[1.35rem] leading-tight">{title}</h2>
+      <div className="space-y-3 leading-relaxed">{children}</div>
     </section>
   )
 }
 
 export default function DatenschutzPage() {
   return (
-    <div className="pt-16">
-      <div className="max-w-3xl mx-auto px-6 py-24">
+    <Card title="Datenschutz" reveal={false} className="!mt-6 md:!mt-10">
+      <div className="measure">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-[#0a0a0f]/55 hover:text-[#0a0a0f] transition-colors text-sm mb-12"
+          className="link mb-10 inline-flex items-center gap-2"
         >
-          <ArrowLeft size={16} /> Zurück zur Startseite
+          <ArrowLeft size={14} /> Zurück zur Startseite
         </Link>
 
-        <h1 className="text-4xl font-black text-[#0a0a0f] mb-4">Datenschutzerklärung</h1>
-        <p className="text-[#0a0a0f]/55 text-sm mb-12">Stand: Juni 2026</p>
+        <h1 className="headline mb-4">Datenschutzerklärung</h1>
+        <p className="mb-10 text-base">Stand: Juni 2026</p>
 
         <div className="space-y-10">
           <Section title="1. Datenschutz auf einen Blick">
@@ -53,14 +54,14 @@ export default function DatenschutzPage() {
               Telefon: +49 176 80257270
               <br />
               E-Mail:{" "}
-              <a href="mailto:nexuzo.kontakt@gmail.com" className="text-[#0066FF] hover:underline">
+              <a href="mailto:nexuzo.kontakt@gmail.com" className="link">
                 nexuzo.kontakt@gmail.com
               </a>
             </p>
           </Section>
 
           <Section title="3. Datenerfassung auf dieser Website">
-            <h3 className="text-[#0a0a0f] font-semibold text-sm mb-2">Cookies</h3>
+            <h3 className="mb-2 font-extrabold text-deep">Cookies</h3>
             <p>
               Unsere Internetseiten verwenden sogenannte „Cookies". Cookies sind kleine Datenpakete und richten auf
               Ihrem Endgerät keinen Schaden an. Sie werden entweder vorübergehend für die Dauer einer Sitzung
@@ -72,7 +73,7 @@ export default function DatenschutzPage() {
               eingesetzt.
             </p>
 
-            <h3 className="text-[#0a0a0f] font-semibold text-sm mt-4 mb-2">Server-Log-Dateien</h3>
+            <h3 className="mt-4 mb-2 font-extrabold text-deep">Server-Log-Dateien</h3>
             <p>
               Der Provider dieser Website erhebt und speichert automatisch Informationen in sogenannten
               Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:
@@ -150,32 +151,32 @@ export default function DatenschutzPage() {
             <p>Sie haben jederzeit das Recht:</p>
             <ul className="list-disc list-inside space-y-1 pl-2">
               <li>
-                <strong className="text-[#0a0a0f]">Auskunft</strong> über Ihre bei uns gespeicherten personenbezogenen
+                <strong className="font-extrabold text-deep">Auskunft</strong> über Ihre bei uns gespeicherten personenbezogenen
                 Daten zu erhalten (Art. 15 DSGVO)
               </li>
               <li>
-                <strong className="text-[#0a0a0f]">Berichtigung</strong> unrichtiger Daten zu verlangen (Art. 16 DSGVO)
+                <strong className="font-extrabold text-deep">Berichtigung</strong> unrichtiger Daten zu verlangen (Art. 16 DSGVO)
               </li>
               <li>
-                <strong className="text-[#0a0a0f]">Löschung</strong> Ihrer bei uns gespeicherten Daten zu verlangen
+                <strong className="font-extrabold text-deep">Löschung</strong> Ihrer bei uns gespeicherten Daten zu verlangen
                 (Art. 17 DSGVO)
               </li>
               <li>
-                <strong className="text-[#0a0a0f]">Einschränkung</strong> der Datenverarbeitung zu verlangen (Art. 18
+                <strong className="font-extrabold text-deep">Einschränkung</strong> der Datenverarbeitung zu verlangen (Art. 18
                 DSGVO)
               </li>
               <li>
-                <strong className="text-[#0a0a0f]">Datenübertragbarkeit</strong> in einem gängigen Format zu erhalten
+                <strong className="font-extrabold text-deep">Datenübertragbarkeit</strong> in einem gängigen Format zu erhalten
                 (Art. 20 DSGVO)
               </li>
               <li>
-                <strong className="text-[#0a0a0f]">Widerspruch</strong> gegen die Verarbeitung einzulegen (Art. 21
+                <strong className="font-extrabold text-deep">Widerspruch</strong> gegen die Verarbeitung einzulegen (Art. 21
                 DSGVO)
               </li>
             </ul>
             <p>
               Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:{" "}
-              <a href="mailto:nexuzo.kontakt@gmail.com" className="text-[#0066FF] hover:underline">
+              <a href="mailto:nexuzo.kontakt@gmail.com" className="link">
                 nexuzo.kontakt@gmail.com
               </a>
             </p>
@@ -203,15 +204,15 @@ export default function DatenschutzPage() {
           </Section>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-[#0a0a0f]/10 flex flex-wrap gap-4 text-xs text-[#0a0a0f]/55">
-          <Link href="/impressum" className="hover:text-[#0a0a0f] transition-colors">
+        <div className="mt-14 flex flex-wrap gap-5 border-t-2 border-ink pt-6">
+          <Link href="/impressum" className="link">
             Impressum
           </Link>
-          <Link href="/agb" className="hover:text-[#0a0a0f] transition-colors">
+          <Link href="/agb" className="link">
             AGB
           </Link>
         </div>
       </div>
-    </div>
+    </Card>
   )
 }

@@ -19,9 +19,9 @@ export const mockProjects: PortfolioProject[] = [
     id: "2",
     title: "Limpiezas El Valle",
     slug: "limpiezas-el-valle",
-    description: "Reinigungsfirma in Burgos mit lokalem SEO. Top-Ranking für die wichtigsten Suchbegriffe in der Region.",
+    description: "Reinigungsfirma in Burgos, Website mit lokalem SEO für die Region.",
     long_description:
-      "Website mit starkem lokalem SEO für eine Reinigungsfirma in der Region Merindades, Burgos. Ergebnis: Top-Ranking für die wichtigsten Suchbegriffe in der Region.",
+      "Website mit starkem lokalem SEO für eine Reinigungsfirma in der Region Merindades, Burgos.",
     tags: ["Reinigung", "SEO", "Webdesign"],
     client: "Limpiezas El Valle",
     url: "https://www.limpiezas-el-valle.es/",

@@ -1,38 +1,23 @@
-import Hero from "@/components/home/hero"
-import Marquee from "@/components/home/marquee"
-import ProblemSection from "@/components/home/problem-section"
-import WhyUs from "@/components/home/why-us"
-import PriceValue from "@/components/home/price-value"
-import Services from "@/components/home/services"
-import StatsCounter from "@/components/home/stats-counter"
-import HorizontalReferences from "@/components/home/horizontal-references"
-import Testimonials from "@/components/home/testimonials"
-import Process from "@/components/home/process"
-import MidCTA from "@/components/home/mid-cta"
-import FAQSection from "@/components/home/faq-section"
-import CTA from "@/components/home/cta"
+import Entwurf from "@/components/home/entwurf"
+import { Zeichen, Abmachung, Leistungen, Preise } from "@/components/home/cards"
+import { Referenzen, Ablauf, Fragen, Kontakt } from "@/components/home/cards-live"
 
-// Funnel, in der Reihenfolge, wie ein Besucher fragen würde:
-// Hook (Hero) → Warum brauche ich eine Website? (Problem) → Warum bei uns?
-// (WhyUs) → Warum ist der Preis gut? (PriceValue) → Was genau bekomme ich?
-// (Services) → Beweis (Zahlen, Referenzen, Stimmen) → Ablauf → Zwischen-CTA
-// → Einwände (FAQ) → Abschluss-CTA
+// The home stack, in the order a visitor asks: what is this and can I try it
+// (Entwurf) → why it matters (Zeichen) → the deal (Abmachung) → proof
+// (Referenzen) → what's included (Leistungen) → cost (Preise) → how long
+// (Ablauf) → objections (Fragen) → talk to us (Kontakt).
 export default function HomePage() {
   return (
     <>
-      <Hero />
-      <Marquee />
-      <ProblemSection />
-      <WhyUs />
-      <PriceValue />
-      <Services />
-      <StatsCounter />
-      <HorizontalReferences />
-      <Testimonials />
-      <Process />
-      <MidCTA />
-      <FAQSection />
-      <CTA />
+      <Entwurf />
+      <Zeichen />
+      <Abmachung />
+      <Referenzen />
+      <Leistungen />
+      <Preise />
+      <Ablauf />
+      <Fragen />
+      <Kontakt />
     </>
   )
 }

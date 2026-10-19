@@ -4,21 +4,36 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Send, CheckCircle2, AlertCircle } from "lucide-react"
+import { Check, Mail } from "@/components/stack/icons"
+import { EMAIL } from "@/lib/site"
 
 const schema = z.object({
-  name: z.string().min(2, "Mindestens 2 Zeichen"),
-  email: z.string().email("Ungültige E-Mail-Adresse"),
-  subject: z.string().min(3, "Mindestens 3 Zeichen"),
-  message: z.string().min(20, "Bitte schreiben Sie mindestens 20 Zeichen"),
+  name: z.string().min(2, "Bitte mindestens 2 Zeichen."),
+  email: z.string().email("Diese E-Mail-Adresse sieht nicht vollständig aus."),
+  subject: z.string().min(3, "Bitte mindestens 3 Zeichen."),
+  message: z.string().min(20, "Bitte schreiben Sie mindestens 20 Zeichen."),
 })
 
 type FormData = z.infer<typeof schema>
 
+function Err({ id, msg }: { id: string; msg?: string }) {
+  if (!msg) return null
+  return (
+    <p id={id} className="mt-2 w-fit bg-ink px-2 py-0.5 text-base font-bold text-paper">
+      {msg}
+    </p>
+  )
+}
+
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
 
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) })
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>({ resolver: zodResolver(schema) })
 
   const onSubmit = async (data: FormData) => {
     setStatus("loading")
@@ -38,16 +53,13 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="border border-[#0066FF]/30 bg-[#0a0a0f]/[0.04] rounded-2xl p-10 text-center">
-        <CheckCircle2 size={48} className="text-[#0066FF] mx-auto mb-4" />
-        <h3 className="text-[#0a0a0f] font-bold text-xl mb-2">Nachricht gesendet!</h3>
-        <p className="text-[#0a0a0f]/55 text-sm">
-          Wir melden uns innerhalb von 24 Stunden bei Ihnen.
-        </p>
-        <button
-          onClick={() => setStatus("idle")}
-          className="mt-6 text-[#0066FF] text-sm hover:underline transition-colors"
-        >
+      <div role="status" className="field-box p-8 text-center">
+        <span className="mx-auto grid h-14 w-14 place-items-center border-2 border-ink bg-ink text-paper">
+          <Check size={28} />
+        </span>
+        <h3 className="mt-5 text-[1.6rem]">Nachricht gesendet.</h3>
+        <p className="mt-2">Wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+        <button type="button" onClick={() => setStatus("idle")} className="btn mt-6">
           Weitere Nachricht senden
         </button>
       </div>
@@ -55,75 +67,87 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
-          <label className="text-[#0a0a0f] text-sm font-medium block mb-2">Name *</label>
+          <label htmlFor="kf-name" className="label">
+            Name
+          </label>
           <input
+            id="kf-name"
             {...register("name")}
+            autoComplete="name"
             placeholder="Max Mustermann"
-            className="w-full bg-white border border-[#0a0a0f]/10 rounded-xl px-4 py-3 text-[#0a0a0f] placeholder:text-[#0a0a0f]/40 focus:outline-none focus:border-[#0066FF]/60 focus:ring-1 focus:ring-[#0066FF]/20 transition-colors text-sm"
+            aria-invalid={errors.name ? true : undefined}
+            aria-describedby={errors.name ? "kf-name-err" : undefined}
+            className="input"
           />
-          {errors.name && (
-            <p className="text-[#0066FF] text-xs mt-1">{errors.name.message}</p>
-          )}
+          <Err id="kf-name-err" msg={errors.name?.message} />
         </div>
         <div>
-          <label className="text-[#0a0a0f] text-sm font-medium block mb-2">E-Mail *</label>
+          <label htmlFor="kf-email" className="label">
+            E-Mail
+          </label>
           <input
+            id="kf-email"
             {...register("email")}
             type="email"
+            autoComplete="email"
             placeholder="max@beispiel.de"
-            className="w-full bg-white border border-[#0a0a0f]/10 rounded-xl px-4 py-3 text-[#0a0a0f] placeholder:text-[#0a0a0f]/40 focus:outline-none focus:border-[#0066FF]/60 focus:ring-1 focus:ring-[#0066FF]/20 transition-colors text-sm"
+            aria-invalid={errors.email ? true : undefined}
+            aria-describedby={errors.email ? "kf-email-err" : undefined}
+            className="input"
           />
-          {errors.email && (
-            <p className="text-[#0066FF] text-xs mt-1">{errors.email.message}</p>
-          )}
+          <Err id="kf-email-err" msg={errors.email?.message} />
         </div>
       </div>
       <div>
-        <label className="text-[#0a0a0f] text-sm font-medium block mb-2">Betreff *</label>
+        <label htmlFor="kf-subject" className="label">
+          Betreff
+        </label>
         <input
+          id="kf-subject"
           {...register("subject")}
           placeholder="Worum geht es?"
-          className="w-full bg-white border border-[#0a0a0f]/10 rounded-xl px-4 py-3 text-[#0a0a0f] placeholder:text-[#0a0a0f]/40 focus:outline-none focus:border-[#0066FF]/60 focus:ring-1 focus:ring-[#0066FF]/20 transition-colors text-sm"
+          aria-invalid={errors.subject ? true : undefined}
+          aria-describedby={errors.subject ? "kf-subject-err" : undefined}
+          className="input"
         />
-        {errors.subject && (
-          <p className="text-[#0066FF] text-xs mt-1">{errors.subject.message}</p>
-        )}
+        <Err id="kf-subject-err" msg={errors.subject?.message} />
       </div>
       <div>
-        <label className="text-[#0a0a0f] text-sm font-medium block mb-2">Nachricht *</label>
+        <label htmlFor="kf-message" className="label">
+          Nachricht
+        </label>
         <textarea
+          id="kf-message"
           {...register("message")}
           rows={5}
-          placeholder="Beschreiben Sie Ihr Anliegen..."
-          className="w-full bg-white border border-[#0a0a0f]/10 rounded-xl px-4 py-3 text-[#0a0a0f] placeholder:text-[#0a0a0f]/40 focus:outline-none focus:border-[#0066FF]/60 focus:ring-1 focus:ring-[#0066FF]/20 transition-colors text-sm resize-none"
+          placeholder="Beschreiben Sie Ihr Anliegen …"
+          aria-invalid={errors.message ? true : undefined}
+          aria-describedby={errors.message ? "kf-message-err" : undefined}
+          className="textarea"
         />
-        {errors.message && (
-          <p className="text-[#0066FF] text-xs mt-1">{errors.message.message}</p>
-        )}
+        <Err id="kf-message-err" msg={errors.message?.message} />
       </div>
+      <p className="text-base">Alle Felder sind Pflichtfelder.</p>
+
       {status === "error" && (
-        <div className="flex items-center gap-2 text-[#0066FF] text-sm bg-[#0066FF]/5 border border-[#0066FF]/20 rounded-xl px-4 py-3">
-          <AlertCircle size={16} />
-          Fehler beim Senden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt per E-Mail.
+        <div role="alert" className="dither-12 border-2 border-ink p-4">
+          <p className="w-fit bg-paper px-1 font-extrabold text-ink">Die Nachricht ist nicht angekommen.</p>
+          <p className="mt-1 w-fit bg-paper px-1">
+            Bitte versuchen Sie es noch einmal oder schreiben Sie direkt an{" "}
+            <a href={`mailto:${EMAIL}`} className="link">
+              {EMAIL}
+            </a>
+            .
+          </p>
         </div>
       )}
 
-      <button
-        type="submit"
-        disabled={status === "loading"}
-        className="bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-semibold px-6 py-4 rounded-full transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
-      >
-        {status === "loading" ? (
-          <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-        ) : (
-          <>
-            <Send size={16} />
-            Nachricht senden
-          </>
-        )}
+      <button type="submit" disabled={status === "loading"} aria-busy={status === "loading"} className="btn btn-default self-start">
+        <Mail size={16} />
+        {status === "loading" ? "Wird gesendet …" : "Nachricht senden"}
       </button>
     </form>
   )

@@ -1,34 +1,36 @@
 import type { Metadata } from "next"
-import { Inter, Bricolage_Grotesque } from "next/font/google"
+import { Atkinson_Hyperlegible_Next, Silkscreen } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/layout/navbar"
 import Footer from "@/components/layout/footer"
-import ScrollToTop from "@/components/ui/scroll-to-top"
-import ScrollProgress from "@/components/ui/scroll-progress"
+import Reveal from "@/components/stack/reveal"
 
-// Body: Inter — clean, high legibility.
-const inter = Inter({
-  variable: "--font-inter",
+// Every headline and paragraph: Atkinson Hyperlegible Next, two weights.
+const atkinson = Atkinson_Hyperlegible_Next({
+  variable: "--font-atkinson",
   subsets: ["latin"],
+  weight: ["400", "800"],
+  adjustFontFallback: false,
   display: "swap",
 })
 
-// Headings: Bricolage Grotesque — characterful display grotesque used by modern studios.
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
+// Pixel caps for the menu bar, title bars and card numbers only.
+const silkscreen = Silkscreen({
+  variable: "--font-silkscreen",
   subsets: ["latin"],
+  weight: "400",
   display: "swap",
 })
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nexuzo.de"),
   title: {
-    default: "Nexuzo – Webdesign Agentur Düsseldorf",
+    default: "Nexuzo – Webdesign aus Düsseldorf",
     template: "%s | Nexuzo",
   },
   description:
-    "Webdesign Agentur in Düsseldorf. Websites ab 300 €, fertig in unter einer Woche. Festpreis, keine Überraschungen.",
-  keywords: ["Webdesign", "Web-Entwicklung", "Online-Shop", "SEO", "Agentur", "Düsseldorf"],
+    "Webdesign aus Düsseldorf. Individuelle Websites ab 199 € Festpreis, live in vier Wochen, bezahlt wird erst nach Freigabe.",
+  keywords: ["Webdesign", "Webdesign Düsseldorf", "Website erstellen", "Online-Shop", "SEO", "Agentur", "Düsseldorf"],
   openGraph: {
     type: "website",
     locale: "de_DE",
@@ -42,13 +44,21 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="de" className={`${inter.variable} ${bricolage.variable}`}>
-      <body className="min-h-screen flex flex-col antialiased">
-        <ScrollProgress />
+    <html lang="de" className={`${atkinson.variable} ${silkscreen.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Marks script support before paint so cards can wait for their dissolve. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
+      <body className="flex min-h-screen flex-col pt-[var(--menubar)]">
+        <a href="#inhalt" className="btn sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-14 focus:z-[60]">
+          Zum Inhalt springen
+        </a>
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main id="inhalt" className="flex-1">
+          {children}
+        </main>
         <Footer />
-        <ScrollToTop />
+        <Reveal />
       </body>
     </html>
   )

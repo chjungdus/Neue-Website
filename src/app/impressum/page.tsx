@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import Card from "@/components/stack/card"
+import { ArrowLeft } from "@/components/stack/icons"
 
 export const metadata: Metadata = {
   title: "Impressum",
@@ -9,21 +10,21 @@ export const metadata: Metadata = {
 
 export default function ImpressumPage() {
   return (
-    <div className="pt-16">
-      <div className="max-w-3xl mx-auto px-6 py-24">
+    <Card title="Impressum" reveal={false} className="!mt-6 md:!mt-10">
+      <div className="measure">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-[#0a0a0f]/55 hover:text-[#0a0a0f] transition-colors text-sm mb-12"
+          className="link mb-10 inline-flex items-center gap-2"
         >
-          <ArrowLeft size={16} /> Zurück zur Startseite
+          <ArrowLeft size={14} /> Zurück zur Startseite
         </Link>
 
-        <h1 className="text-4xl font-black text-[#0a0a0f] mb-12">Impressum</h1>
+        <h1 className="headline mb-10">Impressum</h1>
 
-        <div className="space-y-10 text-[#0a0a0f]/55">
+        <div className="space-y-10">
           <section>
-            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">Angaben gemäß § 5 DDG</h2>
-            <p className="leading-relaxed text-sm">
+            <h2 className="mb-3 text-[1.35rem] leading-tight">Angaben gemäß § 5 DDG</h2>
+            <p className="leading-relaxed">
               Nexuzo
               <br />
               Inhaber: Mateo Sainz de la Maza
@@ -37,25 +38,25 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">Kontakt</h2>
-            <p className="leading-relaxed text-sm">
+            <h2 className="mb-3 text-[1.35rem] leading-tight">Kontakt</h2>
+            <p className="leading-relaxed">
               E-Mail:{" "}
-              <a href="mailto:nexuzo.kontakt@gmail.com" className="text-[#0066FF] hover:underline">
+              <a href="mailto:nexuzo.kontakt@gmail.com" className="link">
                 nexuzo.kontakt@gmail.com
               </a>
               <br />
               WhatsApp:{" "}
-              <a href="https://wa.me/4917680257270" className="text-[#0066FF] hover:underline">
+              <a href="https://wa.me/4917680257270" className="link">
                 +49 176 80257270
               </a>
             </p>
           </section>
 
           <section>
-            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">
+            <h2 className="mb-3 text-[1.35rem] leading-tight">
               Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
             </h2>
-            <p className="leading-relaxed text-sm">
+            <p className="leading-relaxed">
               Mateo Sainz de la Maza
               <br />
               Nägelestr. 19
@@ -65,33 +66,33 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">EU-Streitschlichtung</h2>
-            <p className="leading-relaxed text-sm">
+            <h2 className="mb-3 text-[1.35rem] leading-tight">EU-Streitschlichtung</h2>
+            <p className="leading-relaxed">
               Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
-              <span className="text-[#0066FF]">https://ec.europa.eu/consumers/odr</span>. Unsere E-Mail-Adresse finden
+              <span className="font-bold text-ink">https://ec.europa.eu/consumers/odr</span>. Unsere E-Mail-Adresse finden
               Sie oben im Impressum.
             </p>
           </section>
 
           <section>
-            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">
+            <h2 className="mb-3 text-[1.35rem] leading-tight">
               Verbraucherstreitbeilegung / Universalschlichtungsstelle
             </h2>
-            <p className="leading-relaxed text-sm">
+            <p className="leading-relaxed">
               Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
               Verbraucherschlichtungsstelle teilzunehmen.
             </p>
           </section>
 
           <section>
-            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">Haftung für Inhalte</h2>
-            <p className="leading-relaxed text-sm">
+            <h2 className="mb-3 text-[1.35rem] leading-tight">Haftung für Inhalte</h2>
+            <p className="leading-relaxed">
               Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den
               allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht
               verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu
               forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
             </p>
-            <p className="leading-relaxed text-sm mt-3">
+            <p className="mt-3 leading-relaxed">
               Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen
               bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer
               konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir
@@ -100,13 +101,13 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">Haftung für Links</h2>
-            <p className="leading-relaxed text-sm">
+            <h2 className="mb-3 text-[1.35rem] leading-tight">Haftung für Links</h2>
+            <p className="leading-relaxed">
               Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
               Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten
               Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
             </p>
-            <p className="leading-relaxed text-sm mt-3">
+            <p className="mt-3 leading-relaxed">
               Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft.
               Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche
               Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht
@@ -115,13 +116,13 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">Urheberrecht</h2>
-            <p className="leading-relaxed text-sm">
+            <h2 className="mb-3 text-[1.35rem] leading-tight">Urheberrecht</h2>
+            <p className="leading-relaxed">
               Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen
               Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
               Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
             </p>
-            <p className="leading-relaxed text-sm mt-3">
+            <p className="mt-3 leading-relaxed">
               Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
               Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter
               beachtet.
@@ -129,15 +130,15 @@ export default function ImpressumPage() {
           </section>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-[#0a0a0f]/10 flex flex-wrap gap-4 text-xs text-[#0a0a0f]/55">
-          <Link href="/datenschutz" className="hover:text-[#0a0a0f] transition-colors">
+        <div className="mt-14 flex flex-wrap gap-5 border-t-2 border-ink pt-6">
+          <Link href="/datenschutz" className="link">
             Datenschutzerklärung
           </Link>
-          <Link href="/agb" className="hover:text-[#0a0a0f] transition-colors">
+          <Link href="/agb" className="link">
             AGB
           </Link>
         </div>
       </div>
-    </div>
+    </Card>
   )
 }

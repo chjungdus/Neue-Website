@@ -1,21 +1,23 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Check, ArrowRight, Shield, RefreshCw, CreditCard, Building, Smartphone, Wallet } from "lucide-react"
+import Card from "@/components/stack/card"
+import DisclosureList from "@/components/stack/disclosure-list"
+import { ArrowRight, Check, WhatsApp } from "@/components/stack/icons"
+import { waLink } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Preise – Transparente Festpreise ab 199 €",
   description:
-    "Kein Stundensatz, keine Überraschungen. Transparente Festpreise ab 199 €. Starter, Pro und Premium.",
+    "Kein Stundensatz, keine Überraschungen. Transparente Festpreise ab 199 €. Starter, Pro und Premium. Bezahlt wird nach Vorstellung der Probewebsite.",
 }
 
 const packages = [
   {
     id: "starter",
     name: "Starter",
-    tagline: "Selbstständige & kleine Unternehmen",
+    tagline: "Selbstständige und kleine Unternehmen",
     price: "199",
-    badge: null,
-    desc: "Eine klare, professionelle Website, die Ihre Leistungen zeigt und Anfragen generiert.",
+    desc: "Eine klare, professionelle Website, die Ihre Leistungen zeigt und Anfragen bringt.",
     features: [
       "1–3 Seiten, individuelles Design",
       "Für Smartphone optimiert",
@@ -24,14 +26,13 @@ const packages = [
       "30 Tage Support nach Launch",
       "2 Korrekturrunden inklusive",
     ],
-    highlight: false,
+    recommended: false,
   },
   {
     id: "pro",
     name: "Pro",
     tagline: "Für wachsende Unternehmen",
     price: "399",
-    badge: "Beliebtestes Paket",
     desc: "Mehr Seiten, mehr Funktionen, besser für Google. Für Unternehmen, die online wachsen wollen.",
     features: [
       "4–8 Seiten, Premium-Design mit Animationen",
@@ -41,87 +42,43 @@ const packages = [
       "3 Monate Support",
       "Unbegrenzte Korrekturrunden",
     ],
-    highlight: true,
+    recommended: true,
   },
   {
     id: "premium",
     name: "Premium",
     tagline: "Komplexere Anforderungen",
     price: "699",
-    badge: null,
     desc: "Unbegrenzte Seiten, individuelle Funktionen und erweiterte technische Umsetzung.",
     features: [
       "Unbegrenzte Seiten",
       "Individuelle Zusatzfunktionen nach Absprache",
       "Buchungssystem oder Kundenbereich möglich",
-      "Auswertung & Monitoring eingerichtet",
-      "6 Monate dedizierter Support",
+      "Auswertung und Monitoring eingerichtet",
+      "6 Monate Support",
       "Unbegrenzte Korrekturrunden",
     ],
-    highlight: false,
+    recommended: false,
   },
 ]
 
 const carePackages = [
-  {
-    name: "Basic",
-    price: "19",
-    features: [
-      "Hosting auf Vercel",
-      "SSL-Zertifikat inklusive",
-      "Monatliche Updates & Sicherheitschecks",
-      "1 kleine Änderung pro Monat",
-    ],
-  },
-  {
-    name: "Standard",
-    price: "39",
-    features: [
-      "Alles aus Basic",
-      "3 Änderungen pro Monat",
-      "Priorität bei Anfragen",
-    ],
-    highlight: true,
-  },
-  {
-    name: "Premium",
-    price: "59",
-    features: [
-      "Hosting auf Vercel + Supabase-Datenbank",
-      "SSL-Zertifikat inklusive",
-      "Monatliche Updates & Sicherheitschecks",
-      "Unbegrenzte Änderungen",
-    ],
-  },
+  { name: "Basic", price: "19", features: ["Hosting auf Vercel", "SSL-Zertifikat inklusive", "Monatliche Updates und Sicherheitschecks", "1 kleine Änderung pro Monat"] },
+  { name: "Standard", price: "39", features: ["Alles aus Basic", "3 Änderungen pro Monat", "Priorität bei Anfragen"] },
+  { name: "Premium", price: "59", features: ["Hosting auf Vercel plus Supabase-Datenbank", "SSL-Zertifikat inklusive", "Monatliche Updates und Sicherheitschecks", "Unbegrenzte Änderungen"] },
 ]
 
 const paymentMethods = [
-  {
-    icon: Building,
-    name: "Überweisung",
-    desc: "Klassische Banküberweisung",
-  },
-  {
-    icon: CreditCard,
-    name: "Kreditkarte",
-    desc: "Visa, Mastercard, Amex",
-  },
-  {
-    icon: Wallet,
-    name: "PayPal",
-    desc: "Schnell & sicher",
-  },
-  {
-    icon: Smartphone,
-    name: "Auf Rechnung",
-    desc: "Nach Vorstellung der Probewebsite",
-  },
+  { name: "Überweisung", desc: "Klassische Banküberweisung" },
+  { name: "Kreditkarte", desc: "Visa, Mastercard, Amex" },
+  { name: "PayPal", desc: "Schnell und sicher" },
+  { name: "Auf Rechnung", desc: "Nach Vorstellung der Probewebsite" },
 ]
 
 const priceFAQs = [
   {
     q: "Was ist im Preis enthalten?",
-    a: "Design, Umsetzung, Tests und Launch sind immer inklusive. Hosting auf Vercel (ab 19 €/Monat im Pflegepaket) und optionale Pflegepakete werden separat vereinbart, transparent, schriftlich vor Projektstart.",
+    a: "Design, Umsetzung, Tests und Launch sind immer inklusive. Hosting auf Vercel (ab 19 € im Monat im Pflegepaket) und optionale Pflegepakete werden separat vereinbart, transparent und schriftlich vor Projektstart.",
   },
   {
     q: "Gibt es Nachzahlungen?",
@@ -139,273 +96,156 @@ const priceFAQs = [
 
 export default function PreisePage() {
   return (
-    <div className="pt-16">
-      {/* Header */}
-      <section className="py-16 sm:py-20 bg-white border-b border-[#0a0a0f]/5">
-        <div className="max-w-4xl mx-auto px-6">
-          <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-5">
-            Preise
-          </p>
-          <h1 className="text-[26px] sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#0a0a0f] mb-5 leading-tight">
-            Kein Stundensatz.
-            <br />
-            <span className="text-[#0066FF]">Kein Überraschungsangebot.</span>
-          </h1>
-          <p className="text-[#0a0a0f]/55 text-base sm:text-xl leading-relaxed max-w-2xl">
-            Festpreise ab 199 €. Weil Sie vor dem Auftrag wissen sollten, was er kostet.
-          </p>
-          <p className="text-[#0a0a0f]/40 text-sm mt-4">Alle Preise netto zzgl. 19 % MwSt.</p>
+    <>
+      <Card title="Preise" reveal={false} labelledBy="preise-titel" className="!mt-6 md:!mt-10">
+        <h1 id="preise-titel" className="display max-w-[22ch]">
+          Kein Stundensatz. Kein Überraschungsangebot.
+        </h1>
+        <div className="mt-6 flex flex-wrap items-baseline gap-x-8 gap-y-2">
+          <p className="lede">Festpreise ab 199 €. Weil Sie vor dem Auftrag wissen sollten, was er kostet.</p>
+          <p className="text-base">Alle Preise netto zzgl. 19 % MwSt.</p>
         </div>
-      </section>
 
-      {/* One-time packages */}
-      <section className="py-12 bg-[#0a0a0f]/[0.04]">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-8">
-            Einmalige Website-Erstellung
-          </p>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {packages.map((pkg) => (
-              <div
-                key={pkg.id}
-                className={`rounded-2xl p-7 sm:p-8 flex flex-col relative ${
-                  pkg.highlight
-                    ? "bg-[#0066FF] shadow-xl shadow-[#0066FF]/15"
-                    : "bg-white border border-[#0a0a0f]/10"
-                }`}
-              >
-                {pkg.badge && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                    <span className="bg-[#0a0a0f] text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow-sm">
-                      {pkg.badge}
-                    </span>
-                  </div>
-                )}
-
-                <div className="mb-6">
-                  <p
-                    className={`text-xs font-semibold uppercase tracking-wider mb-1.5 ${
-                      pkg.highlight ? "text-white/80" : "text-[#0a0a0f]/40"
-                    }`}
-                  >
-                    {pkg.tagline}
-                  </p>
-                  <h2
-                    className={`font-black text-2xl mb-4 ${
-                      pkg.highlight ? "text-white" : "text-[#0a0a0f]"
-                    }`}
-                  >
-                    {pkg.name}
-                  </h2>
-                  <div className="flex items-baseline gap-1.5 mb-4">
-                    <span className={`text-sm ${pkg.highlight ? "text-white/80" : "text-[#0a0a0f]/40"}`}>ab</span>
-                    <span className={`text-4xl font-black ${pkg.highlight ? "text-white" : "text-[#0a0a0f]"}`}>
-                      {pkg.price} €
-                    </span>
-                    <span className={`text-sm ${pkg.highlight ? "text-white/80" : "text-[#0a0a0f]/40"}`}>netto</span>
-                  </div>
-                  <p className={`text-sm leading-relaxed ${pkg.highlight ? "text-white/70" : "text-[#0a0a0f]/55"}`}>
-                    {pkg.desc}
-                  </p>
-                </div>
-                <ul className="flex flex-col gap-3 flex-1 mb-8">
-                  {pkg.features.map((f) => (
-                    <li
-                      key={f}
-                      className={`flex items-start gap-3 text-sm ${
-                        pkg.highlight ? "text-white/90" : "text-[#0a0a0f]"
-                      }`}
-                    >
-                      <Check
-                        size={15}
-                        className={`mt-0.5 flex-shrink-0 ${pkg.highlight ? "text-white/70" : "text-[#0066FF]"}`}
-                        strokeWidth={2.5}
-                      />
+        <div className="mt-12 grid border-2 border-ink lg:grid-cols-3">
+          {packages.map((p, i) => (
+            <div key={p.id} id={p.id} className={`flex flex-col ${i > 0 ? "border-t-2 border-ink lg:border-t-0 lg:border-l-2" : ""}`}>
+              <div className={`flex items-center justify-between gap-3 border-b-2 border-ink px-5 py-3 ${p.recommended ? "bg-ink text-paper" : ""}`}>
+                <h2 className={`pixel text-[15px] tracking-normal ${p.recommended ? "text-paper" : "text-ink"}`}>{p.name}</h2>
+                {p.recommended && <span className="pixel text-[11px] text-paper">Empfohlen</span>}
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <p className="font-bold">{p.tagline}</p>
+                <p className="tnum mt-3 text-[3rem] font-extrabold leading-none tracking-[-0.04em] text-ink">
+                  <span className="text-lg font-bold tracking-normal">ab </span>
+                  {p.price} €
+                </p>
+                <p className="mt-3">{p.desc}</p>
+                <ul className="mt-5 flex flex-1 flex-col gap-2.5">
+                  {p.features.map((f) => (
+                    <li key={f} className="flex gap-3 text-base">
+                      <span className="mt-0.5 grid h-5 w-5 flex-none place-items-center border-2 border-ink text-ink">
+                        <Check size={10} />
+                      </span>
                       {f}
                     </li>
                   ))}
                 </ul>
-
-                <Link
-                  href={`/anfrage?paket=${pkg.id}`}
-                  className={`text-center font-bold px-6 py-3.5 rounded-full transition-all flex items-center justify-center gap-2 ${
-                    pkg.highlight
-                      ? "bg-white text-[#0066FF] hover:bg-[#0a0a0f]/[0.03]"
-                      : "bg-[#0066FF] text-white hover:bg-[#0066FF]/85"
-                  }`}
-                >
-                  {pkg.name} anfragen <ArrowRight size={16} />
+                <Link href={`/anfrage?paket=${p.id}`} className={`btn mt-6 ${p.recommended ? "btn-default" : ""}`}>
+                  {p.name} anfragen
+                  <ArrowRight size={14} />
                 </Link>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Guarantee */}
-      <section className="py-8 bg-[#0a0a0f]/[0.04]">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="bg-white border border-[#0066FF]/15 rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row items-start gap-5">
-            <div className="w-10 h-10 rounded-xl bg-[#0a0a0f]/[0.04] flex items-center justify-center flex-shrink-0">
-              <Shield size={20} className="text-[#0066FF]" />
             </div>
-            <div>
-              <h3 className="text-[#0a0a0f] font-black text-base sm:text-lg mb-1.5">
-                Nicht zufrieden mit dem ersten Entwurf?
-              </h3>
-              <p className="text-[#0a0a0f]/55 text-sm leading-relaxed max-w-xl">
-                Wir überarbeiten kostenlos, ohne Diskussion, ohne Zeitdruck, so oft wie nötig.
-                Diese Aussage steht im Vertrag. Nicht im Marketing.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
-      </section>
 
-      {/* Payment Methods */}
-      <section className="py-16 bg-white border-t border-[#0a0a0f]/5">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-6">
-            Zahlungsmethoden
-          </p>
-          <h2 className="text-xl sm:text-2xl font-black text-[#0a0a0f] mb-8 leading-tight">
-            So können Sie zahlen.
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {paymentMethods.map((method) => {
-              const Icon = method.icon
-              return (
-                <div key={method.name} className="bg-[#0a0a0f]/[0.04] border border-[#0a0a0f]/5 rounded-xl p-4 sm:p-5 flex flex-col items-center text-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white border border-[#0a0a0f]/10 flex items-center justify-center">
-                    <Icon size={18} className="text-[#0066FF]" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-[#0a0a0f] text-sm">{method.name}</p>
-                    <p className="text-[#0a0a0f]/40 text-xs mt-0.5">{method.desc}</p>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-          <p className="text-[#0a0a0f]/40 text-xs mt-5">
-            Zahlung nach Vorstellung der Probewebsite · kein Vorauszahlung
+        <div className="dither-12 mt-8 border-2 border-ink p-5">
+          <p className="w-fit bg-paper px-2 text-[1.25rem] font-extrabold text-ink">Nicht zufrieden mit dem ersten Entwurf?</p>
+          <p className="mt-2 w-fit bg-paper px-2">
+            Wir überarbeiten kostenlos, ohne Diskussion, ohne Zeitdruck, so oft wie nötig. Diese Aussage steht im Vertrag, nicht im
+            Marketing.
           </p>
         </div>
-      </section>
+      </Card>
 
-      {/* Monthly care packages */}
-      <section className="py-16 bg-[#0a0a0f]/[0.04] border-t border-[#0a0a0f]/5">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
-            <div>
-              <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-3">
-                Laufende Betreuung
-              </p>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#0a0a0f] leading-tight">
-                Pflege &amp; Aktualisierung
-              </h2>
-            </div>
-            <p className="text-[#0a0a0f]/40 text-sm max-w-xs text-right hidden sm:block leading-relaxed">
-              Wir machen die Änderungen für Sie, schnell und unkompliziert.
-            </p>
+      <Card id="zahlung" title="Zahlung" labelledBy="zahlung-titel">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.5fr]">
+          <div>
+            <h2 id="zahlung-titel" className="headline">
+              So können Sie zahlen.
+            </h2>
+            <p className="mt-4">Zahlung nach Vorstellung der Probewebsite, keine Vorauszahlung.</p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {carePackages.map((pkg) => (
+          <dl className="grid border-2 border-ink sm:grid-cols-2">
+            {paymentMethods.map((m, i) => (
               <div
-                key={pkg.name}
-                className={`rounded-2xl p-6 sm:p-7 ${
-                  pkg.highlight
-                    ? "bg-[#0a0a0f] text-white"
-                    : "bg-white border border-[#0a0a0f]/5"
-                }`}
+                key={m.name}
+                className={`p-5 ${i > 0 ? "border-t-2 border-ink" : ""} ${i === 1 ? "sm:border-t-0 sm:border-l-2" : ""} ${i === 3 ? "sm:border-l-2" : ""}`}
               >
-                <div className="flex items-center justify-between mb-5">
-                  <h3 className={`font-bold text-base ${pkg.highlight ? "text-white" : "text-[#0a0a0f]"}`}>
-                    {pkg.name}
-                  </h3>
-                  {pkg.highlight && (
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-white/45 bg-white/10 px-2 py-0.5 rounded-full">
-                      Beliebt
-                    </span>
-                  )}
-                </div>
-                <div className="flex items-baseline gap-1 mb-6">
-                  <span className={`text-3xl font-black ${pkg.highlight ? "text-white" : "text-[#0a0a0f]"}`}>
-                    {pkg.price} €
-                  </span>
-                  <span className={`text-sm ${pkg.highlight ? "text-white/55" : "text-[#0a0a0f]/40"}`}>/Monat</span>
-                </div>
-                <ul className="flex flex-col gap-2.5">
-                  {pkg.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm">
-                      <RefreshCw
-                        size={13}
-                        className={`mt-0.5 flex-shrink-0 ${pkg.highlight ? "text-[#0066FF]" : "text-[#0066FF]"}`}
-                      />
-                      <span className={pkg.highlight ? "text-white/75" : "text-[#0a0a0f]"}>{f}</span>
-                    </li>
-                  ))}
-                </ul>
+                <dt className="text-[1.25rem] font-extrabold text-ink">{m.name}</dt>
+                <dd className="mt-1 text-base">{m.desc}</dd>
               </div>
             ))}
-          </div>
-          <p className="text-[#0a0a0f]/40 text-xs mt-5 leading-relaxed max-w-xl">
-            In jedem Paket enthalten: Hosting auf Vercel&apos;s globalem Edge-Network und automatische SSL-Verschlüsselung. Premium inkl. Supabase-Datenbank für dynamische Inhalte. Monatlich kündbar, keine Vertragsbindung. · Alle Preise netto zzgl. MwSt.
-          </p>
+          </dl>
         </div>
-      </section>
+      </Card>
 
-      {/* FAQ */}
-      <section className="py-16 sm:py-20 bg-white border-t border-[#0a0a0f]/5">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-2xl sm:text-3xl font-black text-[#0a0a0f] mb-10">
+      <Card id="pflege" title="Pflege" labelledBy="pflege-titel">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <h2 id="pflege-titel" className="headline max-w-[16ch]">
+            Pflege und Aktualisierung
+          </h2>
+          <p className="max-w-sm">Wir machen die Änderungen für Sie, schnell und unkompliziert.</p>
+        </div>
+        <table className="mt-10 w-full border-2 border-ink text-left">
+          <caption className="sr-only">Pflegepakete im Vergleich</caption>
+          <thead>
+            <tr className="border-b-2 border-ink">
+              <th scope="col" className="pixel p-4 text-[13px] font-normal text-ink">
+                Paket
+              </th>
+              <th scope="col" className="pixel p-4 text-[13px] font-normal text-ink">
+                Im Monat
+              </th>
+              <th scope="col" className="pixel hidden p-4 text-[13px] font-normal text-ink md:table-cell">
+                Enthalten
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {carePackages.map((c, i) => (
+              <tr key={c.name} className={i > 0 ? "border-t-2 border-ink" : ""}>
+                <th scope="row" className="p-4 align-top text-[1.3rem] font-extrabold text-ink">
+                  {c.name}
+                </th>
+                <td className="tnum p-4 align-top text-[1.6rem] font-extrabold text-ink">{c.price} €</td>
+                <td className="hidden p-4 align-top md:table-cell">{c.features.join(" · ")}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <ul className="mt-4 flex flex-col gap-3 md:hidden">
+          {carePackages.map((c) => (
+            <li key={c.name} className="text-base">
+              <strong className="text-ink">{c.name}:</strong> {c.features.join(" · ")}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-5 max-w-3xl text-base">
+          In jedem Paket enthalten: Hosting auf dem weltweiten Netz von Vercel und automatische SSL-Verschlüsselung. Premium mit
+          Supabase-Datenbank für dynamische Inhalte. Monatlich kündbar, keine Vertragsbindung. Alle Preise netto zzgl. MwSt.
+        </p>
+      </Card>
+
+      <Card id="fragen" title="Fragen" labelledBy="fragen-titel">
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.4fr] lg:gap-14">
+          <h2 id="fragen-titel" className="headline">
             Fragen zu Preisen
           </h2>
-          <div className="flex flex-col gap-4">
-            {priceFAQs.map((faq) => (
-              <div key={faq.q} className="bg-[#0a0a0f]/[0.04] border border-[#0a0a0f]/5 rounded-2xl p-6 sm:p-7">
-                <h3 className="text-[#0a0a0f] font-bold mb-3 text-base">{faq.q}</h3>
-                <p className="text-[#0a0a0f]/55 text-sm leading-relaxed">{faq.a}</p>
-              </div>
-            ))}
-          </div>
+          <DisclosureList items={priceFAQs} firstOpen />
         </div>
-      </section>
+      </Card>
 
-      {/* CTA */}
-      <section className="py-16 sm:py-20 bg-[#0a0a0f]/[0.04] border-t border-[#0a0a0f]/5">
-        <div className="max-w-2xl mx-auto px-6 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0a0a0f] mb-4 leading-tight">
-            Bereit für ein konkretes Angebot?
-          </h2>
-          <p className="text-[#0a0a0f]/55 text-base sm:text-lg mb-10 leading-relaxed">
-            Kostenlos anfragen. Wir melden uns innerhalb von 24 Stunden mit einem persönlichen Angebot.
-          </p>
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
-            <Link
-              href="/anfrage"
-              className="bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-8 py-4 rounded-full inline-flex items-center justify-center gap-2 transition-colors"
-            >
-              Kostenlos anfragen <ArrowRight size={18} />
-            </Link>
-            <Link
-              href="/kontakt"
-              className="text-[#0a0a0f] font-semibold px-8 py-4 rounded-full border border-[#0a0a0f]/10 hover:border-[#0a0a0f]/20 transition-all text-center"
-            >
-              Erst mal fragen
+      <Card title="Anfragen" labelledBy="cta-titel">
+        <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+          <div>
+            <h2 id="cta-titel" className="headline">
+              Bereit für ein konkretes Angebot?
+            </h2>
+            <p className="lede mt-4">Kostenlos anfragen. Wir melden uns innerhalb von 24 Stunden mit einem persönlichen Angebot.</p>
+          </div>
+          <div className="flex flex-wrap items-center gap-4 lg:justify-end">
+            <a href={waLink("Hallo Nexuzo, ich hätte gern ein Angebot.")} target="_blank" rel="noopener noreferrer" className="btn btn-default">
+              <WhatsApp size={20} />
+              Per WhatsApp anfragen
+            </a>
+            <Link href="/anfrage" className="btn">
+              Kostenlos anfragen
+              <ArrowRight size={14} />
             </Link>
           </div>
         </div>
-      </section>
-
-      <div className="bg-[#0a0a0f]/[0.04] border-t border-[#0a0a0f]/10 py-6">
-        <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-[#0a0a0f]/40">
-          <Link href="/impressum" className="hover:text-[#0a0a0f] transition-colors">Impressum</Link>
-          <Link href="/datenschutz" className="hover:text-[#0a0a0f] transition-colors">Datenschutz</Link>
-          <Link href="/agb" className="hover:text-[#0a0a0f] transition-colors">AGB</Link>
-        </div>
-      </div>
-    </div>
+      </Card>
+    </>
   )
 }

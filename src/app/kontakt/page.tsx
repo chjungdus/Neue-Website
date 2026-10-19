@@ -1,115 +1,93 @@
-"use client"
-
+import type { Metadata } from "next"
 import Link from "next/link"
-import { Mail, MessageCircle, Clock, ArrowRight } from "lucide-react"
+import Card from "@/components/stack/card"
 import ContactForm from "@/components/forms/contact-form"
-import FadeIn from "@/components/ui/fade-in"
+import { ArrowRight, Clock, Mail, Pin, WhatsApp } from "@/components/stack/icons"
+import { ADDRESS, EMAIL, HOURS, PHONE_DISPLAY, waLink } from "@/lib/site"
+
+export const metadata: Metadata = {
+  title: "Kontakt",
+  description: "Schreiben Sie Nexuzo per WhatsApp, E-Mail oder Formular. Antwort innerhalb von 24 Stunden, persönlich.",
+}
 
 export default function KontaktPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="pt-28 pb-14 bg-white border-b border-[#0a0a0f]/5">
-        <div className="max-w-6xl mx-auto px-6">
-          <FadeIn>
-            <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-6">
-              Kontakt
-            </p>
-            <h1 className="text-5xl md:text-6xl font-black text-[#0a0a0f] leading-[1.05] mb-6 max-w-2xl">
+      <Card title="Kontakt" reveal={false} labelledBy="kontakt-titel" className="!mt-6 md:!mt-10">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
+          <div>
+            <h1 id="kontakt-titel" className="display max-w-[10ch]">
               Schreiben Sie uns.
             </h1>
-            <p className="text-[#0a0a0f]/55 text-xl max-w-xl leading-relaxed">
-              Ob konkrete Projektidee oder noch eine offene Frage. Wir antworten innerhalb von 24 Stunden persönlich.
+            <p className="lede mt-6">
+              Ob konkrete Projektidee oder noch eine offene Frage: Wir antworten innerhalb von 24 Stunden persönlich.
             </p>
-          </FadeIn>
-        </div>
-      </section>
+            <a
+              href={waLink("Hallo Nexuzo, ich habe eine Frage zu meiner Website.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-default mt-8"
+            >
+              <WhatsApp size={20} />
+              Per WhatsApp schreiben
+            </a>
+            <ul className="field-box mt-10">
+              <li className="flex items-center gap-4 p-4">
+                <WhatsApp size={18} className="flex-none text-ink" />
+                <a href={waLink()} target="_blank" rel="noopener noreferrer" className="link">
+                  {PHONE_DISPLAY}
+                </a>
+              </li>
+              <li className="flex items-center gap-4 border-t-2 border-ink p-4">
+                <Mail size={18} className="flex-none text-ink" />
+                <a href={`mailto:${EMAIL}`} className="link break-all">
+                  {EMAIL}
+                </a>
+              </li>
+              <li className="flex items-center gap-4 border-t-2 border-ink p-4">
+                <Clock size={18} className="flex-none text-ink" />
+                {HOURS}
+              </li>
+              <li className="flex items-center gap-4 border-t-2 border-ink p-4">
+                <Pin size={18} className="flex-none text-ink" />
+                {ADDRESS.join(", ")}
+              </li>
+            </ul>
+            <p className="mt-8 font-extrabold text-ink">Keine Verpflichtung.</p>
+            <p className="mt-1 max-w-sm">
+              Eine Nachricht ist eine Nachricht, kein Kaufvertrag. Wir antworten persönlich, keine automatischen Mails.
+            </p>
+          </div>
 
-      {/* Main: contact options + form */}
-      <section className="py-14 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-16 items-start">
-
-            {/* Left: direct contact */}
-            <FadeIn>
-              <div>
-                <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-6">
-                  Direkt schreiben
-                </p>
-                <div className="flex flex-col gap-3">
-                  <a
-                    href="https://wa.me/4917680257270"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-[#0a0a0f] hover:text-[#0066FF] transition-colors group"
-                  >
-                    <span className="w-9 h-9 rounded-xl bg-[#0a0a0f]/[0.04] flex items-center justify-center group-hover:bg-[#0a0a0f]/[0.04] transition-colors">
-                      <MessageCircle size={15} className="text-[#0a0a0f]/55 group-hover:text-[#0066FF] transition-colors" />
-                    </span>
-                    <span className="text-sm font-medium">WhatsApp: +49 176 80257270</span>
-                  </a>
-                  <a
-                    href="mailto:nexuzo.kontakt@gmail.com"
-                    className="flex items-center gap-3 text-[#0a0a0f] hover:text-[#0066FF] transition-colors group"
-                  >
-                    <span className="w-9 h-9 rounded-xl bg-[#0a0a0f]/[0.04] flex items-center justify-center group-hover:bg-[#0a0a0f]/[0.04] transition-colors">
-                      <Mail size={15} className="text-[#0a0a0f]/55 group-hover:text-[#0066FF] transition-colors" />
-                    </span>
-                    <span className="text-sm font-medium">nexuzo.kontakt@gmail.com</span>
-                  </a>
-                  <div className="flex items-center gap-3 text-[#0a0a0f]/40">
-                    <span className="w-9 h-9 rounded-xl bg-[#0a0a0f]/[0.04] flex items-center justify-center">
-                      <Clock size={15} />
-                    </span>
-                    <span className="text-sm">Mo bis Fr · 9 bis 18 Uhr</span>
-                  </div>
-                </div>
-
-                <div className="mt-10 pt-8 border-t border-[#0a0a0f]/5">
-                  <p className="text-[#0a0a0f] font-bold mb-1">Keine Verpflichtung.</p>
-                  <p className="text-[#0a0a0f]/55 text-sm leading-relaxed max-w-sm">
-                    Eine Nachricht ist eine Nachricht, kein Kaufvertrag. Wir antworten persönlich, keine automatischen Mails.
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-
-            {/* Right: Form */}
-            <FadeIn delay={0.1} direction="right">
-              <div className="bg-white border border-[#0a0a0f]/5 rounded-2xl p-8 shadow-sm">
-                <h2 className="text-[#0a0a0f] font-bold text-xl mb-2">Nachricht senden</h2>
-                <p className="text-[#0a0a0f]/40 text-sm mb-7">
-                  Antwort innerhalb von 24 Stunden. Versprochen.
-                </p>
-                <ContactForm />
-              </div>
-            </FadeIn>
+          <div className="field-box self-start">
+            <div className="win-bar">
+              <span className="win-close" aria-hidden="true" />
+              <span className="win-title pixel">Nachricht senden</span>
+              <span className="w-4 flex-none" aria-hidden="true" />
+            </div>
+            <div className="p-5 sm:p-7">
+              <h2 className="text-[1.6rem]">Lieber per Formular?</h2>
+              <p className="mb-6 mt-1">Antwort innerhalb von 24 Stunden. Versprochen.</p>
+              <ContactForm />
+            </div>
           </div>
         </div>
-      </section>
+      </Card>
 
-      {/* Bottom CTA */}
-      <section className="py-14 bg-[#0a0a0f]/[0.03] border-t border-[#0a0a0f]/5">
-        <div className="max-w-6xl mx-auto px-6">
-          <FadeIn>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-              <div>
-                <p className="font-bold text-[#0a0a0f] mb-1">Konkrete Projektidee?</p>
-                <p className="text-[#0a0a0f]/55 text-sm">
-                  Mit dem Anfrage-Formular bekommen Sie innerhalb von 24h ein konkretes Angebot.
-                </p>
-              </div>
-              <Link
-                href="/anfrage"
-                className="inline-flex items-center gap-2 bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-6 py-3 rounded-full transition-colors text-sm shrink-0"
-              >
-                Projekt anfragen
-                <ArrowRight size={15} />
-              </Link>
-            </div>
-          </FadeIn>
+      <Card title="Projekt anfragen" labelledBy="cta-titel">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 id="cta-titel" className="text-[1.8rem] leading-tight">
+              Konkrete Projektidee?
+            </h2>
+            <p className="mt-2">Mit dem Anfrageformular bekommen Sie innerhalb von 24 Stunden ein konkretes Angebot.</p>
+          </div>
+          <Link href="/anfrage" className="btn flex-none">
+            Projekt anfragen
+            <ArrowRight size={14} />
+          </Link>
         </div>
-      </section>
+      </Card>
     </>
   )
 }

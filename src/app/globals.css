@@ -1,82 +1,541 @@
 @import "tailwindcss";
 
+/* Der Karten-Stapel: a one-bit world in Nexuzo blue.
+   One ink (#0066FF) on white card stock, deep blue for long reading,
+   greys only as dither patterns. */
+
 @theme {
-  --color-primary: #0066FF;
-  --color-primary-hover: #0066FF;
-  --color-navy-900: #0a0a0f;
-  --color-navy-800: #0a0a0f;
-  --color-accent-500: #0066FF;
-  --color-accent-400: #0066FF;
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-bricolage);
+  --color-ink: #0066ff;
+  --color-ink-press: #0052cc;
+  --color-deep: #0a1a3a;
+  --color-paper: #ffffff;
+  /* kept for the admin area and older pages */
+  --color-primary: #0066ff;
+  --color-primary-hover: #0052cc;
+  --color-navy-900: #0a1a3a;
+  --color-navy-800: #0a1a3a;
+  --color-accent-500: #0066ff;
+  --color-accent-400: #0066ff;
+  --font-sans: var(--font-atkinson);
+  --font-heading: var(--font-atkinson);
+  --font-pixel: var(--font-silkscreen);
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #0a0a0f;
+  --ink: #0066ff;
+  --ink-press: #0052cc;
+  --deep: #0a1a3a;
+  --paper: #ffffff;
+  --menubar: 48px;
+
+  /* Dither patterns (blue pixels on transparent), 4x4 tiles */
+  --dither-6: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' shape-rendering='crispEdges'%3E%3Crect width='1' height='1' fill='%230066FF'/%3E%3C/svg%3E");
+  --dither-12: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' shape-rendering='crispEdges'%3E%3Crect width='1' height='1' fill='%230066FF'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%230066FF'/%3E%3C/svg%3E");
+  --dither-25: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' shape-rendering='crispEdges'%3E%3Crect width='1' height='1' fill='%230066FF'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%230066FF'/%3E%3Crect x='2' width='1' height='1' fill='%230066FF'/%3E%3Crect y='2' width='1' height='1' fill='%230066FF'/%3E%3C/svg%3E");
+  --dither-50: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='2' shape-rendering='crispEdges'%3E%3Crect width='1' height='1' fill='%230066FF'/%3E%3Crect x='1' y='1' width='1' height='1' fill='%230066FF'/%3E%3C/svg%3E");
+
+  /* White cover patterns for the dissolve (white pixels), 4x4 tiles */
+  --cover-75: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' shape-rendering='crispEdges'%3E%3Cpath fill='%23fff' d='M1 0h3v1H1zM0 1h4v1H0zM0 2h2v1H0zM3 2h1v1H3zM0 3h4v1H0z'/%3E%3C/svg%3E");
+  --cover-50: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='2' shape-rendering='crispEdges'%3E%3Crect width='1' height='1' fill='%23fff'/%3E%3Crect x='1' y='1' width='1' height='1' fill='%23fff'/%3E%3C/svg%3E");
+  --cover-25: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' shape-rendering='crispEdges'%3E%3Crect width='1' height='1' fill='%23fff'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%23fff'/%3E%3Crect x='2' width='1' height='1' fill='%23fff'/%3E%3Crect y='2' width='1' height='1' fill='%23fff'/%3E%3C/svg%3E");
+  --cover-12: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' shape-rendering='crispEdges'%3E%3Crect width='1' height='1' fill='%23fff'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%23fff'/%3E%3C/svg%3E");
 }
 
-* {
-  box-sizing: border-box;
-}
+/* Element defaults live in the base layer so Tailwind utilities can override them. */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--menubar) + 16px);
+    color-scheme: light;
+    scrollbar-color: var(--ink) var(--paper);
+  }
 
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  letter-spacing: -0.011em;
-}
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-bricolage), var(--font-inter), system-ui, sans-serif;
-  letter-spacing: -0.02em;
-}
+  /* The desk the cards lie on */
+  body {
+    background-color: var(--paper);
+    background-image: var(--dither-6);
+    background-size: 4px 4px;
+    color: var(--deep);
+    font-family: var(--font-atkinson), system-ui, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-.gradient-text {
-  background: linear-gradient(100deg, #0066FF 0%, #4f8bff 25%, #9dc0ff 50%, #4f8bff 75%, #0066FF 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 6s linear infinite;
-}
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-atkinson), system-ui, sans-serif;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
 
-@keyframes shimmer {
-  to {
-    background-position: 200% center;
+  p {
+    text-wrap: pretty;
+  }
+
+  table,
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  ::selection {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  /* Marching-ants style focus: the selection marquee of the one-bit world */
+  :focus-visible {
+    outline: 2px dashed var(--ink);
+    outline-offset: 3px;
+  }
+
+  a {
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: var(--paper);
+    background-image: var(--dither-12);
+    background-size: 4px 4px;
+    border-left: 2px solid var(--ink);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--paper);
+    border: 2px solid var(--ink);
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .gradient-text {
-    animation: none;
+@layer components {
+  /* ---------- Type ---------- */
+
+  .display {
+    font-size: clamp(2.5rem, 1.6rem + 3.6vw, 5rem);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
   }
-}
 
-.card-hover {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
+  .headline {
+    font-size: clamp(2rem, 1.5rem + 2.2vw, 3.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
   }
-  to {
-    transform: translateX(-50%);
-  }
-}
 
-.animate-marquee {
-  animation: marquee 38s linear infinite;
+  .pixel {
+    font-family: var(--font-silkscreen), ui-monospace, monospace;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    -webkit-font-smoothing: none;
+  }
+
+  .lede {
+    font-size: clamp(1.125rem, 1rem + 0.4vw, 1.3rem);
+    line-height: 1.5;
+    max-width: 38rem;
+  }
+
+  .measure {
+    max-width: 68ch;
+  }
+
+  /* ---------- Cards (windows) ---------- */
+
+  /* Each card slot is its own stacking context so the dither drop sits behind the card. */
+  .card-slot {
+    isolation: isolate;
+    padding-inline: 16px;
+    margin-block: clamp(28px, 4vw, 56px);
+  }
+
+  .win {
+    position: relative;
+    max-width: 1180px;
+    margin-inline: auto;
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    /* The stack: two card edges peeking out behind the current card */
+    box-shadow:
+      5px 5px 0 -2px var(--paper),
+      5px 5px 0 0 var(--ink),
+      10px 10px 0 -2px var(--paper),
+      10px 10px 0 0 var(--ink);
+  }
+
+  /* One-bit drop: a dithered band behind the stack */
+  .win::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    right: -14px;
+    bottom: -14px;
+    z-index: -1;
+    background-image: var(--dither-50);
+    background-size: 2px 2px;
+    image-rendering: pixelated;
+  }
+
+  .win-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 34px;
+    padding: 0 8px;
+    border-bottom: 2px solid var(--ink);
+    background-image: repeating-linear-gradient(to bottom, var(--ink) 0 1px, transparent 1px 3px);
+    background-origin: content-box;
+    background-clip: content-box;
+    background-size: 100% 22px;
+    background-position: 0 4px;
+    background-repeat: no-repeat;
+  }
+
+  .win-close {
+    width: 16px;
+    height: 16px;
+    flex: none;
+    border: 2px solid var(--ink);
+    background: var(--paper);
+    box-shadow: 0 0 0 3px var(--paper);
+  }
+
+  .win-title {
+    margin-inline: auto;
+    padding: 0 12px;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 13px;
+    line-height: 22px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70%;
+  }
+
+  .win-nav {
+    display: flex;
+    gap: 4px;
+    padding-left: 6px;
+    background: var(--paper);
+    box-shadow: 0 0 0 3px var(--paper);
+  }
+
+  .win-nav a,
+  .win-nav span {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 22px;
+    border: 2px solid var(--ink);
+    border-radius: 5px;
+    color: var(--ink);
+    background: var(--paper);
+  }
+
+  .win-nav span {
+    opacity: 0.35;
+  }
+
+  .win-nav a:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .win-body {
+    padding: clamp(20px, 1rem + 2.6vw, 56px);
+  }
+
+  /* Grid items may shrink below their longest word; headings hyphenate instead of overflowing */
+  .win-body .grid > * {
+    min-width: 0;
+  }
+
+  /* Inner frames: fields and sub-windows inside a card */
+  .field-box {
+    border: 2px solid var(--ink);
+    background: var(--paper);
+  }
+
+  .dither-12 {
+    background-image: var(--dither-12);
+    background-size: 4px 4px;
+  }
+
+  .dither-25 {
+    background-image: var(--dither-25);
+    background-size: 4px 4px;
+  }
+
+  .dither-50 {
+    background-image: var(--dither-50);
+    background-size: 2px 2px;
+  }
+
+  .rule {
+    border-top: 2px solid var(--ink);
+  }
+
+  .hover-dither:hover {
+    background-image: var(--dither-12);
+    background-size: 4px 4px;
+  }
+
+  /* ---------- Buttons ---------- */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 0 20px;
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    background: var(--paper);
+    color: var(--ink);
+    font-weight: 800;
+    font-size: 1.0625rem;
+    line-height: 1.15;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 120ms steps(2, end), color 120ms steps(2, end);
+  }
+
+  .btn:hover {
+    background-color: var(--paper);
+    background-image: var(--dither-12);
+    background-size: 4px 4px;
+  }
+
+  /* Pressed means inverted */
+  .btn:active,
+  .btn[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  /* The default button wears the thick outer ring */
+  .btn-default {
+    outline: 4px solid var(--ink);
+    outline-offset: 3px;
+    margin: 7px;
+  }
+
+  .btn-default:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .btn-default:active {
+    background: var(--ink-press);
+    border-color: var(--ink-press);
+  }
+
+  .btn-default:focus-visible {
+    outline-style: double;
+    outline-width: 7px;
+  }
+
+  .btn[aria-disabled="true"],
+  .btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .btn-sm {
+    min-height: 40px;
+    padding: 0 14px;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+
+  .link {
+    color: var(--ink);
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.22em;
+  }
+
+  .link:hover {
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+  }
+
+  /* ---------- Fields ---------- */
+
+  .input,
+  .select,
+  .textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 14px;
+    border: 2px solid var(--ink);
+    border-radius: 0;
+    background: var(--paper);
+    color: var(--deep);
+    font: inherit;
+    font-size: 1.0625rem;
+    caret-color: var(--ink);
+  }
+
+  .textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+
+  .select {
+    appearance: none;
+    padding-right: 44px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' shape-rendering='crispEdges'%3E%3Cpath fill='%230066FF' d='M0 0h12v2H0zM2 2h8v2H2zM4 4h4v2H4zM5 6h2v2H5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    box-shadow: 4px 4px 0 -2px var(--paper), 4px 4px 0 0 var(--ink);
+  }
+
+  .input::placeholder,
+  .textarea::placeholder {
+    color: #4a5b7a;
+    opacity: 1;
+  }
+
+  .input:focus-visible,
+  .select:focus-visible,
+  .textarea:focus-visible {
+    outline: 2px dashed var(--ink);
+    outline-offset: 3px;
+  }
+
+  .input[aria-invalid="true"],
+  .textarea[aria-invalid="true"],
+  .select[aria-invalid="true"] {
+    border-style: dashed;
+    border-width: 3px;
+  }
+
+  .label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--deep);
+  }
+
+  /* ---------- Menus (pull-down) ---------- */
+
+  .menu-panel {
+    position: absolute;
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    box-shadow: 6px 6px 0 -2px var(--paper), 6px 6px 0 0 var(--ink);
+  }
+
+  .menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 16px;
+    color: var(--deep);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .menu-item:hover,
+  .menu-item[aria-current="page"] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  /* ---------- The dissolve ---------- */
+
+  /* With script, a card waits under a white cover until it enters, then dissolves in
+     through the dither steps. Without script, or with reduced motion, it simply shows. */
+  html.js .win.reveal::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: 30;
+    pointer-events: none;
+    background: var(--paper);
+  }
+
+  html.js .win.reveal.is-in::before {
+    animation: dissolve 520ms steps(1, end) forwards;
+  }
+
+  /* Turning to a card along the trail redraws it through the same dissolve */
+  html.js .win.redraw::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: 30;
+    pointer-events: none;
+    animation: dissolve 520ms steps(1, end) forwards;
+  }
+
+  @keyframes dissolve {
+    0% {
+      background: var(--paper);
+    }
+    20% {
+      background: transparent var(--cover-75) 0 0 / 4px 4px;
+    }
+    40% {
+      background: transparent var(--cover-50) 0 0 / 2px 2px;
+    }
+    60% {
+      background: transparent var(--cover-25) 0 0 / 4px 4px;
+    }
+    80% {
+      background: transparent var(--cover-12) 0 0 / 4px 4px;
+    }
+    100% {
+      background: transparent;
+      visibility: hidden;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.js .win.reveal::before,
+    html.js .win.redraw::before {
+      display: none;
+    }
+    .btn {
+      transition: none;
+    }
+  }
+
+  @media print {
+    html.js .win.reveal::before {
+      display: none;
+    }
+  }
 }

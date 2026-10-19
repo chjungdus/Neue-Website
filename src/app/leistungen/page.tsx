@@ -1,16 +1,23 @@
-"use client"
-
+import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, Check, X } from "lucide-react"
-import FadeIn from "@/components/ui/fade-in"
+import Card from "@/components/stack/card"
+import DisclosureList from "@/components/stack/disclosure-list"
+import { ArrowRight, Check, Minus, WhatsApp } from "@/components/stack/icons"
+import { waLink } from "@/lib/site"
+
+export const metadata: Metadata = {
+  title: "Leistungen",
+  description:
+    "Webdesign, Entwicklung und Relaunch aus Düsseldorf. Individuell gebaut, Festpreis vor Projektstart, alle Zugänge bei Launch.",
+}
 
 const services = [
   {
-    number: "01",
-    title: "Webdesign & Entwicklung",
+    id: "webdesign",
+    title: "Webdesign und Entwicklung",
     tagline: "Für Unternehmen, die mit ihrer Website Kunden gewinnen wollen.",
     problem:
-      "Die meisten Websites werden nach Geschmack gebaut, nicht danach wie sie funktionieren. Das Ergebnis sieht gut aus und tut nichts.",
+      "Die meisten Websites werden nach Geschmack gebaut, nicht danach, wie sie funktionieren. Das Ergebnis sieht gut aus und tut nichts.",
     solution:
       "Wir starten mit einer einfachen Frage: Was soll der Besucher tun? Dann bauen wir rückwärts. Welches Design, welche Texte, welche Seitenstruktur bringt ihn dahin? Jede Entscheidung hat einen Grund.",
     includes: [
@@ -19,20 +26,20 @@ const services = [
       "Umsetzung ohne Baukastensystem oder Templates",
       "Schnelle Ladezeiten auf jedem Gerät",
       "Seitenstruktur, die Google versteht",
-      "Starter-Projekte fertig in unter einer Woche",
+      "Starter-Projekte oft schon nach einer Woche fertig, spätestens nach vier",
     ],
-    notIncludes: ["Texte & Fotos", "Laufende Wartung (optional buchbar)"],
+    notIncludes: ["Texte und Fotos", "Laufende Wartung (optional buchbar)"],
     price: "ab 199 €",
     deliverable: "Fertige Website mit allen Zugängen bei Launch",
   },
   {
-    number: "02",
+    id: "relaunch",
     title: "Website-Relaunch",
     tagline: "Für bestehende Websites, die unter ihrer eigenen Last zusammenbrechen.",
     problem:
-      "Alte Websites mit dutzenden Plugins, Ladezeiten von 8 Sekunden, ein Design aus 2015, das auf dem Handy kaum nutzbar ist. Das kostet jeden Tag Kunden, nur unsichtbar.",
+      "Alte Websites mit dutzenden Plugins, langen Ladezeiten und einem Design, das auf dem Handy kaum nutzbar ist. Das kostet jeden Tag Kunden, nur unsichtbar.",
     solution:
-      "Vollständiger Neuaufbau. Wir nehmen Ihre bestehenden Inhalte, verbessern Struktur und Texte wo nötig, und liefern eine Website, die nicht in zwei Jahren wieder veraltet aussieht.",
+      "Vollständiger Neuaufbau. Wir nehmen Ihre bestehenden Inhalte, verbessern Struktur und Texte, wo nötig, und liefern eine Website, die nicht in zwei Jahren wieder veraltet aussieht.",
     includes: [
       "Analyse der bestehenden Website",
       "Vollständiger Neuaufbau auf modernem Fundament",
@@ -48,316 +55,207 @@ const services = [
 ]
 
 const process = [
-  {
-    step: "Erstgespräch",
-    duration: "30 Min.",
-    desc: "Wir hören zu. Sie erklären das Problem, wir stellen Fragen. Am Ende wissen beide, ob das passt oder nicht.",
-  },
-  {
-    step: "Konzept & Angebot",
-    duration: "1–2 Tage",
-    desc: "Wir skizzieren die Lösung: Welche Seiten braucht die Website, wie sind sie aufgebaut, was kostet das. Das Angebot ist ein Festpreis ohne Überraschungen.",
-  },
-  {
-    step: "Design-Entwurf",
-    duration: "2–3 Tage",
-    desc: "Wir zeigen Ihnen, wie die Website aussehen wird, bevor wir anfangen zu bauen. Sie geben Feedback, wir überarbeiten. Erst wenn das Design sitzt, geht es weiter.",
-  },
-  {
-    step: "Entwicklung",
-    duration: "3–5 Tage",
-    desc: "Sie sehen jederzeit den aktuellen Stand über einen Live-Link. Keine Überraschungen beim Launch.",
-  },
-  {
-    step: "Launch & Übergabe",
-    duration: "1 Tag",
-    desc: "Go-Live, alle Zugänge, kurze Einweisung. Die Website gehört Ihnen, kein Lock-in.",
-  },
+  { step: "Erstgespräch", duration: "30 Min.", desc: "Wir hören zu. Sie erklären das Problem, wir stellen Fragen. Am Ende wissen beide, ob das passt oder nicht." },
+  { step: "Konzept und Angebot", duration: "1–2 Tage", desc: "Wir skizzieren die Lösung: welche Seiten, wie aufgebaut, was es kostet. Das Angebot ist ein Festpreis ohne Überraschungen." },
+  { step: "Design-Entwurf", duration: "2–3 Tage", desc: "Sie sehen, wie die Website aussehen wird, bevor wir bauen. Sie geben Feedback, wir überarbeiten. Erst wenn das Design sitzt, geht es weiter." },
+  { step: "Entwicklung", duration: "3–5 Tage", desc: "Sie sehen jederzeit den aktuellen Stand über einen Testlink. Keine Überraschungen beim Launch." },
+  { step: "Launch und Übergabe", duration: "1 Tag", desc: "Go-Live, alle Zugänge, kurze Einweisung. Die Website gehört Ihnen, kein Lock-in." },
 ]
 
-const trustedBy = [
-  "Handwerk & Bau",
-  "Gastronomie & Hotellerie",
-  "Rechtsanwälte & Steuerberater",
+const industries = [
+  "Handwerk und Bau",
+  "Gastronomie und Hotellerie",
+  "Rechtsanwälte und Steuerberater",
   "Online-Dienstleister",
-  "Medizin & Therapie",
-  "Coaching & Beratung",
+  "Medizin und Therapie",
+  "Coaching und Beratung",
+]
+
+const guarantee = [
+  "Festpreis ohne Stundensatz",
+  "Deadline steht im Vertrag",
+  "Testlink während der Entwicklung",
+  "Alle Zugänge bei Launch",
+  "30 Tage Support nach Launch",
+]
+
+const faqs = [
+  {
+    q: "Machen Sie auch SEO?",
+    a: "Technische Grundlagen sind in jedem Projekt dabei: saubere Seitenstruktur, schnelle Ladezeiten, Sitemap. Laufende SEO-Kampagnen (Werbeanzeigen, Textstrategie, Linkaufbau) übernehmen wir nicht. Das ist ein eigenes Fachgebiet.",
+  },
+  {
+    q: "Was ist mit Pflege und Updates nach dem Launch?",
+    a: "Optional. Wir bieten Pflegepakete ab 19 € im Monat für regelmäßige Updates, Inhaltsänderungen und Backups an. Pflicht ist das nicht. Den Code haben Sie, und jeder Entwickler kann damit arbeiten.",
+  },
+  {
+    q: "Ich habe schon ein Design von woanders. Können Sie das umsetzen?",
+    a: "Ja, wenn das Design vollständig ist. Wir schauen uns an, was vorliegt, und geben Ihnen ehrliches Feedback, ob das so umsetzbar ist oder ob wir Anpassungen empfehlen würden.",
+  },
+  {
+    q: "Kann ich die Website später selbst bearbeiten?",
+    a: "Nein. Wir bauen keine selbst bearbeitbaren Systeme. Änderungen erledigen wir für Sie über unsere Pflegepakete ab 19 € im Monat. Das ist für die meisten Kunden günstiger und unkomplizierter als ein eigenes Verwaltungssystem.",
+  },
 ]
 
 export default function LeistungenPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="pt-28 pb-20 bg-white border-b border-[#0a0a0f]/5">
-        <div className="max-w-6xl mx-auto px-6">
-          <FadeIn>
-            <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-6">
-              Leistungen
-            </p>
-            <h1 className="text-[26px] sm:text-5xl md:text-7xl font-black text-[#0a0a0f] leading-[1.05] mb-8 max-w-3xl">
-              Was kostet eine
-              <br />
-              <span className="text-[#0066FF]">schlechte Website</span>
-              <br />
-              wirklich?
+      <Card title="Leistungen" reveal={false} labelledBy="leistungen-titel" className="!mt-6 md:!mt-10">
+        <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-end">
+          <div>
+            <h1 id="leistungen-titel" className="display max-w-[13ch]">
+              Was kostet eine schlechte Website wirklich?
             </h1>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <p className="text-[#0a0a0f]/55 text-base sm:text-xl max-w-2xl leading-relaxed">
-              Verpasste Kunden, die Sie nie zählen werden. Menschen, die auf Ihre Seite kommen,
-              nicht finden was sie suchen, und zur Konkurrenz gehen. Kein Drama, keine Fehlermeldung.
-              Nur stille Verluste, jeden Tag.
+            <p className="lede mt-6">
+              Verpasste Kunden, die Sie nie zählen werden. Menschen, die auf Ihre Seite kommen, nicht finden, was sie suchen, und zur
+              Konkurrenz gehen. Kein Drama, keine Fehlermeldung. Nur stille Verluste, jeden Tag.
             </p>
-          </FadeIn>
-          <FadeIn delay={0.15}>
-            <div className="mt-10 flex flex-wrap gap-3">
-              {trustedBy.map((industry) => (
-                <span
-                  key={industry}
-                  className="text-xs bg-[#0a0a0f]/[0.04] text-[#0a0a0f] px-3 py-1.5 rounded-full"
-                >
-                  {industry}
-                </span>
+          </div>
+          <div>
+            <p className="mb-3 font-extrabold">Für wen wir bauen</p>
+            <ul className="flex flex-wrap gap-2">
+              {industries.map((i) => (
+                <li key={i} className="border-2 border-ink px-3 py-1.5 text-base font-bold">
+                  {i}
+                </li>
               ))}
+            </ul>
+          </div>
+        </div>
+      </Card>
+
+      {services.map((s) => (
+        <Card key={s.id} id={s.id} title={s.title} labelledBy={`${s.id}-titel`}>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <h2 id={`${s.id}-titel`} className="headline">
+                {s.title}
+              </h2>
+              <p className="lede mt-3">{s.tagline}</p>
             </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="space-y-0 divide-y divide-[#0a0a0f]/5">
-            {services.map((service, i) => (
-              <FadeIn key={i} delay={i * 0.06}>
-                <div className="py-16 grid grid-cols-1 lg:grid-cols-[120px_1fr] gap-8">
-                  <div className="shrink-0">
-                    <span
-                      className="text-7xl font-black leading-none select-none"
-                      style={{ color: "#0066FF18" }}
-                    >
-                      {service.number}
-                    </span>
-                  </div>
-
-                  <div>
-                    <div className="mb-6">
-                      <h2 className="text-2xl md:text-3xl font-black text-[#0a0a0f] mb-2">
-                        {service.title}
-                      </h2>
-                      <p className="text-[#0a0a0f]/55 text-base">{service.tagline}</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                      <div>
-                        <p className="text-xs font-semibold text-[#0a0a0f]/40 uppercase tracking-widest mb-3">
-                          Das Problem
-                        </p>
-                        <p className="text-[#0a0a0f]/55 text-sm leading-relaxed">{service.problem}</p>
-                      </div>
-                      <div>
-                        <p className="text-xs font-semibold text-[#0a0a0f]/40 uppercase tracking-widest mb-3">
-                          Unser Ansatz
-                        </p>
-                        <p className="text-[#0a0a0f]/55 text-sm leading-relaxed">{service.solution}</p>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                      <div>
-                        <p className="text-xs font-semibold text-[#0a0a0f]/40 uppercase tracking-widest mb-3">
-                          Enthalten
-                        </p>
-                        <ul className="space-y-2">
-                          {service.includes.map((item, j) => (
-                            <li key={j} className="flex items-start gap-2 text-sm text-[#0a0a0f]">
-                              <Check size={14} className="text-[#0066FF] mt-0.5 shrink-0" />
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <p className="text-xs font-semibold text-[#0a0a0f]/40 uppercase tracking-widest mb-3">
-                          Nicht enthalten
-                        </p>
-                        <ul className="space-y-2">
-                          {service.notIncludes.map((item, j) => (
-                            <li key={j} className="flex items-start gap-2 text-sm text-[#0a0a0f]/40">
-                              <X size={14} className="mt-0.5 shrink-0" />
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-[#0a0a0f]/5">
-                      <div>
-                        <span className="text-2xl font-black text-[#0a0a0f]">{service.price}</span>
-                        <p className="text-xs text-[#0a0a0f]/40 mt-1">{service.deliverable}</p>
-                      </div>
-                      <Link
-                        href="/anfrage"
-                        className="inline-flex items-center gap-2 bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-6 py-3 rounded-full transition-colors text-sm"
-                      >
-                        Anfrage stellen
-                        <ArrowRight size={15} />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
+            <div className="field-box px-5 py-3 sm:text-right">
+              <p className="tnum text-[2.2rem] font-extrabold leading-none tracking-[-0.03em] text-ink">{s.price}</p>
+              <p className="mt-1 text-base">{s.deliverable}</p>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="py-24 bg-[#0a0a0f]">
-        <div className="max-w-6xl mx-auto px-6">
-          <FadeIn>
-            <p className="text-white/35 text-xs font-semibold uppercase tracking-widest mb-6">
-              So läuft es ab
-            </p>
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
-              Kein Überraschungsmoment.
-            </h2>
-            <p className="text-white/55 text-lg mb-16 max-w-lg leading-relaxed">
-              Jeder Schritt hat eine klare Erwartung und ein klares Ergebnis.
-            </p>
-          </FadeIn>
-
-          <div className="space-y-0">
-            {process.map((step, i) => (
-              <FadeIn key={i} delay={i * 0.06}>
-                <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 py-8 border-b border-white/10 last:border-b-0">
-                  <div>
-                    <div className="text-white font-bold mb-1">{step.step}</div>
-                    <div className="text-white/45 text-sm">{step.duration}</div>
-                  </div>
-                  <p className="text-white/55 text-sm leading-relaxed">{step.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Guarantee */}
-      <section className="py-20 bg-[#0a0a0f]/[0.04] border-b border-[#0a0a0f]/5">
-        <div className="max-w-6xl mx-auto px-6">
-          <FadeIn>
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12 items-center">
+          <div className="mt-10 grid gap-10 lg:grid-cols-2">
+            <div className="flex flex-col gap-6">
               <div>
-                <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-4">
-                  Unsere Garantie
-                </p>
-                <h2 className="text-3xl md:text-4xl font-black text-[#0a0a0f] mb-5 leading-tight">
-                  Nicht zufrieden?
-                  <br />
-                  Wir überarbeiten kostenlos.
-                </h2>
-                <p className="text-[#0a0a0f]/55 text-base leading-relaxed max-w-xl">
-                  Nach dem ersten Design-Entwurf haben Sie das Recht auf beliebig viele
-                  Überarbeitungen, ohne Diskussion und ohne Aufpreis, bis das Design dem entspricht,
-                  was im Briefing vereinbart war. Das steht so im Vertrag.
-                </p>
-                <p className="text-[#0a0a0f]/40 text-sm mt-4">
-                  Was nicht gilt: Neue Features nach Projektstart kosten extra. Das ist nur fair.
-                </p>
+                <h3 className="text-[1.35rem]">Das Problem</h3>
+                <p className="mt-2 measure">{s.problem}</p>
               </div>
-              <div className="bg-white border border-[#0a0a0f]/5 rounded-2xl p-8">
-                <div className="space-y-4">
-                  {[
-                    "Festpreis ohne Stundensatz",
-                    "Deadline steht im Vertrag",
-                    "Live-Link während der Entwicklung",
-                    "Alle Zugänge bei Launch",
-                    "30 Tage Support nach Launch",
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-[#0066FF]/10 flex items-center justify-center flex-shrink-0">
-                        <Check size={11} className="text-[#0066FF]" />
-                      </div>
-                      <span className="text-[#0a0a0f] text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
+              <div>
+                <h3 className="text-[1.35rem]">Unser Ansatz</h3>
+                <p className="mt-2 measure">{s.solution}</p>
               </div>
             </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-24 bg-white">
-        <div className="max-w-3xl mx-auto px-6">
-          <FadeIn>
-            <h2 className="text-3xl font-black text-[#0a0a0f] mb-12 leading-tight">
-              Häufige Fragen zu unseren Leistungen
-            </h2>
-          </FadeIn>
-
-          <div className="space-y-8">
-            {[
-              {
-                q: "Machen Sie auch SEO?",
-                a: "Technische Grundlagen sind in jedem Projekt dabei: saubere Seitenstruktur, schnelle Ladezeiten, Sitemap. Laufende SEO-Kampagnen (Werbeanzeigen, Textstrategie, Linkaufbau) übernehmen wir nicht. Das ist ein eigenes Fachgebiet.",
-              },
-              {
-                q: "Was ist mit Pflege und Updates nach dem Launch?",
-                a: "Optional. Wir bieten Pflegepakete ab 19 €/Monat für regelmäßige Updates, Inhaltsänderungen und Backups an. Pflicht ist das nicht. Den Code haben Sie, und jeder Entwickler kann damit arbeiten.",
-              },
-              {
-                q: "Ich habe schon ein Design von woanders. Können Sie das umsetzen?",
-                a: "Ja, wenn das Design vollständig ist. Wir schauen uns an, was vorliegt, und geben Ihnen ehrliches Feedback, ob das so umsetzbar ist oder ob wir Anpassungen empfehlen würden.",
-              },
-              {
-                q: "Kann ich die Website später selbst bearbeiten?",
-                a: "Nein. Wir bauen keine selbst-editierbaren Systeme. Änderungen erledigen wir für Sie über unsere Pflegepakete ab 19 €/Monat. Das ist für die meisten Kunden günstiger und unkomplizierter als ein eigenes Verwaltungssystem.",
-              },
-            ].map((faq, i) => (
-              <FadeIn key={i} delay={i * 0.06}>
-                <div className="border-b border-[#0a0a0f]/5 pb-8">
-                  <h3 className="font-bold text-[#0a0a0f] mb-3">{faq.q}</h3>
-                  <p className="text-[#0a0a0f]/55 text-sm leading-relaxed">{faq.a}</p>
-                </div>
-              </FadeIn>
-            ))}
+            <div className="border-2 border-ink">
+              <div className="p-5">
+                <h3 className="text-[1.35rem]">Enthalten</h3>
+                <ul className="mt-3 flex flex-col gap-2.5">
+                  {s.includes.map((x) => (
+                    <li key={x} className="flex gap-3">
+                      <span className="mt-0.5 grid h-6 w-6 flex-none place-items-center border-2 border-ink text-ink">
+                        <Check size={12} />
+                      </span>
+                      {x}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="dither-12 border-t-2 border-ink p-5">
+                <h3 className="w-fit bg-paper px-1 text-[1.35rem]">Nicht enthalten</h3>
+                <ul className="mt-3 flex flex-col gap-2">
+                  {s.notIncludes.map((x) => (
+                    <li key={x} className="flex w-fit items-center gap-3 bg-paper pr-2">
+                      <span className="grid h-6 w-6 flex-none place-items-center border-2 border-ink text-ink">
+                        <Minus size={12} />
+                      </span>
+                      {x}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </Card>
+      ))}
 
-      {/* CTA */}
-      <section className="py-24 bg-[#0a0a0f]/[0.04]">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <FadeIn>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0a0a0f] mb-5 leading-tight">
+      <Card id="ablauf" title="Ablauf" labelledBy="ablauf-titel">
+        <h2 id="ablauf-titel" className="headline">
+          Kein Überraschungsmoment.
+        </h2>
+        <p className="lede mt-4">Jeder Schritt hat eine klare Erwartung und ein klares Ergebnis.</p>
+        <ol className="mt-10 border-2 border-ink">
+          {process.map((p, i) => (
+            <li key={p.step} className={`grid gap-2 p-5 md:grid-cols-[16rem_8rem_1fr] md:gap-6 ${i > 0 ? "border-t-2 border-ink" : ""}`}>
+              <span className="text-[1.3rem] font-extrabold leading-tight text-ink">{p.step}</span>
+              <span className="pixel text-[13px] text-ink md:pt-1.5">{p.duration}</span>
+              <p>{p.desc}</p>
+            </li>
+          ))}
+        </ol>
+      </Card>
+
+      <Card id="garantie" title="Garantie" labelledBy="garantie-titel">
+        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+          <div>
+            <h2 id="garantie-titel" className="headline">
+              Nicht zufrieden? Wir überarbeiten kostenlos.
+            </h2>
+            <p className="mt-5 measure">
+              Nach dem ersten Design-Entwurf haben Sie das Recht auf beliebig viele Überarbeitungen, ohne Diskussion und ohne
+              Aufpreis, bis das Design dem entspricht, was im Briefing vereinbart war. Das steht so im Vertrag.
+            </p>
+            <p className="mt-4 text-base">Was nicht gilt: Neue Funktionen nach Projektstart kosten extra. Das ist nur fair.</p>
+          </div>
+          <ul className="field-box">
+            {guarantee.map((g, i) => (
+              <li key={g} className={`flex items-center gap-3 p-4 font-bold ${i > 0 ? "border-t-2 border-ink" : ""}`}>
+                <Check size={16} className="flex-none text-ink" />
+                {g}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Card>
+
+      <Card id="fragen" title="Fragen" labelledBy="fragen-titel">
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.4fr] lg:gap-14">
+          <h2 id="fragen-titel" className="headline">
+            Häufige Fragen zu unseren Leistungen
+          </h2>
+          <DisclosureList items={faqs} firstOpen />
+        </div>
+      </Card>
+
+      <Card title="Anfragen" labelledBy="cta-titel">
+        <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+          <div>
+            <h2 id="cta-titel" className="headline">
               Welche Leistung passt zu Ihnen?
             </h2>
-            <p className="text-[#0a0a0f]/55 text-base sm:text-lg mb-10 leading-relaxed">
-              Kostenlos anfragen, innerhalb von 24 Stunden antworten wir mit einem konkreten Angebot.
-              Kein Stundensatz, kein Überraschungsangebot.
+            <p className="lede mt-4">
+              Kostenlos anfragen, innerhalb von 24 Stunden antworten wir mit einem konkreten Angebot. Kein Stundensatz, kein
+              Überraschungsangebot.
             </p>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
-              <Link
-                href="/anfrage"
-                className="bg-[#0066FF] hover:bg-[#0066FF]/85 text-white font-bold px-8 py-4 rounded-full transition-colors flex items-center justify-center gap-2 text-[15px]"
-              >
-                Jetzt Projekt anfragen
-                <ArrowRight size={17} />
-              </Link>
-              <Link
-                href="/preise"
-                className="flex items-center justify-center gap-2 text-[#0a0a0f] font-semibold px-8 py-4 rounded-full border border-[#0a0a0f]/10 hover:border-[#0a0a0f]/30 transition-colors text-[15px]"
-              >
-                Preise ansehen
-              </Link>
-            </div>
-          </FadeIn>
+          </div>
+          <div className="flex flex-wrap items-center gap-4 lg:justify-end">
+            <a href={waLink("Hallo Nexuzo, welche Leistung passt zu meinem Betrieb?")} target="_blank" rel="noopener noreferrer" className="btn btn-default">
+              <WhatsApp size={20} />
+              Per WhatsApp fragen
+            </a>
+            <Link href="/anfrage" className="btn">
+              Projekt anfragen
+              <ArrowRight size={14} />
+            </Link>
+            <Link href="/preise" className="link">
+              Preise ansehen
+            </Link>
+          </div>
         </div>
-      </section>
+      </Card>
     </>
   )
 }
