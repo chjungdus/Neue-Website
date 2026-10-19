@@ -1,4 +1,5 @@
 import Hero from "@/components/home/hero"
+import Marquee from "@/components/home/marquee"
 import ProblemSection from "@/components/home/problem-section"
 import Services from "@/components/home/services"
 import HorizontalReferences from "@/components/home/horizontal-references"
@@ -18,6 +19,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <Marquee />
       <ProblemSection />
       <Services />
       <HorizontalReferences />

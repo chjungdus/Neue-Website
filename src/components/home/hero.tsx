@@ -1,8 +1,12 @@
 "use client"
 
+import { useRef } from "react"
 import Link from "next/link"
 import { ArrowRight, Check } from "lucide-react"
-import { motion } from "framer-motion"
+import { motion, useMotionValue, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion"
+import ShaderBackground from "@/components/ui/shader-background"
+import Magnetic from "@/components/ui/magnetic"
+import CountUp from "@/components/ui/count-up"
 
 const WA_TEXT = encodeURIComponent("Hallo Nexuzo, ich interessiere mich für eine Website.")
 const WA_LINK = `https://wa.me/4917680257270?text=${WA_TEXT}`
@@ -22,15 +26,25 @@ const shots = [
 ]
 
 const facts = [
-  { value: "ab 199 €", label: "Festpreis, netto" },
-  { value: "4 Wochen", label: "bis Ihre Seite live ist" },
-  { value: "24 h", label: "bis Sie ein Angebot haben" },
-  { value: "2", label: "Gründer, keine Weitergabe" },
+  { value: 199, prefix: "ab ", suffix: " €", label: "Festpreis, netto" },
+  { value: 4, suffix: " Wochen", label: "bis Ihre Seite live ist" },
+  { value: 24, suffix: " h", label: "bis Sie ein Angebot haben" },
+  { value: 2, label: "Gründer, keine Weitergabe" },
 ]
 
+const headline = [
+  ["Ihre", "neue", "Website."],
+  ["Bezahlt", "wird", "erst,", "wenn", "sie", "Ihnen", "gefällt."],
+]
+
+const ease = [0.22, 1, 0.36, 1] as const
 const rise = {
   hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease } },
+}
+const word = {
+  hidden: { opacity: 0, y: 26, filter: "blur(8px)" },
+  show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease } },
 }
 
 export function WhatsAppIcon({ size = 18, className = "" }: { size?: number; className?: string }) {
@@ -41,13 +55,90 @@ export function WhatsAppIcon({ size = 18, className = "" }: { size?: number; cla
   )
 }
 
-export default function Hero() {
+// Back to front: the back card sits deepest, so it moves least with the cursor.
+const fan = [
+  { pos: "left-[14%] top-0 w-[78%]", rotate: 5, spread: 22, depth: 10 },
+  { pos: "left-0 top-[9%] w-[80%]", rotate: -4, spread: -22, depth: 18 },
+  { pos: "left-[8%] top-[20%] w-[86%]", rotate: 0, spread: 0, depth: 28 },
+]
+
+function FanCard({
+  s,
+  i,
+  mx,
+  my,
+  scroll,
+}: {
+  s: (typeof shots)[number]
+  i: number
+  mx: MotionValue<number>
+  my: MotionValue<number>
+  scroll: MotionValue<number>
+}) {
+  const f = fan[i]
+  const x = useTransform(() => mx.get() * f.depth + scroll.get() * f.spread)
+  const y = useTransform(() => my.get() * f.depth - scroll.get() * i * 16)
+  const rotate = useTransform(scroll, [0, 1], [f.rotate, f.rotate * 2])
   return (
-    <section className="relative overflow-hidden bg-[#F6F5F1] pt-28 md:pt-36">
-      {/* One soft blue light behind the screenshots, nothing else */}
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.9, delay: 0.3 + (2 - i) * 0.12, ease }}
+      className={`absolute ${f.pos}`}
+    >
+      <motion.figure
+        style={{ x, y, rotate }}
+        className="overflow-hidden rounded-xl border border-black/10 bg-white shadow-[0_30px_60px_-20px_rgba(10,10,15,0.35)]"
+      >
+        <div className="flex items-center gap-1.5 border-b border-black/5 bg-[#f2f2f0] px-3 py-2">
+          <span className="h-2 w-2 rounded-full bg-black/15" />
+          <span className="h-2 w-2 rounded-full bg-black/15" />
+          <span className="h-2 w-2 rounded-full bg-black/15" />
+          <span className="ml-2 truncate text-[11px] font-medium text-black/45">{s.label}</span>
+        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={s.src}
+          alt={i === 2 ? `Startseite von ${s.label}, von Nexuzo gebaut` : ""}
+          width={640}
+          height={400}
+          draggable={false}
+          className="block aspect-[16/10] w-full object-cover object-top"
+        />
+      </motion.figure>
+    </motion.div>
+  )
+}
+
+export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const rawX = useMotionValue(0)
+  const rawY = useMotionValue(0)
+  const mx = useSpring(rawX, { stiffness: 80, damping: 18, mass: 0.6 })
+  const my = useSpring(rawY, { stiffness: 80, damping: 18, mass: 0.6 })
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] })
+  const scroll = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 })
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-[#F6F5F1] pt-28 md:pt-36"
+      onPointerMove={(e) => {
+        if (e.pointerType !== "mouse") return
+        const r = e.currentTarget.getBoundingClientRect()
+        rawX.set((e.clientX - r.left) / r.width - 0.5)
+        rawY.set((e.clientY - r.top) / r.height - 0.5)
+      }}
+      onPointerLeave={() => {
+        rawX.set(0)
+        rawY.set(0)
+      }}
+    >
+      {/* Slow pale-blue light that drifts and follows the cursor; the text side stays calm */}
+      <ShaderBackground tone="light" />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-40 top-10 h-[640px] w-[640px] rounded-full bg-[#0066FF]/[0.07] blur-3xl"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#F6F5F1]/70 via-[#F6F5F1]/20 to-[#F6F5F1] lg:bg-gradient-to-r lg:from-[#F6F5F1] lg:via-[#F6F5F1]/55 lg:to-[#F6F5F1]/0"
       />
 
       <div className="relative mx-auto grid max-w-6xl gap-14 px-6 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
@@ -57,15 +148,30 @@ export default function Hero() {
           variants={{ show: { transition: { staggerChildren: 0.08 } } }}
           className="flex flex-col justify-center"
         >
-          <motion.p variants={rise} className="text-[15px] font-semibold text-[#0a0a0f]/60">
+          <motion.p
+            variants={rise}
+            className="inline-flex w-fit items-center gap-2.5 rounded-full border border-[#0a0a0f]/10 bg-white/80 px-3.5 py-1.5 text-[14px] font-semibold text-[#0a0a0f]/70"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#0066FF] opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0066FF]" />
+            </span>
             Webdesign aus Düsseldorf · 3 Kundenseiten live
           </motion.p>
 
           <motion.h1
-            variants={rise}
+            variants={{ show: { transition: { staggerChildren: 0.05 } } }}
             className="mt-5 text-[38px] font-extrabold leading-[1.06] tracking-[-0.025em] text-[#0a0a0f] sm:text-[52px] lg:text-[58px]"
           >
-            Ihre neue Website. Bezahlt wird erst, wenn sie Ihnen gefällt.
+            {headline.map((line, li) => (
+              <span key={li} className="block">
+                {line.map((w, wi) => (
+                  <motion.span key={wi} variants={word} className="mr-[0.22em] inline-block">
+                    {w}
+                  </motion.span>
+                ))}
+              </span>
+            ))}
           </motion.h1>
 
           <motion.p variants={rise} className="mt-6 max-w-[34rem] text-[18px] leading-relaxed text-[#0a0a0f]/70">
@@ -74,33 +180,43 @@ export default function Hero() {
             dann stellen wir eine Rechnung.
           </motion.p>
 
-          <motion.ul variants={rise} className="mt-7 grid gap-x-6 gap-y-3 sm:grid-cols-2">
+          <motion.ul
+            variants={{ show: { transition: { staggerChildren: 0.07, delayChildren: 0.1 } } }}
+            className="mt-7 grid gap-x-6 gap-y-3 sm:grid-cols-2"
+          >
             {points.map((p) => (
-              <li key={p} className="flex items-start gap-3 text-[15.5px] font-semibold text-[#0a0a0f]">
+              <motion.li key={p} variants={rise} className="flex items-start gap-3 text-[15.5px] font-semibold text-[#0a0a0f]">
                 <span className="mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full bg-[#0066FF] text-white">
                   <Check size={12} strokeWidth={3} />
                 </span>
                 {p}
-              </li>
+              </motion.li>
             ))}
           </motion.ul>
 
           <motion.div variants={rise} className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#0066FF] px-6 py-4 text-[16px] font-bold text-white shadow-[0_8px_24px_-8px_rgba(0,102,255,0.6)] transition hover:bg-[#0057d9] active:translate-y-px"
-            >
-              <WhatsAppIcon size={20} />
-              Per WhatsApp anfragen
-            </a>
+            <Magnetic strength={0.25} className="w-full sm:w-auto">
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-xl bg-[#0066FF] px-6 py-4 text-[16px] font-bold text-white shadow-[0_8px_24px_-8px_rgba(0,102,255,0.6)] transition hover:bg-[#0057d9] active:scale-[0.98] sm:w-auto"
+              >
+                {/* light sweep on hover */}
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-y-0 -left-1/2 w-1/2 -skew-x-12 bg-white/25 transition-transform duration-700 ease-out group-hover:translate-x-[320%]"
+                />
+                <WhatsAppIcon size={20} />
+                Per WhatsApp anfragen
+              </a>
+            </Magnetic>
             <Link
               href="/preise"
-              className="group inline-flex items-center justify-center gap-2 rounded-xl border border-[#0a0a0f]/15 bg-white px-6 py-4 text-[16px] font-bold text-[#0a0a0f] transition hover:border-[#0a0a0f]/35"
+              className="group inline-flex items-center justify-center gap-2 rounded-xl border border-[#0a0a0f]/15 bg-white px-6 py-4 text-[16px] font-bold text-[#0a0a0f] transition hover:border-[#0a0a0f]/35 active:scale-[0.98]"
             >
               Preise ansehen
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </motion.div>
 
@@ -109,65 +225,78 @@ export default function Hero() {
           </motion.p>
         </motion.div>
 
-        {/* Real client sites, fanned like printed proofs on a desk */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto h-[330px] w-full max-w-[520px] sm:h-[420px] lg:h-[500px]"
-        >
+        {/* Real client sites, fanned like printed proofs on a desk; they follow the
+            cursor at different depths and spread apart as the page scrolls. */}
+        <div className="relative mx-auto h-[330px] w-full max-w-[520px] sm:h-[420px] lg:h-[500px]">
           {shots
             .slice()
             .reverse()
-            .map((s, i) => {
-              const pos = [
-                "left-[14%] top-0 w-[78%] rotate-[5deg]",
-                "left-0 top-[9%] w-[80%] -rotate-[4deg]",
-                "left-[8%] top-[20%] w-[86%] rotate-0",
-              ][i]
-              return (
-                <figure
-                  key={s.src}
-                  className={`absolute ${pos} overflow-hidden rounded-xl border border-black/10 bg-white shadow-[0_30px_60px_-20px_rgba(10,10,15,0.35)]`}
-                >
-                  <div className="flex items-center gap-1.5 border-b border-black/5 bg-[#f2f2f0] px-3 py-2">
-                    <span className="h-2 w-2 rounded-full bg-black/15" />
-                    <span className="h-2 w-2 rounded-full bg-black/15" />
-                    <span className="h-2 w-2 rounded-full bg-black/15" />
-                    <span className="ml-2 truncate text-[11px] font-medium text-black/45">{s.label}</span>
-                  </div>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={s.src}
-                    alt={i === 2 ? `Startseite von ${s.label}, von Nexuzo gebaut` : ""}
-                    width={640}
-                    height={400}
-                    className="block aspect-[16/10] w-full object-cover object-top"
-                  />
-                </figure>
-              )
-            })}
+            .map((s, i) => (
+              <FanCard key={s.src} s={s} i={i} mx={mx} my={my} scroll={scroll} />
+            ))}
 
-          <div className="absolute -left-2 bottom-6 rounded-xl bg-white px-4 py-3 shadow-[0_16px_40px_-12px_rgba(10,10,15,0.3)] sm:-left-6 sm:bottom-10">
-            <p className="text-[15px] font-extrabold text-[#0a0a0f]">Zahlung nach Freigabe</p>
-            <p className="text-[13px] text-[#0a0a0f]/55">Erst sehen, dann bezahlen</p>
-          </div>
-          <div className="absolute -right-1 top-[46%] hidden rounded-xl bg-white px-4 py-3 shadow-[0_16px_40px_-12px_rgba(10,10,15,0.3)] sm:block">
-            <p className="text-[15px] font-extrabold text-[#0066FF]">Echte Kundenseiten</p>
-            <p className="text-[13px] text-[#0a0a0f]/55">Gebaut in Düsseldorf</p>
-          </div>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.1, ease }}
+            className="absolute -left-2 bottom-6 sm:-left-6 sm:bottom-10"
+          >
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-[0_16px_40px_-12px_rgba(10,10,15,0.3)]"
+            >
+              <span className="grid h-9 w-9 flex-none place-items-center rounded-full bg-[#0066FF] text-white">
+                <Check size={16} strokeWidth={3} />
+              </span>
+              <span>
+                <span className="block text-[15px] font-extrabold text-[#0a0a0f]">Zahlung nach Freigabe</span>
+                <span className="block text-[13px] text-[#0a0a0f]/55">Erst sehen, dann bezahlen</span>
+              </span>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 1.5, ease }}
+            className="absolute -right-1 top-[44%] hidden sm:block"
+          >
+            <motion.div
+              animate={{ y: [0, 7, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+              className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-[0_16px_40px_-12px_rgba(10,10,15,0.3)]"
+            >
+              <span className="grid h-9 w-9 flex-none place-items-center rounded-full bg-[#25D366] text-white">
+                <WhatsAppIcon size={18} />
+              </span>
+              <span>
+                <span className="block text-[14px] font-extrabold text-[#0a0a0f]">Neue Anfrage</span>
+                <span className="block text-[13px] text-[#0a0a0f]/55">über Ihre Website</span>
+              </span>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
 
       {/* Facts strip */}
       <div className="relative mt-16 border-t border-[#0a0a0f]/10 bg-white md:mt-24">
         <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-y-6 px-6 py-8 md:grid-cols-4">
-          {facts.map((f) => (
-            <div key={f.label} className="border-l-2 border-[#0066FF] pl-4">
+          {facts.map((f, i) => (
+            <motion.div
+              key={f.label}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease }}
+              className="border-l-2 border-[#0066FF] pl-4"
+            >
               <dt className="sr-only">{f.label}</dt>
-              <dd className="text-[26px] font-extrabold tracking-[-0.03em] text-[#0a0a0f] md:text-[30px]">{f.value}</dd>
+              <dd className="text-[26px] font-extrabold tracking-[-0.03em] text-[#0a0a0f] md:text-[30px]">
+                <CountUp value={f.value} prefix={f.prefix} suffix={f.suffix} />
+              </dd>
               <dd className="text-[14px] text-[#0a0a0f]/60">{f.label}</dd>
-            </div>
+            </motion.div>
           ))}
         </dl>
       </div>

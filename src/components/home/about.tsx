@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import FadeIn from "@/components/ui/fade-in"
+import TiltCard from "@/components/ui/tilt-card"
+import CountUp from "@/components/ui/count-up"
 
 // No team photos yet: monogram cards stand in until real portraits exist.
 const founders = [
@@ -9,9 +11,9 @@ const founders = [
 ]
 
 const facts = [
-  { value: "2", label: "Gründer, die selbst bauen" },
-  { value: "24 h", label: "bis zum Angebot" },
-  { value: "0 €", label: "Anzahlung" },
+  { value: 2, label: "Gründer, die selbst bauen" },
+  { value: 24, suffix: " h", label: "bis zum Angebot" },
+  { value: 0, suffix: " €", label: "Anzahlung" },
 ]
 
 export default function About() {
@@ -21,18 +23,19 @@ export default function About() {
         <FadeIn>
           <div className="grid grid-cols-2 gap-4">
             {founders.map((f, i) => (
-              <div
-                key={f.name}
-                className={`flex aspect-[4/5] flex-col justify-between rounded-2xl p-6 ${
-                  i === 0 ? "bg-[#0066FF] text-white" : "bg-[#0a0a0f] text-white sm:mt-10"
-                }`}
-              >
-                <span className="text-[88px] font-extrabold leading-none tracking-[-0.05em] opacity-90">{f.initial}</span>
-                <span>
-                  <span className="block text-[17px] font-extrabold leading-snug">{f.name}</span>
-                  <span className="block text-[14px] text-white/65">{f.role}</span>
-                </span>
-              </div>
+              <TiltCard key={f.name} max={6} className={i === 1 ? "sm:mt-10" : ""}>
+                <div
+                  className={`flex aspect-[4/5] flex-col justify-between rounded-2xl p-6 ${
+                    i === 0 ? "bg-[#0066FF] text-white" : "bg-[#0a0a0f] text-white"
+                  }`}
+                >
+                  <span className="text-[88px] font-extrabold leading-none tracking-[-0.05em] opacity-90">{f.initial}</span>
+                  <span>
+                    <span className="block text-[17px] font-extrabold leading-snug">{f.name}</span>
+                    <span className="block text-[14px] text-white/65">{f.role}</span>
+                  </span>
+                </div>
+              </TiltCard>
             ))}
           </div>
         </FadeIn>
@@ -53,7 +56,9 @@ export default function About() {
           <dl className="mt-8 grid grid-cols-3 gap-4 border-t border-[#0a0a0f]/10 pt-6">
             {facts.map((f) => (
               <div key={f.label}>
-                <dd className="text-[28px] font-extrabold tracking-[-0.03em] text-[#0a0a0f]">{f.value}</dd>
+                <dd className="text-[28px] font-extrabold tracking-[-0.03em] text-[#0a0a0f]">
+                  <CountUp value={f.value} suffix={f.suffix} />
+                </dd>
                 <dt className="text-[14px] leading-snug text-[#0a0a0f]/55">{f.label}</dt>
               </div>
             ))}

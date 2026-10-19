@@ -28,7 +28,7 @@ export default function TiltCard({
   if (reduce) return <div className={className}>{children}</div>
 
   return (
-    <div style={{ perspective: 1000 }}>
+    <div className="h-full" style={{ perspective: 1000 }}>
       <motion.div
         ref={ref}
         style={{ rotateX: srx, rotateY: sry, scale: ss, transformStyle: "preserve-3d" }}

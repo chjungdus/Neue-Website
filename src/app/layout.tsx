@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/navbar"
 import Footer from "@/components/layout/footer"
 import ScrollToTop from "@/components/ui/scroll-to-top"
 import ScrollProgress from "@/components/ui/scroll-progress"
+import MotionProvider from "@/components/ui/motion-provider"
 
 // One family for everything: Plus Jakarta Sans, a modern geometric grotesk.
 const jakarta = Plus_Jakarta_Sans({
@@ -39,7 +40,9 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col antialiased">
         <ScrollProgress />
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          <MotionProvider>{children}</MotionProvider>
+        </main>
         <Footer />
         <ScrollToTop />
       </body>

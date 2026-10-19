@@ -1,3 +1,6 @@
+"use client"
+
+import { motion } from "framer-motion"
 import FadeIn from "@/components/ui/fade-in"
 
 // Typical values, not a specific competitor.
@@ -41,13 +44,20 @@ export default function WhyUs() {
                 </tr>
               </thead>
               <tbody>
-                {rows.map((r) => (
-                  <tr key={r.label} className="border-t border-[#0a0a0f]/10">
+                {rows.map((r, i) => (
+                  <motion.tr
+                    key={r.label}
+                    initial={{ opacity: 0, x: 24 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.5, delay: 0.2 + i * 0.09, ease: [0.22, 1, 0.36, 1] }}
+                    className="border-t border-[#0a0a0f]/10"
+                  >
                     <th scope="row" className="p-4 font-bold text-[#0a0a0f]">{r.label}</th>
                     <td className="p-4 text-[#0a0a0f]/60">{r.diy}</td>
                     <td className="p-4 text-[#0a0a0f]/60">{r.agency}</td>
                     <td className="bg-[#0066FF]/[0.06] p-4 font-bold text-[#0a0a0f]">{r.us}</td>
-                  </tr>
+                  </motion.tr>
                 ))}
               </tbody>
             </table>

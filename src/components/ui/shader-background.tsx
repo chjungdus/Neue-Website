@@ -13,6 +13,9 @@ precision highp float;
 uniform vec2 u_res;
 uniform float u_time;
 uniform vec2 u_mouse;
+uniform vec3 u_base;
+uniform float u_amt;
+uniform float u_vig;
 
 vec2 hash(vec2 p){
   p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
@@ -41,10 +44,10 @@ void main(){
   n = smoothstep(-0.1, 0.95, n);
   float d = distance(uv, u_mouse);
   float glow = smoothstep(0.45, 0.0, d) * 0.12;
-  vec3 base = vec3(0.039, 0.039, 0.06);
+  vec3 base = u_base;
   vec3 blue = vec3(0.0, 0.4, 1.0);
-  vec3 col = mix(base, blue, n * 0.26 + glow);
-  col *= 1.0 - 0.32 * distance(uv, vec2(0.5));
+  vec3 col = mix(base, blue, n * u_amt + glow);
+  col *= 1.0 - u_vig * distance(uv, vec2(0.5));
   gl_FragColor = vec4(col, 1.0);
 }
 `
@@ -54,7 +57,14 @@ attribute vec2 a_pos;
 void main(){ gl_Position = vec4(a_pos, 0.0, 1.0); }
 `
 
-export default function ShaderBackground({ className = "" }: { className?: string }) {
+// "light" draws pale blue clouds on the off-white page colour, without the dark vignette.
+const TONES = {
+  dark: { base: [0.039, 0.039, 0.06], amt: 0.26, vig: 0.32, fallback: "radial-gradient(120% 100% at 20% 0%, rgba(0,102,255,0.18), transparent 55%), #0a0a0f" },
+  light: { base: [0.965, 0.961, 0.945], amt: 0.45, vig: 0, fallback: "radial-gradient(80% 90% at 80% 20%, rgba(0,102,255,0.12), transparent 60%), #F6F5F1" },
+} as const
+
+export default function ShaderBackground({ className = "", tone = "dark" }: { className?: string; tone?: keyof typeof TONES }) {
+  const t = TONES[tone]
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -88,6 +98,9 @@ export default function ShaderBackground({ className = "" }: { className?: strin
     const uRes = gl.getUniformLocation(prog, "u_res")
     const uTime = gl.getUniformLocation(prog, "u_time")
     const uMouse = gl.getUniformLocation(prog, "u_mouse")
+    gl.uniform3f(gl.getUniformLocation(prog, "u_base"), t.base[0], t.base[1], t.base[2])
+    gl.uniform1f(gl.getUniformLocation(prog, "u_amt"), t.amt)
+    gl.uniform1f(gl.getUniformLocation(prog, "u_vig"), t.vig)
 
     const mouse = { x: 0.5, y: 0.6 }
     const target = { x: 0.5, y: 0.6 }
@@ -127,13 +140,13 @@ export default function ShaderBackground({ className = "" }: { className?: strin
       cancelAnimationFrame(raf)
       window.removeEventListener("pointermove", onMove)
     }
-  }, [])
+  }, [t])
 
   return (
     <div
       className={`absolute inset-0 overflow-hidden ${className}`}
       aria-hidden="true"
-      style={{ background: "radial-gradient(120% 100% at 20% 0%, rgba(0,102,255,0.18), transparent 55%), #0a0a0f" }}
+      style={{ background: t.fallback }}
     >
       <canvas ref={canvasRef} className="w-full h-full block" />
     </div>
