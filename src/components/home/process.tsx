@@ -11,17 +11,17 @@ const steps = [
     body: "Sie schreiben uns per WhatsApp oder Formular. Wir klären kurz Ihr Vorhaben, innerhalb von 24 Stunden haben Sie Ihren Festpreis schriftlich.",
   },
   {
-    when: "Woche 1–2",
+    when: "Woche 1",
     title: "Entwurf",
     body: "Wir gestalten Ihre Startseite und zeigen sie Ihnen. Sie sagen, was anders sein soll. Bei den Texten und Bildern helfen wir.",
   },
   {
-    when: "Woche 2–3",
+    when: "Woche 1–2",
     title: "Umsetzung",
     body: "Aus dem Entwurf wird die fertige Website. Über einen Testlink sehen Sie jederzeit den aktuellen Stand.",
   },
   {
-    when: "Woche 4",
+    when: "Ende Woche 2",
     title: "Freigabe & Livegang",
     body: "Sie prüfen alles in Ruhe. Erst wenn Sie zufrieden sind, geht die Seite online und Sie bekommen die Rechnung.",
   },

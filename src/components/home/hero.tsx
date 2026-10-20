@@ -13,7 +13,7 @@ const WA_LINK = `https://wa.me/4917680257270?text=${WA_TEXT}`
 
 const points = [
   "Festpreis, bevor es losgeht",
-  "Live in vier Wochen",
+  "Live in zwei Wochen",
   "Individuelles Design",
   "Bezahlt wird erst nach Freigabe",
 ]
@@ -27,7 +27,7 @@ const shots = [
 
 const facts = [
   { value: 199, prefix: "ab ", suffix: " €", label: "Festpreis, netto" },
-  { value: 4, suffix: " Wochen", label: "bis Ihre Seite live ist" },
+  { value: 2, suffix: " Wochen", label: "bis Ihre Seite live ist" },
   { value: 24, suffix: " h", label: "bis Sie ein Angebot haben" },
   { value: 2, label: "Gründer, keine Weitergabe" },
 ]

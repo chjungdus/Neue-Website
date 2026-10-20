@@ -1,11 +1,13 @@
 import Link from "next/link"
 import { MapPin, Mail, MessageCircle } from "lucide-react"
+import { branchen } from "@/lib/branchen"
 
 const footerLinks = {
   Leistungen: [
     { href: "/leistungen#webdesign", label: "Webdesign" },
     { href: "/leistungen#entwicklung", label: "Entwicklung" },
     { href: "/leistungen#seo", label: "SEO & Sichtbarkeit" },
+    ...branchen.map((b) => ({ href: `/webdesign/${b.slug}`, label: `Websites für ${b.name}` })),
   ],
   Unternehmen: [
     { href: "/portfolio", label: "Portfolio" },

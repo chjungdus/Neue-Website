@@ -7,7 +7,7 @@ import FadeIn from "@/components/ui/fade-in"
 const rows = [
   { label: "Preis", diy: "15–40 € im Monat, dauerhaft", agency: "oft 3.000 € und mehr", us: "ab 199 € einmalig" },
   { label: "Design", diy: "Vorlage", agency: "Individuell", us: "Individuell" },
-  { label: "Fertig in", diy: "Ihrer Freizeit", agency: "oft 2–3 Monate", us: "4 Wochen" },
+  { label: "Fertig in", diy: "Ihrer Freizeit", agency: "oft 2–3 Monate", us: "2 Wochen" },
   { label: "Bezahlung", diy: "Vorab, jeden Monat", agency: "Anzahlung vorab", us: "Nach Ihrer Freigabe" },
   { label: "Ansprechpartner", diy: "Support-Chat", agency: "Wechselnd", us: "Die Gründer selbst" },
 ]

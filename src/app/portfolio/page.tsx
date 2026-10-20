@@ -7,9 +7,9 @@ import FadeIn from "@/components/ui/fade-in"
 import { references } from "@/lib/references"
 
 export const metadata: Metadata = {
-  title: "Referenzen. Nexuzo",
+  title: "Referenzen – Websites, die wir gebaut haben",
   description:
-    "Live-Websites, die wir gebaut haben: handgebaut für reale Kunden, kein Template, keine Demo.",
+    "Websites, die wir für Restaurants, Reinigungsfirmen und Dienstleister gebaut haben. Live-Kundenseiten und Entwürfe, individuell gestaltet statt Baukasten.",
 }
 
 export default function PortfolioPage() {

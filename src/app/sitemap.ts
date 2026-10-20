@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 import { mockProjects } from "@/lib/mock-data"
+import { branchen } from "@/lib/branchen"
 
 const BASE = "https://nexuzo.de"
 
@@ -19,21 +20,23 @@ const staticRoutes = [
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date()
-
   const pages: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${BASE}${route}`,
-    lastModified: now,
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : 0.7,
   }))
 
   const projects: MetadataRoute.Sitemap = mockProjects.map((project) => ({
     url: `${BASE}/portfolio/${project.slug}`,
-    lastModified: now,
     changeFrequency: "monthly",
     priority: 0.5,
   }))
 
-  return [...pages, ...projects]
+  const branchenPages: MetadataRoute.Sitemap = branchen.map((b) => ({
+    url: `${BASE}/webdesign/${b.slug}`,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }))
+
+  return [...pages, ...branchenPages, ...projects]
 }

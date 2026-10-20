@@ -15,7 +15,7 @@ const faqs = [
     answer: "Nein. Sie sehen zuerst die fertige Probewebsite. Bezahlt wird erst, wenn Sie sie freigeben.",
   },
   {
-    question: "Vier Wochen. Wirklich?",
+    question: "Zwei Wochen. Wirklich?",
     answer: "Ja, wenn Texte und Bilder vorliegen. Beim Zusammentragen helfen wir. Starter-Projekte sind oft schon nach einer Woche fertig.",
   },
   {

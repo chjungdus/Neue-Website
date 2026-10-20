@@ -4,9 +4,10 @@ import { ArrowRight } from "lucide-react"
 import FadeIn from "@/components/ui/fade-in"
 
 export const metadata: Metadata = {
-  title: "Häufige Fragen – FAQ",
+  title: "Häufige Fragen zu Preisen, Ablauf und Lieferzeit",
   description:
-    "Antworten auf die häufigsten Fragen zu Preisen, Prozessen, Lieferzeiten und mehr.",
+    "Was kostet eine Website bei Nexuzo, muss ich anzahlen, wie lange dauert es? Antworten zu Preisen ab 199 €, Ablauf und Support.",
+  alternates: { canonical: "/faq" },
 }
 
 const faqs = [
@@ -14,20 +15,20 @@ const faqs = [
     category: "Preise & Zahlung",
     items: [
       {
-        q: "Was kostet eine Website bei DigitalForge?",
-        a: "Unsere Pakete starten ab 300 € (Starter) und gehen bis 900 € (Enterprise). alles als Festpreis, netto zzgl. 19 % MwSt. Kein Stundensatz, keine Schätzung mit Stern. Was im Angebot steht, ist der Endpreis.",
+        q: "Was kostet eine Website bei Nexuzo?",
+        a: "Unsere Pakete kosten ab 199 € (Starter), ab 399 € (Pro) und ab 699 € (Premium), jeweils als Festpreis, netto zzgl. 19 % MwSt. Kein Stundensatz, keine Schätzung mit Stern. Was im Angebot steht, ist der Endpreis.",
       },
       {
-        q: "Welche Zahlungsmethoden akzeptieren Sie?",
-        a: "Banküberweisung, Kreditkarte (Visa, Mastercard, Amex), PayPal und Vorkasse. Die Zahlungsstruktur ist immer gleich: 50 % bei Auftragserteilung, 50 % bei Launch. Für größere Projekte passen wir das auf Wunsch an.",
+        q: "Muss ich etwas anzahlen?",
+        a: "Nein. Wir bauen Ihre Website zuerst und zeigen Ihnen das fertige Ergebnis als Probewebsite. Erst wenn Sie sie freigeben, stellen wir die Rechnung. Bezahlen können Sie per Überweisung, Kreditkarte oder PayPal.",
       },
       {
         q: "Gibt es versteckte Kosten?",
-        a: "Nein. Design, Entwicklung, Testing und Launch sind immer im Paketpreis enthalten. Was separat dazu kommt: Hosting (ca. 10–15 €/Monat, direkt beim Anbieter Ihrer Wahl) und optionale monatliche Pflegepakete. Beides wird schriftlich vor Projektstart vereinbart.",
+        a: "Nein. Design, Umsetzung, Tests und Launch sind immer im Paketpreis enthalten. Separat kommen nur Domain und Hosting dazu, auf Wunsch über unser Pflegepaket ab 19 € im Monat. Beides wird schriftlich vor Projektstart vereinbart.",
       },
       {
         q: "Was kostet laufende Pflege und Aktualisierung?",
-        a: "Unsere Pflegepakete starten bei 30 €/Monat (2 Änderungen/Monat) und gehen bis 60 €/Monat (unbegrenzte kleine Änderungen, 12h Reaktionszeit). Pflegepakete sind optional und monatlich kündbar.",
+        a: "Unsere Pflegepakete kosten 19 €, 39 € oder 59 € im Monat. Darin sind Hosting, SSL-Zertifikat, Updates und je nach Paket eine, drei oder unbegrenzt viele kleine Änderungen pro Monat enthalten. Die Pflege ist optional.",
       },
     ],
   },
@@ -36,19 +37,19 @@ const faqs = [
     items: [
       {
         q: "Wie schnell ist meine Website fertig?",
-        a: "Für Starter-Projekte liefern wir in unter einer Woche. Pro-Projekte dauern 1–2 Wochen, Enterprise-Projekte je nach Umfang 2–4 Wochen. Der genaue Zeitrahmen wird im Angebot schriftlich festgehalten.",
+        a: "In der Regel ist Ihre Website innerhalb von zwei Wochen live, wenn Texte und Bilder vorliegen. Kleine Starter-Projekte sind oft deutlich schneller fertig. Der genaue Zeitrahmen steht schriftlich im Angebot.",
       },
       {
         q: "Wie läuft ein Projekt bei Ihnen ab?",
-        a: "1. Kurzes Kennenlerngespräch (30 Min.) 2. Konkretes Angebot mit Festpreis innerhalb von 3–5 Tagen 3. Briefing und Konzept 4. Design-Entwurf zur Freigabe 5. Entwicklung mit Live-Link zum Mitverfolgen 6. Launch. Jede Phase endet mit Ihrer Freigabe. kein Schritt ohne Ihre Zustimmung.",
+        a: "1. Sie schreiben uns kurz, worum es geht. 2. Innerhalb von 24 Stunden bekommen Sie ein Festpreis-Angebot. 3. Wir klären Inhalte und Wünsche. 4. Design-Entwurf zur Freigabe. 5. Umsetzung mit Testlink zum Mitverfolgen. 6. Freigabe, Rechnung, Launch. Kein Schritt ohne Ihre Zustimmung.",
       },
       {
         q: "Was brauche ich, um ein Projekt zu starten?",
-        a: "Idealerweise: eine Idee, was die Website leisten soll, Ihr Logo (oder die Bereitschaft, ohne auszukommen), und grobe Texte für die Inhalte. Wir helfen beim Rest. Wenn Texte und Bilder fehlen, nennen wir Ihnen Optionen.",
+        a: "Idealerweise eine Vorstellung davon, was die Website leisten soll, Ihr Logo und grobe Texte zu Ihren Leistungen. Wir helfen beim Rest. Wenn Texte und Bilder fehlen, nennen wir Ihnen Optionen.",
       },
       {
         q: "Kann ich den Fortschritt verfolgen?",
-        a: "Ja. Sie bekommen während der Entwicklung einen Live-Link, über den Sie jederzeit den aktuellen Stand sehen können. Keine Black Box, kein 'ist in Arbeit' ohne Beweis.",
+        a: "Ja. Sie bekommen während der Umsetzung einen Testlink, über den Sie jederzeit den aktuellen Stand sehen.",
       },
     ],
   },
@@ -56,16 +57,16 @@ const faqs = [
     category: "Design & Qualität",
     items: [
       {
-        q: "Was passiert, wenn ich mit dem ersten Entwurf nicht zufrieden bin?",
-        a: "Wir überarbeiten kostenlos. ohne Diskussion, ohne Zeitdruck. Diese Aussage steht im Vertrag. Beim Starter-Paket sind 2 Korrekturrunden inklusive, bei Pro und Enterprise unbegrenzt.",
+        q: "Was passiert, wenn mir der erste Entwurf nicht gefällt?",
+        a: "Dann überarbeiten wir ihn. Beim Starter-Paket sind 2 Korrekturrunden inklusive, bei Pro und Premium unbegrenzt viele.",
       },
       {
         q: "Kann ich Wünsche und Vorbilder mitbringen?",
-        a: "Absolut. Je konkreter Ihre Vorstellung, desto besser das Ergebnis. Schicken Sie uns Websites, die Ihnen gefallen, Screenshots, oder eine einfache Beschreibung des Stils. Wir hören zu. und fragen nach, wenn etwas unklar ist.",
+        a: "Gerne. Je konkreter Ihre Vorstellung, desto besser das Ergebnis. Schicken Sie uns Websites, die Ihnen gefallen, Screenshots oder eine kurze Beschreibung des Stils.",
       },
       {
-        q: "Sind Ihre Websites mobil-optimiert?",
-        a: "Immer. Alle unsere Websites sind vollständig responsive. sie sehen auf Smartphone, Tablet und Desktop gleich professionell aus. Das ist kein optionales Feature, sondern Standard.",
+        q: "Sind Ihre Websites fürs Handy optimiert?",
+        a: "Immer. Wir gestalten zuerst für das Smartphone und testen auf echten Geräten. Das ist Standard in jedem Paket.",
       },
     ],
   },
@@ -74,27 +75,40 @@ const faqs = [
     items: [
       {
         q: "Kann ich meine Website nach dem Launch selbst bearbeiten?",
-        a: "Wir bauen keine selbst-editierbaren CMS-Systeme. nicht weil wir Sie abhängig halten wollen, sondern weil diese Systeme Performance, Sicherheit und Design-Qualität kosten. Änderungen erledigen wir für Sie über unsere Pflegepakete, meist innerhalb von 24 Stunden.",
+        a: "Wir bauen bewusst ohne Baukasten-System, weil das Ladezeit und Sicherheit kostet. Änderungen erledigen wir für Sie im Pflegepaket, kleine Anpassungen meist innerhalb von 24 Stunden.",
       },
       {
-        q: "Kümmern Sie sich um Hosting?",
-        a: "Wir richten das Hosting ein. bei einem Anbieter Ihrer Wahl (Vercel, Hetzner, o.ä.) oder empfehlen eine Option. Die Rechnung zahlen Sie direkt beim Anbieter, typisch 10–15 €/Monat. Kein Aufpreis von unserer Seite.",
+        q: "Gehört die Website danach mir?",
+        a: "Ja. Sie bekommen alle Zugänge zu Domain, Hosting und Code.",
       },
       {
-        q: "Was passiert, wenn etwas nach dem Launch kaputtgeht?",
-        a: "30 Tage nach Launch sind im Starter-Paket inklusive. Bei Pro und Enterprise länger. Fehler, die wir verursacht haben, beheben wir immer kostenlos. unabhängig vom Support-Zeitraum.",
+        q: "Was passiert, wenn nach dem Launch etwas nicht funktioniert?",
+        a: "Support ist inklusive: 30 Tage beim Starter-Paket, 3 Monate bei Pro und 6 Monate bei Premium. Fehler, die wir verursacht haben, beheben wir immer kostenlos.",
       },
       {
-        q: "Bauen Sie auch Online-Shops?",
-        a: "Ja, im Enterprise-Paket. Wir bauen maßgeschneiderte Shop-Lösungen. keine Baukastensysteme. Wenn Ihr Shop-Projekt sehr umfangreich ist, sprechen wir das im Erstgespräch offen an und erstellen ein individuelles Angebot.",
+        q: "Bauen Sie auch Online-Shops und Buchungssysteme?",
+        a: "Ja. Bezahlung über Stripe oder PayPal und Online-Terminbuchung setzen wir meist im Premium-Paket um. Für größere Shops erstellen wir ein individuelles Angebot.",
       },
     ],
   },
 ]
 
 export default function FaqPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.flatMap((section) =>
+      section.items.map((faq) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: { "@type": "Answer", text: faq.a },
+      }))
+    ),
+  }
+
   return (
     <div className="pt-16">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Hero */}
       <section className="pt-20 pb-14 bg-white border-b border-[#0a0a0f]/5">
         <div className="max-w-4xl mx-auto px-6">
@@ -109,7 +123,7 @@ export default function FaqPage() {
             </h1>
             <p className="text-[#0a0a0f]/55 text-xl max-w-xl leading-relaxed">
               Die häufigsten Fragen zu Preisen, Prozessen und was nach dem Launch passiert.
-              Keine Standardfloskeln. echte Antworten.
+              Kurz und ehrlich beantwortet.
             </p>
           </FadeIn>
         </div>
@@ -148,7 +162,7 @@ export default function FaqPage() {
               Noch eine Frage?
             </h2>
             <p className="text-[#0a0a0f]/55 text-lg mb-10 leading-relaxed">
-              Schreiben Sie uns einfach. Wir antworten innerhalb von 24 Stunden. ehrlich,
+              Schreiben Sie uns einfach. Wir antworten innerhalb von 24 Stunden, ehrlich,
               auch wenn die ehrliche Antwort &quot;wir sind nicht die Richtigen für Sie&quot; ist.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

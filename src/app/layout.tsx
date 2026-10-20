@@ -21,13 +21,46 @@ export const metadata: Metadata = {
     template: "%s | Nexuzo",
   },
   description:
-    "Webdesign Agentur in Düsseldorf. Websites ab 300 €, fertig in unter einer Woche. Festpreis, keine Überraschungen.",
-  keywords: ["Webdesign", "Web-Entwicklung", "Online-Shop", "SEO", "Agentur", "Düsseldorf"],
+    "Webdesign aus Düsseldorf: individuelle Websites zum Festpreis ab 199 €, live in zwei Wochen. Bezahlt wird erst, wenn Ihnen die fertige Seite gefällt.",
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "de_DE",
     siteName: "Nexuzo",
+    url: "https://nexuzo.de",
   },
+}
+
+// Firmendaten für Google (LocalBusiness). Adresse wie im Impressum.
+const organizationLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://nexuzo.de/#organization",
+  name: "Nexuzo",
+  description: "Webdesign aus Düsseldorf. Individuelle Websites zum Festpreis ab 199 €.",
+  url: "https://nexuzo.de",
+  logo: "https://nexuzo.de/logo/nexuzo.png",
+  email: "nexuzo.kontakt@gmail.com",
+  telephone: "+4917680257270",
+  priceRange: "ab 199 €",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Nägelestr. 19",
+    postalCode: "40225",
+    addressLocality: "Düsseldorf",
+    addressCountry: "DE",
+  },
+  areaServed: { "@type": "City", name: "Düsseldorf" },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "18:00",
+  },
+  founder: [
+    { "@type": "Person", name: "Mateo Sainz de la Maza" },
+    { "@type": "Person", name: "Zhuo Jun Li" },
+  ],
 }
 
 export default function RootLayout({
@@ -38,6 +71,7 @@ export default function RootLayout({
   return (
     <html lang="de" className={jakarta.variable}>
       <body className="min-h-screen flex flex-col antialiased">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
         <ScrollProgress />
         <Navbar />
         <main className="flex-1">

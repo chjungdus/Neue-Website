@@ -10,7 +10,7 @@ const services = [
     art: QuoteCard,
     title: "Website zum Festpreis",
     body: "Individuelles Design statt Baukasten, aufgebaut für Ihre Kunden. Sie wissen vorher genau, was es kostet.",
-    points: ["Starter ab 199 €", "Pro ab 399 €", "Premium ab 699 €", "Live in vier Wochen"],
+    points: ["Starter ab 199 €", "Pro ab 399 €", "Premium ab 699 €", "Live in zwei Wochen"],
     href: "/preise",
     cta: "Preise ansehen",
     featured: true,

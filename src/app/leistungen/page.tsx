@@ -19,7 +19,7 @@ const services = [
       "Umsetzung ohne Baukastensystem oder Templates",
       "Schnelle Ladezeiten auf jedem Gerät",
       "Seitenstruktur, die Google versteht",
-      "Starter-Projekte fertig in unter einer Woche",
+      "Live in zwei Wochen",
     ],
     notIncludes: ["Texte & Fotos", "Laufende Wartung (optional buchbar)"],
     price: "ab 199 €",
