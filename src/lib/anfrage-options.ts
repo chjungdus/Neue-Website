@@ -28,6 +28,7 @@ export const packageOptions = [
   { value: "starter", label: "Starter", price: "ab 199 €" },
   { value: "pro", label: "Pro", price: "ab 399 €" },
   { value: "premium", label: "Premium", price: "ab 699 €" },
+  { value: "komplett", label: "Komplett", price: "ab 899 €" },
 ]
 
 function toLabelMap(options: { value: string; label: string }[]): Record<string, string> {

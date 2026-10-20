@@ -46,7 +46,7 @@ export default function KontaktPage() {
                     <span className="w-9 h-9 rounded-xl bg-[#0a0a0f]/[0.04] flex items-center justify-center group-hover:bg-[#0a0a0f]/[0.04] transition-colors">
                       <MessageCircle size={15} className="text-[#0a0a0f]/55 group-hover:text-[#0066FF] transition-colors" />
                     </span>
-                    <span className="text-sm font-medium">WhatsApp: +49 176 80257270</span>
+                    <span className="text-sm font-medium">WhatsApp &amp; Telefon: +49 176 8025 7270</span>
                   </a>
                   <a
                     href="mailto:nexuzo.kontakt@gmail.com"

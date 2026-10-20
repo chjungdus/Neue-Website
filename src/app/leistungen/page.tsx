@@ -19,7 +19,7 @@ const services = [
       "Umsetzung ohne Baukastensystem oder Templates",
       "Schnelle Ladezeiten auf jedem Gerät",
       "Seitenstruktur, die Google versteht",
-      "Starter-Projekte fertig in unter einer Woche",
+      "Online in 1–2 Wochen, bei allen Paketen",
     ],
     notIncludes: ["Texte & Fotos", "Laufende Wartung (optional buchbar)"],
     price: "ab 199 €",
@@ -259,9 +259,9 @@ export default function LeistungenPage() {
                   Wir überarbeiten kostenlos.
                 </h2>
                 <p className="text-[#0a0a0f]/55 text-base leading-relaxed max-w-xl">
-                  Nach dem ersten Design-Entwurf haben Sie das Recht auf beliebig viele
-                  Überarbeitungen, ohne Diskussion und ohne Aufpreis, bis das Design dem entspricht,
-                  was im Briefing vereinbart war. Das steht so im Vertrag.
+                  Sie sehen zuerst eine kostenlose Probe-Website. Danach überarbeiten wir ohne Diskussion
+                  und ohne Aufpreis (Starter: 2 Korrekturrunden, Pro, Premium und Komplett: unbegrenzt),
+                  bis die Website dem entspricht, was vereinbart war. Bezahlt wird erst, wenn sie Ihnen gefällt.
                 </p>
                 <p className="text-[#0a0a0f]/40 text-sm mt-4">
                   Was nicht gilt: Neue Features nach Projektstart kosten extra. Das ist nur fair.
@@ -271,10 +271,10 @@ export default function LeistungenPage() {
                 <div className="space-y-4">
                   {[
                     "Festpreis ohne Stundensatz",
-                    "Deadline steht im Vertrag",
-                    "Live-Link während der Entwicklung",
+                    "Online in 1–2 Wochen",
+                    "Kostenlose Probe-Website vorab",
                     "Alle Zugänge bei Launch",
-                    "30 Tage Support nach Launch",
+                    "Mindestens 30 Tage Support nach Launch",
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <div className="w-5 h-5 rounded-full bg-[#0066FF]/10 flex items-center justify-center flex-shrink-0">
@@ -307,7 +307,7 @@ export default function LeistungenPage() {
               },
               {
                 q: "Was ist mit Pflege und Updates nach dem Launch?",
-                a: "Optional. Wir bieten Pflegepakete ab 19 €/Monat für regelmäßige Updates, Inhaltsänderungen und Backups an. Pflicht ist das nicht. Den Code haben Sie, und jeder Entwickler kann damit arbeiten.",
+                a: "Optional. Wir bieten Pflegepakete ab 19 €/Monat für regelmäßige Updates, Inhaltsänderungen und Backups an – Hosting und Domain sind darin enthalten. Pflicht ist das nicht. Den Code haben Sie, und jeder Entwickler kann damit arbeiten.",
               },
               {
                 q: "Ich habe schon ein Design von woanders. Können Sie das umsetzen?",

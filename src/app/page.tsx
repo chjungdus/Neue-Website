@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Hero from "@/components/home/hero"
 import Marquee from "@/components/home/marquee"
 import ProblemSection from "@/components/home/problem-section"
@@ -17,6 +18,10 @@ import CTA from "@/components/home/cta"
 // (WhyUs) → Warum ist der Preis gut? (PriceValue) → Was genau bekomme ich?
 // (Services) → Beweis (Zahlen, Referenzen, Stimmen) → Ablauf → Zwischen-CTA
 // → Einwände (FAQ) → Abschluss-CTA
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+}
+
 export default function HomePage() {
   return (
     <>

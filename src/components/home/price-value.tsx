@@ -6,12 +6,14 @@ const packages = [
   { name: "Starter", price: "199", desc: "Für den Einstieg: eine klare Seite, die zeigt, was Sie anbieten." },
   { name: "Pro", price: "399", desc: "Für alle, die online wachsen wollen: mehr Seiten, besser bei Google.", highlight: true },
   { name: "Premium", price: "699", desc: "Für größere Vorhaben, mit eigenen Extras nach Ihren Wünschen." },
+  { name: "Komplett", price: "899", desc: "Alles aus einer Hand: Website, Logo, Google-Profil, Instagram und kleiner Online-Shop." },
 ]
 
 const points = [
   "Sie kennen den Preis, bevor irgendetwas beginnt",
   "Keine Rechnung, die höher ausfällt als besprochen",
-  "Sie bezahlen erst, wenn Ihnen das Ergebnis gefällt",
+  "Sie bezahlen erst, wenn Ihnen die kostenlose Probe-Website gefällt",
+  "Ohne MwSt. – gemäß § 19 UStG wird keine Umsatzsteuer berechnet",
 ]
 
 // Third step in the funnel: "Warum ist unser Preis gut?" — plain packages +
@@ -33,7 +35,7 @@ export default function PriceValue() {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
           {packages.map((pkg, i) => (
             <FadeIn key={pkg.name} delay={i * 0.1}>
               <div

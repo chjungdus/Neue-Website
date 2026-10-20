@@ -1,99 +1,20 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Check, ArrowRight, Shield, RefreshCw, CreditCard, Building, Smartphone, Wallet } from "lucide-react"
+import { Check, ArrowRight, Shield, RefreshCw, CreditCard, Building, Clock, Wallet, ShoppingBag } from "lucide-react"
+import { packages, carePackages, VAT_NOTE, PAYMENT_NOTE, SHOP_NOTE, DELIVERY_TIME } from "@/lib/site"
 
 export const metadata: Metadata = {
-  title: "Preise – Transparente Festpreise ab 199 €",
+  title: "Preise – Festpreise ab 199 €, online in 1–2 Wochen",
   description:
-    "Kein Stundensatz, keine Überraschungen. Transparente Festpreise ab 199 €. Starter, Pro und Premium.",
+    "Website-Pakete ab 199 €: Starter, Pro, Premium und Komplett (899 € inkl. Online-Shop). Ohne MwSt. (§ 19 UStG), online in 1–2 Wochen, Zahlung erst nach Probe-Website.",
+  alternates: { canonical: "/preise" },
+  openGraph: {
+    title: "Preise – Festpreise ab 199 € | Nexuzo",
+    description:
+      "Website-Pakete ab 199 €, Pflege inkl. Hosting & Domain ab 19 €/Monat. Ohne MwSt., online in 1–2 Wochen.",
+    url: "/preise",
+  },
 }
-
-const packages = [
-  {
-    id: "starter",
-    name: "Starter",
-    tagline: "Selbstständige & kleine Unternehmen",
-    price: "199",
-    badge: null,
-    desc: "Eine klare, professionelle Website, die Ihre Leistungen zeigt und Anfragen generiert.",
-    features: [
-      "1–3 Seiten, individuelles Design",
-      "Für Smartphone optimiert",
-      "Kontaktformular",
-      "Grundstruktur für Google",
-      "30 Tage Support nach Launch",
-      "2 Korrekturrunden inklusive",
-    ],
-    highlight: false,
-  },
-  {
-    id: "pro",
-    name: "Pro",
-    tagline: "Für wachsende Unternehmen",
-    price: "399",
-    badge: "Beliebtestes Paket",
-    desc: "Mehr Seiten, mehr Funktionen, besser für Google. Für Unternehmen, die online wachsen wollen.",
-    features: [
-      "4–8 Seiten, Premium-Design mit Animationen",
-      "Besucherstatistiken eingebunden",
-      "Umfassendes SEO-Paket",
-      "Schnelle Ladezeiten optimiert",
-      "3 Monate Support",
-      "Unbegrenzte Korrekturrunden",
-    ],
-    highlight: true,
-  },
-  {
-    id: "premium",
-    name: "Premium",
-    tagline: "Komplexere Anforderungen",
-    price: "699",
-    badge: null,
-    desc: "Unbegrenzte Seiten, individuelle Funktionen und erweiterte technische Umsetzung.",
-    features: [
-      "Unbegrenzte Seiten",
-      "Individuelle Zusatzfunktionen nach Absprache",
-      "Buchungssystem oder Kundenbereich möglich",
-      "Auswertung & Monitoring eingerichtet",
-      "6 Monate dedizierter Support",
-      "Unbegrenzte Korrekturrunden",
-    ],
-    highlight: false,
-  },
-]
-
-const carePackages = [
-  {
-    name: "Basic",
-    price: "19",
-    features: [
-      "Hosting auf Vercel",
-      "SSL-Zertifikat inklusive",
-      "Monatliche Updates & Sicherheitschecks",
-      "1 kleine Änderung pro Monat",
-    ],
-  },
-  {
-    name: "Standard",
-    price: "39",
-    features: [
-      "Alles aus Basic",
-      "3 Änderungen pro Monat",
-      "Priorität bei Anfragen",
-    ],
-    highlight: true,
-  },
-  {
-    name: "Premium",
-    price: "59",
-    features: [
-      "Hosting auf Vercel + Supabase-Datenbank",
-      "SSL-Zertifikat inklusive",
-      "Monatliche Updates & Sicherheitschecks",
-      "Unbegrenzte Änderungen",
-    ],
-  },
-]
 
 const paymentMethods = [
   {
@@ -112,16 +33,16 @@ const paymentMethods = [
     desc: "Schnell & sicher",
   },
   {
-    icon: Smartphone,
-    name: "Auf Rechnung",
-    desc: "Nach Vorstellung der Probewebsite",
+    icon: Clock,
+    name: "Erst nach Freigabe",
+    desc: "Wenn Ihnen die Probe-Website gefällt",
   },
 ]
 
 const priceFAQs = [
   {
     q: "Was ist im Preis enthalten?",
-    a: "Design, Umsetzung, Tests und Launch sind immer inklusive. Hosting auf Vercel (ab 19 €/Monat im Pflegepaket) und optionale Pflegepakete werden separat vereinbart, transparent, schriftlich vor Projektstart.",
+    a: "Design, Umsetzung, Tests und Launch sind immer inklusive. Hosting und Domain sind in jedem Pflegepaket enthalten (ab 19 €/Monat, monatlich kündbar). Alle Preise sind Endpreise ohne MwSt. – als Kleinunternehmer nach § 19 UStG berechnen wir keine Umsatzsteuer.",
   },
   {
     q: "Gibt es Nachzahlungen?",
@@ -129,7 +50,15 @@ const priceFAQs = [
   },
   {
     q: "Wie läuft die Zahlung ab?",
-    a: "Sie zahlen nach der Vorstellung der Probewebsite, nicht vorher. Wir zeigen Ihnen erst das fertige Ergebnis, dann entscheiden Sie. Wir akzeptieren Banküberweisung, Kreditkarte und PayPal.",
+    a: "Wir bauen vorab eine kostenlose, unverbindliche Probe-Website. Sie zahlen erst, wenn sie Ihnen gefällt – keine Anzahlung, keine Vorkasse. Gefällt sie Ihnen nicht, zahlen Sie nichts. Wir akzeptieren Banküberweisung, Kreditkarte und PayPal.",
+  },
+  {
+    q: "Wie schnell ist meine Website online?",
+    a: "In der Regel in 1–2 Wochen, bei allen Paketen. Voraussetzung ist, dass Texte, Fotos und Infos (z. B. Speisekarte, Öffnungszeiten) vorliegen – dabei helfen wir gern.",
+  },
+  {
+    q: "Bauen Sie auch Online-Shops?",
+    a: "Ja. Im Komplett-Paket (ab 899 €) ist ein kleiner Online-Shop oder ein Bestellsystem mit bis zu 30 Produkten enthalten, Zahlung per PayPal oder Karte. Größere Shops auf Anfrage. Rechtstexte für Shops (AGB, Widerrufsbelehrung) stellt der Kunde selbst.",
   },
   {
     q: "Wie bearbeite ich meine Website nach dem Launch?",
@@ -152,23 +81,23 @@ export default function PreisePage() {
             <span className="text-[#0066FF]">Kein Überraschungsangebot.</span>
           </h1>
           <p className="text-[#0a0a0f]/55 text-base sm:text-xl leading-relaxed max-w-2xl">
-            Festpreise ab 199 €. Weil Sie vor dem Auftrag wissen sollten, was er kostet.
+            Festpreise ab 199 €, online {DELIVERY_TIME}. Weil Sie vor dem Auftrag wissen sollten, was er kostet.
           </p>
-          <p className="text-[#0a0a0f]/40 text-sm mt-4">Alle Preise netto zzgl. 19 % MwSt.</p>
+          <p className="text-[#0a0a0f]/40 text-sm mt-4">{VAT_NOTE}</p>
         </div>
       </section>
 
       {/* One-time packages */}
       <section className="py-12 bg-[#0a0a0f]/[0.04]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <p className="text-[#0a0a0f]/40 text-xs font-semibold uppercase tracking-widest mb-8">
-            Einmalige Website-Erstellung
+            Einmalige Website-Erstellung · Festpreis · online {DELIVERY_TIME}
           </p>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
             {packages.map((pkg) => (
               <div
                 key={pkg.id}
-                className={`rounded-2xl p-7 sm:p-8 flex flex-col relative ${
+                className={`rounded-2xl p-7 sm:p-8 xl:p-7 flex flex-col relative ${
                   pkg.highlight
                     ? "bg-[#0066FF] shadow-xl shadow-[#0066FF]/15"
                     : "bg-white border border-[#0a0a0f]/10"
@@ -202,7 +131,6 @@ export default function PreisePage() {
                     <span className={`text-4xl font-black ${pkg.highlight ? "text-white" : "text-[#0a0a0f]"}`}>
                       {pkg.price} €
                     </span>
-                    <span className={`text-sm ${pkg.highlight ? "text-white/80" : "text-[#0a0a0f]/40"}`}>netto</span>
                   </div>
                   <p className={`text-sm leading-relaxed ${pkg.highlight ? "text-white/70" : "text-[#0a0a0f]/55"}`}>
                     {pkg.desc}
@@ -239,6 +167,13 @@ export default function PreisePage() {
               </div>
             ))}
           </div>
+          <div className="mt-6 flex flex-col gap-2 text-xs text-[#0a0a0f]/50 leading-relaxed">
+            <p className="flex items-start gap-2">
+              <ShoppingBag size={14} className="text-[#0066FF] mt-0.5 flex-shrink-0" />
+              <span>Online-Shop im Komplett-Paket: bis 30 Produkte, Zahlung per PayPal oder Karte. {SHOP_NOTE}</span>
+            </p>
+            <p>{VAT_NOTE}</p>
+          </div>
         </div>
       </section>
 
@@ -254,8 +189,8 @@ export default function PreisePage() {
                 Nicht zufrieden mit dem ersten Entwurf?
               </h3>
               <p className="text-[#0a0a0f]/55 text-sm leading-relaxed max-w-xl">
-                Wir überarbeiten kostenlos, ohne Diskussion, ohne Zeitdruck, so oft wie nötig.
-                Diese Aussage steht im Vertrag. Nicht im Marketing.
+                Wir überarbeiten kostenlos, ohne Diskussion, ohne Zeitdruck (Starter: 2 Korrekturrunden,
+                Pro, Premium und Komplett: unbegrenzt). Und Sie zahlen erst, wenn Ihnen die Probe-Website gefällt.
               </p>
             </div>
           </div>
@@ -288,7 +223,7 @@ export default function PreisePage() {
             })}
           </div>
           <p className="text-[#0a0a0f]/40 text-xs mt-5">
-            Zahlung nach Vorstellung der Probewebsite · kein Vorauszahlung
+            {PAYMENT_NOTE} Keine Anzahlung, keine Vorkasse.
           </p>
         </div>
       </section>
@@ -351,7 +286,7 @@ export default function PreisePage() {
             ))}
           </div>
           <p className="text-[#0a0a0f]/40 text-xs mt-5 leading-relaxed max-w-xl">
-            In jedem Paket enthalten: Hosting auf Vercel&apos;s globalem Edge-Network und automatische SSL-Verschlüsselung. Premium inkl. Supabase-Datenbank für dynamische Inhalte. Monatlich kündbar, keine Vertragsbindung. · Alle Preise netto zzgl. MwSt.
+            In jedem Paket enthalten: Hosting (auf Vercel&apos;s globalem Edge-Network), Ihre Domain und automatische SSL-Verschlüsselung. Premium inkl. Supabase-Datenbank für dynamische Inhalte. Monatlich kündbar, keine Vertragsbindung. · {VAT_NOTE}
           </p>
         </div>
       </section>
@@ -380,7 +315,7 @@ export default function PreisePage() {
             Bereit für ein konkretes Angebot?
           </h2>
           <p className="text-[#0a0a0f]/55 text-base sm:text-lg mb-10 leading-relaxed">
-            Kostenlos anfragen. Wir melden uns innerhalb von 24 Stunden mit einem persönlichen Angebot.
+            Kostenlos anfragen. Wir melden uns innerhalb von 24 Stunden und bauen Ihnen eine kostenlose Probe-Website. Bezahlt wird erst, wenn sie Ihnen gefällt.
           </p>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
             <Link

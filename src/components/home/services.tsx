@@ -93,7 +93,7 @@ function PaymentVisual() {
       </div>
       {/* Payment badges */}
       <div className="flex gap-1.5 pt-2 border-t border-[#0a0a0f]/[0.06]">
-        {["Stripe", "PayPal", "SEPA"].map((label) => (
+        {["PayPal", "Karte"].map((label) => (
           <div
             key={label}
             className="flex-1 h-5 rounded flex items-center justify-center text-[7px] font-bold"
@@ -218,7 +218,7 @@ export default function Services() {
                 <span className="font-semibold text-[#0a0a0f]/70">die funktionieren.</span>
               </p>
               <ul className="space-y-2.5 mb-6">
-                {["Stripe & PayPal integriert", "Checkout ohne Abbrüche", "Produktseiten, die überzeugen"].map((p) => (
+                {["Kleiner Shop bis 30 Produkte (Komplett-Paket)", "Zahlung per PayPal oder Karte", "Größere Shops auf Anfrage"].map((p) => (
                   <li key={p} className="flex items-center gap-2.5 text-sm text-[#0a0a0f]/55">
                     <span className="w-1 h-1 rounded-full flex-shrink-0 bg-[#0066FF]" />
                     {p}

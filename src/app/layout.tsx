@@ -27,12 +27,16 @@ export const metadata: Metadata = {
     template: "%s | Nexuzo",
   },
   description:
-    "Webdesign Agentur in Düsseldorf. Websites ab 300 €, fertig in unter einer Woche. Festpreis, keine Überraschungen.",
-  keywords: ["Webdesign", "Web-Entwicklung", "Online-Shop", "SEO", "Agentur", "Düsseldorf"],
+    "Webdesign aus Düsseldorf für Gastronomie & lokale Betriebe. Websites ab 199 €, online in 1–2 Wochen. Kostenlose Probe-Website – Sie zahlen erst, wenn sie Ihnen gefällt.",
+  keywords: ["Webdesign", "Website erstellen lassen", "Gastronomie", "Restaurant-Website", "Online-Shop", "SEO", "Düsseldorf"],
   openGraph: {
     type: "website",
     locale: "de_DE",
     siteName: "Nexuzo",
+    title: "Nexuzo – Webdesign Agentur Düsseldorf",
+    description:
+      "Websites ab 199 €, online in 1–2 Wochen. Kostenlose Probe-Website – Sie zahlen erst, wenn sie Ihnen gefällt.",
+    images: [{ url: "/logo/nexuzo.png", alt: "Nexuzo" }],
   },
 }
 
