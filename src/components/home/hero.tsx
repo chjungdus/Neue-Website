@@ -6,7 +6,7 @@ import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-reac
 import { motion, AnimatePresence } from "framer-motion"
 import ShaderBackground from "@/components/ui/shader-background"
 import Magnetic from "@/components/ui/magnetic"
-import { references as sites, shot } from "@/lib/references"
+import { references as sites, refImage } from "@/lib/references"
 
 export default function Hero() {
   const [active, setActive] = useState(0)
@@ -160,7 +160,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.35 }}
           className="mt-6 text-white/40 text-sm"
         >
-          Festpreis vor Projektstart&nbsp;&nbsp;·&nbsp;&nbsp;Live in 4 Wochen&nbsp;&nbsp;·&nbsp;&nbsp;Bezahlt wird erst nach Freigabe
+          Festpreis ab 199 €&nbsp;&nbsp;·&nbsp;&nbsp;Online in 1–2 Wochen&nbsp;&nbsp;·&nbsp;&nbsp;Bezahlt wird erst, wenn die Probe-Website gefällt
         </motion.p>
       </div>
 
@@ -231,7 +231,7 @@ export default function Hero() {
                   <div className="relative h-[calc(100%-30px)] bg-[#0a0a0f]/[0.04]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={shot(site.url)}
+                      src={refImage(site)}
                       alt={`Website ${site.label}`}
                       loading="lazy"
                       draggable={false}
@@ -338,7 +338,7 @@ export default function Hero() {
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={shot(current.url)}
+                      src={refImage(current)}
                       alt={`Website ${current.label}`}
                       loading="lazy"
                       className="w-full h-full object-cover object-top"

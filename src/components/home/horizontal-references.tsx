@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react"
 import Link from "next/link"
 import { motion, useScroll, useSpring, useTransform } from "framer-motion"
 import { ArrowRight, ExternalLink, MousePointer2 } from "lucide-react"
-import { references, shot } from "@/lib/references"
+import { references, refImage } from "@/lib/references"
 
 // Pinned section: as the user scrolls vertically, the reference cards slide
 // horizontally across the screen. A scroll-as-storytelling showcase.
@@ -85,7 +85,7 @@ export default function HorizontalReferences() {
               <div className="relative h-[42vh] max-h-[440px] overflow-hidden bg-[#0a0a0f]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={shot(r.url, 1400, 900)}
+                  src={refImage(r, 1400, 900)}
                   alt={`Website ${r.label}`}
                   loading="lazy"
                   draggable={false}

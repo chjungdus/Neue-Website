@@ -11,22 +11,48 @@ export type Reference = {
   featured?: boolean
   /** concept site without its own domain yet; shown as demo, not as a live client site */
   demo?: boolean
+  /** local screenshot in /public (preferred over the live thum.io shot) */
+  image?: string
+  /** location shown with the reference */
+  place?: string
 }
 
 export const references: Reference[] = [
   {
-    url: "https://www.milonga-foodtruck.de/",
+    url: "https://frittenliebe-bilk.de/",
+    display: "frittenliebe-bilk.de",
+    label: "Frittenliebe Bilk",
+    tag: "Imbiss",
+    place: "Düsseldorf-Bilk",
+    note: "Imbiss am Kirchplatz: Speisen, Öffnungszeiten und Anruf mit einem Fingertipp.",
+    featured: true,
+    image: "/referenzen/frittenliebe-bilk.jpg",
+  },
+  {
+    url: "https://milonga-foodtruck.de/",
     display: "milonga-foodtruck.de",
     label: "Milonga Food Truck",
     tag: "Food Truck",
+    place: "Düsseldorf",
     note: "Speisekarte, Standort und Auftritt: Gäste finden alles selbst.",
     featured: true,
+    image: "/referenzen/milonga-foodtruck.jpg",
   },
   {
-    url: "https://www.limpiezas-el-valle.es/",
+    url: "https://xn--cafthiopia-d7a.de/",
+    display: "caféthiopia.de",
+    label: "Caféthiopia",
+    tag: "Café",
+    place: "Düsseldorf-Bilk",
+    note: "Äthiopisches Café: Speisekarte, Öffnungszeiten, zweisprachig.",
+    image: "/referenzen/cafethiopia.jpg",
+  },
+  {
+    url: "https://limpiezas-el-valle.es/",
     display: "limpiezas-el-valle.es",
     label: "Limpiezas El Valle",
     tag: "Reinigung",
+    place: "Burgos, Spanien",
     note: "Lokales SEO: Top-Ranking in der Region Burgos.",
     featured: true,
   },
@@ -74,3 +100,10 @@ export const references: Reference[] = [
 // Live screenshot of a site, rendered + cached by thum.io.
 export const shot = (url: string, width = 1200, crop = 900) =>
   `https://image.thum.io/get/width/${width}/crop/${crop}/${url}`
+
+// Prefer the local screenshot from /public, fall back to the live thum.io shot.
+export const refImage = (ref: Reference, width = 1200, crop = 900) =>
+  ref.image ?? shot(ref.url, width, crop)
+
+/** Real client websites (no demo drafts). */
+export const liveReferences = references.filter((r) => !r.demo)

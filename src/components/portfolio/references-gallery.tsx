@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react"
 import { ExternalLink, ArrowUpRight } from "lucide-react"
-import { references, shot } from "@/lib/references"
+import { references, refImage } from "@/lib/references"
 import TiltCard from "@/components/ui/tilt-card"
 import FadeIn from "@/components/ui/fade-in"
 
@@ -65,7 +65,7 @@ export default function ReferencesGallery() {
                   <div className={`relative overflow-hidden bg-[#0a0a0f]/[0.03] ${wide ? "h-[340px]" : "h-[260px]"}`}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={shot(r.url, wide ? 1400 : 1000, wide ? 820 : 760)}
+                      src={refImage(r, wide ? 1400 : 1000, wide ? 820 : 760)}
                       alt={`Website ${r.label}`}
                       loading="lazy"
                       className="w-full h-full object-cover object-top transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
@@ -89,6 +89,7 @@ export default function ReferencesGallery() {
                         {r.label}
                         <ArrowUpRight size={16} className="text-[#0066FF] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                       </h3>
+                      {r.place && <p className="text-[#0a0a0f]/40 text-xs mt-0.5">{r.place}</p>}
                       {r.note && <p className="text-[#0a0a0f]/55 text-sm mt-1 leading-relaxed">{r.note}</p>}
                     </div>
                   </div>

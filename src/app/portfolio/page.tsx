@@ -4,12 +4,13 @@ import { ArrowRight } from "lucide-react"
 import ReferencesGallery from "@/components/portfolio/references-gallery"
 import ShaderBackground from "@/components/ui/shader-background"
 import FadeIn from "@/components/ui/fade-in"
-import { references } from "@/lib/references"
+import { liveReferences } from "@/lib/references"
 
 export const metadata: Metadata = {
-  title: "Referenzen. Nexuzo",
+  title: "Referenzen – Websites aus Düsseldorf",
   description:
-    "Live-Websites, die wir gebaut haben: handgebaut für reale Kunden, kein Template, keine Demo.",
+    "Live-Websites, die wir gebaut haben: Frittenliebe Bilk, Milonga Foodtruck, Caféthiopia und mehr. Handgebaut für echte Kunden, kein Template.",
+  alternates: { canonical: "/portfolio" },
 }
 
 export default function PortfolioPage() {
@@ -29,12 +30,12 @@ export default function PortfolioPage() {
               <span className="gradient-text">Echte Ergebnisse.</span>
             </h1>
             <p className="text-white/55 text-lg md:text-xl max-w-xl leading-relaxed">
-              Jede hier ist live. Klicken Sie sich durch: jedes Projekt ist
-              handgebaut für ein reales Unternehmen, kein Template, keine Demo.
+              Klicken Sie sich durch: Die Kunden-Websites sind live und für echte Betriebe
+              handgebaut, kein Template. Konzepte ohne eigene Domain sind als Demo-Entwurf gekennzeichnet.
             </p>
             <div className="mt-8 flex items-center gap-6 text-white/45 text-sm">
               <span>
-                <span className="text-white font-bold text-lg">{references.length}</span> Live-Projekte
+                <span className="text-white font-bold text-lg">{liveReferences.length}</span> Live-Projekte
               </span>
               <span className="w-px h-4 bg-white/15" />
               <span>
@@ -64,8 +65,8 @@ export default function PortfolioPage() {
               <div>
                 <p className="font-extrabold text-[#0a0a0f] mb-1 text-xl">Ihr Projekt könnte hier stehen.</p>
                 <p className="text-[#0a0a0f]/55 text-sm max-w-md leading-relaxed">
-                  Schreiben Sie uns kurz, was Sie brauchen. Antwort mit einem konkreten
-                  Angebot innerhalb von 24 Stunden.
+                  Schreiben Sie uns kurz, was Sie brauchen. Wir bauen Ihnen eine kostenlose
+                  Probe-Website, bezahlt wird erst, wenn sie Ihnen gefällt.
                 </p>
               </div>
               <Link

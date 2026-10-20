@@ -1,17 +1,19 @@
 "use client"
 import { useEffect, useRef, useState } from "react"
 import FadeIn from "@/components/ui/fade-in"
+import { liveReferences } from "@/lib/references"
 
-interface StatData { target: number; suffix: string; label: string; note: string; decimal?: boolean }
+interface StatData { target: number; suffix: string; label: string; note: string; decimal?: boolean; prefix?: string }
 
+// Nur belegbare Zahlen: Live-Projekte werden aus references.ts gezählt.
 const stats: StatData[] = [
-  { target: 7, suffix: "", label: "Websites gebaut", note: "alle zum Anklicken" },
-  { target: 4, suffix: " Wo.", label: "bis zum Launch", note: "fester Termin, fester Preis" },
+  { target: liveReferences.length, suffix: "", label: "Kunden-Websites live", note: "alle zum Anklicken" },
+  { target: 2, prefix: "1–", suffix: " Wo.", label: "bis zum Launch", note: "fester Preis, Zahlung erst nach Freigabe" },
   { target: 24, suffix: "h", label: "Antwortzeit", note: "auf jede Anfrage" },
   { target: 0, suffix: "", label: "Templates", note: "alles von Grund auf" },
 ]
 
-function AnimatedNumber({ target, suffix, decimal, delay = 0 }: StatData & { delay?: number }) {
+function AnimatedNumber({ target, suffix, decimal, prefix = "", delay = 0 }: StatData & { delay?: number }) {
   // Server HTML carries the final value (for Google and link previews); the client resets to 0 and counts up.
   const [current, setCurrent] = useState(target)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -43,10 +45,11 @@ function AnimatedNumber({ target, suffix, decimal, delay = 0 }: StatData & { del
     observer.observe(el)
     return () => observer.disconnect()
   }, [target, delay])
-  const display = decimal ? current.toFixed(1) : Math.round(current).toString()
+  // Ranges like "1–2" are shown as-is (counting "1–0 … 1–2" would look broken).
+  const display = prefix ? String(target) : decimal ? current.toFixed(1) : Math.round(current).toString()
   return (
     <div ref={containerRef} className="text-5xl md:text-6xl font-extrabold text-[#0066FF] tabular-nums leading-none">
-      {display}{suffix}
+      {prefix}{display}{suffix}
     </div>
   )
 }
