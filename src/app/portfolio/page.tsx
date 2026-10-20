@@ -9,7 +9,7 @@ import { liveReferences } from "@/lib/references"
 export const metadata: Metadata = {
   title: "Referenzen – Websites aus Düsseldorf",
   description:
-    "Live-Websites, die wir gebaut haben: Frittenliebe Bilk, Milonga Foodtruck, Caféthiopia und mehr. Handgebaut für echte Kunden, kein Template.",
+    "Live-Websites, die wir gebaut haben: Milonga Foodtruck, Caféthiopia, Limpiezas El Valle und mehr. Handgebaut für echte Kunden, kein Template.",
   alternates: { canonical: "/portfolio" },
 }
 

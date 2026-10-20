@@ -14,8 +14,8 @@ import {
   DELIVERY_TIME,
 } from "@/lib/site"
 
-// The four confirmed client references shown on every branch page.
-const REFERENCE_LABELS = ["Frittenliebe Bilk", "Milonga Food Truck", "Caféthiopia", "Limpiezas El Valle"]
+// The confirmed client references shown on every branch page.
+const REFERENCE_LABELS = ["Milonga Food Truck", "Caféthiopia", "Limpiezas El Valle"]
 const seoReferences = REFERENCE_LABELS.map((label) => references.find((r) => r.label === label)).filter(
   (r): r is NonNullable<typeof r> => Boolean(r),
 )

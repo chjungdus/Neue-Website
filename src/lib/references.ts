@@ -19,16 +19,6 @@ export type Reference = {
 
 export const references: Reference[] = [
   {
-    url: "https://frittenliebe-bilk.de/",
-    display: "frittenliebe-bilk.de",
-    label: "Frittenliebe Bilk",
-    tag: "Imbiss",
-    place: "Düsseldorf-Bilk",
-    note: "Imbiss am Kirchplatz: Speisen, Öffnungszeiten und Anruf mit einem Fingertipp.",
-    featured: true,
-    image: "/referenzen/frittenliebe-bilk.jpg",
-  },
-  {
     url: "https://milonga-foodtruck.de/",
     display: "milonga-foodtruck.de",
     label: "Milonga Food Truck",

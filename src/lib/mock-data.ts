@@ -43,18 +43,4 @@ export const mockProjects: PortfolioProject[] = [
     featured: true,
     created_at: "2025-05-20",
   },
-  {
-    id: "4",
-    title: "Frittenliebe Bilk",
-    slug: "frittenliebe-bilk",
-    description: "Imbiss am Kirchplatz in Düsseldorf-Bilk: Pommes, Currywurst und Burger.",
-    long_description:
-      "Website für einen Imbiss in Düsseldorf-Bilk: Speisen, Öffnungszeiten, Anfahrt und Anruf-Button für die Vorbestellung, schnell auf dem Handy.",
-    tags: ["Imbiss", "Webdesign", "Lokales SEO"],
-    client: "Frittenliebe Bilk",
-    url: "https://frittenliebe-bilk.de/",
-    image_url: "/referenzen/frittenliebe-bilk.jpg",
-    featured: true,
-    created_at: "2026-09-01",
-  },
 ]
