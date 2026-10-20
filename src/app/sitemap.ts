@@ -16,6 +16,13 @@ const staticRoutes = [
   "/impressum",
   "/datenschutz",
   "/agb",
+  // Branchen-/SEO-Unterseiten
+  "/website-gastronomie-duesseldorf",
+  "/restaurant-website-erstellen-lassen",
+  "/imbiss-doener-website",
+  "/foodtruck-website",
+  "/cafe-friseur-website",
+  "/ratgeber/was-kostet-eine-restaurant-website",
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

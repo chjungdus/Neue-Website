@@ -80,3 +80,121 @@ h1, h2, h3, h4 {
 .animate-marquee {
   animation: marquee 38s linear infinite;
 }
+
+/* ── Branchen-/SEO-Unterseiten: Fließtext aus src/lib/seo-pages.ts ── */
+.seo-body .container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.seo-body .prose > * {
+  max-width: 46rem;
+}
+.seo-body h2 {
+  font-size: clamp(1.6rem, 3.2vw, 2.25rem);
+  line-height: 1.15;
+  font-weight: 800;
+  color: #0a0a0f;
+  margin: 2.75rem 0 1rem;
+}
+.seo-body .container:first-child > h2:first-child {
+  margin-top: 0;
+}
+.seo-body h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0a0a0f;
+  margin: 0 0 0.4rem;
+}
+.seo-body p,
+.seo-body li {
+  color: rgba(10, 10, 15, 0.68);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.seo-body p {
+  margin: 0 0 1rem;
+}
+.seo-body ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0 0 1.25rem;
+}
+.seo-body li {
+  margin-bottom: 0.5rem;
+}
+.seo-body strong {
+  color: #0a0a0f;
+  font-weight: 600;
+}
+.seo-body a,
+.seo-inline a {
+  color: #0066ff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.seo-body .small,
+.seo-body .small li {
+  font-size: 0.85rem;
+  color: rgba(10, 10, 15, 0.5);
+}
+.seo-body .grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  margin: 1.5rem 0 0.5rem;
+}
+.seo-body .card {
+  background: #fff;
+  border: 1px solid rgba(10, 10, 15, 0.1);
+  border-radius: 1rem;
+  padding: 1.4rem;
+}
+.seo-body .card p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.seo-body .card h3 a {
+  color: #0a0a0f;
+}
+.seo-body .card .tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #0066ff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+.seo-body .table-wrap {
+  overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
+  border: 1px solid rgba(10, 10, 15, 0.1);
+  border-radius: 1rem;
+}
+.seo-body table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.seo-body th,
+.seo-body td {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(10, 10, 15, 0.07);
+  vertical-align: top;
+  color: rgba(10, 10, 15, 0.7);
+}
+.seo-body th {
+  background: rgba(10, 10, 15, 0.04);
+  color: #0a0a0f;
+  font-weight: 700;
+}
+.seo-body tr:last-child td {
+  border-bottom: 0;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}

@@ -7,6 +7,14 @@ const footerLinks = {
     { href: "/leistungen#entwicklung", label: "Entwicklung" },
     { href: "/leistungen#seo", label: "SEO & Sichtbarkeit" },
   ],
+  Branchen: [
+    { href: "/website-gastronomie-duesseldorf", label: "Gastronomie in Düsseldorf" },
+    { href: "/restaurant-website-erstellen-lassen", label: "Restaurant-Website" },
+    { href: "/imbiss-doener-website", label: "Imbiss, Döner & Kiosk" },
+    { href: "/foodtruck-website", label: "Foodtruck-Website" },
+    { href: "/cafe-friseur-website", label: "Café & Friseur" },
+    { href: "/ratgeber/was-kostet-eine-restaurant-website", label: "Ratgeber: Kosten" },
+  ],
   Unternehmen: [
     { href: "/portfolio", label: "Portfolio" },
     { href: "/ueber-uns", label: "Über uns" },
@@ -25,7 +33,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#0a0a0f] mt-auto">
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12">
           <div className="lg:col-span-2">
             <Link href="/" aria-label="Nexuzo Startseite" className="inline-flex mb-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -53,16 +61,16 @@ export default function Footer() {
                 className="flex items-center gap-2 text-sm text-white/55 hover:text-white transition-colors"
               >
                 <MessageCircle size={14} />
-                WhatsApp: +49 176 8025 7270
+                WhatsApp &amp; Telefon: +49 176 8025 7270
               </a>
             </div>
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="https://instagram.com/nexuzo.de"
+                href="https://www.instagram.com/nexuzowebdesign/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/[0.06] hover:bg-[#0066FF]/20 flex items-center justify-center transition-colors group"
-                aria-label="Instagram"
+                aria-label="Instagram @nexuzowebdesign"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/55 group-hover:text-[#0066FF] transition-colors">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
