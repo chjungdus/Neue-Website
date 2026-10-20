@@ -11,19 +11,23 @@ const faqs = [
   },
   {
     question: "Was kostet eine Website bei Ihnen?",
-    answer: "Ab 199 € netto. Festpreis vor Projektstart, kein Stundensatz.",
+    answer: "Ab 199 € als Festpreis, kein Stundensatz. Pakete: Starter 199 €, Pro 399 €, Premium 699 €, Komplett 899 €. Alle Preise ohne MwSt. – gemäß § 19 UStG wird keine Umsatzsteuer berechnet.",
   },
   {
-    question: "Vier Wochen. Wirklich?",
-    answer: "Ja, wenn Texte und Bilder vorliegen. Wir helfen auch dabei.",
+    question: "Muss ich vorher etwas bezahlen?",
+    answer: "Nein. Wir bauen vorab eine kostenlose, unverbindliche Probe-Website. Sie zahlen erst, wenn sie Ihnen gefällt.",
   },
   {
-    question: "Ich hatte schlechte Erfahrungen mit anderen Agenturen.",
-    answer: "Verstehen wir. Deshalb steht der Preis bei uns im Vertrag, dazu wöchentliche Updates mit Staging-Link und eine feste Ansprechperson.",
+    question: "In 1–2 Wochen online. Wirklich?",
+    answer: "Ja, bei allen Paketen – wenn Texte, Fotos und Infos vorliegen. Wir helfen auch dabei.",
   },
   {
     question: "Was passiert nach dem Launch?",
-    answer: "Alle Zugänge: Domain, Hosting, Code. Pflegepakete ab 19 €/Monat optional.",
+    answer: "Sie bekommen alle Zugänge. Optional pflegen wir die Website weiter: ab 19 €/Monat, Hosting und Domain inklusive, monatlich kündbar.",
+  },
+  {
+    question: "Bauen Sie auch Online-Shops?",
+    answer: "Ja. Im Komplett-Paket (899 €) ist ein kleiner Shop oder ein Bestellsystem mit bis zu 30 Produkten enthalten, Zahlung per PayPal oder Karte. Größere Shops auf Anfrage.",
   },
   {
     question: "Kann ich Inhalte selbst bearbeiten?",

@@ -9,7 +9,7 @@ const items = [
   "Mehr Anfragen, messbar",
   "Landing Pages",
   "Fester Preis, fester Termin",
-  "Live in 4 Wochen",
+  "Online in 1–2 Wochen",
   "Keine Templates",
   "Mobil zuerst gedacht",
   "Ladezeiten unter einer Sekunde",

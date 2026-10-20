@@ -10,31 +10,31 @@ const ACCENT_BG = "rgba(0, 102, 255,0.12)"
 
 const steps = [
   {
-    week: "Woche 1",
+    week: "Tag 1",
     icon: Search,
-    title: "Discovery",
-    body: "Wir lernen Ihr Unternehmen kennen. Am Ende steht ein verbindliches Angebot.",
-    deliverable: "Sitemap · Fixes Angebot",
+    title: "Kennenlernen",
+    body: "Wir lernen Ihren Betrieb kennen: vor Ort in Düsseldorf, per Telefon oder WhatsApp.",
+    deliverable: "Inhalte · Wünsche",
+  },
+  {
+    week: "Tag 2–5",
+    icon: Palette,
+    title: "Probe-Website",
+    body: "Wir bauen eine kostenlose, unverbindliche Probe-Website mit Ihren Inhalten.",
+    deliverable: "Link zur Probe-Website",
   },
   {
     week: "Woche 2",
-    icon: Palette,
-    title: "Design",
-    body: "Vollständiger Entwurf. Feedbackrunden kostenlos.",
-    deliverable: "Design zur Freigabe",
-  },
-  {
-    week: "Woche 3",
     icon: Code2,
-    title: "Entwicklung",
-    body: "Design wird zu Code. Staging-Link zum Testen.",
-    deliverable: "Staging-Link",
+    title: "Feinschliff",
+    body: "Sie sagen, was geändert werden soll. Wir überarbeiten, bis es passt.",
+    deliverable: "Ihre Freigabe",
   },
   {
-    week: "Woche 4",
+    week: "Nach 1–2 Wochen",
     icon: Rocket,
     title: "Launch",
-    body: "Testing auf allen Geräten, dann Go-Live. Datum eingehalten.",
+    body: "Go-Live auf Ihrer Domain. Bezahlt wird erst, wenn Ihnen die Website gefällt.",
     deliverable: "Launch · Übergabe",
   },
 ]
@@ -91,7 +91,7 @@ export default function Process() {
         <FadeIn>
           <div className="mb-10">
             <h2 className="text-4xl md:text-5xl font-black text-[#0a0a0f] mb-5 leading-tight">
-              In 4 Wochen live.
+              In 1–2 Wochen live.
               <br />
               <span className="text-[#0a0a0f]/45 font-normal text-3xl md:text-4xl">Wirklich.</span>
             </h2>

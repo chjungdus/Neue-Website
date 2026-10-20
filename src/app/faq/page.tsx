@@ -6,7 +6,8 @@ import FadeIn from "@/components/ui/fade-in"
 export const metadata: Metadata = {
   title: "Häufige Fragen – FAQ",
   description:
-    "Antworten auf die häufigsten Fragen zu Preisen, Prozessen, Lieferzeiten und mehr.",
+    "Antworten zu Preisen ab 199 € (ohne MwSt.), Zahlung nach kostenloser Probe-Website, Lieferzeit 1–2 Wochen, Pflege inkl. Hosting & Domain und Online-Shops.",
+  alternates: { canonical: "/faq" },
 }
 
 const faqs = [
@@ -14,20 +15,24 @@ const faqs = [
     category: "Preise & Zahlung",
     items: [
       {
-        q: "Was kostet eine Website bei DigitalForge?",
-        a: "Unsere Pakete starten ab 300 € (Starter) und gehen bis 900 € (Enterprise). alles als Festpreis, netto zzgl. 19 % MwSt. Kein Stundensatz, keine Schätzung mit Stern. Was im Angebot steht, ist der Endpreis.",
+        q: "Was kostet eine Website bei Nexuzo?",
+        a: "Unsere Website-Pakete sind Festpreise: Starter ab 199 €, Pro ab 399 €, Premium ab 699 € und Komplett ab 899 €. Kein Stundensatz, keine Schätzung mit Sternchen. Was im Angebot steht, ist der Endpreis.",
       },
       {
-        q: "Welche Zahlungsmethoden akzeptieren Sie?",
-        a: "Banküberweisung, Kreditkarte (Visa, Mastercard, Amex), PayPal und Vorkasse. Die Zahlungsstruktur ist immer gleich: 50 % bei Auftragserteilung, 50 % bei Launch. Für größere Projekte passen wir das auf Wunsch an.",
+        q: "Kommt noch Mehrwertsteuer dazu?",
+        a: "Nein. Alle Preise ohne MwSt. – gemäß § 19 UStG (Kleinunternehmerregelung) wird keine Umsatzsteuer berechnet. Der genannte Preis ist also genau der Betrag, den Sie zahlen.",
+      },
+      {
+        q: "Wann und wie bezahle ich?",
+        a: "Wir bauen Ihnen vorab eine kostenlose, unverbindliche Probe-Website. Sie zahlen erst, wenn sie Ihnen gefällt – keine Anzahlung, keine Vorkasse. Gefällt sie Ihnen nicht, zahlen Sie nichts. Bezahlen können Sie per Banküberweisung, Kreditkarte oder PayPal.",
       },
       {
         q: "Gibt es versteckte Kosten?",
-        a: "Nein. Design, Entwicklung, Testing und Launch sind immer im Paketpreis enthalten. Was separat dazu kommt: Hosting (ca. 10–15 €/Monat, direkt beim Anbieter Ihrer Wahl) und optionale monatliche Pflegepakete. Beides wird schriftlich vor Projektstart vereinbart.",
+        a: "Nein. Design, Entwicklung, Tests und Launch sind immer im Paketpreis enthalten. Laufend kommt nur ein Pflegepaket dazu, wenn Sie eines wünschen: ab 19 €/Monat, Hosting und Domain inklusive, monatlich kündbar.",
       },
       {
-        q: "Was kostet laufende Pflege und Aktualisierung?",
-        a: "Unsere Pflegepakete starten bei 30 €/Monat (2 Änderungen/Monat) und gehen bis 60 €/Monat (unbegrenzte kleine Änderungen, 12h Reaktionszeit). Pflegepakete sind optional und monatlich kündbar.",
+        q: "Was kostet laufende Pflege, Hosting und Domain?",
+        a: "Unsere Pflegepakete kosten 19 € (Basic), 39 € (Standard) oder 59 € (Premium) pro Monat. In jedem Paket sind Hosting, Domain, SSL-Zertifikat, Updates und Sicherheitschecks enthalten – dazu je nach Paket 1, 3 oder unbegrenzt viele Änderungen pro Monat. Monatlich kündbar.",
       },
     ],
   },
@@ -36,19 +41,19 @@ const faqs = [
     items: [
       {
         q: "Wie schnell ist meine Website fertig?",
-        a: "Für Starter-Projekte liefern wir in unter einer Woche. Pro-Projekte dauern 1–2 Wochen, Enterprise-Projekte je nach Umfang 2–4 Wochen. Der genaue Zeitrahmen wird im Angebot schriftlich festgehalten.",
+        a: "In der Regel ist Ihre Website in 1–2 Wochen online – bei allen Paketen. Voraussetzung ist, dass Texte, Fotos und Infos wie Speisekarte oder Öffnungszeiten vorliegen. Dabei helfen wir gern.",
       },
       {
         q: "Wie läuft ein Projekt bei Ihnen ab?",
-        a: "1. Kurzes Kennenlerngespräch (30 Min.) 2. Konkretes Angebot mit Festpreis innerhalb von 3–5 Tagen 3. Briefing und Konzept 4. Design-Entwurf zur Freigabe 5. Entwicklung mit Live-Link zum Mitverfolgen 6. Launch. Jede Phase endet mit Ihrer Freigabe. kein Schritt ohne Ihre Zustimmung.",
+        a: "1. Kurzes Kennenlernen – persönlich in Düsseldorf, per Telefon oder WhatsApp. 2. Wir bauen eine kostenlose Probe-Website mit Ihren Inhalten. 3. Sie sagen, was geändert werden soll, wir überarbeiten. 4. Gefällt Ihnen die Website, geht sie online und Sie zahlen. Kein Schritt ohne Ihre Zustimmung.",
       },
       {
         q: "Was brauche ich, um ein Projekt zu starten?",
-        a: "Idealerweise: eine Idee, was die Website leisten soll, Ihr Logo (oder die Bereitschaft, ohne auszukommen), und grobe Texte für die Inhalte. Wir helfen beim Rest. Wenn Texte und Bilder fehlen, nennen wir Ihnen Optionen.",
+        a: "Idealerweise: eine Idee, was die Website leisten soll, Ihr Logo (oder die Bereitschaft, ohne auszukommen – im Komplett-Paket gestalten wir eines) und grobe Texte. Wir helfen beim Rest. Wenn Texte und Bilder fehlen, nennen wir Ihnen Optionen.",
       },
       {
         q: "Kann ich den Fortschritt verfolgen?",
-        a: "Ja. Sie bekommen während der Entwicklung einen Live-Link, über den Sie jederzeit den aktuellen Stand sehen können. Keine Black Box, kein 'ist in Arbeit' ohne Beweis.",
+        a: "Ja. Sie bekommen während der Entwicklung einen Link, über den Sie jederzeit den aktuellen Stand sehen können. Keine Black Box, kein 'ist in Arbeit' ohne Beweis.",
       },
     ],
   },
@@ -56,16 +61,16 @@ const faqs = [
     category: "Design & Qualität",
     items: [
       {
-        q: "Was passiert, wenn ich mit dem ersten Entwurf nicht zufrieden bin?",
-        a: "Wir überarbeiten kostenlos. ohne Diskussion, ohne Zeitdruck. Diese Aussage steht im Vertrag. Beim Starter-Paket sind 2 Korrekturrunden inklusive, bei Pro und Enterprise unbegrenzt.",
+        q: "Was passiert, wenn mir der erste Entwurf nicht gefällt?",
+        a: "Wir überarbeiten kostenlos. Beim Starter-Paket sind 2 Korrekturrunden inklusive, bei Pro, Premium und Komplett unbegrenzt. Und weil Sie erst zahlen, wenn Ihnen die Probe-Website gefällt, gehen Sie kein Risiko ein.",
       },
       {
         q: "Kann ich Wünsche und Vorbilder mitbringen?",
-        a: "Absolut. Je konkreter Ihre Vorstellung, desto besser das Ergebnis. Schicken Sie uns Websites, die Ihnen gefallen, Screenshots, oder eine einfache Beschreibung des Stils. Wir hören zu. und fragen nach, wenn etwas unklar ist.",
+        a: "Absolut. Je konkreter Ihre Vorstellung, desto besser das Ergebnis. Schicken Sie uns Websites, die Ihnen gefallen, Screenshots oder eine einfache Beschreibung des Stils. Wir hören zu und fragen nach, wenn etwas unklar ist.",
       },
       {
         q: "Sind Ihre Websites mobil-optimiert?",
-        a: "Immer. Alle unsere Websites sind vollständig responsive. sie sehen auf Smartphone, Tablet und Desktop gleich professionell aus. Das ist kein optionales Feature, sondern Standard.",
+        a: "Immer. Alle unsere Websites sind vollständig responsive und sehen auf Smartphone, Tablet und Desktop gleich professionell aus. Das ist kein optionales Feature, sondern Standard.",
       },
     ],
   },
@@ -74,27 +79,43 @@ const faqs = [
     items: [
       {
         q: "Kann ich meine Website nach dem Launch selbst bearbeiten?",
-        a: "Wir bauen keine selbst-editierbaren CMS-Systeme. nicht weil wir Sie abhängig halten wollen, sondern weil diese Systeme Performance, Sicherheit und Design-Qualität kosten. Änderungen erledigen wir für Sie über unsere Pflegepakete, meist innerhalb von 24 Stunden.",
+        a: "Wir bauen keine selbst-editierbaren CMS-Systeme, weil diese Performance, Sicherheit und Design-Qualität kosten. Änderungen erledigen wir für Sie über unsere Pflegepakete, meist innerhalb von 24 Stunden.",
       },
       {
-        q: "Kümmern Sie sich um Hosting?",
-        a: "Wir richten das Hosting ein. bei einem Anbieter Ihrer Wahl (Vercel, Hetzner, o.ä.) oder empfehlen eine Option. Die Rechnung zahlen Sie direkt beim Anbieter, typisch 10–15 €/Monat. Kein Aufpreis von unserer Seite.",
+        q: "Kümmern Sie sich um Hosting und Domain?",
+        a: "Ja. Hosting und Domain sind in jedem Pflegepaket enthalten (ab 19 €/Monat). Wir richten alles ein, inklusive SSL-Zertifikat – Sie müssen sich um keinen weiteren Anbieter kümmern.",
       },
       {
         q: "Was passiert, wenn etwas nach dem Launch kaputtgeht?",
-        a: "30 Tage nach Launch sind im Starter-Paket inklusive. Bei Pro und Enterprise länger. Fehler, die wir verursacht haben, beheben wir immer kostenlos. unabhängig vom Support-Zeitraum.",
+        a: "Support ist im Paket enthalten: 30 Tage bei Starter, 3 Monate bei Pro, 6 Monate bei Premium und 12 Monate bei Komplett. Fehler, die wir verursacht haben, beheben wir immer kostenlos, unabhängig vom Support-Zeitraum.",
       },
       {
         q: "Bauen Sie auch Online-Shops?",
-        a: "Ja, im Enterprise-Paket. Wir bauen maßgeschneiderte Shop-Lösungen. keine Baukastensysteme. Wenn Ihr Shop-Projekt sehr umfangreich ist, sprechen wir das im Erstgespräch offen an und erstellen ein individuelles Angebot.",
+        a: "Ja. Im Komplett-Paket (ab 899 €) ist ein kleiner Online-Shop oder ein Bestellsystem mit bis zu 30 Produkten enthalten, Zahlung per PayPal oder Karte. Größere Shops auf Anfrage. Rechtstexte für Shops (AGB, Widerrufsbelehrung) stellt der Kunde selbst.",
       },
     ],
   },
 ]
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.flatMap((section) =>
+    section.items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  ),
+}
+
 export default function FaqPage() {
   return (
     <div className="pt-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* Hero */}
       <section className="pt-20 pb-14 bg-white border-b border-[#0a0a0f]/5">
         <div className="max-w-4xl mx-auto px-6">
@@ -109,7 +130,7 @@ export default function FaqPage() {
             </h1>
             <p className="text-[#0a0a0f]/55 text-xl max-w-xl leading-relaxed">
               Die häufigsten Fragen zu Preisen, Prozessen und was nach dem Launch passiert.
-              Keine Standardfloskeln. echte Antworten.
+              Keine Standardfloskeln, echte Antworten.
             </p>
           </FadeIn>
         </div>
@@ -148,7 +169,7 @@ export default function FaqPage() {
               Noch eine Frage?
             </h2>
             <p className="text-[#0a0a0f]/55 text-lg mb-10 leading-relaxed">
-              Schreiben Sie uns einfach. Wir antworten innerhalb von 24 Stunden. ehrlich,
+              Schreiben Sie uns einfach. Wir antworten innerhalb von 24 Stunden – ehrlich,
               auch wenn die ehrliche Antwort &quot;wir sind nicht die Richtigen für Sie&quot; ist.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
