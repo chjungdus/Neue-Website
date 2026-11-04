@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Über uns – Mateo und Zhuo Jun",
+  title: "Über uns – Webdesign aus Düsseldorf",
   description:
-    "Nexuzo sind zwei Gründer aus Düsseldorf. Sie schreiben direkt mit den Menschen, die Ihre Website gestalten und programmieren.",
+    "Nexuzo ist ein kleines Webdesign-Team aus Düsseldorf: Mateo Sainz de la Maza und Zhuo Jun Li. Websites ab 199 €, Zahlung erst nach kostenloser Probe-Website.",
   alternates: { canonical: "/ueber-uns" },
 }
 

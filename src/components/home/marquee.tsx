@@ -6,7 +6,7 @@ const items = [
   "Webdesign aus Düsseldorf",
   "Festpreis ab 199 €",
   "Individuelles Design",
-  "Live in zwei Wochen",
+  "Online in 1–2 Wochen",
   "Zahlung nach Freigabe",
   "SEO & Sichtbarkeit",
   "Mobil zuerst gedacht",

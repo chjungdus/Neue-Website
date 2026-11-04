@@ -29,6 +29,13 @@ const packages = [
     price: 699,
     features: ["Unbegrenzte Seiten", "Eigene Funktionen nach Absprache", "Buchungssystem oder Kundenbereich", "6 Monate Support", "Unbegrenzte Korrekturrunden"],
   },
+  {
+    id: "komplett",
+    name: "Komplett",
+    forWhom: "Für Betriebe, die komplett neu starten",
+    price: 899,
+    features: ["Alles aus Premium", "Logo oder Logo-Auffrischung", "Google-Profil und Instagram-Start", "Zweisprachige Website", "Kleiner Online-Shop bis 30 Produkte", "12 Monate Support"],
+  },
 ]
 
 export default function PriceValue() {
@@ -37,13 +44,13 @@ export default function PriceValue() {
       <div className="mx-auto max-w-6xl px-6">
         <SectionHead
           title="Sie wissen vorher, was Ihre Website kostet."
-          lead="Alle Preise netto zzgl. 19 % MwSt. Kein Stundenzettel, keine versteckten Kosten, kein Abo-Zwang."
+          lead="Alle Preise ohne MwSt. – gemäß § 19 UStG wird keine Umsatzsteuer berechnet. Kein Stundenzettel, keine versteckten Kosten, kein Abo-Zwang."
         />
 
         <div className="mt-12">
           <SwipeRail
             label="Pakete"
-            trackClassName="-mx-6 gap-4 px-6 pt-4 scroll-px-6 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-5 lg:overflow-visible lg:px-0"
+            trackClassName="-mx-6 gap-4 px-6 pt-4 scroll-px-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:gap-4 lg:overflow-visible lg:px-0"
           >
             {packages.map((pkg, i) => {
               const dark = Boolean(pkg.badge)
@@ -72,7 +79,7 @@ export default function PriceValue() {
                           </span>
                           <span className="text-[24px] font-extrabold">€</span>
                         </p>
-                        <p className={`mt-1 text-[14px] ${dark ? "text-white/50" : "text-[#0a0a0f]/45"}`}>netto, einmalig</p>
+                        <p className={`mt-1 text-[14px] ${dark ? "text-white/50" : "text-[#0a0a0f]/45"}`}>einmalig, ohne MwSt.</p>
                         <ul className="mt-7 flex flex-1 flex-col gap-3">
                           {pkg.features.map((f) => (
                             <li key={f} className="flex items-start gap-3 text-[15px] font-medium">

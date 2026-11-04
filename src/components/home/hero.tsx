@@ -13,7 +13,7 @@ const WA_LINK = `https://wa.me/4917680257270?text=${WA_TEXT}`
 
 const points = [
   "Festpreis, bevor es losgeht",
-  "Live in zwei Wochen",
+  "Online in 1–2 Wochen",
   "Individuelles Design",
   "Bezahlt wird erst nach Freigabe",
 ]
@@ -26,8 +26,8 @@ const shots = [
 ]
 
 const facts = [
-  { value: 199, prefix: "ab ", suffix: " €", label: "Festpreis, netto" },
-  { value: 2, suffix: " Wochen", label: "bis Ihre Seite live ist" },
+  { value: 199, prefix: "ab ", suffix: " €", label: "Festpreis, ohne MwSt." },
+  { value: 2, prefix: "1–", suffix: " Wochen", label: "bis Ihre Seite live ist" },
   { value: 24, suffix: " h", label: "bis Sie ein Angebot haben" },
   { value: 2, label: "Gründer, keine Weitergabe" },
 ]
@@ -156,7 +156,7 @@ export default function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#0066FF] opacity-60" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0066FF]" />
             </span>
-            Webdesign aus Düsseldorf · 3 Kundenseiten live
+            Webdesign aus Düsseldorf · 4 Kundenseiten live
           </motion.p>
 
           <motion.h1

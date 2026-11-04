@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Leistungen – Webdesign, Relaunch und SEO",
+  title: "Leistungen – Webdesign, Relaunch & Online-Shop",
   description:
-    "Individuelle Websites ab 199 €, Website-Relaunch ohne Rankingverlust ab 550 € und technisches SEO. Webdesign aus Düsseldorf zum Festpreis.",
+    "Webdesign, Website-Relaunch und kleine Online-Shops aus Düsseldorf. Festpreise ab 199 € ohne MwSt., online in 1–2 Wochen, Zahlung erst nach kostenloser Probe-Website.",
   alternates: { canonical: "/leistungen" },
 }
 

@@ -31,7 +31,7 @@ export default function AGBPage() {
 
         <h1 className="text-4xl font-black text-[#0a0a0f] mb-4">Allgemeine Geschäftsbedingungen</h1>
         <p className="text-[#0a0a0f]/55 text-sm mb-12">
-          von Nexuzo, Nägelestr. 19, 40225 Düsseldorf. Stand: Juni 2026
+          von Nexuzo, Düsseldorf (Anschrift siehe Impressum). Stand: Oktober 2026
         </p>
 
         <div className="space-y-10">
@@ -83,12 +83,12 @@ export default function AGBPage() {
 
           <Section num="5" title="Vergütung und Zahlungsbedingungen">
             <p>
-              Die vereinbarte Vergütung ergibt sich aus dem Angebot. Alle Preise verstehen sich zuzüglich der
-              gesetzlich geltenden Mehrwertsteuer.
+              Die vereinbarte Vergütung ergibt sich aus dem Angebot. Alle Preise ohne MwSt. – gemäß § 19 UStG
+              wird keine Umsatzsteuer berechnet.
             </p>
             <p>Es gilt folgende Zahlungsstruktur, sofern nicht anders vereinbart:</p>
             <ul className="list-disc list-inside space-y-1 pl-2">
-              <li>100 % nach Vorstellung der Probewebsite und Freigabe durch den Auftraggeber</li>
+              <li>100 % erst, wenn dem Auftraggeber die vorab kostenlos erstellte Probe-Website gefällt und er sie freigibt</li>
             </ul>
             <p>Es ist keine Anzahlung erforderlich. Die Zahlung erfolgt erst nach Präsentation des fertigen Ergebnisses.</p>
             <p>
@@ -99,12 +99,12 @@ export default function AGBPage() {
 
           <Section num="6" title="Korrekturrunden und Änderungswünsche">
             <p>
-              Im Starter-Paket sind 2 Korrekturrunden inklusive. Im Professional-Paket sind unbegrenzte Korrekturrunden
+              Im Starter-Paket sind 2 Korrekturrunden inklusive. In den Paketen Pro, Premium und Komplett sind unbegrenzte Korrekturrunden
               inklusive, soweit diese den vereinbarten Leistungsumfang nicht wesentlich überschreiten.
             </p>
             <p>
               Weitergehende Änderungen nach Abnahme der jeweiligen Phase werden nach Aufwand zum vereinbarten
-              Stundensatz (ab 120 €/Stunde netto) berechnet.
+              Stundensatz (ab 120 €/Stunde, ohne MwSt. gemäß § 19 UStG) berechnet.
             </p>
           </Section>
 

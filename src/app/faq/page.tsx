@@ -6,7 +6,7 @@ import FadeIn from "@/components/ui/fade-in"
 export const metadata: Metadata = {
   title: "Häufige Fragen zu Preisen, Ablauf und Lieferzeit",
   description:
-    "Was kostet eine Website bei Nexuzo, muss ich anzahlen, wie lange dauert es? Antworten zu Preisen ab 199 €, Ablauf und Support.",
+    "Antworten zu Preisen ab 199 € (ohne MwSt.), Zahlung nach kostenloser Probe-Website, Lieferzeit 1–2 Wochen, Pflege inkl. Hosting & Domain und Online-Shops.",
   alternates: { canonical: "/faq" },
 }
 
@@ -16,19 +16,23 @@ const faqs = [
     items: [
       {
         q: "Was kostet eine Website bei Nexuzo?",
-        a: "Unsere Pakete kosten ab 199 € (Starter), ab 399 € (Pro) und ab 699 € (Premium), jeweils als Festpreis, netto zzgl. 19 % MwSt. Kein Stundensatz, keine Schätzung mit Stern. Was im Angebot steht, ist der Endpreis.",
+        a: "Unsere Website-Pakete sind Festpreise: Starter ab 199 €, Pro ab 399 €, Premium ab 699 € und Komplett ab 899 €. Kein Stundensatz, keine Schätzung mit Sternchen. Was im Angebot steht, ist der Endpreis.",
       },
       {
-        q: "Muss ich etwas anzahlen?",
-        a: "Nein. Wir bauen Ihre Website zuerst und zeigen Ihnen das fertige Ergebnis als Probewebsite. Erst wenn Sie sie freigeben, stellen wir die Rechnung. Bezahlen können Sie per Überweisung, Kreditkarte oder PayPal.",
+        q: "Kommt noch Mehrwertsteuer dazu?",
+        a: "Nein. Alle Preise ohne MwSt. – gemäß § 19 UStG (Kleinunternehmerregelung) wird keine Umsatzsteuer berechnet. Der genannte Preis ist also genau der Betrag, den Sie zahlen.",
+      },
+      {
+        q: "Wann und wie bezahle ich?",
+        a: "Wir bauen Ihnen vorab eine kostenlose, unverbindliche Probe-Website. Sie zahlen erst, wenn sie Ihnen gefällt – keine Anzahlung, keine Vorkasse. Gefällt sie Ihnen nicht, zahlen Sie nichts. Bezahlen können Sie per Banküberweisung, Kreditkarte oder PayPal.",
       },
       {
         q: "Gibt es versteckte Kosten?",
-        a: "Nein. Design, Umsetzung, Tests und Launch sind immer im Paketpreis enthalten. Separat kommen nur Domain und Hosting dazu, auf Wunsch über unser Pflegepaket ab 19 € im Monat. Beides wird schriftlich vor Projektstart vereinbart.",
+        a: "Nein. Design, Entwicklung, Tests und Launch sind immer im Paketpreis enthalten. Laufend kommt nur ein Pflegepaket dazu, wenn Sie eines wünschen: ab 19 €/Monat, Hosting und Domain inklusive, monatlich kündbar.",
       },
       {
-        q: "Was kostet laufende Pflege und Aktualisierung?",
-        a: "Unsere Pflegepakete kosten 19 €, 39 € oder 59 € im Monat. Darin sind Hosting, SSL-Zertifikat, Updates und je nach Paket eine, drei oder unbegrenzt viele kleine Änderungen pro Monat enthalten. Die Pflege ist optional.",
+        q: "Was kostet laufende Pflege, Hosting und Domain?",
+        a: "Unsere Pflegepakete kosten 19 € (Basic), 39 € (Standard) oder 59 € (Premium) pro Monat. In jedem Paket sind Hosting, Domain, SSL-Zertifikat, Updates und Sicherheitschecks enthalten – dazu je nach Paket 1, 3 oder unbegrenzt viele Änderungen pro Monat. Monatlich kündbar.",
       },
     ],
   },
@@ -37,19 +41,19 @@ const faqs = [
     items: [
       {
         q: "Wie schnell ist meine Website fertig?",
-        a: "In der Regel ist Ihre Website innerhalb von zwei Wochen live, wenn Texte und Bilder vorliegen. Kleine Starter-Projekte sind oft deutlich schneller fertig. Der genaue Zeitrahmen steht schriftlich im Angebot.",
+        a: "In der Regel ist Ihre Website in 1–2 Wochen online – bei allen Paketen. Voraussetzung ist, dass Texte, Fotos und Infos wie Speisekarte oder Öffnungszeiten vorliegen. Dabei helfen wir gern.",
       },
       {
         q: "Wie läuft ein Projekt bei Ihnen ab?",
-        a: "1. Sie schreiben uns kurz, worum es geht. 2. Innerhalb von 24 Stunden bekommen Sie ein Festpreis-Angebot. 3. Wir klären Inhalte und Wünsche. 4. Design-Entwurf zur Freigabe. 5. Umsetzung mit Testlink zum Mitverfolgen. 6. Freigabe, Rechnung, Launch. Kein Schritt ohne Ihre Zustimmung.",
+        a: "1. Kurzes Kennenlernen – persönlich in Düsseldorf, per Telefon oder WhatsApp. 2. Wir bauen eine kostenlose Probe-Website mit Ihren Inhalten. 3. Sie sagen, was geändert werden soll, wir überarbeiten. 4. Gefällt Ihnen die Website, geht sie online und Sie zahlen. Kein Schritt ohne Ihre Zustimmung.",
       },
       {
         q: "Was brauche ich, um ein Projekt zu starten?",
-        a: "Idealerweise eine Vorstellung davon, was die Website leisten soll, Ihr Logo und grobe Texte zu Ihren Leistungen. Wir helfen beim Rest. Wenn Texte und Bilder fehlen, nennen wir Ihnen Optionen.",
+        a: "Idealerweise: eine Idee, was die Website leisten soll, Ihr Logo (oder die Bereitschaft, ohne auszukommen – im Komplett-Paket gestalten wir eines) und grobe Texte. Wir helfen beim Rest. Wenn Texte und Bilder fehlen, nennen wir Ihnen Optionen.",
       },
       {
         q: "Kann ich den Fortschritt verfolgen?",
-        a: "Ja. Sie bekommen während der Umsetzung einen Testlink, über den Sie jederzeit den aktuellen Stand sehen.",
+        a: "Ja. Sie bekommen während der Entwicklung einen Link, über den Sie jederzeit den aktuellen Stand sehen können. Keine Black Box, kein 'ist in Arbeit' ohne Beweis.",
       },
     ],
   },
@@ -58,15 +62,15 @@ const faqs = [
     items: [
       {
         q: "Was passiert, wenn mir der erste Entwurf nicht gefällt?",
-        a: "Dann überarbeiten wir ihn. Beim Starter-Paket sind 2 Korrekturrunden inklusive, bei Pro und Premium unbegrenzt viele.",
+        a: "Wir überarbeiten kostenlos. Beim Starter-Paket sind 2 Korrekturrunden inklusive, bei Pro, Premium und Komplett unbegrenzt. Und weil Sie erst zahlen, wenn Ihnen die Probe-Website gefällt, gehen Sie kein Risiko ein.",
       },
       {
         q: "Kann ich Wünsche und Vorbilder mitbringen?",
-        a: "Gerne. Je konkreter Ihre Vorstellung, desto besser das Ergebnis. Schicken Sie uns Websites, die Ihnen gefallen, Screenshots oder eine kurze Beschreibung des Stils.",
+        a: "Absolut. Je konkreter Ihre Vorstellung, desto besser das Ergebnis. Schicken Sie uns Websites, die Ihnen gefallen, Screenshots oder eine einfache Beschreibung des Stils. Wir hören zu und fragen nach, wenn etwas unklar ist.",
       },
       {
-        q: "Sind Ihre Websites fürs Handy optimiert?",
-        a: "Immer. Wir gestalten zuerst für das Smartphone und testen auf echten Geräten. Das ist Standard in jedem Paket.",
+        q: "Sind Ihre Websites mobil-optimiert?",
+        a: "Immer. Alle unsere Websites sind vollständig responsive und sehen auf Smartphone, Tablet und Desktop gleich professionell aus. Das ist kein optionales Feature, sondern Standard.",
       },
     ],
   },
@@ -75,23 +79,35 @@ const faqs = [
     items: [
       {
         q: "Kann ich meine Website nach dem Launch selbst bearbeiten?",
-        a: "Wir bauen bewusst ohne Baukasten-System, weil das Ladezeit und Sicherheit kostet. Änderungen erledigen wir für Sie im Pflegepaket, kleine Anpassungen meist innerhalb von 24 Stunden.",
+        a: "Wir bauen keine selbst-editierbaren CMS-Systeme, weil diese Performance, Sicherheit und Design-Qualität kosten. Änderungen erledigen wir für Sie über unsere Pflegepakete, meist innerhalb von 24 Stunden.",
       },
       {
-        q: "Gehört die Website danach mir?",
-        a: "Ja. Sie bekommen alle Zugänge zu Domain, Hosting und Code.",
+        q: "Kümmern Sie sich um Hosting und Domain?",
+        a: "Ja. Hosting und Domain sind in jedem Pflegepaket enthalten (ab 19 €/Monat). Wir richten alles ein, inklusive SSL-Zertifikat – Sie müssen sich um keinen weiteren Anbieter kümmern.",
       },
       {
-        q: "Was passiert, wenn nach dem Launch etwas nicht funktioniert?",
-        a: "Support ist inklusive: 30 Tage beim Starter-Paket, 3 Monate bei Pro und 6 Monate bei Premium. Fehler, die wir verursacht haben, beheben wir immer kostenlos.",
+        q: "Was passiert, wenn etwas nach dem Launch kaputtgeht?",
+        a: "Support ist im Paket enthalten: 30 Tage bei Starter, 3 Monate bei Pro, 6 Monate bei Premium und 12 Monate bei Komplett. Fehler, die wir verursacht haben, beheben wir immer kostenlos, unabhängig vom Support-Zeitraum.",
       },
       {
-        q: "Bauen Sie auch Online-Shops und Buchungssysteme?",
-        a: "Ja. Bezahlung über Stripe oder PayPal und Online-Terminbuchung setzen wir meist im Premium-Paket um. Für größere Shops erstellen wir ein individuelles Angebot.",
+        q: "Bauen Sie auch Online-Shops?",
+        a: "Ja. Im Komplett-Paket (ab 899 €) ist ein kleiner Online-Shop oder ein Bestellsystem mit bis zu 30 Produkten enthalten, Zahlung per PayPal oder Karte. Größere Shops auf Anfrage. Rechtstexte für Shops (AGB, Widerrufsbelehrung) stellt der Kunde selbst.",
       },
     ],
   },
 ]
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.flatMap((section) =>
+    section.items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  ),
+}
 
 export default function FaqPage() {
   const jsonLd = {
@@ -162,7 +178,7 @@ export default function FaqPage() {
               Noch eine Frage?
             </h2>
             <p className="text-[#0a0a0f]/55 text-lg mb-10 leading-relaxed">
-              Schreiben Sie uns einfach. Wir antworten innerhalb von 24 Stunden, ehrlich,
+              Schreiben Sie uns einfach. Wir antworten innerhalb von 24 Stunden – ehrlich,
               auch wenn die ehrliche Antwort &quot;wir sind nicht die Richtigen für Sie&quot; ist.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

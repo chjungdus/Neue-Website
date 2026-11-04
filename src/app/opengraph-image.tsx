@@ -32,7 +32,7 @@ export default function OpengraphImage() {
         <div style={{ display: "flex", gap: 40, fontSize: 30, color: "rgba(10,10,15,0.65)" }}>
           <span>Webdesign aus Düsseldorf</span>
           <span style={{ color: "#0066FF", fontWeight: 700 }}>Festpreis ab 199 €</span>
-          <span>Live in zwei Wochen</span>
+          <span>Online in 1–2 Wochen</span>
         </div>
       </div>
     ),

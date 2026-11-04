@@ -13,24 +13,37 @@ export type Reference = {
   demo?: boolean
   /** file stem of the screenshots in /public/referenzen */
   image: string
+  /** location shown with the reference */
+  place?: string
 }
 
 export const references: Reference[] = [
   {
-    url: "https://www.milonga-foodtruck.de/",
+    url: "https://milonga-foodtruck.de/",
     image: "milonga",
     display: "milonga-foodtruck.de",
     label: "Milonga Food Truck",
     tag: "Food Truck",
+    place: "Düsseldorf",
     note: "Speisekarte, Standort und Auftritt: Gäste finden alles selbst.",
     featured: true,
   },
   {
-    url: "https://www.limpiezas-el-valle.es/",
+    url: "https://xn--cafthiopia-d7a.de/",
+    image: "cafethiopia",
+    display: "caféthiopia.de",
+    label: "Caféthiopia",
+    tag: "Café",
+    place: "Düsseldorf-Bilk",
+    note: "Äthiopisches Café: Speisekarte, Öffnungszeiten, zweisprachig.",
+  },
+  {
+    url: "https://limpiezas-el-valle.es/",
     image: "limpiezas",
     display: "limpiezas-el-valle.es",
     label: "Limpiezas El Valle",
     tag: "Reinigung",
+    place: "Burgos, Spanien",
     note: "Website mit lokalem SEO für die Region Burgos.",
     featured: true,
   },
@@ -58,6 +71,7 @@ export const references: Reference[] = [
     display: "essah-urfa.de",
     label: "Essah Urfa Lahmacun",
     tag: "Restaurant",
+    place: "Düsseldorf",
     note: "Appetitliche Speisekarte, direkt zur Bestellung.",
   },
   {
@@ -80,6 +94,8 @@ export const references: Reference[] = [
   },
 ]
 
-// Live screenshot of a site, rendered + cached by thum.io.
-export const shot = (url: string, width = 1200, crop = 900) =>
-  `https://image.thum.io/get/width/${width}/crop/${crop}/${url}`
+// Local 1280px screenshot from /public/referenzen.
+export const refImage = (ref: Reference) => `/referenzen/${ref.image}.webp`
+
+/** Real client websites (no demo drafts). */
+export const liveReferences = references.filter((r) => !r.demo)

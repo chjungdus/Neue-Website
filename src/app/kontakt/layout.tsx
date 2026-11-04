@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Kontakt – Angebot in 24 Stunden",
+  title: "Kontakt – WhatsApp, Telefon & E-Mail",
   description:
-    "Schreiben Sie uns per WhatsApp, E-Mail oder Formular. Sie bekommen innerhalb von 24 Stunden eine Antwort und ein Festpreis-Angebot.",
+    "Nexuzo in Düsseldorf erreichen: WhatsApp und Telefon +49 176 8025 7270, E-Mail nexuzo.kontakt@gmail.com. Antwort innerhalb von 24 Stunden.",
   alternates: { canonical: "/kontakt" },
 }
 

@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Hero from "@/components/home/hero"
 import Marquee from "@/components/home/marquee"
 import ProblemSection from "@/components/home/problem-section"
@@ -15,6 +16,10 @@ import CTA from "@/components/home/cta"
 // Hook (Hero) → Warum bringt meine Seite nichts? (Problem) → Was bekomme ich?
 // (Services) → Beweis (Referenzen) → Was kostet es? (Preise) → Warum so günstig?
 // (Vergleich) → Wie läuft es ab? → Wer seid ihr? → Stimme → Einwände (FAQ) → Kontakt
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+}
+
 export default function HomePage() {
   return (
     <>

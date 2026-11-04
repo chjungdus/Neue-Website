@@ -44,10 +44,23 @@ export default function ImpressumPage() {
                 nexuzo.kontakt@gmail.com
               </a>
               <br />
-              WhatsApp:{" "}
+              Telefon &amp; WhatsApp:{" "}
+              <a href="tel:+4917680257270" className="text-[#0066FF] hover:underline">
+                +49 176 8025 7270
+              </a>{" "}
+              (
               <a href="https://wa.me/4917680257270" className="text-[#0066FF] hover:underline">
-                +49 176 80257270
+                WhatsApp
               </a>
+              )
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">Umsatzsteuer</h2>
+            <p className="leading-relaxed text-sm">
+              Kleinunternehmer im Sinne von § 19 UStG. Es wird keine Umsatzsteuer berechnet und daher auch
+              nicht ausgewiesen.
             </p>
           </section>
 
@@ -61,15 +74,6 @@ export default function ImpressumPage() {
               Nägelestr. 19
               <br />
               40225 Düsseldorf
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-[#0a0a0f] font-bold text-base mb-3">EU-Streitschlichtung</h2>
-            <p className="leading-relaxed text-sm">
-              Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
-              <span className="text-[#0066FF]">https://ec.europa.eu/consumers/odr</span>. Unsere E-Mail-Adresse finden
-              Sie oben im Impressum.
             </p>
           </section>
 

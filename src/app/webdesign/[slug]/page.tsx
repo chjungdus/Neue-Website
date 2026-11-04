@@ -143,7 +143,7 @@ export default async function BranchePage({ params }: Props) {
               <p className="text-[15px] font-semibold text-white/60">Welches Paket passt?</p>
               <p className="mt-3 text-[20px] font-bold leading-snug">{branche.packageHint}</p>
               <p className="mt-5 text-[15px] leading-relaxed text-white/65">
-                Festpreis, netto zzgl. MwSt. Sie sehen die fertige Website zuerst und zahlen erst nach Ihrer Freigabe.
+                Festpreis, ohne MwSt. (§ 19 UStG). Sie sehen die fertige Website zuerst und zahlen erst nach Ihrer Freigabe.
               </p>
               <Link
                 href="/preise"

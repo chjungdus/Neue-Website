@@ -44,13 +44,15 @@ export default function DatenschutzPage() {
               Verantwortlicher für die Datenverarbeitung auf dieser Website ist:
             </p>
             <p>
-              Nexuzo
+              Nexuzo, Inhaber Mateo Sainz de la Maza
               <br />
-              Nägelestr. 19
+              Düsseldorf (vollständige Anschrift siehe{" "}
+              <Link href="/impressum" className="text-[#0066FF] hover:underline">
+                Impressum
+              </Link>
+              )
               <br />
-              40225 Düsseldorf
-              <br />
-              Telefon: +49 176 80257270
+              Telefon: +49 176 8025 7270
               <br />
               E-Mail:{" "}
               <a href="mailto:nexuzo.kontakt@gmail.com" className="text-[#0066FF] hover:underline">
